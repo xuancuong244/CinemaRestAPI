@@ -168,7 +168,11 @@ insert into ChucVu values ('CV6', N'Ban quản lí');
 insert into ChucVu values ('CV7', N'Khách hàng');
 
 -- Chi nhánh
-
+insert into ChiNhanh values ('CN1', N'TP.HCM', N'645 Quang Trung, Phường 11, Gò Vấp, TP Hồ Chí Minh, Việt Nam', '0123456789');
+insert into ChiNhanh values ('CN2', N'Hà Nội', N'8 Đê La Thành, Giảng Võ, Ba Đình, Hà Nội, Việt Nam', '0234567891');
+insert into ChiNhanh values ('CN3', N'Cần Thơ', N'21 Đ.3 tháng 2, Xuân Khánh, Ninh Kiều, Cần Thơ, Việt Nam', '0346517892');
+insert into ChiNhanh values ('CN4', N'Đà Nẵng', N'10 Nại Nam, Hòa Cường Bắc, Hài Châu, Đà Nẵng, Việt Nam', '0282413567');
+insert into ChiNhanh values ('CN5', N'Khánh Hòa', N'231 Lê Hồng Phong, Phước Tân, Nha Trang, Khánh Hòa, Việt Nam', '0907845613');
 -- Cơ sở vật chất (giành cho nvql phòng chiếu)
 
 -- Khách hàng
