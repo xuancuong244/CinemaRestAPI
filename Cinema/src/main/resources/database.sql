@@ -173,14 +173,54 @@ insert into ChiNhanh values ('CN2', N'Hà Nội', N'8 Đê La Thành, Giảng V�
 insert into ChiNhanh values ('CN3', N'Cần Thơ', N'21 Đ.3 tháng 2, Xuân Khánh, Ninh Kiều, Cần Thơ, Việt Nam', '0346517892');
 insert into ChiNhanh values ('CN4', N'Đà Nẵng', N'10 Nại Nam, Hòa Cường Bắc, Hài Châu, Đà Nẵng, Việt Nam', '0282413567');
 insert into ChiNhanh values ('CN5', N'Khánh Hòa', N'231 Lê Hồng Phong, Phước Tân, Nha Trang, Khánh Hòa, Việt Nam', '0907845613');
+
 -- Cơ sở vật chất (giành cho nvql phòng chiếu)
+insert into CSVC values ('VC1',N'Máy chiếu','vc1.png');
+insert into CSVC values ('VC2','Camera','vc2.png');
+insert into CSVC values ('VC3',N'Máy lạnh','vc3.png');
+insert into CSVC values ('VC4',N'Cảm biến báo khói ','vc4.png'); 
+insert into CSVC values ('VC5',N'Bình xịt chữa cháy','vc5.png');
 
 -- Khách hàng
+insert into KhachHang values (1,N'Nguyễn Thị Thư', '12345678','thunt123@gmail.com','0875963214', N'Thuận An, Bình Dương', 0, null, null);
+insert into KhachHang values (2,N'Lê Minh Hoàng', '12345678','hoangle54@gmail.com','0320394978', N'Bình Lợi, TP HCM',1, null, null);
+insert into KhachHang values (3,N'Phan Huỳnh Tuấn Kiệt', '12345678','kiett328@gmail.com','0908664177', N'Dĩ An, Bình Dương',1, null, null);
+insert into KhachHang values (4,N'Nguyễn Xuân Cường', '12345678','xuancuong2442003@gmail.com','0369475443', N'Bình Thạnh, TP HCM',1, null, null);
+insert into KhachHang values (5,N'Nguyễn Văn Khánh', '12345678','kytan011103@gmail.com','0342881452', N'Bình Thạnh, TP HCM',1, null, null);
 
 -- Nhân viên
+insert into NHANVIEN values('NV01',N'Nguyễn Xuân Cường',1,'123','2003-01-01','0123456778','CV1');
+insert into NHANVIEN values('NV02',N'Phan Huỳnh Tuấn Kiệt',1,'123','2002-01-01','0169912464','CV1');
+insert into NHANVIEN values('NV03',N'Nguyễn Văn Khánh',1,'123','2003-01-01','0245613789','CV2');
+insert into NHANVIEN values('NV04',N'Hồ Thanh Kiệt',1,'123','2003-01-01','0907845612','CV3');
+insert into NHANVIEN values('NV05',N'Nguyễn Trung Hiếu',1,'123','2003-01-01','0378945612','CV4');
+insert into NHANVIEN values('NV06',N'Nguyễn Thị Minh Anh',0,'123','2003-01-01','0987654321','CV5');
+insert into NHANVIEN values('NV07',N'Bùi Thị Thu Hương',0,'123','2003-01-01','0145623789','CV6');
+insert into NHANVIEN values('NV08',N'Lê Thị Thảo',0,'123','2003-01-01','0234567891','CV7');
 
 -- Ngày chiếu
-
+insert into NgayChieu(ngay,giobatdau) values('2023-10-12','13:00:00');
+insert into NgayChieu(ngay,giobatdau) values('2023-10-12','14:00:00');
+insert into NgayChieu(ngay,giobatdau) values('2023-10-12','15:00:00');
+insert into NgayChieu(ngay,giobatdau) values('2023-10-12','16:00:00');
+insert into NgayChieu(ngay,giobatdau) values('2023-10-12','17:00:00');
+insert into NgayChieu(ngay,giobatdau) values('2023-10-12','18:00:00');
+insert into NgayChieu(ngay,giobatdau) values('2023-10-12','19:00:00');
+insert into NgayChieu(ngay,giobatdau) values('2023-10-12','20:00:00');
+insert into NgayChieu(ngay,giobatdau) values('2023-10-12','21:00:00');
+insert into NgayChieu(ngay,giobatdau) values('2023-10-12','22:00:00');
+insert into NgayChieu(ngay,giobatdau) values('2023-10-12','23:00:00');
+insert into NgayChieu(ngay,giobatdau) values('2023-10-13','13:30:00');
+insert into NgayChieu(ngay,giobatdau) values('2023-10-13','14:30:00');
+insert into NgayChieu(ngay,giobatdau) values('2023-10-13','15:30:00');
+insert into NgayChieu(ngay,giobatdau) values('2023-10-13','16:00:00');
+insert into NgayChieu(ngay,giobatdau) values('2023-10-13','17:45:00');
+insert into NgayChieu(ngay,giobatdau) values('2023-10-13','18:00:00');
+insert into NgayChieu(ngay,giobatdau) values('2023-10-13','19:30:00');
+insert into NgayChieu(ngay,giobatdau) values('2023-10-13','20:15:00');
+insert into NgayChieu(ngay,giobatdau) values('2023-10-13','21:00:00');
+insert into NgayChieu(ngay,giobatdau) values('2023-10-13','22:00:00');
+insert into NgayChieu(ngay,giobatdau) values('2023-10-13','23:00:00');
 -- Thể loại
 insert into THELOAI values ('LP01','Hành động');
 insert into THELOAI values ('LP02','Hài');
