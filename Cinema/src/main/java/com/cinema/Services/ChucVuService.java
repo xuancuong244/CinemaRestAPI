@@ -1,3 +1,4 @@
 package com.cinema.Services;
 
-public ChucVuService
+public class ChucVuService {
+}
