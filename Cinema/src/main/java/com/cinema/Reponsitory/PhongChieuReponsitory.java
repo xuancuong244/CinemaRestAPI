@@ -1,4 +1,7 @@
 package com.cinema.Reponsitory;
 
-public interface PhongChieuReponsitory {
+import com.cinema.Entity.PhongChieu;
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface PhongChieuReponsitory extends JpaRepository<PhongChieu, String> {
 }

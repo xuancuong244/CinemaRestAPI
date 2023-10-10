@@ -1,6 +1,10 @@
 package com.cinema.Services;
 
 
-public interface CoSoVatChatService {
+import com.cinema.Entity.CSVC;
 
+import java.util.List;
+
+public interface CoSoVatChatService {
+    List<CSVC> findAll();
 }

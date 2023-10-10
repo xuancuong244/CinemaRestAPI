@@ -1,4 +1,7 @@
 package com.cinema.Reponsitory;
 
-public interface LichLamViecReponsitory {
+import com.cinema.Entity.LichLamViec;
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface LichLamViecReponsitory extends JpaRepository<LichLamViec, Integer> {
 }

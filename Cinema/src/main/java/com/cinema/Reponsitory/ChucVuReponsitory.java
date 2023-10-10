@@ -1,4 +1,7 @@
 package com.cinema.Reponsitory;
 
-public interface ChucVuReponsitory {
+import com.cinema.Entity.ChucVu;
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface ChucVuReponsitory extends JpaRepository<ChucVu, String> {
 }

@@ -1,4 +1,20 @@
 package com.cinema.Services.implServices;
 
-public class XuatChieuServiceImpl {
+import com.cinema.Entity.XuatChieu;
+import com.cinema.Reponsitory.XuatChieuReponsitory;
+import com.cinema.Services.XuatChieuService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import java.util.List;
+
+@Service
+public class XuatChieuServiceImpl implements XuatChieuService {
+    @Autowired
+    XuatChieuReponsitory xuatChieuReponsitory;
+
+    @Override
+    public List<XuatChieu> findAll() {
+        return xuatChieuReponsitory.findAll();
+    }
 }

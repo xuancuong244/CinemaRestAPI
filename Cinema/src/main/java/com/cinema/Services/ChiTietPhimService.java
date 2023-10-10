@@ -1,4 +1,9 @@
 package com.cinema.Services;
 
-public class ChiTietPhimService {
+import com.cinema.Entity.ChiTietPhim;
+
+import java.util.List;
+
+public interface ChiTietPhimService {
+    List<ChiTietPhim> findAll();
 }

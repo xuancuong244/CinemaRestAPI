@@ -1,4 +1,7 @@
 package com.cinema.Reponsitory;
 
-public interface LoaiGheReponsitory {
+import com.cinema.Entity.LoaiGhe;
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface LoaiGheReponsitory extends JpaRepository<LoaiGhe, Integer> {
 }

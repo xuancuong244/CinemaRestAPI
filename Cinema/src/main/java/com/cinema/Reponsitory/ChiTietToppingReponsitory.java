@@ -1,4 +1,7 @@
 package com.cinema.Reponsitory;
 
-public interface ChiTietToppingReponsitory {
+import com.cinema.Entity.ChiTietTopping;
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface ChiTietToppingReponsitory extends JpaRepository<ChiTietTopping, Integer> {
 }

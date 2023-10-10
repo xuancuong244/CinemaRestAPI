@@ -1,4 +1,9 @@
 package com.cinema.Services;
 
-public class OrderToppingService {
+import com.cinema.Entity.OrderTopping;
+
+import java.util.List;
+
+public interface OrderToppingService {
+    List<OrderTopping> findAll();
 }

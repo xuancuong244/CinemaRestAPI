@@ -1,4 +1,9 @@
 package com.cinema.Services;
 
-public class LoaiGheService {
+import com.cinema.Entity.LoaiGhe;
+
+import java.util.List;
+
+public interface LoaiGheService {
+    List<LoaiGhe> findAll();
 }

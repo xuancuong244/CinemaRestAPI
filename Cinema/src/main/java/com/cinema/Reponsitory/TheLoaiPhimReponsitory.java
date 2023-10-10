@@ -1,4 +1,7 @@
 package com.cinema.Reponsitory;
 
-public interface TheLoaiPhimReponsitory {
+import com.cinema.Entity.TheLoaiPhim;
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface TheLoaiPhimReponsitory extends JpaRepository<TheLoaiPhim, String> {
 }

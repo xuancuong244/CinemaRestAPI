@@ -1,4 +1,9 @@
 package com.cinema.Services;
 
-public class NgayChieuService {
+import com.cinema.Entity.NgayChieu;
+
+import java.util.List;
+
+public interface NgayChieuService {
+    List<NgayChieu> findAll();
 }

@@ -1,4 +1,7 @@
 package com.cinema.Reponsitory;
 
-public interface GheReponsitory {
+import com.cinema.Entity.Ghe;
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface GheReponsitory extends JpaRepository<Ghe, String> {
 }

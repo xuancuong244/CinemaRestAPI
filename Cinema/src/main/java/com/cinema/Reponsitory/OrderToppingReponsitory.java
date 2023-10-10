@@ -1,4 +1,7 @@
 package com.cinema.Reponsitory;
 
-public interface OrderToppingReponsitory {
+import com.cinema.Entity.OrderTopping;
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface OrderToppingReponsitory extends JpaRepository<OrderTopping, String> {
 }

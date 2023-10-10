@@ -1,4 +1,9 @@
 package com.cinema.Services;
 
-public class VeService {
+import com.cinema.Entity.Ve;
+
+import java.util.List;
+
+public interface VeService {
+    List<Ve> findAll();
 }

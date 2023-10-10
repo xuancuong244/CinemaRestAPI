@@ -1,4 +1,9 @@
 package com.cinema.Services;
 
-public class TheLoaiPhimService {
+import com.cinema.Entity.TheLoaiPhim;
+
+import java.util.List;
+
+public interface TheLoaiPhimService {
+    List<TheLoaiPhim> findAll();
 }

@@ -1,4 +1,9 @@
 package com.cinema.Services;
 
-public class PhongChieuService {
+import com.cinema.Entity.PhongChieu;
+
+import java.util.List;
+
+public interface PhongChieuService {
+    List<PhongChieu> findAll();
 }

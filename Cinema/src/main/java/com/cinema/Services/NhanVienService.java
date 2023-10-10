@@ -1,4 +1,9 @@
 package com.cinema.Services;
 
-public class NhanVienService {
+import com.cinema.Entity.NhanVien;
+
+import java.util.List;
+
+public interface NhanVienService {
+    List<NhanVien> findAll();
 }

@@ -1,4 +1,7 @@
 package com.cinema.Reponsitory;
 
-public interface CSVCReponsitory {
+import com.cinema.Entity.CSVC;
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface CSVCReponsitory extends JpaRepository<CSVC, String> {
 }

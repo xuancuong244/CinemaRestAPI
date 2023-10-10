@@ -1,4 +1,9 @@
 package com.cinema.Services;
 
-public class LichLamViecService {
+import com.cinema.Entity.LichLamViec;
+
+import java.util.List;
+
+public interface LichLamViecService {
+    List<LichLamViec> findAll();
 }

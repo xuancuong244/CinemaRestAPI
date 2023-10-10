@@ -1,4 +1,9 @@
 package com.cinema.Services;
 
-public class PhimService {
+import com.cinema.Entity.Phim;
+
+import java.util.List;
+
+public interface PhimService {
+    List<Phim> findAll();
 }

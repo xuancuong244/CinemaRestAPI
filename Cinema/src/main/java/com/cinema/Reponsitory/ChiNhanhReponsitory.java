@@ -1,4 +1,7 @@
 package com.cinema.Reponsitory;
 
-public interface ChiNhanhReponsitory {
+import com.cinema.Entity.ChiNhanh;
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface ChiNhanhReponsitory extends JpaRepository<ChiNhanh, String> {
 }
