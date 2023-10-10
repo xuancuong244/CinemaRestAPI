@@ -117,7 +117,7 @@ create table ChiTietGhe (
 	MaPhong varchar(5),
 	MaGhe varchar(5),
 	constraint fk_ctghe_phong foreign key (MaPhong) references PhongChieu(MaPhong),
-	constraint fk_ctghe_ghe foreign key(MaGhe) references Ghe (MaGhe)
+	constraint fk_ctghe_ghe foreign key(MaGhe) references Ghe(MaGhe)
 );
 create table CT_CSVC(
     MaCSVC varchar(5),

@@ -1,4 +1,25 @@
 package com.cinema.Entity;
 
-public class ChucVu {
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
+import jakarta.persistence.Table;
+import lombok.AllArgsConstructor;
+import lombok.NoArgsConstructor;
+
+import java.io.Serializable;
+import java.util.List;
+
+@Entity
+@AllArgsConstructor
+@NoArgsConstructor
+@Table(name = "ChucVu")
+public class ChucVu implements Serializable {
+    @Id
+    private String maCV;
+    private String tenCV;
+    @JsonIgnore
+    @OneToMany(mappedBy = "chucVu")
+    List<NhanVien> nhanVienList;
 }

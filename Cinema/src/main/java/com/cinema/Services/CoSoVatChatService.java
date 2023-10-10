@@ -1,4 +1,6 @@
 package com.cinema.Services;
 
-public class CoSoVatChatService {
+
+public interface CoSoVatChatService {
+
 }
