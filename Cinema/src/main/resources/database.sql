@@ -250,6 +250,8 @@ insert into THELOAI values ('LP04','Tình cảm');
 insert into THELOAI values ('LP05','Kinh dị');
 insert into THELOAI values ('LP06',N'Phiêu Lưu');
 insert into THELOAI values ('LP07',N'Tâm Lý');
+insert into THELOAI values ('LP08',N'Hồi Hộp');
+insert into THELOAI values ('LP09',N'Tội Phạm');
 
 -- Phim
 INSERT INTO phim VALUES ('MP01',N'Biệt Đội Đánh Thuê 4','Jason Statham, Sylvester Stallone, Megan Fox',2023,'MP01.jpg','Scott Waugh','Mỹ','103 phút','Biệt Đội Đánh Thuê, bao gồm các chiến binh kỳ cựu và tân binh, đang đối mặt với nhiệm vụ nguy hiểm: ngăn chặn Suharato Rahmat, một tên buôn vũ khí nguy hiểm, khỏi giao kíp nổ hạt nhân cho Ocelot, một kẻ độc ác đe dọa thế giới. Hành trình từ một nhà máy vũ khí cũ ở Qadhafi đến con thuyền Jantara sẽ hé lộ những bí mật và sự thật đáng kinh ngạc về Ocelot.','https://www.youtube.com/watch?v=TQpve2zTDSQ');
