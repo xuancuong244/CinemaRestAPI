@@ -10,11 +10,12 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 @Service
-public class ChiTietCSVCServiceImpl implements ChiTietCSVCService {
-    @Autowired
-    ChiTietCSVCReponsitory chiTietCSVCReponsitory;
-    @Override
-    public List<ChiTietCSVC> findAll() {
-        return chiTietCSVCReponsitory.findAll();
-    }
+public class ChiTietCSVCServiceImpl  {
+//    implements ChiTietCSVCService
+//    @Autowired
+//    ChiTietCSVCReponsitory chiTietCSVCReponsitory;
+//    @Override
+//    public List<ChiTietCSVC> findAll() {
+//        return chiTietCSVCReponsitory.findAll();
+//    }
 }

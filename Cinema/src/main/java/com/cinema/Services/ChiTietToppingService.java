@@ -5,5 +5,5 @@ import com.cinema.Entity.ChiTietTopping;
 import java.util.List;
 
 public interface ChiTietToppingService {
-    List<ChiTietTopping> findAll();
+//    List<ChiTietTopping> findAll();
 }

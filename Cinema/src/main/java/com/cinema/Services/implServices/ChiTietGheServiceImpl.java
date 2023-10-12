@@ -9,11 +9,12 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 @Service
-public class ChiTietGheServiceImpl implements ChiTietGheService {
-    @Autowired
-    ChiTietGheReponsitory chiTietGheReponsitory;
-    @Override
-    public List<ChiTietGhe> findAll() {
-        return chiTietGheReponsitory.findAll();
-    }
+public class ChiTietGheServiceImpl  {
+//    implements ChiTietGheService
+//    @Autowired
+//    ChiTietGheReponsitory chiTietGheReponsitory;
+//    @Override
+//    public List<ChiTietGhe> findAll() {
+//        return chiTietGheReponsitory.findAll();
+//    }
 }
