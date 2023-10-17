@@ -21,7 +21,7 @@ public class ChiNhanhRestController {
 
     // localhost:8085/api/ChiNhanh/all
     @GetMapping()
-    public ResponseEntity<?> getAll(){
+    public ResponseEntity<?> doGetAll(){
         List<ChiNhanh> chiNhanh = chiNhanhService.findAll();
 
         return ResponseEntity.ok(chiNhanh);
