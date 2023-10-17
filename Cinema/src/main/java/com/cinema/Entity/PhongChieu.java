@@ -28,6 +28,6 @@ public class PhongChieu implements Serializable {
     @OneToMany(mappedBy = "chieu")
     private List<ChiTietCSVC> chiTietCSVCList;
     @JsonIgnore
-    @OneToMany(mappedBy = "phongChieu")
+    @OneToMany(mappedBy = "maPhong")
     private List<XuatChieu> xuatChieu;
 }

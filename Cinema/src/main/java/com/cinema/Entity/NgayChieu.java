@@ -26,6 +26,6 @@ public class NgayChieu implements Serializable {
     @Column(name = "gioBatDau")
     private Time gioBatDau;
     @JsonIgnore
-    @OneToMany(mappedBy = "ngay")
+    @OneToMany(mappedBy = "Ngay")
     private List<XuatChieu> xuatChieu;
 }

@@ -26,8 +26,8 @@ public class XuatChieu implements Serializable {
     private NgayChieu Ngay;
     @ManyToOne
     @JoinColumn(name = "MaPhong")
-    private PhongChieu MaPhong;
+    private PhongChieu maPhong;
     @ManyToOne
     @JoinColumn(name = "MaPhim")
-    private Phim phim;
+    private Phim phimm;
 }
