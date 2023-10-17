@@ -1989,6 +1989,11 @@ INSERT INTO ChiTietGhe VALUES(1221,'PC12','g95');
 INSERT INTO ChiTietGhe VALUES(1222,'PC12','g96');
 
 -- vé
+insert into VE(ThueVAT,MaKH,MaCTGhe,Stt_XC) values(0.05,1,1,1);
+insert into VE(ThueVAT,MaKH,MaCTGhe,Stt_XC) values(0.05,2,2,1);
+insert into VE(ThueVAT,MaKH,MaCTGhe,Stt_XC) values(0.05,3,3,1);
+insert into VE(ThueVAT,MaKH,MaCTGhe,Stt_XC) values(0.05,4,4,1);
+insert into VE(ThueVAT,MaKH,MaCTGhe,Stt_XC) values(0.05,5,5,1);
 
 -- lịch làm việc
 insert into LichLamViec (NgayLam,ThoiGianBatDau,ThoiGianKetThuc,LuongCoBan,MaNV,MaCN) values('2023-10-02','10:00:00','18:00:00',25000,'NV01','CN1');
