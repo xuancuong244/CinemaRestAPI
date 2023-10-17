@@ -13,18 +13,21 @@ import java.io.Serializable;
 public class XuatChieu implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
-    private Float giaXuatChieu;
-    private Integer ngay;
-    private String maPhong;
-    private String maPhim;
+    @Column(name = "Stt")
+    private Integer Stt;
+    @Column(name = "GiaXuatChieu")
+    private Float GiaXuatChieu;
+//    @Column(name = "ngay")
+//    private Integer ngay;
+//    private String maPhong;
+//    private String maPhim;
     @ManyToOne
-    @JoinColumn(name = "ngayChieuId")
-    private NgayChieu ngayChieu;
+    @JoinColumn(name = "Ngay")
+    private NgayChieu Ngay;
     @ManyToOne
-    @JoinColumn(name = "phongChieuId")
-    private PhongChieu phongChieu;
+    @JoinColumn(name = "MaPhong")
+    private PhongChieu MaPhong;
     @ManyToOne
-    @JoinColumn(name = "phimmId")
-    private Phim phimm;
+    @JoinColumn(name = "MaPhim")
+    private Phim phim;
 }

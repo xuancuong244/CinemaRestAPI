@@ -1,10 +1,7 @@
 package com.cinema.Entity;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.OneToMany;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
 
@@ -17,9 +14,13 @@ import java.util.List;
 @Table(name = "CSVC")
 public class CSVC implements Serializable {
     @Id
+    @Column(name = "maCSVC")
     private String maCSVC;
+    @Column(name = "tenCSVC")
     private String tenCSVC;
+    @Column(name = "hinh")
     private String hinh;
+
     @JsonIgnore
     @OneToMany(mappedBy = "csvc")
     private List<ChiTietCSVC> chiTietCSVCList;

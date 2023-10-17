@@ -14,8 +14,11 @@ import java.util.List;
 @Table(name = "Ghe")
 public class Ghe implements Serializable {
     @Id
+    @Column(name = "maGhe")
     private String maGhe;
+    @Column(name = "tenGhe")
     private String tenGhe;
+    @Column(name = "maLoai")
     private Integer maLoai;
     @ManyToOne
     @JoinColumn(name = "loaiGheId")

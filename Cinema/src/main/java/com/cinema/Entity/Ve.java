@@ -15,19 +15,23 @@ import java.util.List;
 public class Ve implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "IdVe")
     private Integer idVe;
+    @Column(name = "TongGiaVe")
     private Float tongGiaVe;
+    @Column(name = "ThueVAT")
     private Float thueVAT;
-    private Integer maKH;
-    private Integer maCTGhe;
-    private Integer sttXuatChieu;
+//    private Integer maKH;
+//    private Integer maCTGhe;
+    @Column(name = "Stt_XC")
+    private Integer Stt_XC;
     @ManyToOne
-    @JoinColumn(name = "khachHangId")
+    @JoinColumn(name = "maKH")
     private KhachHang khachHang;
     @ManyToOne
-    @JoinColumn(name = "chiTietGheId")
+    @JoinColumn(name = "maCTGhe")
     private ChiTietGhe chiTietGhe;
     @JsonIgnore
-    @OneToMany(mappedBy = "vee")
-    private List<ChiTietTopping> chiTietToppings;
+    @OneToMany(mappedBy = "ve")
+    private List<ChiTietTopping> chiTietTopping;
 }

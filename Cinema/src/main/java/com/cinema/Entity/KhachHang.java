@@ -15,14 +15,23 @@ import java.util.List;
 public class KhachHang implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "maKH")
     private Integer maKH;
+    @Column(name = "tenKH")
     private String tenKH;
+    @Column(name = "matKhau")
     private String matKhau;
+    @Column(name = "email")
     private String email;
+    @Column(name = "soDT")
     private String soDT;
+    @Column(name = "diaChi")
     private String diaChi;
+    @Column(name = "gioiTinh")
     private Boolean gioiTinh;
+    @Column(name = "idFacebook")
     private String idFacebook;
+    @Column(name = "hinhFacabook")
     private String hinhFacebook;
     @JsonIgnore
     @OneToMany(mappedBy = "khachHang")

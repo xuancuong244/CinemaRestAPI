@@ -15,15 +15,21 @@ import java.util.List;
 @Table(name = "NhanVien")
 public class NhanVien implements Serializable {
     @Id
+    @Column(name = "MaNV")
     private String maNV;
+    @Column(name = "HoTen")
     private String hoTen;
+    @Column(name = "GioiTinh")
     private Integer gioiTinh;
+    @Column(name = "MatKhau")
     private String matKhau;
+    @Column(name = "NgaySinh")
     private Date ngaySinh;
+    @Column(name = "SoDT")
     private String soDT;
     @ManyToOne
-    @JoinColumn(name = "chucVuId")
-    ChucVu chucVu;
+    @JoinColumn(name = "MaCV")
+    private ChucVu chucVu;
     @JsonIgnore
     @OneToMany(mappedBy = "nhanVien")
     List<LichLamViec> lichLamViecList;

@@ -12,14 +12,21 @@ import java.io.Serializable;
 @Table(name = "ChiTietTopping")
 public class ChiTietTopping implements Serializable {
     @Id
+    @Column(name = "IdVe")
     private Integer idVe;
+
     @Id
+    @Column(name = "MaTopping")
     private String maTopping;
+
+    @Column(name = "soLuongMua")
     private Integer soLuongMua;
+
     @ManyToOne
     @JoinColumn(name = "toppingId")
     private OrderTopping topping;
+
     @ManyToOne
-    @JoinColumn(name = "veeId")
-    private Ve vee;
+    @JoinColumn(name = "IdVe")
+    private Ve ve;
 }

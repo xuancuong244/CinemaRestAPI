@@ -15,17 +15,22 @@ import java.util.Date;
 public class LichLamViec implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
+    @Column(name = "ID_LLV")
+    private Integer ID_LLV;
     @Temporal(TemporalType.DATE)
     @Column(name = "NgayLam")
     private Date ngayLam = new Date();
+
+    @Column(name = "ThoiGianBatDau")
     private Time thoiGianBatDau;
+    @Column(name = "thoiGianKetThuc")
     private Time thoiGianKetThuc;
+    @Column(name = "LuongCoBan")
     private Float luongCoBan;
     @ManyToOne
-    @JoinColumn(name = "nhanVienId")
+    @JoinColumn(name = "MaNV")
     private NhanVien nhanVien;
     @ManyToOne
-    @JoinColumn(name = "chiNhanhId")
+    @JoinColumn(name = "MaCN")
     private ChiNhanh chiNhanh;
 }

@@ -18,12 +18,14 @@ import java.util.List;
 public class NgayChieu implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "stt")
     private Integer stt;
     @Temporal(TemporalType.DATE)
     @Column(name = "ngay")
     private Date ngay = new Date();
+    @Column(name = "gioBatDau")
     private Time gioBatDau;
     @JsonIgnore
-    @OneToMany(mappedBy = "ngayChieu")
-    private List<XuatChieu> xuatChieuList;
+    @OneToMany(mappedBy = "ngay")
+    private List<XuatChieu> xuatChieu;
 }

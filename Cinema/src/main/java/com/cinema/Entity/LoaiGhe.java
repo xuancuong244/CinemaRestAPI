@@ -1,10 +1,7 @@
 package com.cinema.Entity;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.OneToMany;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
 
@@ -17,8 +14,11 @@ import java.util.List;
 @Table(name = "LoaiGhe")
 public class LoaiGhe implements Serializable {
     @Id
+    @Column(name = "maLoai")
     private Integer maLoai;
+    @Column(name = "tenLoai")
     private String tenLoai;
+    @Column(name = "phuThu")
     private Float phuThu;
     @JsonIgnore
     @OneToMany(mappedBy = "loaiGhe")

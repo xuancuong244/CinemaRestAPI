@@ -13,11 +13,13 @@ import java.util.List;
 @Table(name = "PhongChieu")
 public class PhongChieu implements Serializable {
     @Id
+    @Column(name = "maPhong")
     private String maPhong;
+    @Column(name = "tenPhong")
     private String tenPhong;
-    private String maCN;
+//    private String maCN;
     @ManyToOne
-    @JoinColumn(name = "chiNhanhId")
+    @JoinColumn(name = "maCN")
     private ChiNhanh nhanh;
     @JsonIgnore
     @OneToMany(mappedBy = "phongChieu")

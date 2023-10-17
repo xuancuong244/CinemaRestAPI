@@ -12,13 +12,20 @@ import java.io.Serializable;
 @Table(name = "CT_CSVC")
 public class ChiTietCSVC implements Serializable {
     @Id
+    @Column(name = "maCSVC")
     private String maCSVC;
+
     @Id
+    @Column(name = "maPhong")
     private String maPhong;
+
+    @Column(name = "soLuong")
     private Integer soLuong;
+
     @ManyToOne
     @JoinColumn(name = "chieuId")
     private PhongChieu chieu;
+
     @ManyToOne
     @JoinColumn(name = "csvcId")
     private CSVC csvc;

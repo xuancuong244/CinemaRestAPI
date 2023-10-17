@@ -12,9 +12,13 @@ import java.io.Serializable;
 @Table(name = "ChiTietPhim")
 public class ChiTietPhim implements Serializable {
     @Id
+    @Column(name = "maPhim")
     private String maPhim;
+
     @Id
+    @Column(name = "maTheLoai")
     private String maTheLoai;
+
     @ManyToOne
     @JoinColumn(name = "theLoaiId")
     private TheLoaiPhim theLoai;
