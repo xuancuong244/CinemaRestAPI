@@ -9,7 +9,7 @@ import java.io.Serializable;
 @Entity
 @AllArgsConstructor
 @NoArgsConstructor
-@Table(name = "ct_csvc")
+@Table(name = "CT_CSVC")
 public class ChiTietCSVC implements Serializable {
     @Id
     private String maCSVC;

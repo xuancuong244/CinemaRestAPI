@@ -250,7 +250,8 @@ insert into THELOAI values ('LP04','Tình cảm');
 insert into THELOAI values ('LP05','Kinh dị');
 insert into THELOAI values ('LP06',N'Phiêu Lưu');
 insert into THELOAI values ('LP07',N'Tâm Lý');
-
+insert into THELOAI values ('LP08',N'Hồi Hộp');
+insert into THELOAI values ('LP09',N'Tội Phạm');
 -- Phim
 INSERT INTO phim VALUES ('MP01',N'Biệt Đội Đánh Thuê 4','Jason Statham, Sylvester Stallone, Megan Fox',2023,'MP01.jpg','Scott Waugh','Mỹ','103 phút','Biệt Đội Đánh Thuê, bao gồm các chiến binh kỳ cựu và tân binh, đang đối mặt với nhiệm vụ nguy hiểm: ngăn chặn Suharato Rahmat, một tên buôn vũ khí nguy hiểm, khỏi giao kíp nổ hạt nhân cho Ocelot, một kẻ độc ác đe dọa thế giới. Hành trình từ một nhà máy vũ khí cũ ở Qadhafi đến con thuyền Jantara sẽ hé lộ những bí mật và sự thật đáng kinh ngạc về Ocelot.','https://www.youtube.com/watch?v=TQpve2zTDSQ');
 INSERT INTO phim VALUES ('MP02',N'Ác Quỷ Ma Sơ 2','Taissa Farmiga, Bonnie Aarons, Storm Reid, Jonas Bloquet, Anna Popplewell',2023,'MP02.jpg','Michael Chaves','Mỹ','110 phút','Valak trở lại với "Ác Quỷ Ma Sơ 2". Đây sẽ là phần hậu truyện của Ác Quỷ Ma Sơ và đồng thời là phần phim thứ chín thuộc Vũ trụ The Conjuring. Lấy bối cảnh nước Pháp năm 1956, cùng cái chết bí ẩn của một linh mục, một giai thoại đáng sợ và ám ảnh sẽ mở ra. Phần phim tiếp tục xoay quanh nhân vật chính - Sơ Irene - do Taissa Farmiga thủ vai.','https://www.youtube.com/watch?v=otM2V_g8Kqo');
