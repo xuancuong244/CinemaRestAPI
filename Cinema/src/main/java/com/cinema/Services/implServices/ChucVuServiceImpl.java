@@ -17,4 +17,9 @@ public class ChucVuServiceImpl implements ChucVuService {
     public List<ChucVu> findAll() {
         return chucVuReponsitory.findAll();
     }
+
+    @Override
+    public ChucVu findById(String maCV) {
+        return null;
+    }
 }

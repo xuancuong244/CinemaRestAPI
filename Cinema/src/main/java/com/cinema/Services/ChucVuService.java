@@ -6,4 +6,5 @@ import java.util.List;
 
 public interface ChucVuService {
     List<ChucVu> findAll();
+    ChucVu findById(String maCV);
 }
