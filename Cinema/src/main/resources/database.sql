@@ -24,7 +24,7 @@ create table NhanVien(
 	CONSTRAINT fk_nv_cv FOREIGN key (MaCV) REFERENCES ChucVu (MaCV)
 );
 create table LichLamViec(
-    ID_LLV int AUTO_INCREMENT primary key,
+    ID_LLV int identity(1,1) primary key,
     NgayLam Date,
     ThoiGianBatDau time,
     ThoiGianKetThuc time,
@@ -41,7 +41,7 @@ create table CSVC(
     Hinh nvarchar(150)
 );
 create table KhachHang(
-	MaKH int AUTO_INCREMENT primary key,
+	MaKH int identity(1,1) primary key,
 	TenKH nvarchar(150),
 	MatKhau varchar(10),
 	Email varchar(30) unique,
@@ -100,7 +100,7 @@ create table ChiTietPhim(
 );
 
 create table NgayChieu(
-	Stt int AUTO_INCREMENT primary key,
+	Stt int identity(1,1) primary key,
 	Ngay date,
 	GioBatDau time
 );
@@ -128,7 +128,7 @@ create table CT_CSVC(
 	constraint fk_ctcsvc_csvc foreign key(MaCSVC) references CSVC (MaCSVC)
 );
 create table XuatChieu(
-	Stt int AUTO_INCREMENT primary key,
+	Stt int identity(1,1) primary key,
 	GiaXuatChieu float,
 	Ngay int,
 	MaPhong varchar(5),
@@ -139,7 +139,7 @@ constraint fk_xuatchieu_phim foreign key (MaPhim) references Phim(MaPhim) on del
 );
 
 create table Ve(
-	IdVe int AUTO_INCREMENT primary key,
+	IdVe int identity(1,1) primary key,
 	TongGiaVe float,
 	ThueVAT float,
 	MaKH int,
@@ -182,11 +182,11 @@ insert into CSVC values ('VC4',N'Cảm biến báo khói ','vc4.png');
 insert into CSVC values ('VC5',N'Bình xịt chữa cháy','vc5.png');
 
 -- Khách hàng
-insert into KhachHang values (1,N'Nguyễn Thị Thư', '12345678','thunt123@gmail.com','0875963214', N'Thuận An, Bình Dương', 0, null, null);
-insert into KhachHang values (2,N'Lê Minh Hoàng', '12345678','hoangle54@gmail.com','0320394978', N'Bình Lợi, TP HCM',1, null, null);
-insert into KhachHang values (3,N'Phan Huỳnh Tuấn Kiệt', '12345678','kiett328@gmail.com','0908664177', N'Dĩ An, Bình Dương',1, null, null);
-insert into KhachHang values (4,N'Nguyễn Xuân Cường', '12345678','xuancuong2442003@gmail.com','0369475443', N'Bình Thạnh, TP HCM',1, null, null);
-insert into KhachHang values (5,N'Nguyễn Văn Khánh', '12345678','kytan011103@gmail.com','0342881452', N'Bình Thạnh, TP HCM',1, null, null);
+insert into KhachHang values (N'Nguyễn Thị Thư', '12345678','thunt123@gmail.com','0875963214', N'Thuận An, Bình Dương', 0, null, null);
+insert into KhachHang values (N'Lê Minh Hoàng', '12345678','hoangle54@gmail.com','0320394978', N'Bình Lợi, TP HCM',1, null, null);
+insert into KhachHang values (N'Phan Huỳnh Tuấn Kiệt', '12345678','kiett328@gmail.com','0908664177', N'Dĩ An, Bình Dương',1, null, null);
+insert into KhachHang values (N'Nguyễn Xuân Cường', '12345678','xuancuong2442003@gmail.com','0369475443', N'Bình Thạnh, TP HCM',1, null, null);
+insert into KhachHang values (N'Nguyễn Văn Khánh', '12345678','kytan011103@gmail.com','0342881452', N'Bình Thạnh, TP HCM',1, null, null);
 
 -- Nhân viên
 insert into NHANVIEN values('NV01',N'Nguyễn Xuân Cường',1,'123','2003-01-01','0123456778','CV1');
