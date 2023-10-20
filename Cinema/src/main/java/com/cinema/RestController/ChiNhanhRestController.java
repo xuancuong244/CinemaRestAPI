@@ -23,7 +23,6 @@ public class ChiNhanhRestController {
     @GetMapping()
     public ResponseEntity<?> getAll(){
         List<ChiNhanh> chiNhanh = chiNhanhService.findAll();
-
         return ResponseEntity.ok(chiNhanh);
     }
 }
