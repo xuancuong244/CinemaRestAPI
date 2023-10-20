@@ -1,0 +1,78 @@
+@media (max-width: 767px) {
+    .silde__bar {
+      display: none;
+    }
+  }
+
+@media (max-width: 820px) {
+    .information {
+        text-align: center;
+    }
+    .information h3{
+        margin: 0 !important;
+    }
+    .information p {
+        margin: 0 !important;
+    }
+}
+
+/* @media (max-width: 415px) {
+    .header__search form input {
+        width: 300px !important;
+        border-radius: 5px !important;
+        margin-bottom: 5px;
+    }
+} */
+
+.font__oswald {
+    font-family: 'Oswald', sans-serif;
+}
+
+.font__source{
+    font-family: 'Oswald', sans-serif;
+    font-family: 'Source Sans 3', sans-serif;
+}
+
+.btn__movie {
+    
+}
+
+.btn__movie:hover{
+    border-bottom: 2px solid #f4a043 !important;
+    transition: 0.7s;
+}
+
+.btn__movie--active{
+    background-color: #f4a043 !important;
+}
+
+.btn__nvgt:hover {
+    scale: 1.1;
+    border-bottom: 2px solid #f4a043 !important;
+    transition: 0.5s;
+}
+
+.btn__nvgt.active {
+    background-color: white !important;
+    border-bottom: 2px solid #f4a043 !important;
+}
+
+.btn__navMovie {
+    border-bottom: 2px solid rgba(0, 0, 0, 0.373) !important;
+    transform: scale(1);
+    transition: 0.9s !important;
+}
+
+.btn__navMovie:hover {
+    transform: scale(1.05);
+    transition: 0.7s;
+}
+
+.btn__navMovie.active{
+    border-bottom: 5px solid #37A9EC !important;
+}
+
+
+
+
+
