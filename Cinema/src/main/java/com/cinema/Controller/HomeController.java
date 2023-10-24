@@ -5,4 +5,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
 public class HomeController {
+    @RequestMapping("/DynamicCinema/index")
+    public String home(){
+        return "customer/index_home";
+    }
 }
