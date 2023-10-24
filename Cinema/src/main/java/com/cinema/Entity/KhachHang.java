@@ -1,37 +1,43 @@
 package com.cinema.Entity;
 
+import java.util.List;
+
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import jakarta.persistence.*;
+
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
+import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
 
-import java.io.Serializable;
-import java.util.List;
-
-@Entity
+@Entity(name = "KHACHHANG")
 @AllArgsConstructor
 @NoArgsConstructor
-@Table(name = "KhachHang")
-public class KhachHang implements Serializable {
-    @Id
+@Table(name = "KHACHHANG")
+public class KhachHang {
+	@Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "maKH")
+    @Column(name = "MAKH")
     private Integer maKH;
-    @Column(name = "tenKH")
+    @Column(name = "TENKH")
     private String tenKH;
-    @Column(name = "matKhau")
+    @Column(name = "MATKHAU")
     private String matKhau;
-    @Column(name = "email")
+    @Column(name = "EMAIL")
     private String email;
-    @Column(name = "soDT")
+    @Column(name = "SODT")
     private String soDT;
-    @Column(name = "diaChi")
+    @Column(name = "DIACHI")
     private String diaChi;
-    @Column(name = "gioiTinh")
+    @Column(name = "GIOITINH")
     private Boolean gioiTinh;
-    @Column(name = "idFacebook")
+    @Column(name = "IDFACEBOOK")
     private String idFacebook;
-    @Column(name = "hinhFacabook")
+    @Column(name = "HINHFACEBOOK")
     private String hinhFacebook;
     @JsonIgnore
     @OneToMany(mappedBy = "khachHang")

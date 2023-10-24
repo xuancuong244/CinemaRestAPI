@@ -1,38 +1,31 @@
 package com.cinema.Entity;
 
+import java.util.List;
+
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import jakarta.persistence.*;
+
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
+import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
 
-import java.io.Serializable;
-import java.util.List;
-
-@Entity
+@Entity(name = "PHIM")
 @AllArgsConstructor
 @NoArgsConstructor
-@Table(name = "Phim")
-public class Phim implements Serializable {
-    @Id
-    @Column(name = "MaPhim")
+@Table(name = "PHIM")
+public class Phim {
+	@Id
     private String maPhim;
-    @Column(name = "TenPhim")
     private String tenPhim;
-    @Column(name = "DienVien")
     private String dienVien;
-    @Column(name = "NamSX")
-    private Integer NamSX;
-    @Column(name = "hinh")
+    private Integer namSX;
     private String hinh;
-    @Column(name = "daoDien")
     private String daoDien;
-    @Column(name = "quocGia")
     private String quocGia;
-    @Column(name = "thoiLuong")
     private String thoiLuong;
-    @Column(name = "moTa")
     private String moTa;
-    @Column(name = "trailer")
     private String trailer;
     @JsonIgnore
     @OneToMany(mappedBy = "phim")

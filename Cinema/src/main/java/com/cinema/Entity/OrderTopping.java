@@ -1,19 +1,23 @@
 package com.cinema.Entity;
 
+import java.util.List;
+
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import jakarta.persistence.*;
+
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
+import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
 
-import java.io.Serializable;
-import java.util.List;
-
-@Entity
+@Entity(name = "TOPPING")
 @AllArgsConstructor
 @NoArgsConstructor
-@Table(name = "Topping")
-public class OrderTopping implements Serializable {
-    @Id
+@Table(name = "TOPPING")
+public class OrderTopping {
+	@Id
     @Column(name = "MaTopping")
     private String maTopping;
     @Column(name = "TenTopping")

@@ -1,23 +1,23 @@
 package com.cinema.Entity;
 
+import java.util.List;
+
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import jakarta.persistence.*;
+
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
+import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
 
-import java.io.Serializable;
-import java.util.List;
-
-@Entity
+@Entity(name = "CHUCVU")
 @AllArgsConstructor
 @NoArgsConstructor
-@Table(name = "ChucVu")
-public class ChucVu implements Serializable {
-    @Id
-    @Column(name = "maCV")
+@Table(name = "CHUCVU")
+public class ChucVu {
+	@Id
     private String maCV;
-
-    @Column(name = "tenCV")
     private String tenCV;
     @JsonIgnore
     @OneToMany(mappedBy = "chucVu")

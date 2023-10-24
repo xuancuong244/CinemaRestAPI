@@ -6,20 +6,20 @@ import lombok.NoArgsConstructor;
 
 import java.io.Serializable;
 
-@Entity
+@Entity(name = "CT_CSVC")
 @AllArgsConstructor
 @NoArgsConstructor
 @Table(name = "CT_CSVC")
-public class ChiTietCSVC implements Serializable {
+public class ChiTietCSVC{
     @Id
-    @Column(name = "maCSVC")
+    @Column(name = "MACSVC")
     private String maCSVC;
 
     @Id
-    @Column(name = "maPhong")
+    @Column(name = "MAPHONG")
     private String maPhong;
 
-    @Column(name = "soLuong")
+    @Column(name = "SOLUONG")
     private Integer soLuong;
 
     @ManyToOne

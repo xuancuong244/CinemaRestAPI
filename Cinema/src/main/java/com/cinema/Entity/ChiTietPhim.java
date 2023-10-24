@@ -1,26 +1,27 @@
 package com.cinema.Entity;
 
-import jakarta.persistence.*;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
 
-import java.io.Serializable;
-
-@Entity
+@Entity(name = "CHITIETPHIM")
 @AllArgsConstructor
 @NoArgsConstructor
-@Table(name = "ChiTietPhim")
-public class ChiTietPhim implements Serializable {
-    @Id
-    @Column(name = "maPhim")
+@Table(name = "CHITIETPHIM")
+public class ChiTietPhim{
+	@Id
     private String maPhim;
 
     @Id
-    @Column(name = "maTheLoai")
     private String maTheLoai;
 
     @ManyToOne
-    @JoinColumn(name = "theLoaiId")
+    @JoinColumn(name = "theLoaiI"
+    		+ "d")
     private TheLoaiPhim theLoai;
     @ManyToOne
     @JoinColumn(name = "phimId")

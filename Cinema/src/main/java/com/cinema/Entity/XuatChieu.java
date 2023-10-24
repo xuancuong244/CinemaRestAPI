@@ -1,17 +1,22 @@
 package com.cinema.Entity;
 
-import jakarta.persistence.*;
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
 
-import java.io.Serializable;
-
-@Entity
+@Entity(name = "XUATCHIEU")
 @AllArgsConstructor
 @NoArgsConstructor
-@Table(name = "XuatChieu")
-public class XuatChieu implements Serializable {
-    @Id
+@Table(name = "XUATCHIEU")
+public class XuatChieu {
+	@Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "Stt")
     private Integer Stt;
@@ -25,9 +30,9 @@ public class XuatChieu implements Serializable {
     @JoinColumn(name = "Ngay")
     private NgayChieu Ngay;
     @ManyToOne
-    @JoinColumn(name = "MaPhong")
-    private PhongChieu maPhong;
+    @JoinColumn(name = "maPhong")
+    private PhongChieu MaPhong;
     @ManyToOne
-    @JoinColumn(name = "MaPhim")
+    @JoinColumn(name = "maPhim")
     private Phim phimm;
 }

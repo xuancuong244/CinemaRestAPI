@@ -1,22 +1,29 @@
 package com.cinema.Entity;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Generated;
-import lombok.NoArgsConstructor;
-
-import java.io.Serializable;
 import java.sql.Time;
 import java.util.Date;
 import java.util.List;
 
-@Entity
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
+import jakarta.persistence.Table;
+import jakarta.persistence.Temporal;
+import jakarta.persistence.TemporalType;
+import lombok.AllArgsConstructor;
+import lombok.NoArgsConstructor;
+
+@Entity(name = "NGAYCHIEU")
 @AllArgsConstructor
 @NoArgsConstructor
-@Table(name = "NgayChieu")
-public class NgayChieu implements Serializable {
-    @Id
+@Table(name = "NGAYCHIEU")
+public class NgayChieu {
+	@Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "stt")
     private Integer stt;

@@ -13,25 +13,28 @@ import java.util.List;
 
 
 @SuppressWarnings("serial")
-@Entity
+@Entity(name = "CHINHANH")
 @AllArgsConstructor
 @NoArgsConstructor
-@Getter
-@Setter
-@Table(name = "ChiNhanh")
-public class ChiNhanh implements Serializable {
+@Table(name = "CHINHANH")
+public class ChiNhanh{
     @Id
-    @Column(name = "maCN")
+    @Column(name = "MACN")
     private String maCN;
-    @Column(name = "tenCN")
+
+    @Column(name = "TENCN")
     private String tenCN;
-    @Column(name = "diaChi")
+
+    @Column(name = "DIACHI")
     private String diaChi;
-    @Column(name = "soDT")
+
+    @Column(name = "SODT")
     private String soDT;
+
     @JsonIgnore
     @OneToMany(mappedBy = "chiNhanh")
     List<LichLamViec> lichLamViecList;
+
     @JsonIgnore
     @OneToMany(mappedBy = "nhanh")
     List<PhongChieu> phongChieuList;

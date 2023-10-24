@@ -21,7 +21,6 @@ public class NhanVienRestController {
     @GetMapping()
     public ResponseEntity<?> doGetAll(){
         List<NhanVien> nhanVien = nhanVienService.findAll();
-
         return ResponseEntity.ok(nhanVien);
     }
 }
