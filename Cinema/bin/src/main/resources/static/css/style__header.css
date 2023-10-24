@@ -1,0 +1,44 @@
+.header {
+    
+}
+
+.header .row {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.header__logo img {
+    width: 295px;
+    height: 65px;
+    flex-shrink: 0;
+    margin-top: 8px;
+}
+
+.header__search form input {
+    width: 80%;
+    height: 35px;
+    border: 2px solid #f4a043;
+    /* margin-top: 25px; */
+    border-radius: 10px;
+}
+
+.header__search a i {
+    color: #f4a043;
+}
+
+.header__search form a {
+    color: black;
+}
+
+.header__login {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.header__language {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
