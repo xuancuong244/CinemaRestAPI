@@ -8,17 +8,15 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@CrossOrigin("*")
 @RestController
 @RequestMapping("/api/ChiNhanh")
 public class ChiNhanhRestController {
-
     @Autowired
     ChiNhanhService chiNhanhService;
     // http method: GET, POST, PUT, DELETE
 
     // localhost:8085/api/ChiNhanh/all
-    @GetMapping()
+    @GetMapping("/all")
     public ResponseEntity<?> doGetAll(){
         List<ChiNhanh> chiNhanh = chiNhanhService.findAll();
         return ResponseEntity.ok(chiNhanh);
