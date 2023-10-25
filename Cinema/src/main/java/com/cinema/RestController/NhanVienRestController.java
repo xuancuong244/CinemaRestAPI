@@ -18,7 +18,7 @@ public class NhanVienRestController {
     @Autowired
     NhanVienService nhanVienService;
 
-    @GetMapping()
+    @GetMapping("/all")
     public ResponseEntity<?> doGetAll(){
         List<NhanVien> nhanVien = nhanVienService.findAll();
         return ResponseEntity.ok(nhanVien);

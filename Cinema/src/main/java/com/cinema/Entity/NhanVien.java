@@ -15,7 +15,7 @@ import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
 
-@Entity(name = "NHANVIEN")
+@Entity
 @AllArgsConstructor
 @NoArgsConstructor
 @Table(name = "NHANVIEN")
@@ -26,7 +26,7 @@ public class NhanVien {
     @Column(name = "HoTen")
     private String hoTen;
     @Column(name = "GioiTinh")
-    private Integer gioiTinh;
+    private Integer GioiTinh;
     @Column(name = "MatKhau")
     private String matKhau;
     @Column(name = "NgaySinh")

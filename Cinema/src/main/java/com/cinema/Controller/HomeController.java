@@ -7,6 +7,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class HomeController {
     @RequestMapping("/DynamicCinema/index")
     public String home(){
-        return "customer/index_home";
+        return "customer/index";
+    }
+    
+    @RequestMapping("/DynamicCinema/indexx")
+    public String chiTiet(){
+        return "customer/chitiet_index";
     }
 }
