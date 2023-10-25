@@ -12,7 +12,7 @@ import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
 
-@Entity(name = "TOPPING")
+@Entity
 @AllArgsConstructor
 @NoArgsConstructor
 @Table(name = "TOPPING")

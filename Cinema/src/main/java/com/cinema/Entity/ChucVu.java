@@ -11,7 +11,7 @@ import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
 
-@Entity(name = "CHUCVU")
+@Entity
 @AllArgsConstructor
 @NoArgsConstructor
 @Table(name = "CHUCVU")

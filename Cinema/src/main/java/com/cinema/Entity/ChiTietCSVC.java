@@ -6,7 +6,7 @@ import lombok.NoArgsConstructor;
 
 import java.io.Serializable;
 
-@Entity(name = "CT_CSVC")
+@Entity
 @AllArgsConstructor
 @NoArgsConstructor
 @Table(name = "CT_CSVC")

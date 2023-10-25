@@ -12,7 +12,7 @@ import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
 
-@Entity(name = "CSVC")
+@Entity
 @AllArgsConstructor
 @NoArgsConstructor
 @Table(name = "CSVC")

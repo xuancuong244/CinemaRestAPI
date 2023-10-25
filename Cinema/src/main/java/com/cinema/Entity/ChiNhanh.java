@@ -13,7 +13,7 @@ import java.util.List;
 
 
 @SuppressWarnings("serial")
-@Entity(name = "CHINHANH")
+@Entity
 @AllArgsConstructor
 @NoArgsConstructor
 @Table(name = "CHINHANH")

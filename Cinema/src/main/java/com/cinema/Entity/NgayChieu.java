@@ -18,7 +18,7 @@ import jakarta.persistence.TemporalType;
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
 
-@Entity(name = "NGAYCHIEU")
+@Entity
 @AllArgsConstructor
 @NoArgsConstructor
 @Table(name = "NGAYCHIEU")
