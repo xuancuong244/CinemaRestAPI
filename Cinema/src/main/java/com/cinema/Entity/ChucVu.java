@@ -4,22 +4,23 @@ import java.util.List;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.OneToMany;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 @Entity
 @AllArgsConstructor
 @NoArgsConstructor
-@Table(name = "CHUCVU")
+@Getter
+@Setter
+@Table(name = "ChucVu")
 public class ChucVu {
-	@Id
+    @Id
+    @Column(name = "MaCV")
     private String maCV;
+
+    @Column(name = "TenCV")
     private String tenCV;
-    @JsonIgnore
-    @OneToMany(mappedBy = "chucVu")
-    List<NhanVien> nhanVienList;
 }

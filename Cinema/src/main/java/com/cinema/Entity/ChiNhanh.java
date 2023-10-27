@@ -16,26 +16,20 @@ import java.util.List;
 @Entity
 @AllArgsConstructor
 @NoArgsConstructor
-@Table(name = "CHINHANH")
+@Getter
+@Setter
+@Table(name = "chi_nhanh")
 public class ChiNhanh{
     @Id
-    @Column(name = "MACN")
+    @Column(name = "MaCN")
     private String maCN;
 
-    @Column(name = "TENCN")
+    @Column(name = "TenCN")
     private String tenCN;
 
-    @Column(name = "DIACHI")
+    @Column(name = "dia_chi")
     private String diaChi;
 
-    @Column(name = "SODT")
+    @Column(name = "SoDT")
     private String soDT;
-
-    @JsonIgnore
-    @OneToMany(mappedBy = "chiNhanh")
-    List<LichLamViec> lichLamViecList;
-
-    @JsonIgnore
-    @OneToMany(mappedBy = "nhanh")
-    List<PhongChieu> phongChieuList;
 }

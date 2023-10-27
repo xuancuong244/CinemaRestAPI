@@ -12,32 +12,24 @@ import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 @Entity
 @AllArgsConstructor
 @NoArgsConstructor
-@Table(name = "CHITIETGHE")
+@Getter
+@Setter
+@Table(name = "ChiTietGhe")
 public class ChiTietGhe{
 	@Id
-	@Column(name = "MACTGHE")
+	@Column(name = "MaCTGhe")
 	private Integer maCTGhe;
 
-	@Column(name = "MAPHONG")
+	@Column(name = "MaPhong")
 	private String maPhong;
-
-	@Column(name = "MAGHE")
-	private String maGhe;
-
 	@ManyToOne
-	@JoinColumn(name = "gheId")
+	@JoinColumn(name = "MaGhe")
 	private Ghe ghe;
-
-	@ManyToOne
-	@JoinColumn(name = "phongChieuId")
-	private PhongChieu phongChieu;
-
-	@JsonIgnore
-	@OneToMany(mappedBy = "chiTietGhe")
-	private List<Ve> veList;
 }

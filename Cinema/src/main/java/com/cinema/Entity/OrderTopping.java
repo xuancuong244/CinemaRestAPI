@@ -10,12 +10,16 @@ import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 @Entity
 @AllArgsConstructor
 @NoArgsConstructor
-@Table(name = "TOPPING")
+@Getter
+@Setter
+@Table(name = "Topping")
 public class OrderTopping {
 	@Id
     @Column(name = "MaTopping")
@@ -24,9 +28,9 @@ public class OrderTopping {
     private String tenTopping;
     @Column(name = "SoLuongDangCo")
     private Integer soLuongDangCo;
-    @Column(name = "gia")
+    @Column(name = "Gia")
     private Float gia;
-    @Column(name = "hinh")
+    @Column(name = "Hinh")
     private String hinh;
     @JsonIgnore
     @OneToMany(mappedBy = "topping")

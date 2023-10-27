@@ -10,21 +10,22 @@ import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 @Entity
 @AllArgsConstructor
 @NoArgsConstructor
-@Table(name = "LOAIGHE")
+@Getter
+@Setter
+@Table(name = "LoaiGhe")
 public class LoaiGhe {
 	@Id
-    @Column(name = "maLoai")
+    @Column(name = "MaLoai")
     private Integer maLoai;
-    @Column(name = "tenLoai")
+    @Column(name = "TenLoai")
     private String tenLoai;
-    @Column(name = "phuThu")
+    @Column(name = "PhuThu")
     private Float phuThu;
-    @JsonIgnore
-    @OneToMany(mappedBy = "loaiGhe")
-    List<Ghe> gheList;
 }

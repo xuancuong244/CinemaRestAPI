@@ -12,29 +12,23 @@ import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 @Entity
 @AllArgsConstructor
 @NoArgsConstructor
-@Table(name = "PHONGCHIEU")
+@Getter
+@Setter
+@Table(name = "PhongChieu")
 public class PhongChieu {
 	@Id
-    @Column(name = "maPhong")
+    @Column(name = "MaPhong")
     private String maPhong;
-    @Column(name = "tenPhong")
+    @Column(name = "TenPhong")
     private String tenPhong;
-
     @ManyToOne
-    @JoinColumn(name = "maCN")
-    private ChiNhanh nhanh;
-    @JsonIgnore
-    @OneToMany(mappedBy = "phongChieu")
-    private List<ChiTietGhe> chiTietGheList;
-    @JsonIgnore
-    @OneToMany(mappedBy = "chieu")
-    private List<ChiTietCSVC> chiTietCSVCList;
-    @JsonIgnore
-    @OneToMany(mappedBy = "MaPhong")
-    private List<XuatChieu> xuatChieu;
+    @JoinColumn(name = "MaCN")
+    private ChiNhanh chiNhanh;
 }

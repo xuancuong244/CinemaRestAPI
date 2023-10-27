@@ -2,31 +2,29 @@ package com.cinema.Entity;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 import java.io.Serializable;
 
 @Entity
 @AllArgsConstructor
 @NoArgsConstructor
+@Getter
+@Setter
 @Table(name = "CT_CSVC")
 public class ChiTietCSVC{
     @Id
-    @Column(name = "MACSVC")
-    private String maCSVC;
+    @ManyToOne
+    @JoinColumn(name = "MaCSVC")
+    private CSVC csvc;
 
     @Id
-    @Column(name = "MAPHONG")
-    private String maPhong;
-
-    @Column(name = "SOLUONG")
-    private Integer soLuong;
-
     @ManyToOne
-    @JoinColumn(name = "chieuId")
-    private PhongChieu chieu;
+    @JoinColumn(name = "MaPhong")
+    private PhongChieu phongChieu;
 
-    @ManyToOne
-    @JoinColumn(name = "csvcId")
-    private CSVC csvc;
+    @Column(name = "SoLuong")
+    private int soLuong;
 }

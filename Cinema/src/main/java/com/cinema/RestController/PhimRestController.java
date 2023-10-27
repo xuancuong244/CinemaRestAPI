@@ -4,10 +4,7 @@ import com.cinema.Entity.Phim;
 import com.cinema.Services.PhimService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -22,5 +19,11 @@ public class PhimRestController {
     public ResponseEntity<?> doGetAll(){
         List<Phim> phims = phimService.findAll();
         return ResponseEntity.ok(phims);
+    }
+
+    @GetMapping("/{maPhim}")
+    public ResponseEntity<?> getByMaPhim(@PathVariable("maPhim") String maPhim){
+        Phim phim = phimService.findById(maPhim);
+        return ResponseEntity.ok(phim);
     }
 }

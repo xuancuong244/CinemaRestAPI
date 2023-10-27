@@ -14,24 +14,28 @@ import jakarta.persistence.Table;
 import jakarta.persistence.Temporal;
 import jakarta.persistence.TemporalType;
 import lombok.AllArgsConstructor;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 @Entity
 @AllArgsConstructor
 @NoArgsConstructor
-@Table(name = "LICHLAMVIEC")
+@Getter
+@Setter
+@Table(name = "LichLamViec")
 public class LichLamViec {
 	@Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "ID_LLV")
-    private Integer ID_LLV;
+    private Integer idLLV;
     @Temporal(TemporalType.DATE)
     @Column(name = "NgayLam")
     private Date ngayLam = new Date();
 
     @Column(name = "ThoiGianBatDau")
     private Time thoiGianBatDau;
-    @Column(name = "thoiGianKetThuc")
+    @Column(name = "ThoiGianKetThuc")
     private Time thoiGianKetThuc;
     @Column(name = "LuongCoBan")
     private Float luongCoBan;

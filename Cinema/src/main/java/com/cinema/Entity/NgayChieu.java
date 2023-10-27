@@ -16,23 +16,24 @@ import jakarta.persistence.Table;
 import jakarta.persistence.Temporal;
 import jakarta.persistence.TemporalType;
 import lombok.AllArgsConstructor;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 @Entity
 @AllArgsConstructor
 @NoArgsConstructor
-@Table(name = "NGAYCHIEU")
+@Getter
+@Setter
+@Table(name = "NgayChieu")
 public class NgayChieu {
 	@Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "stt")
+    @Column(name = "Stt")
     private Integer stt;
     @Temporal(TemporalType.DATE)
-    @Column(name = "ngay")
+    @Column(name = "Ngay")
     private Date ngay = new Date();
-    @Column(name = "gioBatDau")
+    @Column(name = "GioBatDau")
     private Time gioBatDau;
-    @JsonIgnore
-    @OneToMany(mappedBy = "Ngay")
-    private List<XuatChieu> xuatChieu;
 }

@@ -24,6 +24,7 @@
 <link
 	href="https://fonts.googleapis.com/css2?family=Oswald:wght@200;300;400;500&family=Source+Sans+3:ital,wght@0,200;0,300;0,400;0,500;0,600;1,200;1,300;1,400;1,500;1,600&display=swap"
 	rel="stylesheet">
+
 <!-- Bootstrap CSS -->
 <link
 	href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
@@ -33,8 +34,8 @@
 <!-- CSS font-awesome  -->
 <link rel="stylesheet"
 	href="/css/font-awesome-4.7.0/css/font-awesome.min.css" />
-
 <title>Mua vé xem phim</title>
+	<script src="/js/loadMovie.js"></script>
 </head>
 <body>
 	<!-- Header  -->
@@ -294,26 +295,25 @@
 					<!-- PHIM ĐANG CHIẾU  -->
 					<div class="tab-pane fade show active" id="dangchieu"
 						role="tabpanel" aria-labelledby="dangchieu-tab">
-						<div class="container mt-3">
-							<div class="row">
-								<div class="col-lg-3 col-md-6 col-12 item__movie mb-5">
-									<div class="d-flex justify-content-center">
-										<a href="chitiet_index.html"> <img class="mt-2"
-											src="/img/phim/datRungPhuongNam.png" alt="" width="227px"
-											height="360px">
-										</a>
-									</div>
-									<div class="information mt-3">
-										<a href="chitiet_index.html">
-											<h3 class="font__oswald ms-4" style="color: #337AB7;">Đất
-												Rừng Phương Nam</h3>
-										</a>
-										<p class="font__source ms-4">
-											Thể loại: Tâm lý, hài hước <br> Thời lượng: 132 phút <br>
-											Ngày khởi chiếu: 13/10/2023
-										</p>
-									</div>
-								</div>
+						<div class="container mt-3" id="phimContainer">
+							<div class="row" id="phimList">
+<!--								<div class="col-lg-3 col-md-6 col-12 item_movie mb-5">-->
+<!--									<div class="d-flex justify-content-center">-->
+<!--										<a href="chitiet_index.html"> <img class="mt-2"-->
+<!--											src="/img/phim/datRungPhuongNam.png" alt="" width="227px"-->
+<!--											height="360px">-->
+<!--										</a>-->
+<!--									</div>-->
+<!--									<div class="information mt-3">-->
+<!--										<a href="chitiet_index.html">-->
+<!--											<h3 class="font__oswald ms-4" style="color: #337AB7;">Đất Rừng Phương Nam</h3>-->
+<!--										</a>-->
+<!--										<p class="font__source ms-4">-->
+<!--											Thể loại: Tâm lý, hài hước <br> Thời lượng: 132 phút <br>-->
+<!--											Ngày khởi chiếu: 13/10/2023-->
+<!--										</p>-->
+<!--									</div>-->
+<!--								</div>-->
 							</div>
 						</div>
 					</div>
@@ -423,7 +423,7 @@
 		<div class="container footer">
 			<div class="row  font__source">
 				<div class="footer__logo col-lg-4 col-md-6 col-12">
-					<img src="../static/img/logo/footer__logo.png" alt="">
+					<img src="/img/logo/footer__logo.png" alt="">
 					<div class="footer--menu text-center">
 						<ul>
 							<li><a href="#">Tuyển dụng</a></li>

@@ -10,19 +10,20 @@ import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 @Entity
 @AllArgsConstructor
 @NoArgsConstructor
-@Table(name = "THELOAI")
+@Getter
+@Setter
+@Table(name = "TheLoai")
 public class TheLoaiPhim {
 	@Id
-    @Column(name = "maTheLoai")
+    @Column(name = "MaTheLoai")
     private String maTheLoai;
-    @Column(name = "tenTheLoai")
+    @Column(name = "TenTheLoai")
     private String tenTheLoai;
-    @JsonIgnore
-    @OneToMany(mappedBy = "theLoai")
-    List<ChiTietPhim> chiTietPhimList;
 }

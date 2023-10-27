@@ -10,7 +10,7 @@ import java.util.List;
 
 @CrossOrigin("*")
 @RestController
-@RequestMapping("/api/ChiNhanh")
+@RequestMapping("/api/chinhanh")
 public class ChiNhanhRestController {
     @Autowired
     ChiNhanhService chiNhanhService;
@@ -20,6 +20,18 @@ public class ChiNhanhRestController {
     @GetMapping("/all")
     public ResponseEntity<?> doGetAll(){
         List<ChiNhanh> chiNhanh = chiNhanhService.findAll();
+        return ResponseEntity.ok(chiNhanh);
+    }
+
+    @PostMapping
+    public ResponseEntity<?> create(@RequestBody ChiNhanh chiNhanh){
+        chiNhanhService.create(chiNhanh);
+        return ResponseEntity.ok(chiNhanh);
+    }
+
+    @PutMapping({"/maCN"})
+    public ResponseEntity<?> update(@PathVariable("maCN") String maCN,@RequestBody ChiNhanh chiNhanh){
+        chiNhanhService.update(chiNhanh);
         return ResponseEntity.ok(chiNhanh);
     }
 

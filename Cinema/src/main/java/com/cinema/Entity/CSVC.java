@@ -10,22 +10,22 @@ import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 @Entity
 @AllArgsConstructor
 @NoArgsConstructor
+@Getter
+@Setter
 @Table(name = "CSVC")
 public class CSVC {
 	@Id
-    @Column(name = "maCSVC")
+    @Column(name = "MaCSVC")
     private String maCSVC;
-    @Column(name = "tenCSVC")
+    @Column(name = "TenCSVC")
     private String tenCSVC;
-    @Column(name = "hinh")
+    @Column(name = "Hinh")
     private String hinh;
-
-    @JsonIgnore
-    @OneToMany(mappedBy = "csvc")
-    private List<ChiTietCSVC> chiTietCSVCList;
 }

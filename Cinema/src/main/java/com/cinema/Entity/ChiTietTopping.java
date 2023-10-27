@@ -1,35 +1,31 @@
 package com.cinema.Entity;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 @Entity
 @AllArgsConstructor
 @NoArgsConstructor
-@Table(name = "CHITIETTOPPING")
+@Getter
+@Setter
+@Table(name = "ChiTietTopping")
 public class ChiTietTopping {
-	@Id
-    @Column(name = "idVe")
-    private Integer idVe;
+    @EmbeddedId
+    private ChiTietToppingId id;
 
-    @Id
-    @Column(name = "MATOPPING")
-    private String maTopping;
-
-    @Column(name = "SOLUONGMUA")
-    private Integer soLuongMua;
+    @Column(name = "SoLuongMua")
+    private int soLuongMua;
 
     @ManyToOne
-    @JoinColumn(name = "toppingId")
-    private OrderTopping topping;
-
-    @ManyToOne
+    @MapsId("idVe")
     @JoinColumn(name = "IdVe")
     private Ve ve;
+
+    @ManyToOne
+    @MapsId("maTopping")
+    @JoinColumn(name = "MaTopping")
+    private OrderTopping topping;
 }

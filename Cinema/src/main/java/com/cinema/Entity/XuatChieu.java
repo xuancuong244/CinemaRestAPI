@@ -9,30 +9,29 @@ import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 @Entity
 @AllArgsConstructor
 @NoArgsConstructor
-@Table(name = "XUATCHIEU")
+@Getter
+@Setter
+@Table(name = "XuatChieu")
 public class XuatChieu {
 	@Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "Stt")
-    private Integer Stt;
+    private Integer stt;
     @Column(name = "GiaXuatChieu")
-    private Float GiaXuatChieu;
-//    @Column(name = "ngay")
-//    private Integer ngay;
-//    private String maPhong;
-//    private String maPhim;
+    private Float giaXuatChieu;
+    @Column(name = "Ngay")
+    private int ngay;
     @ManyToOne
-    @JoinColumn(name = "Ngay")
-    private NgayChieu Ngay;
+    @JoinColumn(name = "MaPhong")
+    private PhongChieu phongChieu;
     @ManyToOne
-    @JoinColumn(name = "maPhong")
-    private PhongChieu MaPhong;
-    @ManyToOne
-    @JoinColumn(name = "maPhim")
-    private Phim phimm;
+    @JoinColumn(name = "MaPhim")
+    private Phim phim;
 }

@@ -17,4 +17,10 @@ public class PhimServiceImpl implements PhimService {
     public List<Phim> findAll() {
         return phimReponsitory.findAll();
     }
+
+    @Override
+    public Phim findById(String maPhim) {
+        return phimReponsitory.findById(maPhim).get();
+    }
+
 }

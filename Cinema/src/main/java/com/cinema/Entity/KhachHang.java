@@ -12,34 +12,35 @@ import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 @Entity
 @AllArgsConstructor
 @NoArgsConstructor
-@Table(name = "KHACHHANG")
+@Getter
+@Setter
+@Table(name = "KhachHang")
 public class KhachHang {
 	@Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "MAKH")
+    @Column(name = "MaKH")
     private Integer maKH;
-    @Column(name = "TENKH")
+    @Column(name = "TenKH")
     private String tenKH;
-    @Column(name = "MATKHAU")
+    @Column(name = "MatKhau")
     private String matKhau;
-    @Column(name = "EMAIL")
+    @Column(name = "Email",unique = true)
     private String email;
-    @Column(name = "SODT")
+    @Column(name = "SoDT")
     private String soDT;
-    @Column(name = "DIACHI")
+    @Column(name = "DiaChi")
     private String diaChi;
-    @Column(name = "GIOITINH")
+    @Column(name = "GioiTinh")
     private Boolean gioiTinh;
-    @Column(name = "IDFACEBOOK")
-    private String idFacebook;
-    @Column(name = "HINHFACEBOOK")
-    private String hinhFacebook;
-    @JsonIgnore
-    @OneToMany(mappedBy = "khachHang")
-    private List<Ve> veList;
+    @Column(name = "IdFB")
+    private String idFB;
+    @Column(name = "HinhFB")
+    private String hinhFB;
 }

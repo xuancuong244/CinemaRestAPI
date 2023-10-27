@@ -13,12 +13,16 @@ import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 @Entity
 @AllArgsConstructor
 @NoArgsConstructor
-@Table(name = "NHANVIEN")
+@Getter
+@Setter
+@Table(name = "NhanVien")
 public class NhanVien {
 	@Id
     @Column(name = "MaNV")
@@ -26,7 +30,7 @@ public class NhanVien {
     @Column(name = "HoTen")
     private String hoTen;
     @Column(name = "GioiTinh")
-    private Integer GioiTinh;
+    private Boolean GioiTinh;
     @Column(name = "MatKhau")
     private String matKhau;
     @Column(name = "NgaySinh")
@@ -36,7 +40,4 @@ public class NhanVien {
     @ManyToOne
     @JoinColumn(name = "MaCV")
     private ChucVu chucVu;
-    @JsonIgnore
-    @OneToMany(mappedBy = "nhanVien")
-    List<LichLamViec> lichLamViecList;
 }

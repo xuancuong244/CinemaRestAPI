@@ -14,12 +14,16 @@ import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 @Entity
 @AllArgsConstructor
 @NoArgsConstructor
-@Table(name = "VE")
+@Getter
+@Setter
+@Table(name = "Ve")
 public class Ve {
 	@Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -29,17 +33,15 @@ public class Ve {
     private Float tongGiaVe;
     @Column(name = "ThueVAT")
     private Float thueVAT;
-//    private Integer maKH;
-//    private Integer maCTGhe;
-    @Column(name = "Stt_XC")
-    private Integer Stt_XC;
     @ManyToOne
-    @JoinColumn(name = "maKH")
+    @JoinColumn(name = "MaKH")
     private KhachHang khachHang;
+
     @ManyToOne
-    @JoinColumn(name = "maCTGhe")
+    @JoinColumn(name = "MaCTGhe")
     private ChiTietGhe chiTietGhe;
-    @JsonIgnore
-    @OneToMany(mappedBy = "ve")
-    private List<ChiTietTopping> chiTietTopping;
+
+    @ManyToOne
+    @JoinColumn(name = "Stt_XC")
+    private XuatChieu xuatChieu;
 }
