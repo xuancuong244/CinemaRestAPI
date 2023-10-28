@@ -22,22 +22,22 @@ import lombok.Setter;
 @NoArgsConstructor
 @Getter
 @Setter
-@Table(name = "NhanVien")
+@Table(name = "nhan_vien")
 public class NhanVien {
 	@Id
-    @Column(name = "MaNV")
+    @Column(name = "Ma_NV")
     private String maNV;
-    @Column(name = "HoTen")
+    @Column(name = "Ho_Ten")
     private String hoTen;
-    @Column(name = "GioiTinh")
+    @Column(name = "Gioi_Tinh")
     private Boolean GioiTinh;
-    @Column(name = "MatKhau")
+    @Column(name = "Mat_Khau")
     private String matKhau;
-    @Column(name = "NgaySinh")
+    @Column(name = "Ngay_Sinh")
     private Date ngaySinh;
-    @Column(name = "SoDT")
+    @Column(name = "So_DT")
     private String soDT;
     @ManyToOne
-    @JoinColumn(name = "MaCV")
+    @JoinColumn(name = "Ma_CV")
     private ChucVu chucVu;
 }

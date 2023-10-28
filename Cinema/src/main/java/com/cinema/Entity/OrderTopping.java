@@ -19,14 +19,14 @@ import lombok.Setter;
 @NoArgsConstructor
 @Getter
 @Setter
-@Table(name = "Topping")
+@Table(name = "topping")
 public class OrderTopping {
 	@Id
-    @Column(name = "MaTopping")
+    @Column(name = "Ma_Topping")
     private String maTopping;
-    @Column(name = "TenTopping")
+    @Column(name = "Ten_Topping")
     private String tenTopping;
-    @Column(name = "SoLuongDangCo")
+    @Column(name = "So_Luong_Dang_Co")
     private Integer soLuongDangCo;
     @Column(name = "Gia")
     private Float gia;

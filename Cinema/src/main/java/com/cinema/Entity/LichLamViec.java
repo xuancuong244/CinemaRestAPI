@@ -23,26 +23,26 @@ import lombok.Setter;
 @NoArgsConstructor
 @Getter
 @Setter
-@Table(name = "LichLamViec")
+@Table(name = "lich_lam_viec")
 public class LichLamViec {
 	@Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "ID_LLV")
     private Integer idLLV;
     @Temporal(TemporalType.DATE)
-    @Column(name = "NgayLam")
+    @Column(name = "Ngay_Lam")
     private Date ngayLam = new Date();
 
-    @Column(name = "ThoiGianBatDau")
+    @Column(name = "Thoi_Gian_Bat_Dau")
     private Time thoiGianBatDau;
-    @Column(name = "ThoiGianKetThuc")
+    @Column(name = "Thoi_Gian_Ket_Thuc")
     private Time thoiGianKetThuc;
-    @Column(name = "LuongCoBan")
+    @Column(name = "Luong_Co_Ban")
     private Float luongCoBan;
     @ManyToOne
-    @JoinColumn(name = "MaNV")
+    @JoinColumn(name = "Ma_NV")
     private NhanVien nhanVien;
     @ManyToOne
-    @JoinColumn(name = "MaCN")
+    @JoinColumn(name = "Ma_CN")
     private ChiNhanh chiNhanh;
 }

@@ -24,12 +24,12 @@ import lombok.Setter;
 @Table(name = "ChiTietGhe")
 public class ChiTietGhe{
 	@Id
-	@Column(name = "MaCTGhe")
+	@Column(name = "Ma_CTGhe")
 	private Integer maCTGhe;
 
-	@Column(name = "MaPhong")
+	@Column(name = "Ma_Phong")
 	private String maPhong;
 	@ManyToOne
-	@JoinColumn(name = "MaGhe")
+	@JoinColumn(name = "Ma_Ghe")
 	private Ghe ghe;
 }

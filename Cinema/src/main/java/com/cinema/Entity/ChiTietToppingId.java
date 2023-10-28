@@ -15,9 +15,9 @@ import java.io.Serializable;
 @Getter
 @Setter
 public class ChiTietToppingId implements Serializable {
-    @Column(name = "IdVe")
+    @Column(name = "Id_Ve")
     private int idVe;
 
-    @Column(name = "MaTopping")
+    @Column(name = "Ma_Topping")
     private String maTopping;
 }

@@ -17,14 +17,14 @@ import java.io.Serializable;
 public class ChiTietCSVC{
     @Id
     @ManyToOne
-    @JoinColumn(name = "MaCSVC")
+    @JoinColumn(name = "Ma_CSVC")
     private CSVC csvc;
 
     @Id
     @ManyToOne
-    @JoinColumn(name = "MaPhong")
+    @JoinColumn(name = "Ma_Phong")
     private PhongChieu phongChieu;
 
-    @Column(name = "SoLuong")
+    @Column(name = "So_Luong")
     private int soLuong;
 }
