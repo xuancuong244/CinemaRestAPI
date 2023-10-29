@@ -4,7 +4,7 @@ function createMovieHTML(phim) {
       <div class="col-lg-3 col-md-6 col-12 item_movie mb-5">
         <div class="d-flex justify-content-center">
           <a href="">
-            <img class="mt-2" src="/img/phim/${phim.hinh}" alt="" width="227px" height="360px">
+            <img class="mt-2" src="../img/phim/${phim.hinh}" alt="" width="227px" height="360px">
           </a>
         </div>
         <div class="information mt-3">

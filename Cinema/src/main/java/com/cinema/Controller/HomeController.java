@@ -14,4 +14,9 @@ public class HomeController {
     public String chiTiet(){
         return "customer/chitiet_index";
     }
+    
+    @RequestMapping("/DynamicCinema/ghe")
+    public String chonGhe(){
+        return "customer/index_chonGhe";
+    }
 }
