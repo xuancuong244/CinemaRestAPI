@@ -8,7 +8,7 @@ function createMovieHTML(phim) {
           </a>
         </div>
         <div class="information mt-3">
-          <a href="/DynamicCinema/indexx" class="phim-link" data-phim-id="phim1">
+          <a href="/DynamicCinema/movieDetails" class="phim-link" data-phim-id="phim1">
             <h3 class="font__oswald ms-4 movieName" style="color: #337AB7;">${phim.tenPhim}</h3>
           </a>
           <p class="font__source ms-4">
@@ -42,34 +42,5 @@ function loadMovies() {
 // Gọi hàm loadMovies để load dữ liệu phim khi trang web được tải
 loadMovies();
 
-document.addEventListener('click', function(event) {
-    var target = event.target;
-
-    // Kiểm tra xem phần tử được click có phải là tên phim hay không
-    if (target.classList.contains('movieName')) {
-        // Lấy thông tin chi tiết phim từ phần tử HTML
-        var movieContainer = target.closest('.item_movie');
-        var movieTitle = movieContainer.querySelector('.font__oswald').innerText;
-        var movieGenre = movieContainer.querySelector('.font__source').innerText.split(':')[1].trim();
-        var movieDuration = movieContainer.querySelector('.font__source:nth-of-type(2)').innerText.split(':')[1].trim();
-        var movieReleaseDate = movieContainer.querySelector('.font__source:last-of-type').innerText.split(':')[1].trim();
-
-        // Tạo đối tượng phim và truyền giá trị vào
-        var movie = {
-            tenPhim: movieTitle,
-            theLoai: movieGenre,
-            thoiLuong: movieDuration,
-            ngayKhoiChieu: movieReleaseDate
-        };
-
-        // Chuyển hướng đến trang chi tiết phim và truyền thông tin phim dưới dạng tham số trên URL
-        var queryString = Object.keys(movie).map(function(key) {
-            return encodeURIComponent(key) + '=' + encodeURIComponent(movie[key]);
-        }).join('&');
-
-        var detailPageURL = 'chitiet_index.html?' + queryString;
-        window.location.href = detailPageURL;
-    }
-});
 
 
