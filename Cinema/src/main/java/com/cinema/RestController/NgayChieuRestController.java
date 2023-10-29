@@ -12,16 +12,16 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 
 
-//@CrossOrigin("*")
-//ơ@RestController
-//@RequestMapping("/api/NgayChieu")
+@CrossOrigin("*")
+@RestController
+@RequestMapping("/api/NgayChieu")
 public class NgayChieuRestController {
-//    @Autowired
-//    NgayChieuService ngayChieuService;
-//
-//    @GetMapping("/all")
-//    public ResponseEntity<?> doGetAll(){
-//        List<NgayChieu> ngayChieus = ngayChieuService.findAll();
-//        return ResponseEntity.ok(ngayChieus);
-//    }
+    @Autowired
+    NgayChieuService ngayChieuService;
+
+    @GetMapping("/all")
+    public ResponseEntity<?> doGetAll(){
+        List<NgayChieu> ngayChieus = ngayChieuService.findAll();
+        return ResponseEntity.ok(ngayChieus);
+    }
 }

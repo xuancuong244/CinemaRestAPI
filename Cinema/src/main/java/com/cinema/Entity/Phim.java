@@ -36,6 +36,6 @@ public class Phim {
     private String thoiLuong;
     @Column(name = "Mo_Ta")
     private String moTa;
-    @Column(name = "trailer")
+    @Column(name = "Traller")
     private String trailer;
 }
