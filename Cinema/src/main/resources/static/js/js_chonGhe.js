@@ -1,55 +1,29 @@
-// Lấy danh sách ghế
-const seats = document.querySelectorAll('.seat');
+const selectedSeats = [];
+const seats = document.querySelectorAll(".seat");
 
-// Danh sách ghế đã chọn
-let selectedSeats = [];
-
-// Xử lý khi click vào ghế
 seats.forEach(function (seat) {
+  // Xử lý click
+  seat.addEventListener("click", function () {
+    if (seat.classList.contains("selected")) {
+      // Nếu đã chọn, bỏ chọn
+      seat.classList.remove("selected");
+      selectedSeats.splice(selectedSeats.indexOf(seat.innerText), 1);
+    } else {
+      // Nếu chưa chọn, thêm vào mảng
+      seat.classList.add("selected");
+      selectedSeats.push(seat.innerText);
+    }
 
-    seat.addEventListener('click', function () {
-
-        // Kiểm tra ghế đã được chọn chưa
-        if (seat.classList.contains('selected')) {
-            // Bỏ chọn
-            seat.classList.remove('selected');
-
-            // Xóa khỏi mảng ghế đã chọn
-            selectedSeats = selectedSeats.filter(item => item !== seat);
-        } else {
-            // Chọn ghế
-            seat.classList.add('selected');
-
-            // Thêm vào mảng ghế đã chọn  
-            selectedSeats.push(seat);
-        }
-
-        // Cập nhật giao diện
-        updateSelectedSeats();
-
-    });
-
+    updateSelectedSeats();
+  });
 });
 
-// Hàm cập nhật giao diện
 function updateSelectedSeats() {
-    const selectedSeatsElement = document.getElementById('selected-seats');
+  const seatsHTML = selectedSeats
+    .map(function (seat) {
+      return "<span>" + seat + "</span>";
+    })
+    .join(", ");
 
-    // Xóa hết nội dung trước đó
-    selectedSeatsElement.innerHTML = '';
-
-    // Thêm danh sách ghế đã chọn
-    selectedSeats.forEach(function (seat) {
-        const li = document.createElement('li');
-        li.innerText = seat.dataset.name;
-        selectedSeatsElement.appendChild(li);
-    });
+  document.getElementById("selected-seats").innerHTML = seatsHTML;
 }
-
-// Xử lý khi ấn Đặt vé
-const bookBtn = document.getElementById('book-btn');
-
-bookBtn.addEventListener('click', function () {
-    // TODO: Validate và đặt vé
-});
-

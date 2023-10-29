@@ -22,4 +22,9 @@ public class HomeController {
 //        model.addAttribute("phim",phim);
         return "customer/chitiet_index";
     }
+    
+    @RequestMapping("/DynamicCinema/ghe")
+    public String chonGhe(){
+        return "customer/index_chonGhe";
+    }
 }

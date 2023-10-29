@@ -19,13 +19,13 @@ import lombok.Setter;
 @NoArgsConstructor
 @Getter
 @Setter
-@Table(name = "LoaiGhe")
+@Table(name = "loai_ghe")
 public class LoaiGhe {
 	@Id
-    @Column(name = "MaLoai")
+    @Column(name = "Ma_Loai")
     private Integer maLoai;
-    @Column(name = "TenLoai")
+    @Column(name = "Ten_Loai")
     private String tenLoai;
-    @Column(name = "PhuThu")
+    @Column(name = "Phu_Thu")
     private Float phuThu;
 }

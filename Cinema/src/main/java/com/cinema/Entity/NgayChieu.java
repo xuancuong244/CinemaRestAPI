@@ -25,7 +25,7 @@ import lombok.Setter;
 @NoArgsConstructor
 @Getter
 @Setter
-@Table(name = "NgayChieu")
+@Table(name = "ngay_chieu")
 public class NgayChieu {
 	@Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -34,6 +34,6 @@ public class NgayChieu {
     @Temporal(TemporalType.DATE)
     @Column(name = "Ngay")
     private Date ngay = new Date();
-    @Column(name = "GioBatDau")
+    @Column(name = "Gio_Bat_Dau")
     private Time gioBatDau;
 }

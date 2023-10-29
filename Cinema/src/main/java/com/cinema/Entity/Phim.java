@@ -15,27 +15,27 @@ import lombok.Setter;
 @NoArgsConstructor
 @Getter
 @Setter
-@Table(name = "Phim")
+@Table(name = "phim")
 public class Phim {
 	@Id
-    @Column(name = "MaPhim")
+    @Column(name = "Ma_Phim")
     private String maPhim;
-    @Column(name = "TenPhim")
+    @Column(name = "Ten_Phim")
     private String tenPhim;
-    @Column(name = "DienVien")
+    @Column(name = "Dien_Vien")
     private String dienVien;
-    @Column(name = "NamSX")
+    @Column(name = "Nam_SX")
     private Integer namSX;
     @Column(name = "Hinh")
     private String hinh;
-    @Column(name = "DaoDien")
+    @Column(name = "Dao_Dien")
     private String daoDien;
-    @Column(name = "QuocGia")
+    @Column(name = "Quoc_Gia")
     private String quocGia;
-    @Column(name = "ThoiLuong")
+    @Column(name = "Thoi_Luong")
     private String thoiLuong;
-    @Column(name = "MoTa")
+    @Column(name = "Mo_Ta")
     private String moTa;
-    @Column(name = "Trailer")
+    @Column(name = "Traller")
     private String trailer;
 }

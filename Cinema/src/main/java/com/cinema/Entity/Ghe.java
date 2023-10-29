@@ -24,11 +24,11 @@ import lombok.Setter;
 @Table(name = "Ghe")
 public class Ghe {
 	@Id
-    @Column(name = "MaGhe")
+    @Column(name = "Ma_Ghe")
     private String maGhe;
-    @Column(name = "TenGhe")
+    @Column(name = "Ten_Ghe")
     private String tenGhe;
-    @Column(name = "MaLoai")
+    @Column(name = "Ma_Loai")
     private Integer maLoai;
 
 }

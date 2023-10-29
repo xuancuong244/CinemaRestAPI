@@ -21,26 +21,26 @@ import lombok.Setter;
 @NoArgsConstructor
 @Getter
 @Setter
-@Table(name = "KhachHang")
+@Table(name = "khach_hang")
 public class KhachHang {
 	@Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "MaKH")
+    @Column(name = "Ma_KH")
     private Integer maKH;
-    @Column(name = "TenKH")
+    @Column(name = "Ten_KH")
     private String tenKH;
-    @Column(name = "MatKhau")
+    @Column(name = "Mat_Khau")
     private String matKhau;
     @Column(name = "Email",unique = true)
     private String email;
-    @Column(name = "SoDT")
+    @Column(name = "So_DT")
     private String soDT;
-    @Column(name = "DiaChi")
+    @Column(name = "Dia_Chi")
     private String diaChi;
-    @Column(name = "GioiTinh")
+    @Column(name = "Gioi_Tinh")
     private Boolean gioiTinh;
-    @Column(name = "IdFB")
+    @Column(name = "Id_FB")
     private String idFB;
-    @Column(name = "HinhFB")
+    @Column(name = "Hinh_FB")
     private String hinhFB;
 }

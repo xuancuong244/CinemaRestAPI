@@ -11,21 +11,21 @@ import lombok.Setter;
 @NoArgsConstructor
 @Getter
 @Setter
-@Table(name = "ChiTietTopping")
+@Table(name = "chi_tiet_topping")
 public class ChiTietTopping {
     @EmbeddedId
     private ChiTietToppingId id;
 
-    @Column(name = "SoLuongMua")
+    @Column(name = "So_Luong_Mua")
     private int soLuongMua;
 
     @ManyToOne
-    @MapsId("idVe")
-    @JoinColumn(name = "IdVe")
+    @MapsId("id_Ve")
+    @JoinColumn(name = "Id_Ve")
     private Ve ve;
 
     @ManyToOne
-    @MapsId("maTopping")
-    @JoinColumn(name = "MaTopping")
+    @MapsId("ma_Topping")
+    @JoinColumn(name = "Ma_Topping")
     private OrderTopping topping;
 }

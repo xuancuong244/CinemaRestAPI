@@ -22,9 +22,9 @@ import lombok.Setter;
 @Table(name = "CSVC")
 public class CSVC {
 	@Id
-    @Column(name = "MaCSVC")
+    @Column(name = "Ma_CSVC")
     private String maCSVC;
-    @Column(name = "TenCSVC")
+    @Column(name = "Ten_CSVC")
     private String tenCSVC;
     @Column(name = "Hinh")
     private String hinh;

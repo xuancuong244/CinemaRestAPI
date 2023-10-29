@@ -21,14 +21,14 @@ import lombok.Setter;
 @NoArgsConstructor
 @Getter
 @Setter
-@Table(name = "PhongChieu")
+@Table(name = "phong_chieu")
 public class PhongChieu {
 	@Id
-    @Column(name = "MaPhong")
+    @Column(name = "Ma_Phong")
     private String maPhong;
-    @Column(name = "TenPhong")
+    @Column(name = "Ten_Phong")
     private String tenPhong;
     @ManyToOne
-    @JoinColumn(name = "MaCN")
+    @JoinColumn(name = "Ma_CN")
     private ChiNhanh chiNhanh;
 }

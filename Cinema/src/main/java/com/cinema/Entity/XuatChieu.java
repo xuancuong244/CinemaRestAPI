@@ -18,20 +18,20 @@ import lombok.Setter;
 @NoArgsConstructor
 @Getter
 @Setter
-@Table(name = "XuatChieu")
+@Table(name = "xuat_chieu")
 public class XuatChieu {
 	@Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "Stt")
     private Integer stt;
-    @Column(name = "GiaXuatChieu")
+    @Column(name = "Gia_Xuat_Chieu")
     private Float giaXuatChieu;
     @Column(name = "Ngay")
     private int ngay;
     @ManyToOne
-    @JoinColumn(name = "MaPhong")
+    @JoinColumn(name = "Ma_Phong")
     private PhongChieu phongChieu;
     @ManyToOne
-    @JoinColumn(name = "MaPhim")
+    @JoinColumn(name = "Ma_Phim")
     private Phim phim;
 }

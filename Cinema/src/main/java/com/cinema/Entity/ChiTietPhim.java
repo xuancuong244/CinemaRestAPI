@@ -15,14 +15,14 @@ import lombok.Setter;
 @NoArgsConstructor
 @Getter
 @Setter
-@Table(name = "ChiTietPhim")
+@Table(name = "chi_tiet_phim")
 public class ChiTietPhim{
     @Id
     @ManyToOne
-    @JoinColumn(name = "MaPhim")
+    @JoinColumn(name = "Ma_Phim")
     private Phim phim;
     @Id
     @ManyToOne
-    @JoinColumn(name = "MaTheLoai")
+    @JoinColumn(name = "Ma_The_Loai")
     private TheLoaiPhim theLoaiPhim;
 }

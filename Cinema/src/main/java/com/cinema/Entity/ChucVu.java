@@ -15,12 +15,12 @@ import lombok.Setter;
 @NoArgsConstructor
 @Getter
 @Setter
-@Table(name = "ChucVu")
+@Table(name = "chuc_vu")
 public class ChucVu {
     @Id
-    @Column(name = "MaCV")
+    @Column(name = "Ma_CV")
     private String maCV;
 
-    @Column(name = "TenCV")
+    @Column(name = "Ten_CV")
     private String tenCV;
 }

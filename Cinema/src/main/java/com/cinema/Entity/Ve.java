@@ -23,22 +23,22 @@ import lombok.Setter;
 @NoArgsConstructor
 @Getter
 @Setter
-@Table(name = "Ve")
+@Table(name = "ve")
 public class Ve {
 	@Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "IdVe")
+    @Column(name = "Id_Ve")
     private Integer idVe;
-    @Column(name = "TongGiaVe")
+    @Column(name = "Tong_Gia_Ve")
     private Float tongGiaVe;
-    @Column(name = "ThueVAT")
+    @Column(name = "Thue_VAT")
     private Float thueVAT;
     @ManyToOne
-    @JoinColumn(name = "MaKH")
+    @JoinColumn(name = "Ma_KH")
     private KhachHang khachHang;
 
     @ManyToOne
-    @JoinColumn(name = "MaCTGhe")
+    @JoinColumn(name = "Ma_CTGhe")
     private ChiTietGhe chiTietGhe;
 
     @ManyToOne
