@@ -15,3 +15,11 @@
     /* border: 2px solid #FFCD39; */
     transition: 0.7s;
 }
+
+.item__movie img {
+    border-radius: 20px;
+}
+
+.information a{
+    text-decoration: none;
+}
