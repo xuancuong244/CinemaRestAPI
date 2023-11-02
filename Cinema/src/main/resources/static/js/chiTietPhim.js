@@ -1,32 +1,50 @@
-// document.addEventListener('click', function(event) {
-//     var target = event.target;
-//
-//     // Kiểm tra xem phần tử được click có phải là tên phim hay không
-//     if (target.classList.contains('font__oswald')) {
-//         // Lấy thông tin chi tiết phim từ phần tử HTML
-//         var movieContainer = target.closest('.item_movie');
-//         var movieTitle = movieContainer.querySelector('.font__oswald').innerText;
-//         var movieGenre = movieContainer.querySelector('.font__source').innerText.split(':')[1].trim();
-//         var movieDuration = movieContainer.querySelector('.font__source:nth-of-type(2)').innerText.split(':')[1].trim();
-//         var movieReleaseDate = movieContainer.querySelector('.font__source:last-of-type').innerText.split(':')[1].trim();
-//
-//         // Chuyển hướng đến trang chi tiết phim và truyền thông tin phim dưới dạng tham số trên URL
-//         var detailPageURL = 'chitiet_index.html?tenPhim=' + encodeURIComponent(movieTitle) +
-//             '&theLoai=' + encodeURIComponent(movieGenre) +
-//             '&thoiLuong=' + encodeURIComponent(movieDuration) +
-//             '&ngayKhoiChieu=' + encodeURIComponent(movieReleaseDate);
-//         window.location.href = detailPageURL;
-//     }
-// });
+document.addEventListener('DOMContentLoaded', function () {
+    function createMovieDetailHTML(data) {
+        return `
+                <div class="col-3">
+                    <img src="../img/phim/${data.hinh}" alt="">
+                </div>
+                <div class="col-9 p-0">
+                    <p class="font__oswald" style="font-size: 32px;">${data.tenPhim}</p>
+                    <P class="font__source content__chiTiet--moTa">${data.moTa}</P>
+                    <p class="m-0 font__source mt-3">
+                        <b>ĐẠO DIỄN: ${data.daoDien}</b>
+                    </p>
+                    <p class="m-0 font__source mt-3">
+                        <b>DIỄN VIÊN: ${data.dienVien}</b>
+                    </p>
+                    <p class="m-0 font__source mt-3">
+                        <b>THỜI LƯỢNG: ${data.thoiLuong} phút</b> 
+                    </p>
+                    <p class="m-0 font__source mt-3">
+                        <b>QUỐC GIA: ${data.quocGia}</b> 
+                    </p>
+                    <p class="m-0 font__source mt-3">
+                        <b>NĂM SX : ${data.namSX}</b> 
+                    </p>
+                </div> `;
+    }
 
-// var urlParams = new URLSearchParams(window.location.search);
-// var movieTitle = urlParams.get('tenPhim');
-// var movieGenre = urlParams.get('theLoai');
-// var movieDuration = urlParams.get('thoiLuong');
-// var movieReleaseDate = urlParams.get('ngayKhoiChieu');
-//
-// // Hiển thị thông tin phim lên trang
-// document.getElementById('movieTitle').innerText = movieTitle;
-// document.getElementById('movieGenre').innerText = movieGenre;
-// document.getElementById('movieDuration').innerText = movieDuration;
-// document.getElementById('movieReleaseDate').innerText = movieReleaseDate;
+    function loadMovieDetail(event) {
+        event.preventDefault();
+        const maPhim = event.target.getAttribute('data-phim-id');
+        fetch(`http://localhost:8085/api/Phim/${maPhim}`)
+            .then(response => response.json())
+            .then(data => {
+                const chiTietPhim = document.getElementById('chiTietPhim');
+                chiTietPhim.innerHTML = "";
+
+                const movieHTML = createMovieDetailHTML(data);
+                chiTietPhim.innerHTML = movieHTML;
+            })
+            .catch(error => {
+                console.error('Error:', error);
+            });
+    }
+
+    const phimLinks = document.getElementsByClassName('phim-link');
+    Array.from(phimLinks).forEach(link => {
+        link.addEventListener('click', loadMovieDetail);
+    });
+});
+

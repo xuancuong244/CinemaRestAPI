@@ -27,4 +27,9 @@ public class HomeController {
     public String chonGhe(){
         return "customer/index_chonGhe";
     }
+
+    @RequestMapping("/DynamicCinema/movies")
+    public String movie(){
+        return "customer/movie";
+    }
 }

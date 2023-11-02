@@ -18,24 +18,26 @@ import lombok.Setter;
 @Table(name = "phim")
 public class Phim {
 	@Id
-    @Column(name = "Ma_Phim")
+    @Column(name = "ma_phim")
     private String maPhim;
-    @Column(name = "Ten_Phim")
+    @Column(name = "ten_phim")
     private String tenPhim;
-    @Column(name = "Dien_Vien")
+    @Column(name = "dien_vien")
     private String dienVien;
-    @Column(name = "Nam_SX")
+    @Column(name = "namsx")
     private Integer namSX;
-    @Column(name = "Hinh")
+    @Column(name = "hinh")
     private String hinh;
-    @Column(name = "Dao_Dien")
+    @Column(name = "dao_dien")
     private String daoDien;
-    @Column(name = "Quoc_Gia")
+    @Column(name = "quoc_gia")
     private String quocGia;
-    @Column(name = "Thoi_Luong")
+    @Column(name = "thoi_luong")
     private String thoiLuong;
-    @Column(name = "Mo_Ta")
+    @Column(name = "mo_ta")
     private String moTa;
-    @Column(name = "Traller")
+    @Column(name = "trailer")
     private String trailer;
+    @Column(name = "trang_thai")
+    private String trangThai;
 }

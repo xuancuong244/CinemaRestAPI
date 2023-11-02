@@ -6,6 +6,6 @@ import java.util.List;
 
 public interface PhimService {
     List<Phim> findAll();
-
+    List<Phim> findPhimByTrangThai(String trangThai);
     Phim findById(String maPhim);
 }

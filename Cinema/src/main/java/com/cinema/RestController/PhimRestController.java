@@ -26,4 +26,10 @@ public class PhimRestController {
         Phim phim = phimService.findById(maPhim);
         return ResponseEntity.ok(phim);
     }
+
+    @GetMapping("/trangThai/{trangThai}")
+    public ResponseEntity<?> getByTrangThaiPhim(@PathVariable("trangThai") String trangThai){
+        List<Phim> phims = phimService.findPhimByTrangThai(trangThai);
+        return ResponseEntity.ok(phims);
+    }
 }
