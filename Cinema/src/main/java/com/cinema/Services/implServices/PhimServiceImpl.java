@@ -24,9 +24,7 @@ public class PhimServiceImpl implements PhimService {
         return phimReponsitory.findPhimByTrangThai(trangThai);
     }
     @Override
-    public Phim findById(String maPhim) {
-        Optional<Phim> phim = phimReponsitory.findById(maPhim);
-        return phim.orElse(null);
+    public Optional<Phim> findById(String maPhim) {
+        return phimReponsitory.findById(maPhim);
     }
-
 }

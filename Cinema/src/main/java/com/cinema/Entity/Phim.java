@@ -1,5 +1,6 @@
 package com.cinema.Entity;
 
+import java.util.Date;
 import java.util.List;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -40,4 +41,7 @@ public class Phim {
     private String trailer;
     @Column(name = "trang_thai")
     private String trangThai;
+    @Temporal(TemporalType.DATE)
+    @Column(name = "ngay_khoi_chieu")
+    private Date ngayKhoiChieu;
 }

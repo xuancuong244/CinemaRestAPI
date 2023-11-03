@@ -1,8 +1,20 @@
 document.addEventListener('DOMContentLoaded', function () {
     function createMovieDetailHTML(data) {
+        // Lấy tên phim và cập nhật #movieName (Trang Chủ / #movieName)
+        const movieName = document.getElementById('movieName');
+        movieName.innerText = data.tenPhim;
+
+        const videoUrl = data.trailer;
+
+        // Lấy thẻ iframe
+        const trailerFrame = document.getElementById('trailerFrame');
+
+        // Cập nhật đường dẫn của iframe
+        trailerFrame.src = videoUrl;
+
         return `
                 <div class="col-3">
-                    <img src="../img/phim/${data.hinh}" alt="">
+                    <img style="border-radius: 20px" width="258px" height="407px" src="../img/phim/${data.hinh}" alt="">
                 </div>
                 <div class="col-9 p-0">
                     <p class="font__oswald" style="font-size: 32px;">${data.tenPhim}</p>
@@ -20,31 +32,31 @@ document.addEventListener('DOMContentLoaded', function () {
                         <b>QUỐC GIA: ${data.quocGia}</b> 
                     </p>
                     <p class="m-0 font__source mt-3">
-                        <b>NĂM SX : ${data.namSX}</b> 
+                        <b>NGÀY KHỞI CHIẾU : ${data.ngayKhoiChieu}</b> 
                     </p>
                 </div> `;
     }
 
-    function loadMovieDetail(event) {
-        event.preventDefault();
-        const maPhim = event.target.getAttribute('data-phim-id');
+    function getMaPhimFromURL() {
+        const urlParams = new URLSearchParams(window.location.search);
+        return urlParams.get('maPhim');
+    }
+
+    const maPhim = getMaPhimFromURL();
+
+    if (maPhim) {
+        // Gọi API để lấy thông tin chi tiết phim
         fetch(`http://localhost:8085/api/Phim/${maPhim}`)
             .then(response => response.json())
             .then(data => {
                 const chiTietPhim = document.getElementById('chiTietPhim');
-                chiTietPhim.innerHTML = "";
-
-                const movieHTML = createMovieDetailHTML(data);
-                chiTietPhim.innerHTML = movieHTML;
+                chiTietPhim.innerHTML = createMovieDetailHTML(data);
             })
             .catch(error => {
-                console.error('Error:', error);
+                console.error('Lỗi:', error);
             });
     }
 
-    const phimLinks = document.getElementsByClassName('phim-link');
-    Array.from(phimLinks).forEach(link => {
-        link.addEventListener('click', loadMovieDetail);
-    });
+
 });
 

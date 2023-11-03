@@ -4,17 +4,17 @@ document.addEventListener('DOMContentLoaded', function() {
       <div class="col-lg-3 col-md-6 col-12 item_movie mb-5">
         <div class="d-flex justify-content-center">
           <a href="">
-            <img class="mt-2" src="../img/phim/${phim.hinh}" alt="" width="227px" height="360px">
+            <img class="mt-2" src="../img/phim/${phim.hinh}" alt="" width="227px" height="360px" style="border-radius: 20px">
           </a>
         </div>
         <div class="information mt-3">
-          <a href="/DynamicCinema/movieDetails" class="phim-link" data-phim-id="${phim.maPhim}">
-            <h3 class="font__oswald ms-4 movieName" style="color: #337AB7;">${phim.tenPhim}</h3>
+          <a href="/DynamicCinema/movieDetails?maPhim=${phim.maPhim}&trailer=${phim.trailer}" class="phim-link">
+            <h3 class="font__oswald ms-4 movieName" style="color: #337AB7;" data-phim-id="${phim.maPhim}" data-trailer="${phim.trailer}">${phim.tenPhim}</h3>
           </a>
           <p class="font__source ms-4">
             Quốc gia: ${phim.quocGia} <br>
             Thời lượng: ${phim.thoiLuong} <br>
-            Ngày khởi chiếu: ${phim.namSX}
+            Ngày khởi chiếu: ${phim.ngayKhoiChieu}
           </p>
         </div>
       </div>
@@ -65,7 +65,8 @@ document.addEventListener('DOMContentLoaded', function() {
         link.addEventListener('click', (event) => {
             event.preventDefault();
             const maPhim = event.target.getAttribute('data-phim-id');
-            window.location.href = `http://localhost:8085/api/Phim/${maPhim}`;
+            const trailer = event.target.getAttribute('data-trailer');
+            window.location.href = `chitiet_index.html?maPhim=${maPhim}&trailer=${trailer}`;
         });
     });
 });
