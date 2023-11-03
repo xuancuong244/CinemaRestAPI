@@ -243,7 +243,7 @@
 <!-- Điều Hướng  -->
 <div class="container">
     <nav style="margin-top: 15px;--bs-breadcrumb-divider: url(&amp; amp; #34; data: image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8'%3E%3Cpath d='M2.5 0L1 1.5 3.5 4 1 6.5 2.5 8l4-4-4-4z' fill='currentColor'/%3E%3C/svg%3E&amp;amp;#34;);"
-            aria-label="breadcrumb">
+         aria-label="breadcrumb">
         <ol class="breadcrumb font__oswald " style="font-size: 24px;">
             <li class="breadcrumb-item"><a href="http://localhost:8085/DynamicCinema/index">Trang chủ</a></li>
             <li class="breadcrumb-item active" aria-current="page" id="movieName"></li>
@@ -254,7 +254,7 @@
 
 <!-- Chi tiết phim  -->
 <div class="container">
-    <div class="row"  id="chiTietPhim">
+    <div class="row" id="chiTietPhim">
         <div id="phimList">
 
         </div>
@@ -296,94 +296,65 @@
                 <!-- Ngày 1  -->
                 <div class="tab-pane fade show active" id="ngay1" role="tabpanel"
                      aria-labelledby="ngay1-tab">
-                    <h5 class="font__oswald mt-3 date__phude">2D PHỤ ĐỀ</h5>
-
-
-                    <!-- Button trigger modal -->
-                    <a style="list-style-type: none;text-decoration: none;color: black"
-                       href="http://localhost:8085/DynamicCinema/select">
-                        <button type="button" class="btn btn__time" data-bs-toggle="modal"
-                                data-bs-target="#staticBackdrop"> 20:00
+                    <div class="2d-Movie-Vietsub">
+                        <h5 class="font__oswald mt-3 date__phude">2D PHỤ ĐỀ</h5>
+                        <!-- Button trigger modal -->
+                        <a style="list-style-type: none;text-decoration: none;color: black"
+                           href="http://localhost:8085/DynamicCinema/select">
+                            <button type="button" class="btn btn__time" data-bs-toggle="modal"
+                                    data-bs-target="#staticBackdrop"> 20:00
+                            </button>
+                        </a>
+                        <!-- Button trigger modal -->
+                        <button type="button" class="btn btn__time ms-3"
+                                data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+                            21:00
                         </button>
-                    </a>
-                    <!-- Modal -->
-                    <div class="modal fade" id="staticBackdrop1"
-                         data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
-                         aria-labelledby="staticBackdropLabel" aria-hidden="true">
-                        <div class="modal-dialog">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <h5 class="modal-title" id="staticBackdropLabel1">Modal
-                                        title</h5>
-                                    <button type="button" class="btn-close"
-                                            data-bs-dismiss="modal" aria-label="Close"></button>
-                                </div>
-                                <div class="modal-body">...</div>
-                                <div class="modal-footer">
-                                    <button type="button" class="btn btn-secondary"
-                                            data-bs-dismiss="modal">Close
-                                    </button>
-                                    <button type="button" class="btn btn-primary">Understood</button>
-                                </div>
-                            </div>
-                        </div>
+                        <!-- Button trigger modal -->
+                        <button type="button" class="btn btn__time ms-3"
+                                data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+                            23:00
+                        </button>
                     </div>
-                    <!-- Button trigger modal -->
-                    <!-- Button trigger modal -->
-                    <button type="button" class="btn btn__time ms-3"
-                            data-bs-toggle="modal" data-bs-target="#staticBackdrop">
-                        21:00
-                    </button>
-                    <!-- Modal -->
-                    <div class="modal fade" id="staticBackdrop2"
-                         data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
-                         aria-labelledby="staticBackdropLabel" aria-hidden="true">
-                        <div class="modal-dialog">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <h5 class="modal-title" id="staticBackdropLabel2">Modal
-                                        title</h5>
-                                    <button type="button" class="btn-close"
-                                            data-bs-dismiss="modal" aria-label="Close"></button>
-                                </div>
-                                <div class="modal-body">...</div>
-                                <div class="modal-footer">
-                                    <button type="button" class="btn btn-secondary"
-                                            data-bs-dismiss="modal">Close
-                                    </button>
-                                    <button type="button" class="btn btn-primary">Understood</button>
-                                </div>
-                            </div>
-                        </div>
+                    <div class="2d-Movie">
+                        <h5 class="font__oswald mt-3 date__phude">2D LỒNG TIẾNG</h5>
+                        <!-- Button trigger modal -->
+                        <a style="list-style-type: none;text-decoration: none;color: black"
+                           href="http://localhost:8085/DynamicCinema/select">
+                            <button type="button" class="btn btn__time" data-bs-toggle="modal"
+                                    data-bs-target="#staticBackdrop"> 20:00
+                            </button>
+                        </a>
+                        <!-- Button trigger modal -->
+                        <button type="button" class="btn btn__time ms-3"
+                                data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+                            21:00
+                        </button>
+                        <!-- Button trigger modal -->
+                        <button type="button" class="btn btn__time ms-3"
+                                data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+                            23:00
+                        </button>
                     </div>
-                    <!-- Button trigger modal -->
-
-                    <!-- Button trigger modal -->
-                    <button type="button" class="btn btn__time ms-3"
-                            data-bs-toggle="modal" data-bs-target="#staticBackdrop">
-                        23:00
-                    </button>
-                    <!-- Modal -->
-                    <div class="modal fade" id="staticBackdrop"
-                         data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
-                         aria-labelledby="staticBackdropLabel" aria-hidden="true">
-                        <div class="modal-dialog">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <h5 class="modal-title" id="staticBackdropLabel">Modal
-                                        title</h5>
-                                    <button type="button" class="btn-close"
-                                            data-bs-dismiss="modal" aria-label="Close"></button>
-                                </div>
-                                <div class="modal-body">...</div>
-                                <div class="modal-footer">
-                                    <button type="button" class="btn btn-secondary"
-                                            data-bs-dismiss="modal">Close
-                                    </button>
-                                    <button type="button" class="btn btn-primary">Understood</button>
-                                </div>
-                            </div>
-                        </div>
+                    <div class="3d-Movie">
+                        <h5 class="font__oswald mt-3 date__phude">3D PHỤ ĐỀ</h5>
+                        <!-- Button trigger modal -->
+                        <a style="list-style-type: none;text-decoration: none;color: black"
+                           href="http://localhost:8085/DynamicCinema/select">
+                            <button type="button" class="btn btn__time" data-bs-toggle="modal"
+                                    data-bs-target="#staticBackdrop"> 20:00
+                            </button>
+                        </a>
+                        <!-- Button trigger modal -->
+                        <button type="button" class="btn btn__time ms-3"
+                                data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+                            21:00
+                        </button>
+                        <!-- Button trigger modal -->
+                        <button type="button" class="btn btn__time ms-3"
+                                data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+                            23:00
+                        </button>
                     </div>
                     <!-- Button trigger modal -->
                 </div>
