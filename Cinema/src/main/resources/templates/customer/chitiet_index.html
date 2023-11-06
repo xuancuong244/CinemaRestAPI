@@ -267,106 +267,29 @@
                 role="tablist"
                 style="margin: 12px 0; font-size: 18px; border-bottom: 2px solid #0000003b; border-bottom: 0px solid white;">
                 <li class="nav-item" role="presentation">
-                    <button class="nav-link btn__date active" id="ngay1-tab"
-                            data-bs-toggle="tab" data-bs-target="#ngay1" type="button"
-                            role="tab" aria-controls="ngay1" aria-selected="true"
+                    <button class="nav-link btn__date active" id="ngay-tab"
+                            data-bs-toggle="tab" data-bs-target="#ngay" type="button"
+                            role="tab" aria-controls="ngay" aria-selected="true"
                             style="color: black;">
-                        <span class="date__ngay">13</span>/10 - T6
+                        <span class="date__ngay">06/11/2023</span>
                     </button>
                 </li>
-                <li class="nav-item" role="presentation">
-                    <button class="nav-link btn__date" id="ngay2-tab"
-                            data-bs-toggle="tab" data-bs-target="#ngay2" type="button"
-                            role="tab" aria-controls="ngay2" aria-selected="false"
-                            style="color: black;">
-                        <span class="date__ngay">14</span>/10 - T6
-                    </button>
-                </li>
-                <li class="nav-item" role="presentation">
-                    <button class="nav-link btn__date" id="ngay3-tab"
-                            data-bs-toggle="tab" data-bs-target="#ngay3" type="button"
-                            role="tab" aria-controls="ngay3" aria-selected="false"
-                            style="color: black;">
-                        <span class="date__ngay">15</span>/10 - T6
-                    </button>
-                </li>
-
             </ul>
             <div class="tab-content" id="myTabContent">
-                <!-- Ngày 1  -->
-                <div class="tab-pane fade show active" id="ngay1" role="tabpanel"
-                     aria-labelledby="ngay1-tab">
+                <div class="tab-pane fade show active" id="xuatChieu" role="tabpanel"
+                     aria-labelledby="xuatChieu-tab">
                     <div class="2d-Movie-Vietsub">
                         <h5 class="font__oswald mt-3 date__phude">2D PHỤ ĐỀ</h5>
                         <!-- Button trigger modal -->
-                        <a style="list-style-type: none;text-decoration: none;color: black"
-                           href="http://localhost:8085/DynamicCinema/select">
-                            <button type="button" class="btn btn__time" data-bs-toggle="modal"
-                                    data-bs-target="#staticBackdrop"> 20:00
-                            </button>
-                        </a>
-                        <!-- Button trigger modal -->
-                        <button type="button" class="btn btn__time ms-3"
-                                data-bs-toggle="modal" data-bs-target="#staticBackdrop">
-                            21:00
-                        </button>
-                        <!-- Button trigger modal -->
-                        <button type="button" class="btn btn__time ms-3"
-                                data-bs-toggle="modal" data-bs-target="#staticBackdrop">
-                            23:00
-                        </button>
+                        <div id="xuatChieuList">
+                            <a style="list-style-type: none;text-decoration: none;color: black"
+                               href="http://localhost:8085/DynamicCinema/select">
+                                <button type="button" class="btn btn__time" data-bs-toggle="modal"
+                                        data-bs-target="#staticBackdrop"> 20:00
+                                </button>
+                            </a>
+                        </div>
                     </div>
-                    <div class="2d-Movie">
-                        <h5 class="font__oswald mt-3 date__phude">2D LỒNG TIẾNG</h5>
-                        <!-- Button trigger modal -->
-                        <a style="list-style-type: none;text-decoration: none;color: black"
-                           href="http://localhost:8085/DynamicCinema/select">
-                            <button type="button" class="btn btn__time" data-bs-toggle="modal"
-                                    data-bs-target="#staticBackdrop"> 20:00
-                            </button>
-                        </a>
-                        <!-- Button trigger modal -->
-                        <button type="button" class="btn btn__time ms-3"
-                                data-bs-toggle="modal" data-bs-target="#staticBackdrop">
-                            21:00
-                        </button>
-                        <!-- Button trigger modal -->
-                        <button type="button" class="btn btn__time ms-3"
-                                data-bs-toggle="modal" data-bs-target="#staticBackdrop">
-                            23:00
-                        </button>
-                    </div>
-                    <div class="3d-Movie">
-                        <h5 class="font__oswald mt-3 date__phude">3D PHỤ ĐỀ</h5>
-                        <!-- Button trigger modal -->
-                        <a style="list-style-type: none;text-decoration: none;color: black"
-                           href="http://localhost:8085/DynamicCinema/select">
-                            <button type="button" class="btn btn__time" data-bs-toggle="modal"
-                                    data-bs-target="#staticBackdrop"> 20:00
-                            </button>
-                        </a>
-                        <!-- Button trigger modal -->
-                        <button type="button" class="btn btn__time ms-3"
-                                data-bs-toggle="modal" data-bs-target="#staticBackdrop">
-                            21:00
-                        </button>
-                        <!-- Button trigger modal -->
-                        <button type="button" class="btn btn__time ms-3"
-                                data-bs-toggle="modal" data-bs-target="#staticBackdrop">
-                            23:00
-                        </button>
-                    </div>
-                    <!-- Button trigger modal -->
-                </div>
-                <!-- Ngày 2  -->
-                <div class="tab-pane fade" id="ngay2" role="tabpanel"
-                     aria-labelledby="ngay2-tab">
-                    <h5 class="font__oswald mt-3 date__phude">2D PHỤ ĐỀ</h5>
-                </div>
-                <!-- Ngày 3  -->
-                <div class="tab-pane fade" id="ngay3" role="tabpanel"
-                     aria-labelledby="ngay3-tab">
-                    <h5 class="font__oswald mt-3 date__phude">2D PHỤ ĐỀ</h5>
                 </div>
             </div>
         </div>
@@ -446,3 +369,56 @@
         crossorigin="anonymous"></script>
 </body>
 </html>
+
+
+<!-- Button trigger modal -->
+<!--                    <button type="button" class="btn btn__time ms-3"-->
+<!--                            data-bs-toggle="modal" data-bs-target="#staticBackdrop">-->
+<!--                        21:00-->
+<!--                    </button>-->
+<!-- Button trigger modal -->
+<!--                    <button type="button" class="btn btn__time ms-3"-->
+<!--                            data-bs-toggle="modal" data-bs-target="#staticBackdrop">-->
+<!--                        23:00-->
+<!--                    </button>-->
+<!--                    <div class="2d-Movie">-->
+<!--                        <h5 class="font__oswald mt-3 date__phude">2D LỒNG TIẾNG</h5>-->
+<!--                        &lt;!&ndash; Button trigger modal &ndash;&gt;-->
+<!--                        <a style="list-style-type: none;text-decoration: none;color: black"-->
+<!--                           href="http://localhost:8085/DynamicCinema/select">-->
+<!--                            <button type="button" class="btn btn__time" data-bs-toggle="modal"-->
+<!--                                    data-bs-target="#staticBackdrop"> 20:00-->
+<!--                            </button>-->
+<!--                        </a>-->
+<!--                        &lt;!&ndash; Button trigger modal &ndash;&gt;-->
+<!--                        <button type="button" class="btn btn__time ms-3"-->
+<!--                                data-bs-toggle="modal" data-bs-target="#staticBackdrop">-->
+<!--                            21:00-->
+<!--                        </button>-->
+<!--                        &lt;!&ndash; Button trigger modal &ndash;&gt;-->
+<!--                        <button type="button" class="btn btn__time ms-3"-->
+<!--                                data-bs-toggle="modal" data-bs-target="#staticBackdrop">-->
+<!--                            23:00-->
+<!--                        </button>-->
+<!--                    </div>-->
+<!--                    <div class="3d-Movie">-->
+<!--                        <h5 class="font__oswald mt-3 date__phude">3D PHỤ ĐỀ</h5>-->
+<!--                        &lt;!&ndash; Button trigger modal &ndash;&gt;-->
+<!--                        <a style="list-style-type: none;text-decoration: none;color: black"-->
+<!--                           href="http://localhost:8085/DynamicCinema/select">-->
+<!--                            <button type="button" class="btn btn__time" data-bs-toggle="modal"-->
+<!--                                    data-bs-target="#staticBackdrop"> 20:00-->
+<!--                            </button>-->
+<!--                        </a>-->
+<!--                        &lt;!&ndash; Button trigger modal &ndash;&gt;-->
+<!--                        <button type="button" class="btn btn__time ms-3"-->
+<!--                                data-bs-toggle="modal" data-bs-target="#staticBackdrop">-->
+<!--                            21:00-->
+<!--                        </button>-->
+<!--                        &lt;!&ndash; Button trigger modal &ndash;&gt;-->
+<!--                        <button type="button" class="btn btn__time ms-3"-->
+<!--                                data-bs-toggle="modal" data-bs-target="#staticBackdrop">-->
+<!--                            23:00-->
+<!--                        </button>-->
+<!--                    </div>-->
+<!-- Button trigger modal -->

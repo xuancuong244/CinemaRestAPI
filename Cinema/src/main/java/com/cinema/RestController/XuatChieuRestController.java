@@ -4,11 +4,11 @@ import com.cinema.Entity.XuatChieu;
 import com.cinema.Services.XuatChieuService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 
 @CrossOrigin("*")
@@ -23,4 +23,12 @@ public class XuatChieuRestController {
         List<XuatChieu> xuatChieus = xuatChieuService.findAll();
         return  ResponseEntity.ok(xuatChieus);
     }
+
+//    @GetMapping("/ngayChieu")
+//    public ResponseEntity<?> getXuatChieuByNgayChieu(@RequestParam(name = "ngayChieu") String ngayChieuString) throws ParseException {
+//        SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy");
+//        Date ngayChieu = sdf.parse(ngayChieuString);
+//        List<XuatChieu> xuatChieus = xuatChieuService.findXuatChieuByNgayChieu(ngayChieu);
+//        return ResponseEntity.ok(xuatChieus);
+//    }
 }

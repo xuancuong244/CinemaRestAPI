@@ -151,10 +151,10 @@ create table xuat_chieu
 (
     stt            int identity (1,1) primary key,
     gia_xuat_chieu float,
-    ngay           int,
+    ma_ngay_chieu           int,
     ma_phong       varchar(5),
     ma_phim        varchar(5),
-    foreign key (ngay) references ngay_chieu (stt),
+    foreign key (ma_ngay_chieu) references ngay_chieu (stt),
     constraint fk_xuatchieu_phong foreign key (ma_phong) references phong_chieu (ma_phong),
     constraint fk_xuatchieu_phim foreign key (ma_phim) references phim (ma_phim) on delete cascade
 );
@@ -352,81 +352,81 @@ INSERT INTO phim
 VALUES ('MP01', N'Biệt Đội Đánh Thuê 4', 'Jason Statham, Sylvester Stallone, Megan Fox', 2023, 'MP01.jpg',
         'Scott Waugh', 'Mỹ', '103 phút',
         'Biệt Đội Đánh Thuê, bao gồm các chiến binh kỳ cựu và tân binh, đang đối mặt với nhiệm vụ nguy hiểm: ngăn chặn Suharato Rahmat, một tên buôn vũ khí nguy hiểm, khỏi giao kíp nổ hạt nhân cho Ocelot, một kẻ độc ác đe dọa thế giới. Hành trình từ một nhà máy vũ khí cũ ở Qadhafi đến con thuyền Jantara sẽ hé lộ những bí mật và sự thật đáng kinh ngạc về Ocelot.',
-        'https://www.youtube.com/watch?v=TQpve2zTDSQ');
+        'https://www.youtube.com/embed/TQpve2zTDSQ');
 INSERT INTO phim
 VALUES ('MP02', N'Ác Quỷ Ma Sơ 2', 'Taissa Farmiga, Bonnie Aarons, Storm Reid, Jonas Bloquet, Anna Popplewell', 2023,
         'MP02.jpg', 'Michael Chaves', 'Mỹ', '110 phút',
         'Valak trở lại với "Ác Quỷ Ma Sơ 2". Đây sẽ là phần hậu truyện của Ác Quỷ Ma Sơ và đồng thời là phần phim thứ chín thuộc Vũ trụ The Conjuring. Lấy bối cảnh nước Pháp năm 1956, cùng cái chết bí ẩn của một linh mục, một giai thoại đáng sợ và ám ảnh sẽ mở ra. Phần phim tiếp tục xoay quanh nhân vật chính - Sơ Irene - do Taissa Farmiga thủ vai.',
-        'https://www.youtube.com/watch?v=otM2V_g8Kqo');
+        'https://www.youtube.com/embed/otM2V_g8Kqo');
 INSERT INTO phim
 VALUES ('MP03', N'Người Dơi Bắt Đầu',
         'Christian Bale, Michael Caine, Liam Neeson, Katie Holmes, Cillian Murphy, Ken Wanatabe, Gary Oldman', 2023,
         'MP03.png', 'Christopher Nolan', 'Mỹ', '140 phút',
         'Người Dơi Bắt Đầu là phần đầu tiên trong trilogy thành công bậc nhất hai thập niên đầu thế kỷ 21, xoay quanh câu chuyện về nhân vật siêu anh hùng lẫy lừng vũ trụ DC - Bruce Wayne/ Batman. Phần phim đầu sẽ cùng khán giả lật mở những bí mật trong quá khứ của nhân vật đình đám này: Từ nỗi sợ của Bruce Wayne với loài dơi đến cái chết của cha mẹ anh, hành trình trở thành Batman chống lại những ác nhân hoành hành tại thành phố tội ác Gotham.',
-        'https://www.youtube.com/watch?v=DB18OGB-ABM');
+        'https://www.youtube.com/embed/DB18OGB-ABM');
 INSERT INTO phim
 VALUES ('MP04', N'PAW Patrol: Phim Siêu Đẳng', 'Kim Roberts, Chris Rock, Saint West, Nylan Parthipan, Christian Corrao',
         2023, 'MP04.png', 'Cal Brunker', 'Mỹ', '93 phút',
         'Một mảnh thiên thạch kỳ diệu đã rơi xuống Thành Phố Phiêu Lưu, mang đến siêu năng lực cho những chú cún PAW Patrol và biến chúng thành Những Chú Cún Quyền Năng.',
-        'https://www.youtube.com/watch?v=6rVUn7TKHS4');
+        'https://www.youtube.com/embed/6rVUn7TKHS4');
 INSERT INTO phim
 VALUES ('MP05', N'Giao Lộ 8675', 'Isaac, Rocker Nguyễn, La Thành, Emma Lê, Lợi Trần, Ngọc Hồ', 2023, 'MP05.png',
         'Tân DS', N'Việt Nam', '107 phút',
         'Bộ phim xoay quanh câu chuyện về các bạn trẻ dù xuất hiện tại những bối cảnh khác nhau và đối mặt vấn đề riêng, tất cả cùng có chung một điểm là những người trẻ đang đứng trước những ''ngọn núi" phải chinh phục của chính mình.',
-        'https://www.youtube.com/watch?v=RqFV-tHeNeg');
+        'https://www.youtube.com/embed/RqFV-tHeNeg');
 INSERT INTO phim
 VALUES ('MP06', N'Nhân Duyên Tiền Đình', 'Woo Hyeon, Ko A-sung, Yim Si-wan, Yeom Hye-ran, Jung Woo-Sung', 2023,
         'MP06.jpg', 'Lee Han', N'Hàn Quốc', '118 phút',
         'Chuyện phim xoay quanh nhân vật Chi-ho (Yoo Hae-jin) - nhà nghiên cứu bánh snack với khả năng nếm vị xuất chúng, nhưng lại ngờ nghệch với mọi thứ xung quanh. Chi-ho là một người hướng nội điển hình, thích ở một mình và sống như một cái máy được lập trình sẵn mà không hề mắc lỗi dù chỉ một giây. Trong lúc phải đi trả nợ thay cho người anh trai nghiện cờ bạc (Cha In-pyo), Chi-ho tình cờ gặp gỡ “nhân viên đòi nợ” Il-young - người phụ nữ hướng ngoại, luôn suy nghĩ tích cực về cuộc sống dù đang ở trong hoàn cảnh khó khăn của một bà mẹ đơn thân.',
-        'https://www.youtube.com/watch?v=jsGOuqU6SBQ');
+        'https://www.youtube.com/embed/jsGOuqU6SBQ');
 INSERT INTO phim
 VALUES ('MP07', N'Đất Rừng Phương Nam',
         'Hồng Ánh, Huỳnh Hạo Khang, Mai Tài Phến, Công Ninh, Hứa Vĩ Văn, Tuyền Mập, Tuấn Trần.', 2023, 'MP07.jpg',
         'Nguyễn Quang Dũng', N'Việt Nam', '100 phút',
         'Đất Rừng Phương Nam phiên bản điện ảnh được kế thừa và phát triển từ tiểu thuyết cùng tên của nhà văn Đoàn Giỏi và tác phẩm truyền hình nổi tiếng “Đất Phương Nam” của đạo diễn Nguyễn Vinh Sơn. Bộ phim kể về hành trình phiêu lưu của An - một cậu bé chẳng may mất mẹ trên đường đi tìm cha. Cùng với An, khán giả sẽ trải nghiệm sự trù phú của thiên nhiên và nét đẹp văn hoá đặc sắc của vùng đất Nam Kì Lục Tỉnh, sự hào hiệp của những người nông dân bám đất bám rừng và tinh thần yêu nước kháng Pháp đầu thế kỉ 20. Bên cạnh đó, tình cảm gia đình, tình bạn, tình người, tình thầy trò, tình yêu nước là những cung bậc cảm xúc sâu sắc sẽ đọng lại qua mỗi bước chân của An và đồng bạn.',
-        'https://www.youtube.com/watch?v=yrMDJduy4wI');
+        'https://www.youtube.com/embed/yrMDJduy4wI');
 INSERT INTO phim
 VALUES ('MP08', N'Kẻ Kiến Tạo',
         'John David Washington, Gemma Chan, Ken Watanabe, Sturgill Simpson, Madeleine Yuna Voyles', 2023, 'MP08.jpg',
         'Gareth Edwards', N'Mỹ', '133 phút',
         'Trong tương lai, thế giới xảy ra một cuộc chiến tranh kéo dài giữa loài người và trí tuệ nhân tạo (AI). Joshua (John David Washington) - 1 cựu đặc vụ lì lợm, được thuê để giết “The Creator” - kẻ được xem là đầu não của AI và đã tạo ra 1 loại vũ khí bí ẩn đủ mạnh để kết thúc cuộc chiến và quét sạch nhân loại.',
-        'https://www.youtube.com/watch?v=Aognln5uNwA');
+        'https://www.youtube.com/embed/Aognln5uNwA');
 INSERT INTO phim
 VALUES ('MP09', N'Thảm Họa Mưa Axit', 'Guillaume Canet, Laetitia Dosch, Patience Munchenbach', 2023, 'MP09.jpg',
         'Just Philippot', N'Mỹ', '101 phút',
         'Giữa một đợt nắng nóng bất thường, thì mây mưa giống như làn gió xua tan oi bức. Nhưng những đám mây kỳ lạ trên bầu trời nước Pháp lại đem tới cho con người sự huỷ diệt và chết chóc. Hàng loạt trận mưa axit đổ xuống, đốt cháy mạng sống của vạn vật dưới mặt đất. Trước sự huỷ diệt tàn bạo của thiên nhiên, một cô gái 15 tuổi phải cùng với cha mẹ mình tìm cách chạy trốn khỏi những cơn mưa axit.',
-        'https://www.youtube.com/watch?v=7pFH2HffdKA');
+        'https://www.youtube.com/embed/7pFH2HffdKA');
 INSERT INTO phim
 VALUES ('MP10', N'Án Mạng Ở Venice', 'Kenneth Branagh, Michelle Yeoh, Jamie Dornan, Tina Fey, Jude Hill', 2023,
         'MP10.jpg', 'Kenneth Branagh', N'Mỹ', '103 phút',
         'Dựa trên tiểu thuyết Halloween Party của nhà văn Agatha Christie, hành trình phá án của thám tử Hercule Poirot tiếp tục được đưa lên màn ảnh rộng.',
-        'https://www.youtube.com/watch?v=maw2FnYE_a0');
+        'https://www.youtube.com/embed/maw2FnYE_a0');
 INSERT INTO phim
 VALUES ('MP11', N'Ánh Dương Sau Hoàng Hôn', 'Zee Pruk Panich, NuNew Chawarin Perdpiriyawong', 2023, 'MP11.jpg',
         'Aod Bhandit Thongdee', N'Thái Lan', '105 phút',
         'Nhân duyên trời định giữa 2 con người xa lạ được khởi nguồn từ lời nguyền gia tộc buộc Quý nam Phra Ploeng (Zee Pruk Panich) phải ghép tử vi kịp thời với tri kỷ của mình là Saeng Rawee (NuNew Chawarin Perdpiriyawong) nếu không muốn kiếp nạn đại hung sẽ ứng nghiệm vào năm 25 tuổi.',
-        'https://www.youtube.com/watch?v=pY_DSSkgAK0');
+        'https://www.youtube.com/embed/pY_DSSkgAK0');
 INSERT INTO phim
 VALUES ('MP12', N'Kumanthong: Quỷ Linh Nhi',
         'Thanachat Tullayachat, Savika Chaiyadej, Denkhun Ngamnet, Panisara Rikulsurakan', 2023, 'MP12.png',
         'Thitipan Raksasat', N'Thái Lan', '87 phút',
         'Ging đưa con trai đi nghỉ mát ở căn nhà gỗ nằm giữa rừng cây. Tuy nhiên, cậu bé đã bị bắt cóc vào lúc nửa đêm. Sau bao nỗ lực tìm kiếm, manh mối duy nhất của vụ án đều hướng về người đàn ông tên In, làm nghề mai táng ở đền thờ. Quá tuyệt vọng, Ging đành nhờ cậy thầy đồng địa phương thực hiện nghi lễ hiến tế giữa rừng để tìm tung tích con trai. Những bí ẩn trong ngôi nhà ven rừng dần lộ ra, những cơn ác mộng máu me và hàng loạt cái chết đột ngột ập tới, liệu Ging có đang vướng vào một âm mưu tà ám. Và rằng con trai cô có thật sự đang mất tích?',
-        'https://www.youtube.com/watch?v=XC3ftnZ1WYk');
+        'https://www.youtube.com/embed/XC3ftnZ1WYk');
 INSERT INTO phim
 VALUES ('MP13', N'Live - Phát Trực Tiếp', 'Quốc Khánh, Ngọc Phước, Ngân 98', 2023, 'MP13.png', 'Khương Ngọc',
         N'Việt Nam', '91 phút',
         '“Live - #PhátTrựcTiếp” lựa chọn hai câu chuyện: MUKBANG và REVIEW để lột tả một cách rõ nét được hiện thực của cuộc sống, sự trần trụi của xã hội hiện đại, công nghệ 4.0 đã khiến con người làm đủ mọi cách để nổi tiếng, kể cả hành hạ bản thân mình nhằm nhận được sự tung hô, hào nhoáng bằng những lời khen tặng với dòng text vô thưởng, vô phạt, kiếm tiền bằng “tặng hoa”.',
-        'https://www.youtube.com/watch?v=3r_MJiI9Hr8');
+        'https://www.youtube.com/embed/3r_MJiI9Hr8');
 INSERT INTO phim
 VALUES ('MP14', N'Mộng Du', 'Lee Sun Kyun, Jung Yu Mi, Kim Gook Hee', 2023, 'MP14.png', 'Jason Yu', N'Hàn Quốc',
         '94 phút',
         'Được Bong Joon Ho nhận xét là “phim kinh dị độc đáo nhất của thập kỷ", ngôi vương phòng vé Hàn Quốc - MỘNG DU xoay quanh chuỗi sự kiện ma quái quấy rối giấc ngủ của một cặp vợ chồng trẻ. “Nó" sẽ thức tỉnh lúc nửa đêm.',
-        'https://www.youtube.com/watch?v=WvffHiNHS8Q');
+        'https://www.youtube.com/embed/WvffHiNHS8Q');
 INSERT INTO phim
 VALUES ('MP15', N'Leo Da Vinci: Truy Tìm Kho Báu', 'Johnny Yong Bosch, Cherami Leigh, Bryce Papenbrook', 2023,
         'MP15.jpg', 'Sergio Manfio', N'Ý-Ba Lan', '85 phút',
         'Cuộc sống trôi qua một cách yên bình ở Vinci: Leonardo đang vật lộn với những phát minh đáng kinh ngạc của mình, Lorenzo giúp đỡ anh ấy và Gioconda quan sát chúng một cách chế giễu. Trở về sau chuyến đi đến hồ, những người bạn của chúng tôi gặp phải một bất ngờ không mong muốn: ngôi nhà và cánh đồng của Gioconda đã bốc cháy một cách bí ẩn. Gioconda phải được giúp đỡ! Giải pháp dường như đã sẵn sàng khi có sự xuất hiện của một người kể chuyện kỳ ​​lạ nói về một kho báu ẩn giấu. Và thế là bắt đầu một cuộc phiêu lưu tuyệt vời!',
-        'https://www.youtube.com/watch?v=7MpYLU3f0OU');
+        'https://www.youtube.com/embed/7MpYLU3f0OU');
 
 -- chi tiết phim
 INSERT INTO chi_tiet_phim
