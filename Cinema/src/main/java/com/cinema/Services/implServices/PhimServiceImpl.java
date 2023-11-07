@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class PhimServiceImpl implements PhimService {
@@ -19,8 +20,11 @@ public class PhimServiceImpl implements PhimService {
     }
 
     @Override
-    public Phim findById(String maPhim) {
-        return phimReponsitory.findById(maPhim).get();
+    public List<Phim> findPhimByTrangThai(String trangThai) {
+        return phimReponsitory.findPhimByTrangThai(trangThai);
     }
-
+    @Override
+    public Optional<Phim> findById(String maPhim) {
+        return phimReponsitory.findById(maPhim);
+    }
 }

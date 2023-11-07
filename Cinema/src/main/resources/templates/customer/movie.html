@@ -29,10 +29,8 @@
           integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <!-- CSS font-awesome  -->
     <link rel="stylesheet" href="/css/font-awesome-4.7.0/css/font-awesome.min.css"/>
-    <title> Dynacmic Cinema</title>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <title>Mua vé xem phim</title>
     <script src="../js/loadMovieByStatus.js"></script>
-    <script src="../js/chiTietPhim.js"></script>
 </head>
 
 <body>
@@ -48,14 +46,17 @@
             <!-- Example single danger button -->
             <div class="btn-group font__source">
                 <button type="button" class="btn dropdown-toggle" data-bs-toggle="dropdown"
-                        aria-expanded="false">Tỉnh/Thành Phố
+                        aria-expanded="false">DEC Quang
+                    Trung
                 </button>
                 <ul class="dropdown-menu">
-                    <li><a class="dropdown-item" href="#">DEC TP.HCM</a></li>
-                    <li><a class="dropdown-item" href="#">DEC HÀ NỘI</a></li>
-                    <li><a class="dropdown-item" href="#">DEC ĐÀ NẴNG</a></li>
-                    <li><a class="dropdown-item" href="#">DEC BẮC GIANG</a></li>
-                    <li><a class="dropdown-item" href="#">DEC KHÁNH HÒA</a></li>
+                    <li><a class="dropdown-item" href="#">Action</a></li>
+                    <li><a class="dropdown-item" href="#">Another action</a></li>
+                    <li><a class="dropdown-item" href="#">Something else here</a></li>
+                    <li>
+                        <hr class="dropdown-divider"/>
+                    </li>
+                    <li><a class="dropdown-item" href="#">Separated link</a></li>
                 </ul>
             </div>
         </div>
@@ -214,8 +215,7 @@
                     <a style="text-decoration: none" href="http://localhost:8085/DynamicCinema/index">
                         <button class="nav-link btn__nvgt active" id="pills-buyVe-tab" data-bs-toggle="pill"
                                 data-bs-target="#pills-buyVe" type="button" role="tab" aria-controls="pills-home"
-                                aria-selected="true">
-                            LỊCH CHIẾU THEO RẠP
+                                aria-selected="true">Lịch Chiếu Theo Rạp
                         </button>
                     </a>
                 </li>
@@ -224,8 +224,7 @@
                        href="http://localhost:8085/DynamicCinema/movies">
                         <button class="nav-link btn__nvgt" id="pills-movie-tab" data-bs-toggle="pill"
                                 data-bs-target="#pills-movie" type="button" role="tab" aria-controls="pills-profile"
-                                aria-selected="false">
-                            Phim
+                                aria-selected="false">Phim
                         </button>
                     </a>
                 </li>
@@ -242,14 +241,11 @@
                     </button>
                 </li>
                 <li class="nav-item ms-3 font__oswald " role="presentation">
-                    <a style="text-decoration: none;list-style-type: none;color: black"
-                       href="http://localhost:8085/DynamicCinema/priceTicket">
-                        <button class="nav-link btn__nvgt" id="pills-rap-tab" data-bs-toggle="pill"
-                                data-bs-target="#pills-rap" type="button" role="tab" aria-controls="pills-hiubeba"
-                                aria-selected="false">
-                            RẠP/GIÁ VÉ
-                        </button>
-                    </a>
+                    <button class="nav-link btn__nvgt" id="pills-rap-tab" data-bs-toggle="pill"
+                            data-bs-target="#pills-rap" type="button" role="tab" aria-controls="pills-hiubeba"
+                            aria-selected="false">
+                        RẠP/GIÁ VÉ
+                    </button>
                 </li>
                 <li class="nav-item ms-3 font__oswald " role="presentation">
                     <button class="nav-link btn__nvgt" id="pills-support-tab" data-bs-toggle="pill"
@@ -270,141 +266,107 @@
 <!-- Card item movie  -->
 <div class="tab-content" id="pills-tabContent">
     <!-- Lịch Chiếu Theo Rạp  -->
-    <div class="tab-pane fade show active" id="pills-buyVe" role="tabpanel" aria-labelledby="pills-buyVe-tab">
-        <!-- SLIDE BAR  -->
-        <div class="card-body" style="padding: 0;">
-            <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
-                <div class="carousel-indicators">
-                    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0"
-                            class="active" aria-current="true" aria-label="Slide 1"></button>
-                    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1"
-                            aria-label="Slide 2"></button>
-                    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2"
-                            aria-label="Slide 3"></button>
-                </div>
-                <div class="carousel-inner">
-                    <div class="carousel-item active" data-bs-interval="2000">
-                        <img src="../img/slide/1.jpg" class="d-block w-100" alt="...">
+    <div class="container">
+        <ul class="nav nav-tabs d-flex justify-content-center font__oswald" id="myTab" role="tablist"
+            style="margin: 12px 0; font-size: 18px; border-bottom: 2px solid #0000003b; border-bottom: 0px solid white;">
+            <li class="nav-item" role="presentation">
+                <a style="text-decoration: none;list-style-type: none" href="#dangchieu">
+                    <button class="nav-link btn__navMovie active" id="dangchieu-tab" data-bs-toggle="tab"
+                            data-bs-target="#dangchieu" type="button" role="tab" aria-controls="dangchieu"
+                            aria-selected="true" style="color: black;">PHIM ĐANG CHIẾU
+                    </button>
+                </a>
+            </li>
+            <li class="nav-item" role="presentation">
+                <a style="text-decoration: none;list-style-type: none" href="#sapchieu">
+                    <button class="nav-link btn__navMovie" id="sapchieu-tab" data-bs-toggle="tab"
+                            data-bs-target="#sapchieu" type="button" role="tab" aria-controls="sapchieu"
+                            aria-selected="false" style="color: black;">PHIM SẮP CHIẾU
+                    </button>
+                </a>
+            </li>
+            <li class="nav-item" role="presentation">
+                <a style="text-decoration: none;list-style-type: none" href="#suatchieudacbiet">
+                    <button class="nav-link btn__navMovie" id="suatchieudacbiet-tab" data-bs-toggle="tab"
+                            data-bs-target="#suatchieudacbiet" type="button" role="tab"
+                            aria-controls="suatchieudacbiet"
+                            aria-selected="false" style="color: black;">SUẤT CHIẾU
+                        ĐẶC BIỆT
+                    </button>
+                </a>
+            </li>
+        </ul>
+        <div class="tab-content" id="myTabContent">
+            <div class="container mt-3" id="phimContainer">
+                <div class="row" id="phimList">
+                    <!-- PHIM ĐANG CHIẾU  -->
+                    <div class="tab-pane fade show active" id="dangchieu" role="tabpanel"
+                         aria-labelledby="dangchieu-tab">
                     </div>
-                    <div class="carousel-item" data-bs-interval="2000">
-                        <img src="../img/slide/2.jpg" class="d-block w-100" alt="...">
-                    </div>
-                    <div class="carousel-item">
-                        <img src="../img/slide/3.jpg" class="d-block w-100" alt="...">
-                    </div>
-                </div>
-                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions"
-                        data-bs-slide="prev">
-                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                    <span class="visually-hidden">Previous</span>
-                </button>
-                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions"
-                        data-bs-slide="next">
-                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                    <span class="visually-hidden">Next</span>
-                </button>
-            </div>
-        </div>
-        <!-- SLIDE BAR  -->
-        <div class="container">
-            <ul class="nav nav-tabs d-flex justify-content-center font__oswald" id="myTab" role="tablist"
-                style="margin: 12px 0; font-size: 18px; border-bottom: 2px solid #0000003b; border-bottom: 0px solid white;">
-                <li class="nav-item" role="presentation">
-                    <a style="text-decoration: none;list-style-type: none" href="#dangchieu">
-                        <button class="nav-link btn__navMovie active" id="dangchieu-tab" data-bs-toggle="tab"
-                                data-bs-target="#dangchieu" type="button" role="tab" aria-controls="dangchieu"
-                                aria-selected="true" style="color: black;">PHIM ĐANG CHIẾU
-                        </button>
-                    </a>
-                </li>
-                <li class="nav-item" role="presentation">
-                    <a style="text-decoration: none;list-style-type: none" href="#sapchieu">
-                        <button class="nav-link btn__navMovie" id="sapchieu-tab" data-bs-toggle="tab"
-                                data-bs-target="#sapchieu" type="button" role="tab" aria-controls="sapchieu"
-                                aria-selected="false" style="color: black;">PHIM SẮP CHIẾU
-                        </button>
-                    </a>
-                </li>
-                <li class="nav-item" role="presentation">
-                    <a style="text-decoration: none;list-style-type: none" href="#suatchieudacbiet">
-                        <button class="nav-link btn__navMovie" id="suatchieudacbiet-tab" data-bs-toggle="tab"
-                                data-bs-target="#suatchieudacbiet" type="button" role="tab"
-                                aria-controls="suatchieudacbiet"
-                                aria-selected="false" style="color: black;">SUẤT CHIẾU
-                            ĐẶC BIỆT
-                        </button>
-                    </a>
-                </li>
-            </ul>
-            <div class="tab-content" id="myTabContent">
-                <div class="container mt-3" id="phimContainer">
-                    <div class="row" id="phimList">
-                        <!-- PHIM ĐANG CHIẾU  -->
-                        <div class="tab-pane fade show active" id="dangchieu" role="tabpanel"
-                             aria-labelledby="dangchieu-tab">
-                        </div>
-                        <!-- PHIM SẮP CHIẾU  -->
-                        <div class="tab-pane fade" id="sapchieu" role="tabpanel" aria-labelledby="sapchieu-tab">
-                            <div class="container mt-3">
-                                <div class="row">
-                                </div>
+                    <!-- PHIM SẮP CHIẾU  -->
+                    <div class="tab-pane fade" id="sapchieu" role="tabpanel" aria-labelledby="sapchieu-tab">
+                        <div class="container mt-3">
+                            <div class="row">
                             </div>
                         </div>
-                        <!-- Suất Chiếu Đặc Biệt  -->
-                        <div class="tab-pane fade" id="suatchieudacbiet" role="tabpanel"
-                             aria-labelledby="suatchieudacbiet-tab">
-                            <div class="container mt-3">
-                                <div class="row">
-                                </div>
+                    </div>
+                    <!-- Suất Chiếu Đặc Biệt  -->
+                    <div class="tab-pane fade" id="suatchieudacbiet" role="tabpanel"
+                         aria-labelledby="suatchieudacbiet-tab">
+                        <div class="container mt-3">
+                            <div class="row">
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-            <!-- ITEAM MOVIE  -->
+
         </div>
+        <!-- ITEAM MOVIE  -->
     </div>
-    <!-- LỊCH CHIẾU THEO RẠP END  -->
+
+</div>
+<!-- LỊCH CHIẾU THEO RẠP END  -->
 
 
-    <div class="tab-pane fade" id="pills-movie" role="tabpanel" aria-labelledby="pills-movie-tab">
-        <div class="container mt-3">
-            <div class="row">
-                <!--
-                        <div class="col-lg-3 col-md-6 col-12 item__movie mb-5">
-                        <div class="d-flex justify-content-center">
-                        <img class="mt-2" src="../img/phim/cuMayAnTien.png" alt="" width="227px" height="360px">
-                    </div>
-                    <div class="information mt-3">
-                        <h3 class="font__oswald ms-5" style="color: #337AB7;">Cú Máy
-                            Ăn Tiền</h3>
-                        <p class="font__source ms-5">
-                            Thể loại: Tâm lý, hài hước <br> Thời lượng: 132 phút <br>
-                            Ngày khởi chiếu: 13/10/2023
-                        </p>
-                    </div>
-                    </div>
-                    -->
-            </div>
-            <!-- ITEAM MOVIE  -->
+<div class="tab-pane fade" id="pills-movie" role="tabpanel" aria-labelledby="pills-movie-tab">
+    <div class="container mt-3">
+        <div class="row">
+            <!--
+                    <div class="col-lg-3 col-md-6 col-12 item__movie mb-5">
+                    <div class="d-flex justify-content-center">
+                    <img class="mt-2" src="../img/phim/cuMayAnTien.png" alt="" width="227px" height="360px">
+                </div>
+                <div class="information mt-3">
+                    <h3 class="font__oswald ms-5" style="color: #337AB7;">Cú Máy
+                        Ăn Tiền</h3>
+                    <p class="font__source ms-5">
+                        Thể loại: Tâm lý, hài hước <br> Thời lượng: 132 phút <br>
+                        Ngày khởi chiếu: 13/10/2023
+                    </p>
+                </div>
+                </div>
+                -->
         </div>
+        <!-- ITEAM MOVIE  -->
+    </div>
 
-    </div>
-    <div class="tab-pane fade" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab">
-        <h2>Góc Điện Ảnh</h2>
-    </div>
-    <div class="tab-pane fade" id="pills-suKien" role="tabpanel" aria-labelledby="pills-suKien-tab">
-        <h2>Sự Kiện</h2>
-    </div>
-    <div class="tab-pane fade" id="pills-rap" role="tabpanel" aria-labelledby="pills-rap-tab">
-        <h2>Rạp/Giá Vé</h2>
-    </div>
-    <div class="tab-pane fade" id="pills-support" role="tabpanel" aria-labelledby="pills-support-tab">
-        <h2>Hỗ Trợ</h2>
-    </div>
-    <div class="tab-pane fade" id="pills-thanhvien" role="tabpanel" aria-labelledby="pills-thanhvien-tab">
-        <h2>Thành Viên</h2>
-    </div>
+</div>
+<div class="tab-pane fade" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab">
+    <h2>Góc Điện Ảnh</h2>
+</div>
+<div class="tab-pane fade" id="pills-suKien" role="tabpanel" aria-labelledby="pills-suKien-tab">
+    <h2>Sự Kiện</h2>
+</div>
+<div class="tab-pane fade" id="pills-rap" role="tabpanel" aria-labelledby="pills-rap-tab">
+    <h2>Rạp/Giá Vé</h2>
+</div>
+<div class="tab-pane fade" id="pills-support" role="tabpanel" aria-labelledby="pills-support-tab">
+    <h2>Hỗ Trợ</h2>
+</div>
+<div class="tab-pane fade" id="pills-thanhvien" role="tabpanel" aria-labelledby="pills-thanhvien-tab">
+    <h2>Thành Viên</h2>
+</div>
 </div>
 <!-- Footer  -->
 <!-- Footer  -->

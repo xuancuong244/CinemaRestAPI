@@ -29,10 +29,9 @@
           integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <!-- CSS font-awesome  -->
     <link rel="stylesheet" href="/css/font-awesome-4.7.0/css/font-awesome.min.css"/>
-    <title> Dynacmic Cinema</title>
+    <title>Mua vé xem phim</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script src="../js/loadMovieByStatus.js"></script>
-    <script src="../js/chiTietPhim.js"></script>
 </head>
 
 <body>
@@ -242,14 +241,11 @@
                     </button>
                 </li>
                 <li class="nav-item ms-3 font__oswald " role="presentation">
-                    <a style="text-decoration: none;list-style-type: none;color: black"
-                       href="http://localhost:8085/DynamicCinema/priceTicket">
-                        <button class="nav-link btn__nvgt" id="pills-rap-tab" data-bs-toggle="pill"
-                                data-bs-target="#pills-rap" type="button" role="tab" aria-controls="pills-hiubeba"
-                                aria-selected="false">
-                            RẠP/GIÁ VÉ
-                        </button>
-                    </a>
+                    <button class="nav-link btn__nvgt" id="pills-rap-tab" data-bs-toggle="pill"
+                            data-bs-target="#pills-rap" type="button" role="tab" aria-controls="pills-hiubeba"
+                            aria-selected="false">
+                        RẠP/GIÁ VÉ
+                    </button>
                 </li>
                 <li class="nav-item ms-3 font__oswald " role="presentation">
                     <button class="nav-link btn__nvgt" id="pills-support-tab" data-bs-toggle="pill"
@@ -306,90 +302,12 @@
             </div>
         </div>
         <!-- SLIDE BAR  -->
-        <div class="container">
-            <ul class="nav nav-tabs d-flex justify-content-center font__oswald" id="myTab" role="tablist"
-                style="margin: 12px 0; font-size: 18px; border-bottom: 2px solid #0000003b; border-bottom: 0px solid white;">
-                <li class="nav-item" role="presentation">
-                    <a style="text-decoration: none;list-style-type: none" href="#dangchieu">
-                        <button class="nav-link btn__navMovie active" id="dangchieu-tab" data-bs-toggle="tab"
-                                data-bs-target="#dangchieu" type="button" role="tab" aria-controls="dangchieu"
-                                aria-selected="true" style="color: black;">PHIM ĐANG CHIẾU
-                        </button>
-                    </a>
-                </li>
-                <li class="nav-item" role="presentation">
-                    <a style="text-decoration: none;list-style-type: none" href="#sapchieu">
-                        <button class="nav-link btn__navMovie" id="sapchieu-tab" data-bs-toggle="tab"
-                                data-bs-target="#sapchieu" type="button" role="tab" aria-controls="sapchieu"
-                                aria-selected="false" style="color: black;">PHIM SẮP CHIẾU
-                        </button>
-                    </a>
-                </li>
-                <li class="nav-item" role="presentation">
-                    <a style="text-decoration: none;list-style-type: none" href="#suatchieudacbiet">
-                        <button class="nav-link btn__navMovie" id="suatchieudacbiet-tab" data-bs-toggle="tab"
-                                data-bs-target="#suatchieudacbiet" type="button" role="tab"
-                                aria-controls="suatchieudacbiet"
-                                aria-selected="false" style="color: black;">SUẤT CHIẾU
-                            ĐẶC BIỆT
-                        </button>
-                    </a>
-                </li>
-            </ul>
-            <div class="tab-content" id="myTabContent">
-                <div class="container mt-3" id="phimContainer">
-                    <div class="row" id="phimList">
-                        <!-- PHIM ĐANG CHIẾU  -->
-                        <div class="tab-pane fade show active" id="dangchieu" role="tabpanel"
-                             aria-labelledby="dangchieu-tab">
-                        </div>
-                        <!-- PHIM SẮP CHIẾU  -->
-                        <div class="tab-pane fade" id="sapchieu" role="tabpanel" aria-labelledby="sapchieu-tab">
-                            <div class="container mt-3">
-                                <div class="row">
-                                </div>
-                            </div>
-                        </div>
-                        <!-- Suất Chiếu Đặc Biệt  -->
-                        <div class="tab-pane fade" id="suatchieudacbiet" role="tabpanel"
-                             aria-labelledby="suatchieudacbiet-tab">
-                            <div class="container mt-3">
-                                <div class="row">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- ITEAM MOVIE  -->
-        </div>
     </div>
-    <!-- LỊCH CHIẾU THEO RẠP END  -->
-
-
-    <div class="tab-pane fade" id="pills-movie" role="tabpanel" aria-labelledby="pills-movie-tab">
-        <div class="container mt-3">
-            <div class="row">
-                <!--
-                        <div class="col-lg-3 col-md-6 col-12 item__movie mb-5">
-                        <div class="d-flex justify-content-center">
-                        <img class="mt-2" src="../img/phim/cuMayAnTien.png" alt="" width="227px" height="360px">
-                    </div>
-                    <div class="information mt-3">
-                        <h3 class="font__oswald ms-5" style="color: #337AB7;">Cú Máy
-                            Ăn Tiền</h3>
-                        <p class="font__source ms-5">
-                            Thể loại: Tâm lý, hài hước <br> Thời lượng: 132 phút <br>
-                            Ngày khởi chiếu: 13/10/2023
-                        </p>
-                    </div>
-                    </div>
-                    -->
-            </div>
-            <!-- ITEAM MOVIE  -->
-        </div>
-
+    <div style="margin-left: 280px;">
+        <img src="../img/gia_ve.jpg">
     </div>
+</div>
+<div>
     <div class="tab-pane fade" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab">
         <h2>Góc Điện Ảnh</h2>
     </div>
@@ -406,7 +324,6 @@
         <h2>Thành Viên</h2>
     </div>
 </div>
-<!-- Footer  -->
 <!-- Footer  -->
 <footer class="">
     <div class="container footer">

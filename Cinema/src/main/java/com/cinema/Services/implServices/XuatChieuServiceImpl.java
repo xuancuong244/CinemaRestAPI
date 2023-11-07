@@ -6,6 +6,7 @@ import com.cinema.Services.XuatChieuService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Date;
 import java.util.List;
 
 @Service
@@ -17,4 +18,10 @@ public class XuatChieuServiceImpl implements XuatChieuService {
     public List<XuatChieu> findAll() {
         return xuatChieuReponsitory.findAll();
     }
+
+
+//    @Override
+//    public List<XuatChieu> findXuatChieuByNgayChieu(Date ngayChieu) {
+//        return xuatChieuReponsitory.findXuatChieuByNgayChieu(ngayChieu);
+//    }
 }

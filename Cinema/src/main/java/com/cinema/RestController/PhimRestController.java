@@ -7,6 +7,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @CrossOrigin("*")
 @RestController
@@ -22,8 +23,19 @@ public class PhimRestController {
     }
 
     @GetMapping("/{maPhim}")
-    public ResponseEntity<?> getByMaPhim(@PathVariable("maPhim") String maPhim){
-        Phim phim = phimService.findById(maPhim);
-        return ResponseEntity.ok(phim);
+    public ResponseEntity<?> getByMaPhim(@PathVariable String maPhim){
+        Optional<Phim> phim = phimService.findById(maPhim);
+        if (phim.isPresent()){
+            return ResponseEntity.ok(phim.get());
+        }else{
+            return ResponseEntity.notFound().build();
+        }
     }
+
+    @GetMapping("/trangThai/{trangThai}")
+    public ResponseEntity<?> getByTrangThaiPhim(@PathVariable("trangThai") String trangThai){
+        List<Phim> phims = phimService.findPhimByTrangThai(trangThai);
+        return ResponseEntity.ok(phims);
+    }
+
 }

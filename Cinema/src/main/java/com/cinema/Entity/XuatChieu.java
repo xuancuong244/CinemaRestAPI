@@ -26,12 +26,13 @@ public class XuatChieu {
     private Integer stt;
     @Column(name = "Gia_Xuat_Chieu")
     private Float giaXuatChieu;
-    @Column(name = "Ngay")
-    private int ngay;
     @ManyToOne
     @JoinColumn(name = "Ma_Phong")
     private PhongChieu phongChieu;
     @ManyToOne
     @JoinColumn(name = "Ma_Phim")
     private Phim phim;
+    @ManyToOne
+    @JoinColumn(name = "Ma_Ngay_Chieu")
+    private NgayChieu ngayChieu;
 }

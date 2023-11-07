@@ -4,10 +4,7 @@ import com.cinema.Entity.NgayChieu;
 import com.cinema.Services.NgayChieuService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -22,6 +19,12 @@ public class NgayChieuRestController {
     @GetMapping("/all")
     public ResponseEntity<?> doGetAll(){
         List<NgayChieu> ngayChieus = ngayChieuService.findAll();
+        return ResponseEntity.ok(ngayChieus);
+    }
+
+    @GetMapping("/maPhim")
+    public ResponseEntity<?> getNgayChieuByMaPhim(@RequestParam("maPhim") String maPhim){
+        List<NgayChieu> ngayChieus = ngayChieuService.findByPhim_MaPhim(maPhim);
         return ResponseEntity.ok(ngayChieus);
     }
 }

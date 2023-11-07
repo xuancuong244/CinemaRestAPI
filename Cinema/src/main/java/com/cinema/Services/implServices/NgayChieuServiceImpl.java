@@ -17,4 +17,8 @@ public class NgayChieuServiceImpl implements NgayChieuService {
     public List<NgayChieu> findAll() {
         return ngayChieuReponsitory.findAll();
     }
+    @Override
+    public List<NgayChieu> findByPhim_MaPhim(String maPhim) {
+        return ngayChieuReponsitory.findByPhim_MaPhim(maPhim);
+    }
 }
