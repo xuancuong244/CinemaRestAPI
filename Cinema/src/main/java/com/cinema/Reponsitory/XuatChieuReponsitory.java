@@ -11,6 +11,6 @@ import java.util.List;
 
 @Repository
 public interface XuatChieuReponsitory extends JpaRepository<XuatChieu, Integer> {
-
-//    List<XuatChieu> findXuatChieuByNgayChieu(Date ngayChieu);
+    @Query("SELECT xc FROM XuatChieu xc WHERE xc.phim.maPhim = :maPhim")
+    List<XuatChieu> findByMaPhim(String maPhim);
 }

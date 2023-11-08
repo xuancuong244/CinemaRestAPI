@@ -51,122 +51,38 @@ document.addEventListener('DOMContentLoaded', function () {
             .then(data => {
                 const chiTietPhim = document.getElementById('chiTietPhim');
                 chiTietPhim.innerHTML = createMovieDetailHTML(data);
+                getLichXuatChieuForPhim(maPhim);
             })
             .catch(error => {
                 console.error('Lỗi:', error);
             });
-        loadNgayChieuByMaPhim(maPhim);
     }
 
-    function loadNgayChieuByMaPhim(maPhim) {
-        fetch(`http://localhost:8085/api/NgayChieu/maPhim?maPhim=${maPhim}`)
+    function getLichXuatChieuForPhim(maPhim) {
+        fetch(`http://localhost:8085/api/XuatChieu/maPhim?maPhim=${maPhim}`)
             .then(response => response.json())
             .then(data => {
-                const ngayTab = document.getElementById('ngay-tab');
+                const xuatChieuList = document.getElementById("xuatChieuList");
+                xuatChieuList.innerHTML = ""; // Xóa nội dung cũ trước khi thêm dữ liệu mới
 
-                // Xóa tất cả các nút cũ
-                while (ngayTab.firstChild) {
-                    ngayTab.removeChild(ngayTab.firstChild);
-                }
+                data.forEach(xuatChieu => {
+                    const button = document.createElement("button");
+                    button.className = "btn btn__time";
+                    button.textContent = xuatChieu.gio_bat_dau;
+                    const redirectUrl = button.getAttribute("data-redirect-url");
 
-                // Tạo nút cho mỗi ngày chiếu và gán nội dung
-                if (Array.isArray(data)) {
-                    data.forEach(ngayChieu => {
-                        const button = document.createElement('button');
-                        button.className = 'nav-link btn__date';
-                        button.dataset.bsToggle = 'tab';
-                        button.dataset.bsTarget = '#ngay';
-                        button.type = 'button';
-                        button.role = 'tab';
-                        button.ariaControls = 'ngay';
-                        button.ariaSelected = 'true';
-                        button.style.color = 'black';
-
-                        const span = document.createElement('span');
-                        span.className = 'date__ngay';
-                        span.textContent = ngayChieu.ngay;
-
-                        button.appendChild(span);
-                        ngayTab.appendChild(button);
-
-                        // Xử lý sự kiện khi người dùng nhấn vào nút ngày chiếu
-                        button.addEventListener('click', () => {
-                            // Gọi một hàm để load thông tin xuất chiếu cho ngày chiếu tương ứng
-                            // loadXuatChieuByNgayChieu(ngayChieu.ngay);
-                        });
+                    // Gắn sự kiện click vào button để xử lý logic khi người dùng chọn xuất chiếu
+                    button.addEventListener("click", () => {
+                        window.location.href = redirectUrl;
                     });
-                } else {
-                    const span = document.createElement('span');
-                    span.textContent = 'Không có thông tin ngày chiếu';
-                    ngayTab.appendChild(span);
-                }
+
+                    xuatChieuList.appendChild(button);
+                });
             })
             .catch(error => {
-                console.error('Lỗi:', error);
+                console.error("Lỗi:", error);
             });
     }
-
-    // function loadXuatChieuByNgayChieu(ngayChieu) {
-    //     // Đây bạn cần thực hiện yêu cầu fetch để lấy thông tin xuất chiếu cho ngày chiếu cụ thể
-    //     fetch(`http://localhost:8085/api/XuatChieu/ngayChieu?ngayChieu=${ngayChieu}`)
-    //         .then(response => response.json())
-    //         .then(data => {
-    //             const xuatChieuList = document.getElementById('xuatChieuList');
-    //
-    //             // Xóa tất cả các thông tin xuất chiếu cũ
-    //             while (xuatChieuList.firstChild) {
-    //                 xuatChieuList.removeChild(xuatChieuList.firstChild);
-    //             }
-    //
-    //             // Tạo các thông tin xuất chiếu mới dựa trên dữ liệu nhận được
-    //             if (Array.isArray(data)) {
-    //                 data.forEach(xuatChieu => {
-    //                     const button = document.createElement('button');
-    //                     button.type = 'button';
-    //                     button.className = 'btn btn__time';
-    //                     button.dataset.bsToggle = 'modal';
-    //                     button.dataset.bsTarget = '#staticBackdrop';
-    //                     button.textContent = xuatChieu.gioChieu;
-    //
-    //                     const link = document.createElement('a');
-    //                     link.href = `http://localhost:8085/DynamicCinema/select`;
-    //                     link.style.listStyleType = 'none';
-    //                     link.style.textDecoration = 'none';
-    //                     link.style.color = 'black';
-    //
-    //                     link.appendChild(button);
-    //                     xuatChieuList.appendChild(link);
-    //                 });
-    //             } else {
-    //                 const span = document.createElement('span');
-    //                 span.textContent = 'Không có thông tin xuất chiếu cho ngày này';
-    //                 xuatChieuList.appendChild(span);
-    //             }
-    //         })
-    //         .catch(error => {
-    //             console.error('Lỗi:', error);
-    //         });
-    // }
-
-    // function loadNgayChieuByMaPhim(maPhim) {
-    //     fetch(`http://localhost:8085/api/NgayChieu/maPhim?maPhim=${maPhim}`)
-    //         .then(response => response.json())
-    //         .then(data => {
-    //             const ngayTab = document.getElementById('ngay-tab');
-    //             const ngaySpan = ngayTab.querySelector('.date__ngay');
-    //             // Đặt nội dung của thẻ span thành danh sách ngày chiếu
-    //             if (Array.isArray(data)) {
-    //                 const ngayChieuList = data.map(ngayChieu => new Date(ngayChieu.ngay));
-    //                 const formattedDates = ngayChieuList.map(date => date.toLocaleDateString());
-    //             } else {
-    //                 ngaySpan.textContent = 'Không có thông tin ngày chiếu';
-    //             }
-    //         })
-    //         .catch(error => {
-    //             console.error('Lỗi:', error);
-    //         });
-    // }
-
 
 
 });

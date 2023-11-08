@@ -24,11 +24,9 @@ public class XuatChieuRestController {
         return  ResponseEntity.ok(xuatChieus);
     }
 
-//    @GetMapping("/ngayChieu")
-//    public ResponseEntity<?> getXuatChieuByNgayChieu(@RequestParam(name = "ngayChieu") String ngayChieuString) throws ParseException {
-//        SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy");
-//        Date ngayChieu = sdf.parse(ngayChieuString);
-//        List<XuatChieu> xuatChieus = xuatChieuService.findXuatChieuByNgayChieu(ngayChieu);
-//        return ResponseEntity.ok(xuatChieus);
-//    }
+    @GetMapping("/maPhim")
+    public ResponseEntity<?> getXuatChieuByMaPhim(@RequestParam("maPhim") String maPhim){
+        List<XuatChieu> xuatChieus = xuatChieuService.findByMaPhim(maPhim);
+        return ResponseEntity.ok(xuatChieus);
+    }
 }

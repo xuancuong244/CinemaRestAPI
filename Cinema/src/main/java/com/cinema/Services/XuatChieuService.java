@@ -7,5 +7,6 @@ import java.util.List;
 
 public interface XuatChieuService {
     List<XuatChieu> findAll();
-//    List<XuatChieu> findXuatChieuByNgayChieu(Date ngayChieu);
+
+    List<XuatChieu> findByMaPhim(String maPhim);
 }

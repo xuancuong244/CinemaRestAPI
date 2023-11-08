@@ -19,9 +19,10 @@ public class XuatChieuServiceImpl implements XuatChieuService {
         return xuatChieuReponsitory.findAll();
     }
 
+    @Override
+    public List<XuatChieu> findByMaPhim(String maPhim) {
+        return xuatChieuReponsitory.findByMaPhim(maPhim);
+    }
 
-//    @Override
-//    public List<XuatChieu> findXuatChieuByNgayChieu(Date ngayChieu) {
-//        return xuatChieuReponsitory.findXuatChieuByNgayChieu(ngayChieu);
-//    }
+
 }
