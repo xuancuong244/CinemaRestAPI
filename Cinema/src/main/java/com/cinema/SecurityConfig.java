@@ -21,35 +21,35 @@ import org.springframework.security.web.SecurityFilterChain;
 @EnableMethodSecurity
 @RequiredArgsConstructor
 public class SecurityConfig {
-    private final TaiKhoanRepository taiKhoanRepository;
-
-    @Bean
-    public UserDetailsService userDetailsService() {
-        return new UserInfoService(taiKhoanRepository);
-    }
-
-    @Bean
-    public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
-        return http.csrf().disable()
-                .authorizeHttpRequests()
-                .requestMatchers("/hello", "/user/new").permitAll()
-                .and()
-                .authorizeHttpRequests()
-                .requestMatchers("/customer/**").authenticated()
-                .and().formLogin()
-                .and().build();
-    }
-
-    @Bean
-    public PasswordEncoder passwordEncoder() {
-        return new BCryptPasswordEncoder();
-    }
-
-    @Bean
-    public AuthenticationProvider authenticationProvider(){
-        DaoAuthenticationProvider authenticationProvider=new DaoAuthenticationProvider();
-        authenticationProvider.setUserDetailsService(userDetailsService());
-        authenticationProvider.setPasswordEncoder(passwordEncoder());
-        return authenticationProvider;
-    }
+//    private final TaiKhoanRepository taiKhoanRepository;
+//
+//    @Bean
+//    public UserDetailsService userDetailsService() {
+//        return new UserInfoService(taiKhoanRepository);
+//    }
+//
+//    @Bean
+//    public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
+//        return http.csrf().disable()
+//                .authorizeHttpRequests()
+//                .requestMatchers("/hello", "/user/new").permitAll()
+//                .and()
+//                .authorizeHttpRequests()
+//                .requestMatchers("/customer/**").authenticated()
+//                .and().formLogin()
+//                .and().build();
+//    }
+//
+//    @Bean
+//    public PasswordEncoder passwordEncoder() {
+//        return new BCryptPasswordEncoder();
+//    }
+//
+//    @Bean
+//    public AuthenticationProvider authenticationProvider(){
+//        DaoAuthenticationProvider authenticationProvider=new DaoAuthenticationProvider();
+//        authenticationProvider.setUserDetailsService(userDetailsService());
+//        authenticationProvider.setPasswordEncoder(passwordEncoder());
+//        return authenticationProvider;
+//    }
 }
