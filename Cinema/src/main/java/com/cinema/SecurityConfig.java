@@ -24,8 +24,12 @@ public class SecurityConfig {
 //                .requestMatchers("/hello", "/user/new").permitAll()
 //                .and()
 //                .authorizeHttpRequests()
+
 //                .requestMatchers("/index/**").authenticated()
 //                .requestMatchers("/admin/index").authenticated()
+
+//                .requestMatchers("/customer/**").authenticated()
+
 //                .and().formLogin()
 //                .and().build();
 //    }

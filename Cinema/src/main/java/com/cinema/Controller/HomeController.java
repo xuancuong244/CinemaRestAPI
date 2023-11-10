@@ -44,4 +44,9 @@ public class HomeController {
     public String priceTicket() {
         return "customer/price_Ticket";
     }
+
+    @RequestMapping("/DynamicCinema/payment")
+    public String payment() {
+        return "customer/thanhtoan";
+    }
 }

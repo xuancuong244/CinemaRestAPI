@@ -26,7 +26,7 @@ document.addEventListener('DOMContentLoaded', function () {
                         <b>DIỄN VIÊN: ${data.dienVien}</b>
                     </p>
                     <p class="m-0 font__source mt-3">
-                        <b>THỜI LƯỢNG: ${data.thoiLuong} phút</b> 
+                        <b>THỜI LƯỢNG: ${data.thoiLuong}</b> 
                     </p>
                     <p class="m-0 font__source mt-3">
                         <b>QUỐC GIA: ${data.quocGia}</b> 
