@@ -31,9 +31,9 @@ public class KhachHang {
     private String tenKH;
     @Column(name = "Mat_Khau")
     private String matKhau;
-    @Column(name = "Email",unique = true)
+    @Column(name = "email",unique = true)
     private String email;
-    @Column(name = "So_DT")
+    @Column(name = "sodt")
     private String soDT;
     @Column(name = "Dia_Chi")
     private String diaChi;

@@ -51,38 +51,38 @@ document.addEventListener('DOMContentLoaded', function () {
             .then(data => {
                 const chiTietPhim = document.getElementById('chiTietPhim');
                 chiTietPhim.innerHTML = createMovieDetailHTML(data);
-                getLichXuatChieuForPhim(maPhim);
+                // getLichXuatChieuForPhim(maPhim);
             })
             .catch(error => {
                 console.error('Lỗi:', error);
             });
     }
 
-    function getLichXuatChieuForPhim(maPhim) {
-        fetch(`http://localhost:8085/api/XuatChieu/maPhim?maPhim=${maPhim}`)
-            .then(response => response.json())
-            .then(data => {
-                const xuatChieuList = document.getElementById("xuatChieuList");
-                xuatChieuList.innerHTML = ""; // Xóa nội dung cũ trước khi thêm dữ liệu mới
-
-                data.forEach(xuatChieu => {
-                    const button = document.createElement("button");
-                    button.className = "btn btn__time";
-                    button.textContent = xuatChieu.gio_bat_dau;
-                    const redirectUrl = button.getAttribute("data-redirect-url");
-
-                    // Gắn sự kiện click vào button để xử lý logic khi người dùng chọn xuất chiếu
-                    button.addEventListener("click", () => {
-                        window.location.href = redirectUrl;
-                    });
-
-                    xuatChieuList.appendChild(button);
-                });
-            })
-            .catch(error => {
-                console.error("Lỗi:", error);
-            });
-    }
+    // function getLichXuatChieuForPhim(maPhim) {
+    //     fetch(`http://localhost:8085/api/XuatChieu/maPhim?maPhim=${maPhim}`)
+    //         .then(response => response.json())
+    //         .then(data => {
+    //             const xuatChieuList = document.getElementById("xuatChieuList");
+    //             xuatChieuList.innerHTML = ""; // Xóa nội dung cũ trước khi thêm dữ liệu mới
+    //
+    //             data.forEach(xuatChieu => {
+    //                 const button = document.createElement("button");
+    //                 button.className = "btn btn__time";
+    //                 button.textContent = xuatChieu.gio_bat_dau;
+    //                 const redirectUrl = button.getAttribute("data-redirect-url");
+    //
+    //                 // Gắn sự kiện click vào button để xử lý logic khi người dùng chọn xuất chiếu
+    //                 button.addEventListener("click", () => {
+    //                     window.location.href = redirectUrl;
+    //                 });
+    //
+    //                 xuatChieuList.appendChild(button);
+    //             });
+    //         })
+    //         .catch(error => {
+    //             console.error("Lỗi:", error);
+    //         });
+    // }
 
 
 });
