@@ -1,41 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <!-- Style CSS  -->
-    <link rel="stylesheet" href="../../static/css/style.css" />
-	  <!-- Style CSS  -->
-	  <link rel="stylesheet" href="../../static/css/style__header.css" />
-	  <!-- Style CSS  -->
-	  <link rel="stylesheet" href="../../static/css/style__navigation.css">
-    <link rel="stylesheet" href="../../static/css/style_chonGhe.css" />
-	  <!-- Style CSS  -->
-	  <link rel="stylesheet" href="../css/style__footer.css">
-     <!-- Font Chữ Web Phim Movie  -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Oswald:wght@200;300;400;500&display=swap"
-      rel="stylesheet"
-    />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Oswald:wght@200;300;400;500&family=Source+Sans+3:ital,wght@0,200;0,300;0,400;0,500;0,600;1,200;1,300;1,400;1,500;1,600&display=swap"
-      rel="stylesheet"
-    />
-    <!-- Bootstrap CSS -->
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
-      crossorigin="anonymous"
-    />
-    <title>Mua vé xem phim</title>
-  </head>
-  <body ng-app="">
-   <!-- Header  -->
+
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<!-- Style CSS  -->
+	<link rel="stylesheet" href="../../static/css/style.css" />
+	<!-- Style CSS  -->
+	<link rel="stylesheet" href="../../static/css/style__header.css" />
+	<!-- Style CSS  -->
+	<link rel="stylesheet" href="../../static/css/style__navigation.css">
+	<link rel="stylesheet" href="../../static/css/style_chonGhe.css" />
+	<!-- Style CSS  -->
+	<link rel="stylesheet" href="../../static/css/style__footer.css">
+	<!-- Font Chữ Web Phim Movie  -->
+	<link rel="preconnect" href="https://fonts.googleapis.com" />
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+	<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200;300;400;500&display=swap" rel="stylesheet" />
+	<link rel="preconnect" href="https://fonts.googleapis.com" />
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+	<link
+		href="https://fonts.googleapis.com/css2?family=Oswald:wght@200;300;400;500&family=Source+Sans+3:ital,wght@0,200;0,300;0,400;0,500;0,600;1,200;1,300;1,400;1,500;1,600&display=swap"
+		rel="stylesheet" />
+	<!-- Bootstrap CSS -->
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+		integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous" />
+	<title>Mua vé xem phim</title>
+</head>
+
+<body ng-app="">
+	<!-- Header  -->
 	<div class="container header">
 		<div class="row">
 			<!-- logo  -->
@@ -261,161 +255,159 @@
 			</div>
 		</div>
 	</nav>
-    <div style="background-color: #f8f8f8">
-      <div class="container select">
-        <div class="row">
-          <div class="col-8 select__seat">
-            <!-- Điều Hướng  -->
-            <nav
-              style="
+	<div style="background-color: #f8f8f8">
+		<div class="container select">
+			<div class="row">
+				<div class="col-8 select__seat">
+					<!-- Điều Hướng  -->
+					<nav style="
                 margin-top: 15px;
                 --bs-breadcrumb-divider: url(
                   &#34;data:image/svg + xml,
                   %3Csvgxmlns='http://www.w3.org/2000/svg'width='8'height='8'%3E%3Cpathd='M2.5 0L1 1.5 3.5 4 1 6.5 2.5 8l4-4-4-4z'fill='currentColor'/%3E%3C/svg%3E&#34;
                 );
-              "
-              aria-label="breadcrumb"
-            >
-              <ol class="breadcrumb font__oswald" style="font-size: 24px">
-                <li class="breadcrumb-item">
-                  <a href="index_home.html">Trang chủ</a>
-                </li>
-                <li class="breadcrumb-item">
-                  <a href="index_home.html">Đất Rừng Phương Nam</a>
-                </li>
-                <li class="breadcrumb-item active" aria-current="page">
-                  Đặt Vé
-                </li>
-              </ol>
-            </nav>
-            <!-- Điều Hướng  -->
-            <div class="mt-4 select__seat-text">
-              <span>
-                <img src="../../static/img/logo/gheThuong.png" alt="" />
-                <p class="font__oswald ms-1">Ghế trống</p>
-              </span>
-              <span class="ms-5">
-                <img src="../../static/img/logo/gheDangChon.png" alt="" />
-                <p class="font__oswald ms-1">Ghế đang chọn</p>
-              </span>
-              <span class="ms-5">
-                <img src="../../static/img/logo/gheDangDuocGiu.png" alt="" />
-                <p class="font__oswald ms-1">Ghế đang được giữ</p>
-              </span>
-              <span class="ms-5">
-                <img src="../../static/img/logo/gheDaBan.png" alt="" />
-                <p class="font__oswald ms-1">Ghế đã bán</p>
-              </span>
-              <span class="ms-5">
-                <img src="../../static/img/logo/gheDatTruoc.png" alt="" />
-                <p class="font__oswald ms-1">Ghế đặt trước</p>
-              </span>
-            </div>
-            <div class="text-center">
-              <img src="../../static/img/logo/ManHinhChieu.png" alt="" width="100%">
-            </div>
-            <div class="movie-seats">
-              <div class="seat">A1</div>
-              <div class="seat">A2</div>
-              <div class="seat">A3</div>
-              <div class="seat">A4</div>
-              <div class="seat">A5</div>
-              <div class="seat">A6</div>
-              <div class="seat">A7</div>
-              <div class="seat">A8</div>
-              <div class="seat">A9</div>
-              <div class="seat">A10</div>
-              <div class="seat">A11</div>
-              <div class="seat">A12</div>
-              <div class="seat">A13</div>
-              <div class="seat">A14</div>
-              <div class="seat">A15</div>
-              <div class="seat">A16</div>
-            </div>
-          </div>
-          <div class="col-4 p-0 select__movieInformation" style="background: #fff; box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.1);">
-            <div class="row">
-              <div class="col-4">
-                <img src="../../static/img/phim/datRungPhuongNam_ghe.png" alt="" />
-              </div>
-              <div class="col-8 select__movieInformation-text">
-                <h3 class="ms-3">Đất Rừng Phương Nam</h3>
-                <h4>2D Phụ đề</h4>
-              </div>
-            </div>
-            <div class="container">
-              <div class="row select__movieInformation-category">
-                <div class="col-6 mt-3">
-                  <div>
-                    <img src="../../static/img/logo/vector.png" alt="" width="12px" height="12px">
-                    <p class="ms-1 font__source">Thể loại</p>
-                  </div>
-                  <div class="mt-3">
-                    <img src="../../static/img/logo/time.png" alt="" width="12px" height="12px">
-                    <p class="ms-1 font__source">Thời lượng</p>
-                  </div>
-                </div>
-                <div class="col-6 mt-3">
-                  <div>
-                    <p class="font__source">Tâm lý</p>
-                  </div>
-                  <div class="mt-3">
-                    <p class="font__source">110 phút</p>
-                  </div>
-                </div>
-              </div>
-              <div class="row">
-                <div class="col-6 mt-3 select__movieInformation-ticket">
-                  <div>
-                    <img src="../../static/img/logo/rapChieu.png" alt="" width="12px" height="12px">
-                    <p class="ms-1 font__source">Rạp chiếu</p>
-                  </div>
-                  <div class="mt-3">
-                    <img src="../../static/img/logo/date.png" alt="" width="12px" height="12px">
-                    <p class="ms-1 font__source">Ngày chiếu</p>
-                  </div>
-                  <div class="mt-3">
-                    <img src="../../static/img/logo/time.png" alt="" width="12px" height="12px">
-                    <p class="ms-1 font__source">Giờ chiếu</p>
-                  </div>
-                  <div class="mt-3">
-                    <img src="../../static/img/logo/phongChieu.png" alt="" width="12px" height="12px">
-                    <p class="ms-1 font__source">Phòng chiếu</p>
-                  </div>
-                  <div class="mt-3">
-                    <img src="../../static/img/logo/gheNgoi.png" alt="" width="12px" height="12px">
-                    <p class="ms-1 font__source">Ghế ngồi</p>
-                  </div>
-                </div>
-                <div class="col-6 mt-3">
-                  <div>
-                    <p class="font__source">DEC Quang Trung</p>
-                  </div>
-                  <div class="mt-3">
-                    <p class="font__source">13/10/2023</p>
-                  </div>
-                  <div class="mt-3">
-                    <p class="font__source">19:00</p>
-                  </div>
-                  <div class="mt-3">
-                    <p class="font__source">P3</p>
-                  </div>
-                  <div class="mt-3">
-                    <div id="selected-seats"></div>
-                  </div>
-                </div>
-              </div>
-              <div class="text-center mt-3">
-                <button class="btn btn-login font__oswald" style="width: 45%;">
-                  TIẾP TỤC
-                </button>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <!-- Footer  -->
+              " aria-label="breadcrumb">
+						<ol class="breadcrumb font__oswald" style="font-size: 24px">
+							<li class="breadcrumb-item">
+								<a href="index_home.html">Trang chủ</a>
+							</li>
+							<li class="breadcrumb-item">
+								<a href="index_home.html">Đất Rừng Phương Nam</a>
+							</li>
+							<li class="breadcrumb-item active" aria-current="page">
+								Đặt Vé
+							</li>
+						</ol>
+					</nav>
+					<!-- Điều Hướng  -->
+					<div class="mt-4 select__seat-text">
+						<span>
+							<img src="../../static/img/logo/gheThuong.png" alt="" />
+							<p class="font__oswald ms-1">Ghế trống</p>
+						</span>
+						<span class="ms-5">
+							<img src="../../static/img/logo/gheDangChon.png" alt="" />
+							<p class="font__oswald ms-1">Ghế đang chọn</p>
+						</span>
+						<span class="ms-5">
+							<img src="../../static/img/logo/gheDangDuocGiu.png" alt="" />
+							<p class="font__oswald ms-1">Ghế đang được giữ</p>
+						</span>
+						<span class="ms-5">
+							<img src="../../static/img/logo/gheDaBan.png" alt="" />
+							<p class="font__oswald ms-1">Ghế đã bán</p>
+						</span>
+						<span class="ms-5">
+							<img src="../../static/img/logo/gheDatTruoc.png" alt="" />
+							<p class="font__oswald ms-1">Ghế đặt trước</p>
+						</span>
+					</div>
+					<div class="text-center">
+						<img src="../../static/img/logo/ManHinhChieu.png" alt="" width="100%">
+					</div>
+					<div class="movie-seats">
+						<div class="seat">A1</div>
+						<div class="seat">A2</div>
+						<div class="seat">A3</div>
+						<div class="seat">A4</div>
+						<div class="seat">A5</div>
+						<div class="seat">A6</div>
+						<div class="seat">A7</div>
+						<div class="seat">A8</div>
+						<div class="seat">A9</div>
+						<div class="seat">A10</div>
+						<div class="seat">A11</div>
+						<div class="seat">A12</div>
+						<div class="seat">A13</div>
+						<div class="seat">A14</div>
+						<div class="seat">A15</div>
+						<div class="seat">A16</div>
+					</div>
+				</div>
+				<div class="col-4 p-0 select__movieInformation"
+					style="background: #fff; box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.1);">
+					<div class="row">
+						<div class="col-4">
+							<img src="../../static/img/phim/datRungPhuongNam_ghe.png" alt="" />
+						</div>
+						<div class="col-8 select__movieInformation-text">
+							<h3 class="ms-3">Đất Rừng Phương Nam</h3>
+							<h4>2D Phụ đề</h4>
+						</div>
+					</div>
+					<div class="container">
+						<div class="row select__movieInformation-category">
+							<div class="col-6 mt-3">
+								<div>
+									<img src="../../static/img/logo/vector.png" alt="" width="12px" height="12px">
+									<p class="ms-1 font__source">Thể loại</p>
+								</div>
+								<div class="mt-3">
+									<img src="../../static/img/logo/time.png" alt="" width="12px" height="12px">
+									<p class="ms-1 font__source">Thời lượng</p>
+								</div>
+							</div>
+							<div class="col-6 mt-3">
+								<div>
+									<p class="font__source">Tâm lý</p>
+								</div>
+								<div class="mt-3">
+									<p class="font__source">110 phút</p>
+								</div>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-6 mt-3 select__movieInformation-ticket">
+								<div>
+									<img src="../../static/img/logo/rapChieu.png" alt="" width="12px" height="12px">
+									<p class="ms-1 font__source">Rạp chiếu</p>
+								</div>
+								<div class="mt-3">
+									<img src="../../static/img/logo/date.png" alt="" width="12px" height="12px">
+									<p class="ms-1 font__source">Ngày chiếu</p>
+								</div>
+								<div class="mt-3">
+									<img src="../../static/img/logo/time.png" alt="" width="12px" height="12px">
+									<p class="ms-1 font__source">Giờ chiếu</p>
+								</div>
+								<div class="mt-3">
+									<img src="../../static/img/logo/phongChieu.png" alt="" width="12px" height="12px">
+									<p class="ms-1 font__source">Phòng chiếu</p>
+								</div>
+								<div class="mt-3">
+									<img src="../../static/img/logo/gheNgoi.png" alt="" width="12px" height="12px">
+									<p class="ms-1 font__source">Ghế ngồi</p>
+								</div>
+							</div>
+							<div class="col-6 mt-3">
+								<div>
+									<p class="font__source">DEC Quang Trung</p>
+								</div>
+								<div class="mt-3">
+									<p class="font__source">13/10/2023</p>
+								</div>
+								<div class="mt-3">
+									<p class="font__source">19:00</p>
+								</div>
+								<div class="mt-3">
+									<p class="font__source">P3</p>
+								</div>
+								<div class="mt-3">
+									<div id="selected-seats"></div>
+								</div>
+							</div>
+						</div>
+						<div class="text-center mt-3">
+							<button class="btn btn-login font__oswald" style="width: 45%;">
+								TIẾP TỤC
+							</button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- Footer  -->
 	<footer class="">
 		<div class="container footer">
 			<div class="row  font__source">
@@ -452,17 +444,14 @@
 			</div>
 		</div>
 	</footer>
-    <script src="../../static/js/js_chonGhe.js"></script>
-    <!-- Separate Popper and Bootstrap JS -->
-    <script
-      src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"
-      integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p"
-      crossorigin="anonymous"
-    ></script>
-    <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"
-      integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF"
-      crossorigin="anonymous"
-    ></script>
-  </body>
+	<script src="../../static/js/js_chonGhe.js"></script>
+	<!-- Separate Popper and Bootstrap JS -->
+	<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"
+		integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p"
+		crossorigin="anonymous"></script>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"
+		integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF"
+		crossorigin="anonymous"></script>
+</body>
+
 </html>
