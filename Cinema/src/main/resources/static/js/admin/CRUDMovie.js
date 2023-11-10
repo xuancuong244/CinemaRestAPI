@@ -30,27 +30,27 @@ function updateTable(movies) {
         cell2.textContent = movie.tenPhim;
 
         var cell3 = row.insertCell(2);
-        cell3.textContent = movie.dienVien;
+        cell3.textContent = movie.daoDien;
 
-        var cell4 = row.insertCell(3);
-        cell4.textContent = movie.daoDien;
+        // var cell4 = row.insertCell(3);
+        // cell4.textContent = movie.daoDien;
 
-        var cell5 = row.insertCell(4);
+        var cell5 = row.insertCell(3);
         cell5.textContent = movie.namSX;
 
-        var cell6 = row.insertCell(5);
+        var cell6 = row.insertCell(4);
         cell6.textContent = movie.quocGia;
 
-        var cell7 = row.insertCell(6);
+        var cell7 = row.insertCell(5);
         cell7.textContent = movie.thoiLuong;
 
-        var cell8 = row.insertCell(7);
-        cell8.textContent = movie.moTa;
+        // var cell8 = row.insertCell(6);
+        // cell8.textContent = movie.moTa;
 
-        var cell9 = row.insertCell(8);
+        var cell9 = row.insertCell(6);
         cell9.textContent = movie.hinh;
 
-        var cell10 = row.insertCell(9);
+        var cell10 = row.insertCell(7);
         cell10.textContent = movie.trailer;
 
     }
@@ -74,14 +74,14 @@ function addMovie() {
     // Get input values
     var maPhim = document.getElementsByName("input")[0].value;
     var tenPhim = document.getElementsByName("input")[1].value;
-    var dienVien = document.getElementsByName("input")[2].value;
-    var namSX = document.getElementsByName("input")[3].value;
-    var daoDien = document.getElementsByName("input")[4].value;
-    var quocGia = document.getElementsByName("input")[5].value;
-    var thoiLuong = document.getElementsByName("input")[6].value;
-    var moTa = document.getElementsByName("input")[7].value;
-    var trailer = document.getElementsByName("input")[8].value;
-    var hinh = document.getElementsByName("input")[9].value;
+    // var dienVien = document.getElementsByName("input")[2].value;
+    var namSX = document.getElementsByName("input")[2].value;
+    var daoDien = document.getElementsByName("input")[3].value;
+    var quocGia = document.getElementsByName("input")[4].value;
+    var thoiLuong = document.getElementsByName("input")[5].value;
+    // var moTa = document.getElementsByName("input")[7].value;
+    var hinh = document.getElementsByName("input")[6].value;
+    var trailer = document.getElementsByName("input")[7].value;
 
     // Create a new row and add it to the table
     var table = document.getElementById("movieTable").getElementsByTagName('tbody')[0];
@@ -94,28 +94,28 @@ function addMovie() {
     var cell2 = row.insertCell(1);
     cell2.textContent = tenPhim;
 
-    var cell3 = row.insertCell(2);
-    cell3.textContent = dienVien;
+    // var cell3 = row.insertCell(2);
+    // cell3.textContent = dienVien;
 
-    var cell4 = row.insertCell(3);
+    var cell4 = row.insertCell(2);
     cell4.textContent = daoDien;
 
-    var cell5 = row.insertCell(4);
+    var cell5 = row.insertCell(3);
     cell5.textContent = namSX;
 
-    var cell6 = row.insertCell(5);
+    var cell6 = row.insertCell(4);
     cell6.textContent = quocGia;
 
-    var cell7 = row.insertCell(6);
+    var cell7 = row.insertCell(5);
     cell7.textContent = thoiLuong;
 
-    var cell8 = row.insertCell(7);
-    cell8.textContent = moTa;
+    // var cell8 = row.insertCell(7);
+    // cell8.textContent = moTa;
 
-    var cell9 = row.insertCell(8);
+    var cell9 = row.insertCell(6);
     cell9.textContent = hinh;
 
-    var cell10 = row.insertCell(9);
+    var cell10 = row.insertCell(7);
     cell10.textContent = trailer;
     // Clear input fields
     resetForm();
@@ -137,8 +137,8 @@ function editMovie() {
         selectedRow.cells[5].textContent = document.getElementsByName("input")[5].value;
         selectedRow.cells[6].textContent = document.getElementsByName("input")[6].value;
         selectedRow.cells[7].textContent = document.getElementsByName("input")[7].value;
-        selectedRow.cells[8].textContent = document.getElementsByName("input")[8].value;
-        selectedRow.cells[9].textContent = document.getElementsByName("input")[9].value;
+        // selectedRow.cells[8].textContent = document.getElementsByName("input")[8].value;
+        // selectedRow.cells[9].textContent = document.getElementsByName("input")[9].value;
         // Clear input fields
         resetForm();
     }
