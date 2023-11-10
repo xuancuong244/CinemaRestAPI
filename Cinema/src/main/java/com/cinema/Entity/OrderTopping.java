@@ -22,15 +22,15 @@ import lombok.Setter;
 @Table(name = "topping")
 public class OrderTopping {
 	@Id
-    @Column(name = "Ma_Topping")
+    @Column(name = "ma_topping")
     private String maTopping;
-    @Column(name = "Ten_Topping")
+    @Column(name = "ten_topping")
     private String tenTopping;
-    @Column(name = "So_Luong_Dang_Co")
+    @Column(name = "so_luong_dang_co")
     private Integer soLuongDangCo;
-    @Column(name = "Gia")
+    @Column(name = "gia")
     private Float gia;
-    @Column(name = "Hinh")
+    @Column(name = "hinh")
     private String hinh;
     @JsonIgnore
     @OneToMany(mappedBy = "topping")
