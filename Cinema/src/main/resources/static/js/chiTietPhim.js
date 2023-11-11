@@ -27,6 +27,7 @@ document.addEventListener('DOMContentLoaded', function () {
                     </p>
                     <p class="m-0 font__source mt-3">
                         <b>THỜI LƯỢNG: ${data.thoiLuong}</b> 
+                        <b>THỜI LƯỢNG: ${data.thoiLuong} phút</b> 
                     </p>
                     <p class="m-0 font__source mt-3">
                         <b>QUỐC GIA: ${data.quocGia}</b> 
@@ -52,11 +53,13 @@ document.addEventListener('DOMContentLoaded', function () {
                 const chiTietPhim = document.getElementById('chiTietPhim');
                 chiTietPhim.innerHTML = createMovieDetailHTML(data);
                 // getLichXuatChieuForPhim(maPhim);
+                getLichXuatChieuForPhim(maPhim);
             })
             .catch(error => {
                 console.error('Lỗi:', error);
             });
     }
+
 
     // function getLichXuatChieuForPhim(maPhim) {
     //     fetch(`http://localhost:8085/api/XuatChieu/maPhim?maPhim=${maPhim}`)
@@ -83,6 +86,33 @@ document.addEventListener('DOMContentLoaded', function () {
     //             console.error("Lỗi:", error);
     //         });
     // }
+
+    function getLichXuatChieuForPhim(maPhim) {
+        fetch(`http://localhost:8085/api/XuatChieu/maPhim?maPhim=${maPhim}`)
+            .then(response => response.json())
+            .then(data => {
+                const xuatChieuList = document.getElementById("xuatChieuList");
+                xuatChieuList.innerHTML = ""; // Xóa nội dung cũ trước khi thêm dữ liệu mới
+
+                data.forEach(xuatChieu => {
+                    const button = document.createElement("button");
+                    button.className = "btn btn__time";
+                    button.textContent = xuatChieu.gio_bat_dau;
+                    const redirectUrl = button.getAttribute("data-redirect-url");
+
+                    // Gắn sự kiện click vào button để xử lý logic khi người dùng chọn xuất chiếu
+                    button.addEventListener("click", () => {
+                        window.location.href = redirectUrl;
+                    });
+
+                    xuatChieuList.appendChild(button);
+                });
+            })
+            .catch(error => {
+                console.error("Lỗi:", error);
+            });
+    }
+
 
 
 });

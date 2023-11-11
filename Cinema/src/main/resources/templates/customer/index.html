@@ -33,6 +33,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script src="../js/loadMovieByStatus.js"></script>
     <script src="../js/chiTietPhim.js"></script>
+    <script src="../js/chiNhanh.js"></script>
 </head>
 
 <body>
@@ -47,15 +48,15 @@
         <div class="col-lg-5 col-md-6 col-12 header__search">
             <!-- Example single danger button -->
             <div class="btn-group font__source">
-                <button type="button" class="btn dropdown-toggle" data-bs-toggle="dropdown"
-                        aria-expanded="false">Tỉnh/Thành Phố
+                <button onclick="loadData()" type="button" class="btn dropdown-toggle" data-bs-toggle="dropdown"
+                        aria-expanded="false"  >Tỉnh/Thành Phố
                 </button>
-                <ul class="dropdown-menu">
-                    <li><a class="dropdown-item" href="#">DEC TP.HCM</a></li>
-                    <li><a class="dropdown-item" href="#">DEC HÀ NỘI</a></li>
-                    <li><a class="dropdown-item" href="#">DEC ĐÀ NẴNG</a></li>
-                    <li><a class="dropdown-item" href="#">DEC BẮC GIANG</a></li>
-                    <li><a class="dropdown-item" href="#">DEC KHÁNH HÒA</a></li>
+                <ul id="myList" class="dropdown-menu" onclick="showHTML(event)">
+<!--                    <li><a class="dropdown-item" href="#">DEC TP.HCM</a></li>-->
+<!--                    <li><a class="dropdown-item" href="#">DEC HÀ NỘI</a></li>-->
+<!--                    <li><a class="dropdown-item" href="#">DEC ĐÀ NẴNG</a></li>-->
+<!--                    <li><a class="dropdown-item" href="#">DEC BẮC GIANG</a></li>-->
+<!--                    <li><a class="dropdown-item" href="#">DEC KHÁNH HÒA</a></li>-->
                 </ul>
             </div>
         </div>

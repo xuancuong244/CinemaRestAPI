@@ -15,12 +15,12 @@ import java.util.Optional;
 @RestController
 @RequestMapping("/api/TaiKhoan")
 public class TaiKhoanRestController {
-    @Autowired
-    TaiKhoanService taiKhoanService;
-
-    @GetMapping("/username")
-    public ResponseEntity<?> getAll(@RequestParam("username") String username){
-        Optional<TaiKhoan> taiKhoans = taiKhoanService.findTaiKhoanByUsername(username);
-        return ResponseEntity.ok(username);
-    }
+//    @Autowired
+//    TaiKhoanService taiKhoanService;
+//
+//    @GetMapping("/username")
+//    public ResponseEntity<?> getAll(@RequestParam("username") String username){
+//        Optional<TaiKhoan> taiKhoans = taiKhoanService.findTaiKhoanByUsername(username);
+//        return ResponseEntity.ok(username);
+//    }
 }
