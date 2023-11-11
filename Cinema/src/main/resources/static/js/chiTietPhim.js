@@ -26,7 +26,11 @@ document.addEventListener('DOMContentLoaded', function () {
                         <b>DIỄN VIÊN: ${data.dienVien}</b>
                     </p>
                     <p class="m-0 font__source mt-3">
+<<<<<<< Updated upstream
                         <b>THỜI LƯỢNG: ${data.thoiLuong}</b> 
+=======
+                        <b>THỜI LƯỢNG: ${data.thoiLuong} phút</b> 
+>>>>>>> Stashed changes
                     </p>
                     <p class="m-0 font__source mt-3">
                         <b>QUỐC GIA: ${data.quocGia}</b> 
@@ -51,13 +55,18 @@ document.addEventListener('DOMContentLoaded', function () {
             .then(data => {
                 const chiTietPhim = document.getElementById('chiTietPhim');
                 chiTietPhim.innerHTML = createMovieDetailHTML(data);
+<<<<<<< Updated upstream
                 // getLichXuatChieuForPhim(maPhim);
+=======
+                getLichXuatChieuForPhim(maPhim);
+>>>>>>> Stashed changes
             })
             .catch(error => {
                 console.error('Lỗi:', error);
             });
     }
 
+<<<<<<< Updated upstream
     // function getLichXuatChieuForPhim(maPhim) {
     //     fetch(`http://localhost:8085/api/XuatChieu/maPhim?maPhim=${maPhim}`)
     //         .then(response => response.json())
@@ -83,6 +92,33 @@ document.addEventListener('DOMContentLoaded', function () {
     //             console.error("Lỗi:", error);
     //         });
     // }
+=======
+    function getLichXuatChieuForPhim(maPhim) {
+        fetch(`http://localhost:8085/api/XuatChieu/maPhim?maPhim=${maPhim}`)
+            .then(response => response.json())
+            .then(data => {
+                const xuatChieuList = document.getElementById("xuatChieuList");
+                xuatChieuList.innerHTML = ""; // Xóa nội dung cũ trước khi thêm dữ liệu mới
+
+                data.forEach(xuatChieu => {
+                    const button = document.createElement("button");
+                    button.className = "btn btn__time";
+                    button.textContent = xuatChieu.gio_bat_dau;
+                    const redirectUrl = button.getAttribute("data-redirect-url");
+
+                    // Gắn sự kiện click vào button để xử lý logic khi người dùng chọn xuất chiếu
+                    button.addEventListener("click", () => {
+                        window.location.href = redirectUrl;
+                    });
+
+                    xuatChieuList.appendChild(button);
+                });
+            })
+            .catch(error => {
+                console.error("Lỗi:", error);
+            });
+    }
+>>>>>>> Stashed changes
 
 
 });

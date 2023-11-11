@@ -23,6 +23,13 @@ public class TaiKhoan {
     private String password;
     @Column(name = "roles")
     private String roles;
+<<<<<<< Updated upstream
+=======
+    @Column(name = "ma_KH")
+    private Integer maKH;
+    @Column(name = "ma_nv", length = 5)
+    private String maNV;
+>>>>>>> Stashed changes
 
     @ManyToOne
     @JoinColumn(name = "ma_KH")
