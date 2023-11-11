@@ -1,10 +1,11 @@
 package com.cinema.Entity;
 
-import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+
+import javax.persistence.*;
 
 @Entity
 @AllArgsConstructor
@@ -12,20 +13,24 @@ import lombok.Setter;
 @Getter
 @Setter
 @Table(name = "chi_tiet_topping")
+@IdClass(ChiTietToppingId.class)
 public class ChiTietTopping {
-    @EmbeddedId
-    private ChiTietToppingId id;
+    @Id
+    @Column(name = "Id_Ve")
+    private Integer id;
 
-    @Column(name = "So_Luong_Mua")
-    private int soLuongMua;
+    @Id
+    @Column(name = "Ma_Topping")
+    private String maTopping;
+
+    @Column(name = "so_luong_mua")
+    private Integer soLuongMua;
 
     @ManyToOne
-    @MapsId("id_Ve")
-    @JoinColumn(name = "Id_Ve")
+    @JoinColumn(name = "Id_Ve", insertable = false, updatable = false)
     private Ve ve;
 
     @ManyToOne
-    @MapsId("ma_Topping")
-    @JoinColumn(name = "Ma_Topping")
+    @JoinColumn(name = "Ma_Topping", insertable = false, updatable = false)
     private OrderTopping topping;
 }

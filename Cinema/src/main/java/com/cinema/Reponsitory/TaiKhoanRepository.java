@@ -3,10 +3,13 @@ package com.cinema.Reponsitory;
 import com.cinema.Entity.TaiKhoan;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
+import org.springframework.stereotype.Repository;
 
 import java.util.Optional;
 
-public interface TaiKhoanRepository  {
+@Repository
+public interface TaiKhoanRepository  extends JpaRepository<TaiKhoan,Integer>{
+    TaiKhoan findByUsername(String username);
 //    extends JpaRepository<TaiKhoan,Integer>
 //    @Query("SELECT tk FROM TaiKhoan tk WHERE tk.username = :username")
 //    Optional<TaiKhoan> findTaiKhoanByUsername(String username);

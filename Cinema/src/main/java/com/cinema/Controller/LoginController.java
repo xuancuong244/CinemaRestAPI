@@ -1,12 +1,11 @@
 package com.cinema.Controller;
 
-import com.cinema.Services.TaiKhoanService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 //@Controller
-public class LoginController {
+//public class LoginController {
 //    @Autowired
 //    TaiKhoanService taiKhoanService;
 //
@@ -14,4 +13,4 @@ public class LoginController {
 //    public String index(){
 //        return "customer/index";
 //    }
-}
+//}

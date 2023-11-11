@@ -1,12 +1,12 @@
 package com.cinema.Entity;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Embeddable;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import javax.persistence.Column;
+import javax.persistence.Embeddable;
 import java.io.Serializable;
 
 @Embeddable
@@ -16,7 +16,7 @@ import java.io.Serializable;
 @Setter
 public class ChiTietToppingId implements Serializable {
     @Column(name = "Id_Ve")
-    private int idVe;
+    private Integer id;
 
     @Column(name = "Ma_Topping")
     private String maTopping;
