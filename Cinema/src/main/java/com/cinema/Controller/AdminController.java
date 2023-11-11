@@ -30,4 +30,8 @@ public class AdminController {
         return "admin/topping";
     }
 
+    @RequestMapping("/DynamicCinema/admin/quanLyHoaDon")
+    public String quanLyHoaDon() {
+        return "admin/quanLyHoaDon";
+    }
 }
