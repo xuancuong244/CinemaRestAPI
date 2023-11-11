@@ -3,6 +3,37 @@ database RapPhim
 
 use RapPhim
 
+create table chuc_vu
+(
+    ma_cv  varchar(5) primary key,
+    ten_cv nvarchar(150)
+);
+
+create table nhan_vien
+(
+    ma_nv     varchar(5) primary key,
+    ho_ten    nvarchar(150),
+    gioi_tinh bit,
+    mat_khau  varchar(10),
+    ngay_sinh DATE,
+    so_dt     varchar(10),
+    ma_cv     varchar(5),
+    CONSTRAINT fk_nv_cv FOREIGN key (ma_cv) REFERENCES chuc_vu (ma_cv)
+);
+
+create table khach_hang
+(
+    ma_KH     int identity (1,1) primary key,
+    ten_KH    nvarchar(150),
+    mat_khau  varchar(10),
+    email     varchar(30) unique,
+    so_DT     varchar(10),
+    dia_chi   nvarchar(500),
+    gioi_tinh bit,
+    id_FB     nvarchar(150),
+    hinh_FB   nvarchar(150)
+);
+
 CREATE TABLE tai_khoan
 (
     id            INT IDENTITY (1,1) PRIMARY KEY,
@@ -16,11 +47,6 @@ CREATE TABLE tai_khoan
     FOREIGN KEY (ma_KH) REFERENCES khach_hang (ma_KH) ON DELETE CASCADE
 );
 
-create table chuc_vu
-(
-    ma_cv  varchar(5) primary key,
-    ten_cv nvarchar(150)
-);
 create table chi_nhanh
 (
     ma_cn   varchar(5) primary key,
@@ -28,17 +54,7 @@ create table chi_nhanh
     dia_chi nvarchar(500),
     so_dt   varchar(10)
 );
-create table nhan_vien
-(
-    ma_nv     varchar(5) primary key,
-    ho_ten    nvarchar(150),
-    gioi_tinh bit,
-    mat_khau  varchar(10),
-    ngay_sinh DATE,
-    so_dt     varchar(10),
-    ma_cv     varchar(5),
-    CONSTRAINT fk_nv_cv FOREIGN key (ma_cv) REFERENCES chuc_vu (ma_cv)
-);
+
 create table lich_lam_viec
 (
     id_llv             int identity (1,1) primary key,
@@ -57,18 +73,7 @@ create table csvc
     ten_CSVC nvarchar(150),
     hinh     nvarchar(150)
 );
-create table khach_hang
-(
-    ma_KH     int identity (1,1) primary key,
-    ten_KH    nvarchar(150),
-    mat_khau  varchar(10),
-    email     varchar(30) unique,
-    so_DT     varchar(10),
-    dia_chi   nvarchar(500),
-    gioi_tinh bit,
-    id_FB     nvarchar(150),
-    hinh_FB   nvarchar(150)
-);
+
 create table topping
 (
     ma_topping       varchar(5) primary key,
@@ -95,18 +100,19 @@ create table the_loai
     ma_the_loai  varchar(5) primary key,
     ten_the_loai nvarchar(150)
 );
+
 create table phim
 (
     ma_phim         varchar(5) primary key,
-    ten_phim        nvarchar(150),
-    dien_vien       nvarchar(150),
+    ten_phim        nvarchar(500),
+    dien_vien       nvarchar(500),
     namsx           int,
-    hinh            nvarchar(150),
-    dao_dien        nvarchar(150),
-    quoc_gia        nvarchar(150),
-    thoi_luong      nvarchar(150),
+    hinh            nvarchar(500),
+    dao_dien        nvarchar(500),
+    quoc_gia        nvarchar(500),
+    thoi_luong      nvarchar(500),
     mo_ta           nvarchar(1550),
-    trailer         nvarchar(150),
+    trailer         nvarchar(500),
     ngay_khoi_chieu date
 );
 create table chi_tiet_phim

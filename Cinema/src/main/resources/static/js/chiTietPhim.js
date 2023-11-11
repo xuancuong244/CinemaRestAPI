@@ -26,11 +26,8 @@ document.addEventListener('DOMContentLoaded', function () {
                         <b>DIỄN VIÊN: ${data.dienVien}</b>
                     </p>
                     <p class="m-0 font__source mt-3">
-<<<<<<< Updated upstream
                         <b>THỜI LƯỢNG: ${data.thoiLuong}</b> 
-=======
                         <b>THỜI LƯỢNG: ${data.thoiLuong} phút</b> 
->>>>>>> Stashed changes
                     </p>
                     <p class="m-0 font__source mt-3">
                         <b>QUỐC GIA: ${data.quocGia}</b> 
@@ -55,18 +52,15 @@ document.addEventListener('DOMContentLoaded', function () {
             .then(data => {
                 const chiTietPhim = document.getElementById('chiTietPhim');
                 chiTietPhim.innerHTML = createMovieDetailHTML(data);
-<<<<<<< Updated upstream
                 // getLichXuatChieuForPhim(maPhim);
-=======
                 getLichXuatChieuForPhim(maPhim);
->>>>>>> Stashed changes
             })
             .catch(error => {
                 console.error('Lỗi:', error);
             });
     }
 
-<<<<<<< Updated upstream
+
     // function getLichXuatChieuForPhim(maPhim) {
     //     fetch(`http://localhost:8085/api/XuatChieu/maPhim?maPhim=${maPhim}`)
     //         .then(response => response.json())
@@ -92,7 +86,7 @@ document.addEventListener('DOMContentLoaded', function () {
     //             console.error("Lỗi:", error);
     //         });
     // }
-=======
+
     function getLichXuatChieuForPhim(maPhim) {
         fetch(`http://localhost:8085/api/XuatChieu/maPhim?maPhim=${maPhim}`)
             .then(response => response.json())
@@ -118,7 +112,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 console.error("Lỗi:", error);
             });
     }
->>>>>>> Stashed changes
+
 
 
 });
