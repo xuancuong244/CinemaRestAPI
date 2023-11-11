@@ -6,7 +6,8 @@ import org.springframework.data.jpa.repository.Query;
 
 import java.util.Optional;
 
-public interface TaiKhoanRepository extends JpaRepository<TaiKhoan,Integer> {
-    @Query("SELECT tk FROM TaiKhoan tk WHERE tk.username = :username")
-    Optional<TaiKhoan> findTaiKhoanByUsername(String username);
+public interface TaiKhoanRepository  {
+//    extends JpaRepository<TaiKhoan,Integer>
+//    @Query("SELECT tk FROM TaiKhoan tk WHERE tk.username = :username")
+//    Optional<TaiKhoan> findTaiKhoanByUsername(String username);
 }

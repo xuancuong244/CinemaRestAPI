@@ -5,10 +5,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.Optional;
 
-<<<<<<< Updated upstream
-=======
-@Service
->>>>>>> Stashed changes
+//@Service
 public interface TaiKhoanService {
-    Optional<TaiKhoan> findTaiKhoanByUsername(String username);
+//    Optional<TaiKhoan> findTaiKhoanByUsername(String username);
 }
