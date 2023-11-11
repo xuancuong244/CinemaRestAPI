@@ -1,70 +1,83 @@
 footer {
-    /* background-color: #2661a6; */
-    margin-top: 5px;
-    /* width: 100%; */
-    border-top: 2px solid #E5E5E5;
+  /* background-color: #2661a6; */
+  margin-top: 5px;
+  /* width: 100%; */
+  border-top: 2px solid #e5e5e5;
 }
 
-.footer {}
+.footer {
+}
 
 .footer__logo {
 }
 
 .footer__logo img {
-    margin-top: 10px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    display: block;
-    margin-left: -20px;
+  margin-top: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  display: block;
+  margin-left: -50px;
 }
 
-.footer__logo--menu {}
+.footer__logo--menu {
+}
 
 .footer--menu ul {
-    padding: 0;
+  padding: 0;
 }
 
 .footer--menu ul li {
-    list-style: none;
+  list-style: none;
 }
 
 .footer--menu ul li a {
-    text-decoration: none;
-    color: black;
-    /* font-weight: 600; */
-    text-transform: uppercase;
-    transition: 1s;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+  text-decoration: none;
+  color: black;
+  font-weight: 500;
+  text-transform: uppercase;
+  transition: 1s;
+  /* display: flex; */
+  align-items: center;
+  justify-content: space-between;
 }
 
 .footer--menu ul li a:hover {
-    color: #f4a043;
-    /* transform: scale(1.1); */
-    transition: 0.5s;
+  color: #f4a043;
+  /* transform: scale(1.1); */
+  transition: 0.5s;
+}
+.footer__title {
+  border-bottom: 4px solid transparent;
+  border-image: linear-gradient(to right, #39adf0 0%, #075fa3 100%);
+  border-image-slice: 1;
+  display: inline-block;
+}
+.footer__title h3 {
+  color: rgba(0, 0, 0, 0.8);
+  font-family: Oswald;
+  font-size: 30px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+}
+.footer__list-Address {
 }
 
-.footer__list-Address {}
+.footer__list-Address h3 {
+  margin-top: 35px;
+  height: 60px;
+  display: inline-block;
+  /* font-size: 25px; */
+  padding-bottom: 7px;
+  text-transform: uppercase;
+  font-weight: bold;
 
-
-.footer__list-Address h2 {
-    display: inline-block;
-    font-size: 25px;
-    padding-bottom: 7px;
-    margin: 55px 0 7px 0px;
-    text-transform: uppercase;
-    font-weight: bold;
-    border-bottom: 4px solid transparent;
-    border-image: linear-gradient(to right, #39adf0 0%, #075fa3 100%);
-    border-image-slice: 1;
-    /* float: left; */
+  /* float: left; */
 }
 
 .footer_help {
-    text-decoration: none;
-    cursor: pointer;
-    color: black;
+  text-decoration: none;
+  cursor: pointer;
+  color: black;
 }
-
