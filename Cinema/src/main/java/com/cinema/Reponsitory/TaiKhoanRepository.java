@@ -5,12 +5,13 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
+import java.util.List;
 import java.util.Optional;
 
 @Repository
 public interface TaiKhoanRepository  extends JpaRepository<TaiKhoan,Integer>{
-    TaiKhoan findByUsername(String username);
-//    extends JpaRepository<TaiKhoan,Integer>
-//    @Query("SELECT tk FROM TaiKhoan tk WHERE tk.username = :username")
-//    Optional<TaiKhoan> findTaiKhoanByUsername(String username);
+    Optional<TaiKhoan> findTaiKhoanByUsername(String username);
+
+//    @Query("SELECT DISTINCT ar.TaiKhoan FROM ChucVu ar WHERE ar.role.id IN('DIRE','STAF')")
+//    List<TaiKhoan> getAdministrators();
 }

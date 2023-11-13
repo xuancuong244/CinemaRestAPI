@@ -1,84 +1,60 @@
-//package com.cinema;
-//
-//import java.util.NoSuchElementException;
-//import java.util.stream.Collectors;
-//
-//import com.cinema.Entity.TaiKhoan;
-//import com.cinema.Services.TaiKhoanService;
-//import org.springframework.beans.factory.annotation.Autowired;
-//import org.springframework.context.annotation.Bean;
-//import org.springframework.context.annotation.Configuration;
-//import org.springframework.http.HttpMethod;
-//import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
-//import org.springframework.security.config.annotation.web.builders.HttpSecurity;
-//import org.springframework.security.config.annotation.web.builders.WebSecurity;
-//import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
-//import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
-//import org.springframework.security.core.userdetails.User;
-//import org.springframework.security.core.userdetails.UsernameNotFoundException;
-//import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
-//
+package com.cinema;
+
+
+import com.cinema.Services.implServices.UserDetailsServiceImpl;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+
+import org.springframework.http.HttpMethod;
+import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
+import org.springframework.security.config.annotation.web.builders.HttpSecurity;
+import org.springframework.security.config.annotation.web.builders.WebSecurity;
+import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
+import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
+
 //@Configuration
 //@EnableWebSecurity
-//public class SecurityConfig extends WebSecurityConfigurerAdapter{
-//	@Autowired
-//	TaiKhoanService taiKhoanService;
-//	@Autowired
-//	BCryptPasswordEncoder pe;
+// extends WebSecurityConfigurerAdapter
+public class SecurityConfig{
+//    @Autowired
+//    private UserDetailsServiceImpl userDetailsService;
 //
-//	//Cung cấp nguồn dữ liệu đăng nhập
-//	@Override
-//	protected void configure(AuthenticationManagerBuilder auth) throws Exception{
-//		auth.userDetailsService(username -> {
-//			try {
-//				TaiKhoan user= taiKhoanService.findByUsername(username);
-//				String password= pe.encode(user.getPassword());
-//				String[] roles= user.getAuthorities().stream()
-//							.map(er -> er.getRole().getId())
-//							.collect(Collectors.toList()).toArray(new String[0]);
-//							return User.withUsername(username).password(password).roles(roles).build();
-//			}catch (NoSuchElementException e) {
-//				throw new UsernameNotFoundException(username + " not found!");
-//			}
-//		});
+//    @Override
+//    protected void configure(HttpSecurity http) throws Exception {
+//        http.csrf().disable();
+//        http.authorizeRequests()
+//                .antMatchers("/DynamicCinema/movieDetails").authenticated()
+//                .antMatchers("/DynamicCinema/movieDetails").hasRole("KHACH_HANG")
+//                .antMatchers("/DynamicCinema/admin/index").hasRole("QUAN_TRI")
+//                .anyRequest().permitAll();
+//        http.formLogin()
+//                .loginPage("/index/login/form")
+//                .loginProcessingUrl("/index/login")
+//                .defaultSuccessUrl("/DynamicCinema/index",false)
+//                .failureUrl("/index/login/form");
+//        http.rememberMe()
+//                .tokenValiditySeconds(86400);
+//        http.logout()
+//                .logoutUrl("/index/logout")
+//                .logoutSuccessUrl("/index/logout/success");
+//    }
 //
-//	}
-//	//Phân quyền sử dụng
-//	@Override
-//	protected void configure(HttpSecurity http) throws Exception{
-//		http.csrf().disable();
-//		http.authorizeRequests()
-//		.antMatchers("/order/**").authenticated()
-//		.antMatchers("/admin/**").hasAnyRole("STAF","DIRE")
-//		.antMatchers("/api/authorities").hasRole("DIRE")
-//		.anyRequest().permitAll();
+//    @Autowired
+//    public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
+//        auth.userDetailsService(userDetailsService).passwordEncoder(passwordEncoder());
+//    }
 //
-//		http.formLogin()
-//		.loginPage("/security/login/form")
-//		.loginProcessingUrl("/security/login")
-//		.defaultSuccessUrl("/home/index",false)
-//		.failureUrl("/security/login/form");
+//    @Bean
+//    public PasswordEncoder passwordEncoder() {
+//        return new BCryptPasswordEncoder();
+//    }
 //
-//		http.rememberMe()
-//		.tokenValiditySeconds(86400);
-//
-//		http.exceptionHandling()
-//		.accessDeniedPage("/security/unauthoried");
-//
-//		http.logout()
-//			.logoutUrl("/security/logoff")
-//			.logoutSuccessUrl("/security/logoff/success");
-//	}
-//
-//	//Cơ chế mã hóa mật khẩu
-//	@Bean
-//	public BCryptPasswordEncoder getPasswordEncoder() {
-//		return new BCryptPasswordEncoder();
-//	}
-//
-//	//Cho phep truy xuat REST API tu ben ngoai(domain khac)
-//	@Override
-//	public void configure(WebSecurity web) throws Exception{
-//		web.ignoring().antMatchers(HttpMethod.OPTIONS,"/**");
-//	}
-//}
+//    //Cho phep truy xuat REST API tu ben ngoai(domain khac)
+//    @Override
+//    public void configure(WebSecurity web) throws Exception{
+//        web.ignoring().antMatchers(HttpMethod.OPTIONS,"/**");
+//    }
+}
