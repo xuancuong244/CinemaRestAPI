@@ -74,29 +74,3 @@ tangBtns.forEach(function (btn) {
         calculateTotal();
     });
 });
-
-
-
-// function calculateTotal() {
-
-//     let total = 0;
-
-//     // Lấy tất cả các trường nhập liệu có id bắt đầu bằng 'input-'
-//     const inputs = document.querySelectorAll('[id^="input-"]');
-//     inputs.forEach(function (input) {
-//         // Lấy giá trị và id của từng phần tử
-//         const value = parseInt(input.value);
-//         const id = input.id.slice(6); // bỏ đi 'input-' để lấy chỉ số
-//         const price = productPrices[id];
-//         const subtotal = value * price;
-//         total += subtotal;
-//     });
-
-//     // Hiển thị tổng tiền ở một phần tử nào đó trên trang web
-//     const totalElement = document.getElementById('total');
-//     totalElement.textContent = total + ' VND';
-//     console.log(value, "input");
-//     console.log(id, "id");
-//     console.log(typeof price);
-//     console.log(total);
-// }
