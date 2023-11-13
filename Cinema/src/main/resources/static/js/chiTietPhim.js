@@ -87,31 +87,31 @@ document.addEventListener('DOMContentLoaded', function () {
     //         });
     // }
 
-    function getLichXuatChieuForPhim(maPhim) {
-        fetch(`http://localhost:8085/api/XuatChieu/maPhim?maPhim=${maPhim}`)
-            .then(response => response.json())
-            .then(data => {
-                const xuatChieuList = document.getElementById("xuatChieuList");
-                xuatChieuList.innerHTML = ""; // Xóa nội dung cũ trước khi thêm dữ liệu mới
+    // function getLichXuatChieuForPhim(maPhim) {
+    //     fetch(`http://localhost:8085/api/XuatChieu/maPhim?maPhim=${maPhim}`)
+    //         .then(response => response.json())
+    //         .then(data => {
+    //             const xuatChieuList = document.getElementById("xuatChieuList");
+    //             xuatChieuList.innerHTML = ""; // Xóa nội dung cũ trước khi thêm dữ liệu mới
 
-                data.forEach(xuatChieu => {
-                    const button = document.createElement("button");
-                    button.className = "btn btn__time";
-                    button.textContent = xuatChieu.gio_bat_dau;
-                    const redirectUrl = button.getAttribute("data-redirect-url");
+    //             data.forEach(xuatChieu => {
+    //                 const button = document.createElement("button");
+    //                 button.className = "btn btn__time";
+    //                 button.textContent = xuatChieu.gio_bat_dau;
+    //                 const redirectUrl = button.getAttribute("data-redirect-url");
 
-                    // Gắn sự kiện click vào button để xử lý logic khi người dùng chọn xuất chiếu
-                    button.addEventListener("click", () => {
-                        window.location.href = redirectUrl;
-                    });
+    //                 // Gắn sự kiện click vào button để xử lý logic khi người dùng chọn xuất chiếu
+    //                 button.addEventListener("click", () => {
+    //                     window.location.href = redirectUrl;
+    //                 });
 
-                    xuatChieuList.appendChild(button);
-                });
-            })
-            .catch(error => {
-                console.error("Lỗi:", error);
-            });
-    }
+    //                 xuatChieuList.appendChild(button);
+    //             });
+    //         })
+    //         .catch(error => {
+    //             console.error("Lỗi:", error);
+    //         });
+    // }
 
 
 
