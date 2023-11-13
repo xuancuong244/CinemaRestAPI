@@ -8,5 +8,6 @@ import java.util.Optional;
 
 public interface TaiKhoanService {
     Optional<TaiKhoan> findTaiKhoanByUsername(String username);
-//    List<TaiKhoan> getAdministrators();
 }
+
+

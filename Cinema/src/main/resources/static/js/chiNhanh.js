@@ -15,7 +15,7 @@ function loadData() {
                 var listItem = document.createElement("li");
                 var link = document.createElement("a");
                 link.textContent = item.tenCN; // Thay item.name bằng thuộc tính tương ứng từ API
-                link.href = 'http://localhost:8085/DynamicCinema/index'; // Thay item.url bằng thuộc tính URL tương ứng từ API
+                link.href = 'http://localhost:8085/DynamicCinema/index'; // Thay href bằng thuộc tính tương ứng
                 listItem.appendChild(link);
                 myList.appendChild(listItem);
             });
