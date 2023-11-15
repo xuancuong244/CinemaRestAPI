@@ -21,7 +21,7 @@ seats.forEach(function (seat) {
 function updateSelectedSeats() {
   const seatsHTML = selectedSeats
     .map(function (seat) {
-      return "<span>" + seat + "</span>";
+      return "<span class = 'text-danger'>" + seat + "</span>";
     })
     .join(", ");
 
