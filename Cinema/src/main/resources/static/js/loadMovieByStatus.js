@@ -24,8 +24,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
     // Function để load dữ liệu phim từ API và tạo HTML
-    function loadMoviesByStatus(trangThai) {
-        fetch(`http://localhost:8085/api/Phim/trangThai/${trangThai}`)
+    function loadMoviesByStatus(trangThai,maCN) {
+        fetch(`http://localhost:8085/api/Phim/trangThai/${trangThai}?maCN=${maCN}`)
             .then(response => response.json())
             .then(data => {
                 const phimContainer = document.getElementById('phimContainer');
@@ -36,13 +36,50 @@ document.addEventListener('DOMContentLoaded', function() {
                     const movieHTML = createMovieHTML(phim);
                     phimList.innerHTML += movieHTML;
                 });
-
                 phimContainer.appendChild(phimList);
             })
             .catch(error => {
                 console.error('Error:', error);
             });
     }
+
+    function loadDataById(maCN) {
+        var myList = document.getElementById("myList");
+        // Sử dụng fetch để gửi yêu cầu GET đến API
+        var apiUrl = maCN ? `http://localhost:8085/api/chinhanh/${maCN}` : 'http://localhost:8085/api/chinhanh/all';
+        // Sử dụng fetch để gửi yêu cầu GET đến API
+        fetch(apiUrl)
+            .then(function(response) {
+                return response.json(); // Chuyển đổi dữ liệu nhận được thành đối tượng JSON
+            })
+            .then(function(data) {
+                // Xóa các mục cũ trong danh sách
+                myList.innerHTML = '';
+
+                // Tạo các mục mới từ dữ liệu và thêm vào danh sách
+                data.forEach(function(cn) {
+                    var listItem = document.createElement("li");
+                    var link = document.createElement("a");
+                    link.textContent = cn.tenCN; // Thay item.name bằng thuộc tính tương ứng từ API
+                    link.href = `http://localhost:8085/DynamicCinema/index/${encodeURIComponent(cn.maCN)}`; // Thay href bằng thuộc tính tương ứng
+                    link.addEventListener('click', function(event) {
+                        event.preventDefault();
+                        loadMoviesByStatus('DC', cn.maCN);
+                        loadDataById(cn.maCN);// Thay 'DC' bằng trạng thái mặc định nếu cần
+                        // Cập nhật URL với mã chi nhánh
+                        if (data.length > 0) {
+                            window.history.pushState({}, '', `http://localhost:8085/DynamicCinema/index#${encodeURIComponent(cn.maCN)}`);
+                        }
+                    });
+                    listItem.appendChild(link);
+                    myList.appendChild(listItem);
+                });
+            })
+            .catch(function(error) {
+                console.error('Error loading data from API', error);
+            });
+    }
+
 
     // Gọi hàm loadMoviesByStatus khi trạng thái phim được chọn
     document.getElementById('dangchieu-tab').addEventListener('click', () => {
@@ -68,5 +105,11 @@ document.addEventListener('DOMContentLoaded', function() {
             const trailer = event.target.getAttribute('data-trailer');
             window.location.href = `chitiet_index.html?maPhim=${maPhim}&trailer=${trailer}`;
         });
+    });
+
+    document.getElementById('myList').addEventListener('click', function(event) {
+        if (event.target.classList.contains('dropdown-item')) {
+            loadDataById(event.target.dataset.maCN);
+        }
     });
 });

@@ -12,12 +12,12 @@ public class LoginController {
 
     @RequestMapping("/index/login/form")
     public String loginForm(){
-        return "customer/loginForm";
+        return "customer/login";
     }
 
     @RequestMapping("/index/register/form")
     public String registerForm(){
-        return "customer/registerForm";
+        return "customer/signup";
     }
 
     @RequestMapping("/index/logout")

@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class ChiNhanhServiceImpl implements ChiNhanhService {
@@ -17,10 +18,6 @@ public class ChiNhanhServiceImpl implements ChiNhanhService {
     public List<ChiNhanh> findAll(){
         chiNhanhReponsitory.findAll();
         return chiNhanhReponsitory.findAll();
-    }
-    @Override
-    public ChiNhanh getChiNhanhMaCN(String maCN) {
-        return chiNhanhReponsitory.getById(maCN);
     }
 
     @Override
@@ -37,4 +34,11 @@ public class ChiNhanhServiceImpl implements ChiNhanhService {
     public void delete(String maCN) {
         chiNhanhReponsitory.deleteById(maCN);
     }
+
+    @Override
+    public Optional<ChiNhanh> findById(String maCN) {
+        return chiNhanhReponsitory.findById(maCN);
+    }
+
+
 }

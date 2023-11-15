@@ -23,15 +23,15 @@ import java.util.List;
 @Table(name = "chi_nhanh")
 public class ChiNhanh{
     @Id
-    @Column(name = "Ma_CN")
+    @Column(name = "ma_cn")
     private String maCN;
 
-    @Column(name = "Ten_CN")
+    @Column(name = "ten_cn")
     private String tenCN;
 
     @Column(name = "dia_chi")
     private String diaChi;
 
-    @Column(name = "So_DT")
+    @Column(name = "so_dt")
     private String soDT;
 }

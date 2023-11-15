@@ -47,12 +47,14 @@ public class HomeController {
 
     @RequestMapping("/DynamicCinema/payment")
     public String payment() {
-        return "customer/thanhtoan";
+        return "customer/topping";
     }
 
     @RequestMapping("/DynamicCinema/topping")
     public String topping() {
         return "customer/topping";
     }
+
+
 
 }

@@ -33,9 +33,8 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script src="../js/loadMovieByStatus.js"></script>
     <script src="../js/chiTietPhim.js"></script>
-    <script src="../js/chiNhanh.js"></script>
+<!--    <script src="../js/chiNhanh.js"></script>-->
 </head>
-
 <body>
 <!-- Header  -->
 <div class="container header">
@@ -48,15 +47,15 @@
         <div class="col-lg-5 col-md-6 col-12 header__search">
             <!-- Example single danger button -->
             <div class="btn-group font__source">
-                <button onclick="loadData()" type="button" class="btn dropdown-toggle" data-bs-toggle="dropdown"
+                <button type="button" class="btn dropdown-toggle" data-bs-toggle="dropdown"
                         aria-expanded="false"  >Tỉnh/Thành Phố
                 </button>
-                <ul id="myList" class="dropdown-menu" onclick="showHTML(event)">
-<!--                    <li><a class="dropdown-item" href="#">DEC TP.HCM</a></li>-->
-<!--                    <li><a class="dropdown-item" href="#">DEC HÀ NỘI</a></li>-->
-<!--                    <li><a class="dropdown-item" href="#">DEC ĐÀ NẴNG</a></li>-->
-<!--                    <li><a class="dropdown-item" href="#">DEC BẮC GIANG</a></li>-->
-<!--                    <li><a class="dropdown-item" href="#">DEC KHÁNH HÒA</a></li>-->
+                <ul id="myList" class="dropdown-menu">
+                    <li><a class="dropdown-item" href="" data-maCN="CN1">DEC TP HỒ CHÍ MINH</a></li>
+                    <li><a class="dropdown-item" href="" data-maCN="CN2">DEC HÀ NỘI</a></li>
+                    <li><a class="dropdown-item" href="" data-maCN="CN3">DEC CẦN THƠ</a></li>
+                    <li><a class="dropdown-item" href="" data-maCN="CN4">DEC ĐÀ NẴNG</a></li>
+                    <li><a class="dropdown-item" href="" data-maCN="CN5">DEC KHÁNH HÒA</a></li>
                 </ul>
             </div>
         </div>
@@ -456,6 +455,7 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"
         integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF"
         crossorigin="anonymous"></script>
+
 </body>
 
 </html>

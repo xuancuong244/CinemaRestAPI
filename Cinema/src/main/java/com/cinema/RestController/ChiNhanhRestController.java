@@ -7,6 +7,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @CrossOrigin("*")
 @RestController
@@ -18,10 +19,26 @@ public class ChiNhanhRestController {
 
     // localhost:8085/api/ChiNhanh/all
     @GetMapping("/all")
-    public ResponseEntity<?> doGetAll(){
-        List<ChiNhanh> chiNhanh = chiNhanhService.findAll();
-        return ResponseEntity.ok(chiNhanh);
+    public ResponseEntity<?> doGetAll(@RequestParam(required = false) String maCN){
+        if (maCN != null){
+            Optional<ChiNhanh> chiNhanh = chiNhanhService.findById(maCN);
+            return ResponseEntity.ok(chiNhanh);
+        }else{
+            List<ChiNhanh> chiNhanh = chiNhanhService.findAll();
+            return ResponseEntity.ok(chiNhanh);
+        }
     }
+
+    @GetMapping("/{maCN}")
+    public ResponseEntity<?> doGetOne(@PathVariable String maCN){
+        Optional<ChiNhanh> chiNhanh = chiNhanhService.findById(maCN);
+        if(chiNhanh.isPresent()){
+            return ResponseEntity.ok(chiNhanh.get());
+        }else {
+            return ResponseEntity.notFound().build();
+        }
+    }
+
 
     @PostMapping
     public ResponseEntity<?> create(@RequestBody ChiNhanh chiNhanh){
