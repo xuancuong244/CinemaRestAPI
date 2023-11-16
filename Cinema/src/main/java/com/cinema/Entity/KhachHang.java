@@ -26,7 +26,7 @@ public class KhachHang {
     private String matKhau;
     @Column(name = "email",unique = true)
     private String email;
-    @Column(name = "sodt")
+    @Column(name = "so_dt")
     private String soDT;
     @Column(name = "Dia_Chi")
     private String diaChi;

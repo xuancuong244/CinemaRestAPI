@@ -50,9 +50,9 @@ public class HomeController {
         return "customer/topping";
     }
 
-    @RequestMapping("/DynamicCinema/topping")
-    public String topping() {
-        return "customer/topping";
+    @RequestMapping("/DynamicCinema/thanhtoan")
+    public String thanhtoan() {
+        return "customer/thanhtoan";
     }
 
 
