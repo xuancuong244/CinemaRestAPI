@@ -3869,13 +3869,13 @@ values ('2023-10-02', '18:00:00', '23:59:59', 25000, 'NV08', 'CN1');
 
 -- topping
 insert into Topping
-values ('TP01', 'Bắp rang bơ', 20, 60000, 'tp01.jpg');
+values ('TP01', N'Bắp rang bơ', 20, 60000, 'tp01.jpg');
 insert into Topping
-values ('TP02', 'Coca Cola', 50, 39000, 'tp02.jpg');
+values ('TP02', N'Coca Cola', 50, 39000, 'tp02.jpg');
 insert into Topping
-values ('TP03', 'Sting', 70, 39000, 'tp03.jpg');
+values ('TP03', N'Sting', 70, 39000, 'tp03.jpg');
 insert into Topping
-values ('TP04', 'Snack', 33, 40000, 'tp04.jpg');
+values ('TP04', N'Snack', 33, 40000, 'tp04.jpg');
 
 -- chi tiết topping
 insert into chi_tiet_topping
