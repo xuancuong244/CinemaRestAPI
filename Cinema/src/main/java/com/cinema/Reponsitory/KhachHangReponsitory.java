@@ -6,4 +6,8 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface KhachHangReponsitory extends JpaRepository<KhachHang, Integer> {
+    KhachHang findByEmailAndMatKhau(String email, String matKhau);
+    boolean existsByEmail(String email);
+
+    KhachHang findByEmail(String email);
 }

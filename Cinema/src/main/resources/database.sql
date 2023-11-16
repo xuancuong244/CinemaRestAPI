@@ -14,6 +14,7 @@ create table nhan_vien
     ma_nv     varchar(5) primary key,
     ho_ten    nvarchar(150),
     gioi_tinh bit,
+    email     varchar(30) unique,
     mat_khau  varchar(10),
     ngay_sinh DATE,
     so_dt     varchar(10),

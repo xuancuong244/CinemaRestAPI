@@ -17,4 +17,21 @@ public class NhanVienServiceImpl implements NhanVienService {
     public List<NhanVien> findAll() {
         return nhanVienReponsitory.findAll();
     }
+
+    @Override
+    public NhanVien findByEmailAndMatKhau(String email, String matKhau) {
+        return nhanVienReponsitory.findByEmailAndMatKhau(email,matKhau);
+    }
+
+    @Override
+    public NhanVien findByEmail(String email) {
+        return nhanVienReponsitory.findByEmail(email);
+    }
+
+    @Override
+    public NhanVien save(NhanVien nhanVien) {
+        return nhanVienReponsitory.save(nhanVien);
+    }
+
+
 }

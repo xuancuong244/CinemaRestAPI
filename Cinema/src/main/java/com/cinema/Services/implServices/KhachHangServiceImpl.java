@@ -17,4 +17,19 @@ public class KhachHangServiceImpl implements KhachHangService {
     public List<KhachHang> findAll() {
         return khachHangReponsitory.findAll();
     }
+
+    @Override
+    public KhachHang findByEmailAndMatKhau(String email, String matKhau) {
+        return khachHangReponsitory.findByEmailAndMatKhau(email,matKhau);
+    }
+
+    @Override
+    public KhachHang findByEmail(String email) {
+        return khachHangReponsitory.findByEmail(email);
+    }
+
+    @Override
+    public KhachHang save(KhachHang khachHang) {
+        return khachHangReponsitory.save(khachHang);
+    }
 }

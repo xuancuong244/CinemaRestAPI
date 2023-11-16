@@ -24,6 +24,8 @@ public class NhanVien {
     private String maNV;
     @Column(name = "Ho_Ten")
     private String hoTen;
+    @Column(name = "email",unique = true)
+    private String email;
     @Column(name = "Gioi_Tinh")
     private Boolean GioiTinh;
     @Column(name = "Mat_Khau")
