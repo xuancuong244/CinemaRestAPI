@@ -10,8 +10,7 @@ import java.util.Optional;
 
 @Repository
 public interface TaiKhoanRepository  extends JpaRepository<TaiKhoan,Integer>{
-    Optional<TaiKhoan> findTaiKhoanByUsername(String username);
-
-//    @Query("SELECT DISTINCT ar.TaiKhoan FROM ChucVu ar WHERE ar.role.id IN('DIRE','STAF')")
-//    List<TaiKhoan> getAdministrators();
+//    Optional<TaiKhoan> findTaiKhoanByUsername(String username);
+//  @Query("SELECT DISTINCT ar.TaiKhoan FROM ChucVu ar WHERE ar.role.id IN('DIRE','STAF')")
+//  List<TaiKhoan> getAdministrators();
 }

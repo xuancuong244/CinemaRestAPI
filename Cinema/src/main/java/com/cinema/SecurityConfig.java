@@ -24,22 +24,29 @@ public class SecurityConfig{
 //
 //    @Override
 //    protected void configure(HttpSecurity http) throws Exception {
-//        http.csrf().disable();
-//        http.authorizeRequests()
+//        http.csrf().disable()
+//                .authorizeRequests()
+//                .antMatchers("/index").permitAll() // Cho phép truy cập trang index mà không cần đăng nhập
 //                .antMatchers("/DynamicCinema/movieDetails").authenticated()
 //                .antMatchers("/DynamicCinema/movieDetails").hasRole("KHACH_HANG")
 //                .antMatchers("/DynamicCinema/admin/index").hasRole("QUAN_TRI")
-//                .anyRequest().permitAll();
-//        http.formLogin()
+//                .anyRequest().permitAll()
+//                .and()
+//                .formLogin()
 //                .loginPage("/index/login/form")
 //                .loginProcessingUrl("/index/login")
-//                .defaultSuccessUrl("/DynamicCinema/index",false)
-//                .failureUrl("/index/login/form");
-//        http.rememberMe()
-//                .tokenValiditySeconds(86400);
-//        http.logout()
+//                .defaultSuccessUrl("/DynamicCinema/index", false)
+//                .failureUrl("/index/login/form")
+//                .and()
+//                .logout()
 //                .logoutUrl("/index/logout")
-//                .logoutSuccessUrl("/index/logout/success");
+//                .logoutSuccessUrl("/index/logout/success")
+//                .and()
+//                .rememberMe().tokenValiditySeconds(86400)
+//                .and()
+//                .headers().frameOptions().disable() // Disable X-Frame-Options for H2 Console
+//                .and()
+//                .exceptionHandling().accessDeniedPage("/403"); // Custom 403 access denied page
 //    }
 //
 //    @Autowired
@@ -52,9 +59,10 @@ public class SecurityConfig{
 //        return new BCryptPasswordEncoder();
 //    }
 //
-//    //Cho phep truy xuat REST API tu ben ngoai(domain khac)
+//    // Cho phép truy xuất REST API từ bên ngoài (domain khác)
 //    @Override
-//    public void configure(WebSecurity web) throws Exception{
-//        web.ignoring().antMatchers(HttpMethod.OPTIONS,"/**");
+//    public void configure(WebSecurity web) throws Exception {
+//        web.ignoring().antMatchers(HttpMethod.OPTIONS, "/**");
 //    }
 }
+

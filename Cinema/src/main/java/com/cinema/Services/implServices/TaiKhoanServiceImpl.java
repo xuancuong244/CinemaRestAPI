@@ -10,21 +10,25 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 import java.util.Optional;
 
-//
-//import java.util.Optional;
-//
 @Service
-public class TaiKhoanServiceImpl implements TaiKhoanService{
-    @Autowired
-    TaiKhoanRepository taiKhoanRepository;
-    @Override
-    public Optional<TaiKhoan> findTaiKhoanByUsername(String username) {
-        return taiKhoanRepository.findTaiKhoanByUsername(username);
-    }
-
+// implements TaiKhoanService
+public class TaiKhoanServiceImpl{
+//    @Autowired
+//    TaiKhoanRepository taiKhoanRepository;
+//    @Override
+//    public Optional<TaiKhoan> findTaiKhoanByUsername(String username) {
+//        return taiKhoanRepository.findTaiKhoanByUsername(username);
+//    }
+//
 //    @Override
 //    public List<TaiKhoan> getAdministrators() {
 //        return taiKhoanRepository.getAdministrators();
+//    }
+//
+//    @Override
+//    public TaiKhoan saveTaiKhoan(TaiKhoan taiKhoan) {
+//        // Thực hiện lưu tài khoản vào cơ sở dữ liệu
+//        return taiKhoanRepository.save(taiKhoan);
 //    }
 
 }

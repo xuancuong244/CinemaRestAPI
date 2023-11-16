@@ -7,7 +7,11 @@ import java.util.List;
 import java.util.Optional;
 
 public interface TaiKhoanService {
-    Optional<TaiKhoan> findTaiKhoanByUsername(String username);
+//    Optional<TaiKhoan> findTaiKhoanByUsername(String username);
+//
+//    List<TaiKhoan> getAdministrators();
+//
+//    TaiKhoan saveTaiKhoan(TaiKhoan taiKhoan);
 }
 
 

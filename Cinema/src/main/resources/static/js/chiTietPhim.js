@@ -12,6 +12,9 @@ document.addEventListener('DOMContentLoaded', function () {
         // Cập nhật đường dẫn của iframe
         trailerFrame.src = videoUrl;
 
+        const ngayKhoiChieu = new Date(data.ngayKhoiChieu);
+        const formattedNgayKhoiChieu = `${ngayKhoiChieu.getDate()}/${ngayKhoiChieu.getMonth()+1}/${ngayKhoiChieu.getFullYear()}`;
+
         return `
                 <div class="col-3">
                     <img style="border-radius: 20px" width="258px" height="407px" src="../img/phim/${data.hinh}" alt="">
@@ -27,13 +30,12 @@ document.addEventListener('DOMContentLoaded', function () {
                     </p>
                     <p class="m-0 font__source mt-3">
                         <b>THỜI LƯỢNG: ${data.thoiLuong}</b> 
-                        <b>THỜI LƯỢNG: ${data.thoiLuong} phút</b> 
                     </p>
                     <p class="m-0 font__source mt-3">
                         <b>QUỐC GIA: ${data.quocGia}</b> 
                     </p>
                     <p class="m-0 font__source mt-3">
-                        <b>NGÀY KHỞI CHIẾU : ${data.ngayKhoiChieu}</b> 
+                        <b>NGÀY KHỞI CHIẾU : ${formattedNgayKhoiChieu}</b> 
                     </p>
                 </div> `;
     }
@@ -53,7 +55,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 const chiTietPhim = document.getElementById('chiTietPhim');
                 chiTietPhim.innerHTML = createMovieDetailHTML(data);
                 // getLichXuatChieuForPhim(maPhim);
-                getLichXuatChieuForPhim(maPhim);
+                // getLichXuatChieuForPhim(maPhim);
             })
             .catch(error => {
                 console.error('Lỗi:', error);
