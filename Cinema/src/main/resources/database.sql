@@ -34,18 +34,6 @@ create table khach_hang
     hinh_FB   nvarchar(150)
 );
 
-CREATE TABLE tai_khoan
-(
-    id            INT IDENTITY (1,1) PRIMARY KEY,
-    username      VARCHAR(50)  NOT NULL,
-    password      VARCHAR(100) NOT NULL,
-    roles         VARCHAR(5),
-    FOREIGN KEY (roles) REFERENCES chuc_vu (ma_cv),
-    ma_KH  INT,
-    ma_nv VARCHAR(5),
-    FOREIGN KEY (ma_nv) REFERENCES nhan_vien (ma_nv) ON DELETE CASCADE,
-    FOREIGN KEY (ma_KH) REFERENCES khach_hang (ma_KH) ON DELETE CASCADE
-);
 
 create table chi_nhanh
 (
