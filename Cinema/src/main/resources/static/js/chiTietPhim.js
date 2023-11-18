@@ -61,7 +61,18 @@ document.addEventListener('DOMContentLoaded', function () {
                 console.error('Lỗi:', error);
             });
     }
+    fetch('http://localhost:8085/api/NgayChieu/')
+        .then(response => response.json())
+        .then(data => {
+            // Assuming the API response contains a 'releaseDate' property
+            const releaseDate = data.releaseDate;
 
+            // Update the content of the <span> element with the release date
+            document.getElementById('releaseDate').textContent = `Release Date: ${releaseDate}`;
+        })
+        .catch(error => {
+            console.error('Error fetching API data:', error);
+        });
 
     // function getLichXuatChieuForPhim(maPhim) {
     //     fetch(`http://localhost:8085/api/XuatChieu/maPhim?maPhim=${maPhim}`)

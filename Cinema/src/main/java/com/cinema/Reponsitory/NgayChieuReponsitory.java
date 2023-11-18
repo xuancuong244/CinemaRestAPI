@@ -2,8 +2,11 @@ package com.cinema.Reponsitory;
 
 import com.cinema.Entity.NgayChieu;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
+import java.sql.Time;
+import java.util.Date;
 import java.util.List;
 
 @Repository

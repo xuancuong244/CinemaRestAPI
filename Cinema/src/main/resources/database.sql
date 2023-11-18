@@ -3882,3 +3882,15 @@ insert into chi_tiet_topping
 values (1, 'TP01', 1);
 insert into chi_tiet_topping
 values (2, 'TP01', 2);
+
+
+select p.ma_phim, p.ten_phim, ph.ten_phong, nc.ngay, nc.gio_bat_dau, cn.ten_cn, g.ten_ghe
+from phim p join xuat_chieu xc on p.ma_phim = xc.ma_phim
+join phong_chieu ph on ph.ma_phong = xc.ma_phong
+join ngay_chieu nc on nc.stt = xc.ma_ngay_chieu
+join chi_nhanh cn on cn.ma_cn = ph.ma_cn
+join chi_tiet_ghe ctg on ctg.ma_phong = ph.ma_phong
+join ghe g on g.ma_ghe = ctg.ma_ghe
+--join ve v on v.ma_ctghe = ctg.ma_ctghe
+--join chi_tiet_topping ctt on ctt.id_ve = v.id_ve
+--join topping t on t.ma_topping = ctt.ma_topping
