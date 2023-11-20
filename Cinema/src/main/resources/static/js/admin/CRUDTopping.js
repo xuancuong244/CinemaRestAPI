@@ -35,8 +35,6 @@ function updateTable(toppings) {
         var cell4 = row.insertCell(3);
         cell4.textContent = topping.gia;
 
-        var cell5 = row.insertCell(4);
-        cell5.textContent = topping.hinh;
     }
 }
 

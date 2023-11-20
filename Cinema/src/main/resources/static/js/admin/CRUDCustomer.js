@@ -10,6 +10,10 @@ function loadCustomer() {
     xhr.send();
 }
 
+function convertGender(value) {
+    return value ? "Nam" : "Nữ";
+}
+
 function updateTable(customers) {
     var tableBody = document.getElementById("customerTable").getElementsByTagName('tbody')[0];
 
@@ -46,7 +50,7 @@ function updateTable(customers) {
         // cell8.textContent = movie.moTa;
 
         var cell9 = row.insertCell(6);
-        cell9.textContent = customer.gioiTinh;
+        cell9.textContent = convertGender(customer.gioiTinh);
 
         var cell10 = row.insertCell(7);
         cell10.textContent = customer.idFB;

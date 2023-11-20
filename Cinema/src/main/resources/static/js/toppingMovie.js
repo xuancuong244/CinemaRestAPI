@@ -1,23 +1,21 @@
 document.addEventListener('DOMContentLoaded', function () {
-    // Kiểm tra xem có thông tin phim đã được lưu trong localStorage hay không
-    const selectedMovie = JSON.parse(localStorage.getItem('selectedMovie'));
-
-
-    if (selectedMovie) {
-        // Hiển thị thông tin phim lấy từ localStorage lên trang select
-        const selectMovieInformation = document.querySelector('.select__movieInformation');
-
+    const selectedMovieInfo = JSON.parse(localStorage.getItem('selectedMovie'));
+    if (selectedMovieInfo) {
+        //Lấy tên phim
         const movieName = document.getElementById('movieName');
-        movieName.innerText = selectedMovie.tenPhim;
+        movieName.innerText = selectedMovieInfo.tenPhim;
 
-        selectMovieInformation.innerHTML = `
+        // Hiển thị thông tin phim lên trang payment
+        const paymentMovieInformation = document.querySelector('.select__movieInformation');
+
+        paymentMovieInformation.innerHTML = `
             <!-- Các đoạn mã HTML tương ứng với thông tin phim, bạn có thể thay đổi phần này dựa trên giao diện của bạn -->
             <div class="row">
                 <div class="col-4">
-                    <img src="../img/phim/${selectedMovie.hinh}" width="150px;" height="220px" alt="" />
+                    <img src="../img/phim/${selectedMovieInfo.hinh}" width="150px;" height="220px" alt="" />
                 </div>
                 <div class="col-8 select__movieInformation-text">
-                    <h3 class="ms-3">${selectedMovie.tenPhim}</h3>
+                    <h3 class="ms-3">${selectedMovieInfo.tenPhim}</h3>
                     <h4>2D Phụ đề</h4>
                 </div>
             </div>
@@ -26,11 +24,11 @@ document.addEventListener('DOMContentLoaded', function () {
                         <div class="col-6 mt-3">
                             <div>
                                 <img src="../img/logo/vector.png" alt="" width="12px" height="12px">
-                                <p class="ms-1 font__source">Thể loại: </p>
+                                <p class="ms-1 font__source">Thể loại</p>
                             </div>
                             <div class="mt-3">
                                 <img src="../img/logo/time.png" alt="" width="12px" height="12px">
-                                <p class="ms-1 font__source">Thời lượng: </p>
+                                <p class="ms-1 font__source">Thời lượng</p>
                             </div>
                         </div>
                         <div class="col-6 mt-3">
@@ -38,7 +36,7 @@ document.addEventListener('DOMContentLoaded', function () {
                                 <p class="font__source">Tâm lý</p>
                             </div>
                             <div class="mt-3">
-                                <p class="font__source">${selectedMovie.thoiLuong}</p>
+                                <p class="font__source">${selectedMovieInfo.thoiLuong}</p>
                             </div>
                         </div>
                     </div>
@@ -84,14 +82,24 @@ document.addEventListener('DOMContentLoaded', function () {
                         </div>
                     </div>
                     <div class="text-center mt-3">
-                        <a href="http://localhost:8085/DynamicCinema/payment" style="text-decoration: none;">
-                        <button class="btn btn-login font__oswald" style="width: 45%;">
-                            TIẾP TỤC
-                        </button>
-                        </a>
+                        <div class="row">
+                            <div class="col-6">
+                                <a href="http://localhost:8085/DynamicCinema/select" style="text-decoration: none;">
+                                <button class="btn btn-login font__oswald" style="width: 95%;">
+                                    QUAY LẠI
+                                </button>
+                                </a>
+                            </div>
+                            <div class="col-6">
+                                <a href="http://localhost:8085/DynamicCinema/thanhtoan">
+                                <button class="btn btn-login font__oswald" style="width: 95%;">
+                                    TIẾP TỤC
+                                </button>
+                                </a>
+                            </div>
+                        </div>
                     </div>
-                </div>
+            </div>
         `;
-        window.selectedMovieInfo = selectedMovie;
     }
 });

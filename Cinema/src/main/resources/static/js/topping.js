@@ -1,4 +1,4 @@
-document.addEventListener("DOMContentLoaded", function() {
+document.addEventListener("DOMContentLoaded", function () {
     // Make a request to the API
     fetch('http://localhost:8085/api/KhachHang/all')
         .then(response => response.json())
@@ -16,4 +16,6 @@ document.addEventListener("DOMContentLoaded", function() {
         .catch(error => {
             console.error('Error fetching customer data:', error);
         });
+
+
 });
