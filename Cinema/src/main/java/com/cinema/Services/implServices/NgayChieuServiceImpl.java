@@ -21,4 +21,5 @@ public class NgayChieuServiceImpl implements NgayChieuService {
     public List<NgayChieu> findByPhim_MaPhim(String maPhim) {
         return ngayChieuReponsitory.findByPhim_MaPhim(maPhim);
     }
+
 }

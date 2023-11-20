@@ -33,7 +33,7 @@ public class NhanVien {
     @Column(name = "Ngay_Sinh")
     private Date ngaySinh;
     @Column(name = "So_DT")
-    private String soDT;
+        private String soDT;
     @ManyToOne
     @JoinColumn(name = "Ma_CV")
     private ChucVu chucVu;
