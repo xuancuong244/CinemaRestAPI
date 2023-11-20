@@ -103,7 +103,9 @@ create table phim
     mo_ta           nvarchar(1550),
     trailer         nvarchar(150),
     trang_thai      nvarchar(150),
-    ngay_khoi_chieu date
+    ngay_khoi_chieu date,
+    ma_the_loai     varchar(5),
+    constraint fk_p_ctp foreign key (ma_the_loai) references the_loai (ma_the_loai)
 );
 create table chi_tiet_phim
 (

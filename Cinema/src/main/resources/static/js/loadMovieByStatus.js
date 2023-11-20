@@ -17,7 +17,7 @@ document.addEventListener('DOMContentLoaded', function() {
           <p class="font__source ms-4">
             Quốc gia: ${phim.quocGia} <br>
             Thời lượng: ${phim.thoiLuong} <br>
-            Ngày khởi chiếu: ${formattedNgayKhoiChieu}
+            Ngày khởi chiếu: ${formattedNgayKhoiChieu} <br>
           </p>
         </div>
       </div>

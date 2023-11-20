@@ -15,6 +15,8 @@ import java.io.Serializable;
 @Setter
 @Table(name = "chi_tiet_phim")
 public class ChiTietPhim implements Serializable {
+
+
     @Id
     @ManyToOne
     @JoinColumn(name = "ma_phim")
@@ -23,4 +25,5 @@ public class ChiTietPhim implements Serializable {
     @ManyToOne
     @JoinColumn(name = "ma_the_loai")
     private TheLoaiPhim theLoaiPhim;
+
 }

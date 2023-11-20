@@ -1,5 +1,6 @@
 package com.cinema.Reponsitory;
 
+import com.cinema.Entity.ChiTietPhim;
 import com.cinema.Entity.Phim;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
