@@ -1,15 +1,16 @@
-/* .navigation {
-    background-color: #2661a6;
-} */
+.navigation {
+  background: #fff;
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.1);
+}
 
-.navigation__menu ul li button{
-    font-weight: 500;
-    color: black !important;
-    transform: scale(1);
-    /* border-bottom: 5px solid #f4a043; */
-    transition: 1s;
+.navigation__menu ul li button {
+  font-weight: 500;
+  color: black !important;
+  transform: scale(1);
+  /* border-bottom: 5px solid #f4a043; */
+  transition: 1s;
 }
 
 .navbar {
-    padding: 0 !important;
+  padding: 0 !important;
 }
