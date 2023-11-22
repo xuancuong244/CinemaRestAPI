@@ -1,0 +1,38 @@
+.cinema-Corner__title {
+  color: #337ab7;
+  font-family: Oswald;
+  font-size: 26px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+.btn-dropdown {
+  width: 165px;
+  height: 43px;
+  border-radius: 5px;
+  border: 1px solid rgba(0, 0, 0, 0.24) !important;
+}
+.cinema-Corner__boderBottom {
+  margin-top: 20px;
+  width: 100%;
+  height: 4px;
+  background: linear-gradient(to bottom right, #0660a4 0%, #37a9ec 50%) bottom
+      right / 50% 50% no-repeat,
+    linear-gradient(to bottom left, #0660a4 0%, #37a9ec 50%) bottom left / 50%
+      50% no-repeat;
+}
+.cinema-Content__title {
+  color: #000;
+  font-family: Oswald;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+}
+.cinema-Content__text {
+  color: #000;
+  font-family: Oswald;
+  font-size: 23px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
