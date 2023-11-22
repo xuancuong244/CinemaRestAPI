@@ -1,0 +1,56 @@
+.event__title {
+  color: #337ab7;
+  font-family: Oswald;
+  font-size: 26px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+/* Tạo kiểu vùng chứa hình ảnh */
+.event__item {
+  margin: auto;
+  position: relative;
+}
+/* Tạo kiểu cho hình ảnh */
+.event__item .img {
+  opacity: 1;
+}
+/* Bố cục vị trí vùng chứa text */
+.event__item .fadeOverlay {
+  position: absolute;
+  width: 260px;
+  height: 380px;
+  top: 0;
+  left: 0;
+  background-color: rgba(49, 49, 49, 0.678);
+  border-radius: 5px;
+  opacity: 0;
+  transition: 1.5s;
+}
+/* Thêm hiệu ứng khi hover */
+.event__item:hover .fadeOverlay {
+  opacity: 1;
+  animation: fade 0.5s;
+}
+/* Tạo kiểu cho text, bố cục hiển thị ở giữa */
+.event__item .fadeOverlay span {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #fff;
+  font-family: Oswald;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+/* Tạo hiệu ứng animation */
+@keyframes fade {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
