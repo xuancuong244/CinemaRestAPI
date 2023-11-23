@@ -8,7 +8,9 @@
 }
 /* Tạo kiểu vùng chứa hình ảnh */
 .event__item {
-  margin: auto;
+  width: 260px;
+  height: 380px;
+  /* margin: auto; */
   position: relative;
 }
 /* Tạo kiểu cho hình ảnh */
