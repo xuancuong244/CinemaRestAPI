@@ -1,14 +1,25 @@
 document.addEventListener('DOMContentLoaded', function () {
+    // Lấy thông tin từ localStorage
+    const selectedDateTime = JSON.parse(localStorage.getItem('selectedDateTime'));
+
+    // Hiển thị thông tin đã chọn trong console (bạn có thể thay đổi phần này tùy theo nhu cầu)
+    console.log("Ngày chiếu đã chọn:", selectedDateTime.date);
+    console.log("Suất chiếu đã chọn:", selectedDateTime.showtime);
+
     // Kiểm tra xem có thông tin phim đã được lưu trong localStorage hay không
     const selectedMovie = JSON.parse(localStorage.getItem('selectedMovie'));
 
 
-    if (selectedMovie) {
+    if (selectedMovie && selectedDateTime) {
         // Hiển thị thông tin phim lấy từ localStorage lên trang select
         const selectMovieInformation = document.querySelector('.select__movieInformation');
 
         const movieName = document.getElementById('movieName');
         movieName.innerText = selectedMovie.tenPhim;
+
+        // Format lại ngày theo kiểu "dd/MM/yyyy"
+        var dateObject = new Date(selectedDateTime.date);
+        var formattedDate = `${dateObject.getDate()}/${dateObject.getMonth() + 1}/${dateObject.getFullYear()}`;
 
         selectMovieInformation.innerHTML = `
             <!-- Các đoạn mã HTML tương ứng với thông tin phim, bạn có thể thay đổi phần này dựa trên giao diện của bạn -->
@@ -35,10 +46,10 @@ document.addEventListener('DOMContentLoaded', function () {
                         </div>
                         <div class="col-6 mt-3">
                             <div>
-                                <p class="font__source">Tâm lý</p>
+                                <p class="font__source" style="font-weight: bold">Tâm lý</p>
                             </div>
                             <div class="mt-3">
-                                <p class="font__source">${selectedMovie.thoiLuong}</p>
+                                <p class="font__source" style="font-weight: bold">${selectedMovie.thoiLuong}</p>
                             </div>
                         </div>
                     </div>
@@ -67,19 +78,19 @@ document.addEventListener('DOMContentLoaded', function () {
                         </div>
                         <div class="col-6 mt-3">
                             <div>
-                                <p class="font__source">DEC Quang Trung</p>
+                                <p class="font__source" style="font-weight: bold">DEC Quang Trung</p>
                             </div>
                             <div class="mt-3">
-                                <p class="font__source">13/10/2023</p>
+                                <p class="font__source" style="font-weight: bold">${formattedDate}</p>
                             </div>
                             <div class="mt-3">
-                                <p class="font__source">19:00</p>
+                                <p class="font__source" style="font-weight: bold">${selectedDateTime.showtime}</p>
                             </div>
                             <div class="mt-3">
-                                <p class="font__source">P3</p>
+                                <p class="font__source" style="font-weight: bold">P3</p>
                             </div>
                             <div class="mt-3">
-                                <div id="selected-seats"></div>
+                                <div id="selected-seats" style="font-weight: bold"></div>
                             </div>
                         </div>
                     </div>
@@ -94,21 +105,5 @@ document.addEventListener('DOMContentLoaded', function () {
         `;
         window.selectedMovieInfo = selectedMovie;
     }
-
-    // function loadRooms() {
-    //     // Sử dụng fetch để gửi yêu cầu GET đến API
-    //     fetch('http://localhost:8085/api/PhongChieu/all')
-    //         .then(function (response) {
-    //             return response.json(); // Chuyển đổi dữ liệu nhận được thành đối tượng JSON
-    //         })
-    //         .then(function (data) {
-    //             // Làm điều gì đó với thông tin phòng chiếu, có thể tạo các nút hoặc hiển thị trong giao diện
-    //             console.log("Thông tin phòng chiếu:", data);
-    //             // Tiếp theo, bạn có thể triển khai mã để hiển thị danh sách phòng chiếu trong giao diện
-    //         })
-    //         .catch(function (error) {
-    //             console.error('Lỗi khi tải dữ liệu từ API về phòng chiếu', error);
-    //         });
-    // }
 
 });

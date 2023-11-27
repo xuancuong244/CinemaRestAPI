@@ -1,9 +1,22 @@
 document.addEventListener('DOMContentLoaded', function () {
+    // Lấy thông tin từ localStorage
+    const selectedDateTime = JSON.parse(localStorage.getItem('selectedDateTime'));
+
+    // Hiển thị thông tin đã chọn trong console (bạn có thể thay đổi phần này tùy theo nhu cầu)
+    console.log("Ngày chiếu đã chọn:", selectedDateTime.date);
+    console.log("Suất chiếu đã chọn:", selectedDateTime.showtime);
+
     const selectedMovieInfo = JSON.parse(localStorage.getItem('selectedMovie'));
-    if (selectedMovieInfo) {
+    const selectedSeats = JSON.parse(localStorage.getItem('selectedSeats'));
+
+    if (selectedMovieInfo && selectedDateTime && selectedSeats) {
         //Lấy tên phim
         const movieName = document.getElementById('movieName');
         movieName.innerText = selectedMovieInfo.tenPhim;
+
+        // Format lại ngày theo kiểu "dd/MM/yyyy"
+        var dateObject = new Date(selectedDateTime.date);
+        var formattedDate = `${dateObject.getDate()}/${dateObject.getMonth() + 1}/${dateObject.getFullYear()}`;
 
         // Hiển thị thông tin phim lên trang payment
         const paymentMovieInformation = document.querySelector('.select__movieInformation');
@@ -33,10 +46,10 @@ document.addEventListener('DOMContentLoaded', function () {
                         </div>
                         <div class="col-6 mt-3">
                             <div>
-                                <p class="font__source">Tâm lý</p>
+                                <p class="font__source" style="font-weight: bold">Tâm lý</p>
                             </div>
                             <div class="mt-3">
-                                <p class="font__source">${selectedMovieInfo.thoiLuong}</p>
+                                <p class="font__source" style="font-weight: bold">${selectedMovieInfo.thoiLuong}</p>
                             </div>
                         </div>
                     </div>
@@ -65,19 +78,19 @@ document.addEventListener('DOMContentLoaded', function () {
                         </div>
                         <div class="col-6 mt-3">
                             <div>
-                                <p class="font__source">DEC Quang Trung</p>
+                                <p class="font__source" style="font-weight: bold">DEC Quang Trung</p>
                             </div>
                             <div class="mt-3">
-                                <p class="font__source">13/10/2023</p>
+                                <p class="font__source" style="font-weight: bold">${formattedDate}</p>
                             </div>
                             <div class="mt-3">
-                                <p class="font__source">19:00</p>
+                                <p class="font__source" style="font-weight: bold">${selectedDateTime.showtime}</p>
                             </div>
                             <div class="mt-3">
-                                <p class="font__source">P3</p>
+                                <p class="font__source" style="font-weight: bold">P3</p>
                             </div>
                             <div class="mt-3">
-                                <div id="selected-seats"></div>
+                                <div id="selected-seats" style="color: red;font-weight: bold">${selectedSeats.join(', ')}</div>
                             </div>
                         </div>
                     </div>

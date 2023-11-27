@@ -206,49 +206,69 @@
       <ul class="d-flex justify-content-center navbar-nav nav nav-pills" id="pills-tab" role="tablist"
           style="width: 100%;">
         <li class="nav-item ms-3 font__oswald" role="presentation">
-          <button class="nav-link btn__nvgt " id="pills-buyVe-tab" data-bs-toggle="pill"
-                  data-bs-target="#pills-buyVe" type="button" role="tab" aria-controls="pills-home"
-                  aria-selected="true">
-            LỊCH CHIẾU THEO RẠP
-          </button>
+          <a style="text-decoration: none" href="http://localhost:8085/DynamicCinema/index">
+            <button class="nav-link btn__nvgt active" id="pills-buyVe-tab" data-bs-toggle="pill"
+                    data-bs-target="#pills-buyVe" type="button" role="tab" aria-controls="pills-home"
+                    aria-selected="true">
+              LỊCH CHIẾU THEO RẠP
+            </button>
+          </a>
         </li>
         <li class="nav-item ms-3 font__oswald " role="presentation">
-          <button class="nav-link btn__nvgt" id="pills-movie-tab" data-bs-toggle="pill"
-                  data-bs-target="#pills-movie" type="button" role="tab" aria-controls="pills-profile"
-                  aria-selected="false">
-            PHIM
-          </button>
+          <a style="text-decoration: none;list-style-type: none;color: black"
+             href="http://localhost:8085/DynamicCinema/movies">
+            <button class="nav-link btn__nvgt" id="pills-movie-tab" data-bs-toggle="pill"
+                    data-bs-target="#pills-movie" type="button" role="tab" aria-controls="pills-profile"
+                    aria-selected="false">
+              PHIM
+            </button>
+          </a>
         </li>
         <li class="nav-item ms-3 font__oswald " role="presentation">
-          <button class="nav-link btn__nvgt" id="pills-contact-tab" data-bs-toggle="pill"
-                  data-bs-target="#pills-contact" type="button" role="tab" aria-controls="pills-contact"
-                  aria-selected="false">GÓC ĐIỆN ẢNH
-          </button>
+          <a style="text-decoration: none;list-style-type: none;color: black"
+             href="http://localhost:8085/DynamicCinema/cinemaCorner">
+            <button class="nav-link btn__nvgt" id="pills-contact-tab" data-bs-toggle="pill"
+                    data-bs-target="#pills-contact" type="button" role="tab" aria-controls="pills-contact"
+                    aria-selected="false">GÓC ĐIỆN ẢNH
+            </button>
+          </a>
         </li>
         <li class="nav-item ms-3 font__oswald " role="presentation">
-          <button class="nav-link btn__nvgt" id="pills-suKien-tab" data-bs-toggle="pill"
-                  data-bs-target="#pills-suKien" type="button" role="tab" aria-controls="pills-hiubeba"
-                  aria-selected="false">SỰ KIỆN
-          </button>
+          <a style="text-decoration: none;list-style-type: none;color: black"
+             href="http://localhost:8085/DynamicCinema/event">
+            <button class="nav-link btn__nvgt" id="pills-suKien-tab" data-bs-toggle="pill"
+                    data-bs-target="#pills-suKien" type="button" role="tab" aria-controls="pills-hiubeba"
+                    aria-selected="false">SỰ KIỆN
+            </button>
+          </a>
         </li>
         <li class="nav-item ms-3 font__oswald " role="presentation">
-          <button class="nav-link btn__nvgt" id="pills-rap-tab" data-bs-toggle="pill"
-                  data-bs-target="#pills-rap" type="button" role="tab" aria-controls="pills-hiubeba"
-                  aria-selected="false">
-            RẠP/GIÁ VÉ
-          </button>
+          <a style="text-decoration: none;list-style-type: none;color: black"
+             href="http://localhost:8085/DynamicCinema/priceTicket">
+            <button class="nav-link btn__nvgt" id="pills-rap-tab" data-bs-toggle="pill"
+                    data-bs-target="#pills-rap" type="button" role="tab" aria-controls="pills-hiubeba"
+                    aria-selected="false">
+              RẠP/GIÁ VÉ
+            </button>
+          </a>
         </li>
         <li class="nav-item ms-3 font__oswald " role="presentation">
-          <button class="nav-link btn__nvgt" id="pills-support-tab" data-bs-toggle="pill"
-                  data-bs-target="#pills-support" type="button" role="tab" aria-controls="pills-hiubeba"
-                  aria-selected="false">HỖ TRỢ
-          </button>
+          <a style="text-decoration: none;list-style-type: none;color: black"
+             href="http://localhost:8085/DynamicCinema/support">
+            <button class="nav-link btn__nvgt" id="pills-support-tab" data-bs-toggle="pill"
+                    data-bs-target="#pills-support" type="button" role="tab" aria-controls="pills-hiubeba"
+                    aria-selected="false">HỖ TRỢ
+            </button>
+          </a>
         </li>
         <li class="nav-item ms-3 font__oswald " role="presentation">
-          <button class="nav-link btn__nvgt" id="pills-thanhvien-tab" data-bs-toggle="pill"
-                  data-bs-target="#pills-thanhvien" type="button" role="tab" aria-controls="pills-hiubeba"
-                  aria-selected="false">THÀNH VIÊN
-          </button>
+          <a style="text-decoration: none;list-style-type: none;color: black"
+             href="http://localhost:8085/DynamicCinema/member">
+            <button class="nav-link btn__nvgt" id="pills-thanhvien-tab" data-bs-toggle="pill"
+                    data-bs-target="#pills-thanhvien" type="button" role="tab" aria-controls="pills-hiubeba"
+                    aria-selected="false">THÀNH VIÊN
+            </button>
+          </a>
         </li>
       </ul>
     </div>
@@ -327,7 +347,7 @@
   <div class="container footer">
     <div class="row  font__source">
       <div class="footer__logo col-lg-4 col-md-6 col-12">
-        <img src="../../static/img/logo/footer__logo.png" alt="">
+        <img src="../img/logo/footer__logo.png" alt="">
         <div class="footer--menu">
           <ul class="mt-3">
             <li><a style="text-transform: none;" href="#">
@@ -540,8 +560,6 @@
   </div>
 </footer>
 <script src="../js/upload_img.js"></script>
-<script src="../js/js_tangGiamSL.js"></script>
-<script src="../js/js_chonGhe.js"></script>
 
 <!-- Separate Popper and Bootstrap JS -->
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"

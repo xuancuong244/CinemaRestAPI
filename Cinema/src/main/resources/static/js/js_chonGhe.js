@@ -26,4 +26,7 @@ function updateSelectedSeats() {
     .join(", ");
 
   document.getElementById("selected-seats").innerHTML = seatsHTML;
+
+  // Lưu danh sách ghế đã chọn vào localStorage
+  localStorage.setItem('selectedSeats', JSON.stringify(selectedSeats));
 }

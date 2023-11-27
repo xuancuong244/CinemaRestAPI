@@ -65,4 +65,13 @@ public class HomeController {
         return "customer/support_index";
     }
 
+    @RequestMapping("/DynamicCinema/cinemaCorner")
+    public String cinemaCorner() {
+        return "customer/cinemaCorner";
+    }
+
+    @RequestMapping("/DynamicCinema/event")
+    public String event() {
+        return "customer/event_index";
+    }
 }

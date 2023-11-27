@@ -46,7 +46,6 @@ document.addEventListener('DOMContentLoaded', function () {
 
     //Function xử lý suất chiếu
     function showShowtimesForSelectedDate(data, selectedDate) {
-
         // Lặp qua danh sách suất chiếu để hiển thị trong giao diện
         var xuatChieuList = document.getElementById("xuatChieuList");
         xuatChieuList.innerHTML = ''; // Xóa các mục cũ trong danh sách
@@ -64,6 +63,12 @@ document.addEventListener('DOMContentLoaded', function () {
                 timeButton.addEventListener('click', function () {
                     // Xử lý khi người dùng chọn ngày và suất chiếu, có thể hiển thị thông tin chi tiết, chẳng hạn
                     console.log("Đã chọn suất chiếu:", showtime.gioBatDau);
+                    var selectedDateTime = {
+                        date: selectedDate,
+                        showtime: showtime.gioBatDau
+                    };
+                    localStorage.setItem('selectedDateTime', JSON.stringify(selectedDateTime));
+                    window.location.href = "http://localhost:8085/DynamicCinema/select";
                 });
 
                 xuatChieuList.appendChild(timeButton);
@@ -77,11 +82,15 @@ document.addEventListener('DOMContentLoaded', function () {
         var ngayChieuItem = document.createElement("div");
         ngayChieuItem.className = "d-flex";
 
+        // Format lại ngày theo kiểu "dd/MM/yyyy"
+        var dateObject = new Date(date);
+        var formattedDate = `${dateObject.getDate()}/${dateObject.getMonth() + 1}/${dateObject.getFullYear()}`;
+
         // Tạo nút cho ngày chiếu
         var dateButton = document.createElement("button");
         dateButton.type = "button";
         dateButton.className = "btn btn__date";
-        dateButton.textContent = date;
+        dateButton.textContent = formattedDate;
 
         // Thêm sự kiện khi người dùng click vào nút
         dateButton.addEventListener('click', function () {
@@ -153,8 +162,8 @@ document.addEventListener('DOMContentLoaded', function () {
             .then(data => {
                 const chiTietPhim = document.getElementById('chiTietPhim');
                 chiTietPhim.innerHTML = createMovieDetailHTML(data);
-
                 localStorage.setItem('selectedMovie', JSON.stringify(data));
+
 
             })
             .catch(error => {
