@@ -1,0 +1,79 @@
+.header {
+}
+
+.header .row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.header__logo img {
+  width: 295px;
+  height: 65px;
+  flex-shrink: 0;
+  margin-top: 8px;
+}
+
+.header__search form input {
+  width: 80%;
+  height: 35px;
+  border: 2px solid #f4a043;
+  /* margin-top: 25px; */
+  border-radius: 10px;
+}
+
+.header__search a i {
+  color: #f4a043;
+}
+
+.header__search form a {
+  color: black;
+}
+
+.header__login {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.header__language {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.btn-login {
+  color: #fff !important;
+  width: 100%;
+  height: 40px;
+  border-radius: 3px;
+  background: linear-gradient(
+    270deg,
+    #2b9add 5.71%,
+    rgba(2, 89, 157, 0.84) 56.84%
+  );
+}
+.boder-solid {
+  width: 100%;
+  height: 3px;
+  background: linear-gradient(to bottom right, #37a9ec 0%, #0660a4 50%) bottom
+      right / 50% 50% no-repeat,
+    linear-gradient(to bottom left, #37a9ec 0%, #0660a4 50%) bottom left / 50%
+      50% no-repeat,
+    linear-gradient(to top left, #37a9ec 0%, #0660a4 50%) top left / 50% 50%
+      no-repeat,
+    linear-gradient(to top right, #37a9ec 0%, #0660a4 50%) top right / 50% 50%
+      no-repeat;
+}
+.form-control {
+  font-weight: 400 !important;
+  font-size: 13px !important;
+}
+.gender__radiobutton {
+  color: #000;
+  text-align: center;
+  /* font-family: Oswald; */
+  font-size: 13px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}

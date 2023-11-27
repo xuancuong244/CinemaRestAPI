@@ -1,0 +1,124 @@
+.text__thongTinThanhToan {
+    color: rgba(0, 0, 0, 0.6);
+    font-size: 25px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+.user__info {
+    color: rgba(0, 0, 0, 0.6);
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 300;
+    line-height: normal;
+}
+.seatPrice__box {
+    width: 95%;
+    border-bottom: 2px solid rgba(0, 0, 0, 0.15);
+}
+.seatPrice__title {
+    color: rgba(0, 0, 0, 0.8);
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+.seatPrice__textPrice {
+    color: rgba(0, 0, 0, 0.8);
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+.listCombo__title {
+    color: rgba(0, 0, 0, 0.6);
+    font-size: 18px;
+    font-style: normal;
+    line-height: normal;
+}
+.listCombo__title--text {
+    font-weight: 400 !important;
+}
+.quantity {
+    display: flex;
+    align-items: center;
+}
+
+.quantity input {
+    text-align: center;
+    width: 50px;
+    height: 30px;
+    border: 1px solid #ccc;
+}
+
+.giam,
+.tang {
+    width: 30px;
+    height: 30px;
+    border: 1px solid #ccc;
+    cursor: pointer;
+}
+.tang {
+    background-color: #02599d;
+}
+.giam {
+    background-color: #bdbdbd;
+}
+.sale {
+}
+.sale__item {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.15);
+}
+.sale__item span,
+a {
+    color: rgba(0, 0, 0, 0.6);
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+.selectAtm {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.15);
+}
+.selectAtm__title {
+    color: rgba(0, 0, 0, 0.6);
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+.selectPay__text {
+    color: rgba(0, 0, 0, 0.6);
+    font-family: Oswald;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+.time__box {
+    border-left: 1px solid rgba(0, 0, 0, 0.15);
+}
+.time__text {
+    color: rgba(0, 0, 0, 0.8);
+    font-family: Oswald;
+    font-size: 17px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+.time__run {
+    color: #000;
+    font-family: Oswald;
+    font-size: 25px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+.bill__text p {
+    color: rgba(0, 0, 0, 0.6);
+    text-align: right;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}

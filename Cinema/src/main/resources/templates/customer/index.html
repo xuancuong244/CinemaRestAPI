@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Style CSS  -->
+    <link rel="stylesheet" href="../css/style.css">
+    <!-- Style CSS  -->
+    <link rel="stylesheet" href="../css/style__header.css"/>
+    <!-- Style CSS  -->
+    <link rel="stylesheet" href="../css/style__navigation.css">
+    <!-- Style CSS  -->
+    <link rel="stylesheet" href="../css/style__cardItem.css">
+    <!-- Style CSS  -->
+    <link rel="stylesheet" href="../css/style__footer.css">
+    <!-- Font Chữ Web Phim Movie  -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200;300;400;500&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+            href="https://fonts.googleapis.com/css2?family=Oswald:wght@200;300;400;500&family=Source+Sans+3:ital,wght@0,200;0,300;0,400;0,500;0,600;1,200;1,300;1,400;1,500;1,600&display=swap"
+            rel="stylesheet">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <!-- CSS font-awesome  -->
+    <link rel="stylesheet" href="/css/font-awesome-4.7.0/css/font-awesome.min.css"/>
+    <title> Dynacmic Cinema</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="../js/loadMovieByStatus.js"></script>
+    <script src="../js/chiTietPhim.js"></script>
+    <script src="../js/chiNhanh.js"></script>
+    <script src="../js/auth.js"></script>
+</head>
+<body>
+<!-- Header  -->
+<div class="container header">
+    <div class="row">
+        <!-- logo  -->
+        <div class="col-lg-3 col-md-6 col-12 header__logo">
+            <img src="../img/logo/Logo_Web.png" alt=""/>
+        </div>
+        <!-- Option  -->
+        <div class="col-lg-5 col-md-6 col-12 header__search">
+            <!-- Example single danger button -->
+            <div class="btn-group font__source">
+                <button onclick="loadData()" type="button" class="btn dropdown-toggle" data-bs-toggle="dropdown"
+                        aria-expanded="false"  >Tỉnh/Thành Phố
+                </button>
+                <ul id="myList" class="dropdown-menu" onclick="showHTML(event)">
+<!--                    <li><a class="dropdown-item" href="">DEC TP HỒ CHÍ MINH</a></li>-->
+<!--                    <li><a class="dropdown-item" href="">DEC HÀ NỘI</a></li>-->
+<!--                    <li><a class="dropdown-item" href="">DEC CẦN THƠ</a></li>-->
+<!--                    <li><a class="dropdown-item" href="">DEC ĐÀ NẴNG</a></li>-->
+<!--                    <li><a class="dropdown-item" href="">DEC KHÁNH HÒA</a></li>-->
+                </ul>
+            </div>
+        </div>
+        <!-- Đăng Nhập đăng Ký  -->
+        <div class="col-lg-2 col-md-6 col-sm-6 text-start header__login justify-content-end">
+            <div class="modal fade" id="exampleModalToggle" aria-hidden="true"
+                 aria-labelledby="exampleModalToggleLabel" tabindex="-1">
+                <div class="modal-dialog modal-dialog-centered">
+                    <div class="modal-content">
+                        <div>
+                            <!-- Title Đăng Nhập  -->
+                            <div class="text-end">
+                                <button type="button" class="btn-close mt-2 me-2" data-bs-dismiss="modal"
+                                        aria-label="Close"></button>
+                            </div>
+                            <div class="login__header justify-content-center">
+                                <div class="text-center">
+                                    <img class="" src="../img/logo/image 4.png" alt=""/>
+                                </div>
+                                <h5 class="modal-title font__oswald text-center" id="exampleModalToggleLabel">
+                                    Đăng Nhập Tài Khoản
+                                </h5>
+                            </div>
+                        </div>
+                        <div class="container">
+                            <!-- Form Đăng Nhập  -->
+                            <form>
+                                <div class="mb-3">
+                                    <label for="exampleInputEmail1" class="form-label font__oswald">Email</label>
+                                    <input type="email" class="form-control font__oswald" id="exampleInputMail"
+                                           aria-describedby="emailHelp" placeholder="Nhập Email"/>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="exampleInputPassword1" class="form-label font__oswald">Mật
+                                        khẩu</label>
+                                    <input type="password" class="form-control font__oswald"
+                                           id="exampleInputPassword1" placeholder="Nhập mật khẩu"/>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="container">
+                            <!-- Nút đăng Nhập  -->
+                            <div>
+                                <button class="btn btn-login font__oswald" type="submit">
+                                    Đăng Nhập
+                                </button>
+                            </div>
+                            <a class="font__oswald" href="#">Quên mật khẩu ?</a>
+                            <div class="boder-solid mt-4"></div>
+                            <div class="text-center mt-4">
+                                <a class="font__oswald" href="#">Bạn chưa có tài khoản?</a>
+                            </div>
+                            <div class="mb-5">
+                                <button class="btn btn-login font__oswald" data-bs-target="#exampleModalToggle2"
+                                        data-bs-toggle="modal" data-bs-dismiss="modal">
+                                    Đăng Ký
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal fade" id="exampleModalToggle2" aria-hidden="true"
+                 aria-labelledby="exampleModalToggleLabel2" tabindex="-1">
+                <div class="modal-dialog modal-dialog-centered">
+                    <div class="modal-content">
+                        <div>
+                            <!-- Title Đăng Nhập  -->
+                            <div class="text-end">
+                                <button type="button" class="btn-close mt-2 me-2" data-bs-dismiss="modal"
+                                        aria-label="Close"></button>
+                            </div>
+                            <div class="login__header justify-content-center">
+                                <div class="text-center">
+                                    <img class="" src="../img/logo/image 4.png" alt=""/>
+                                </div>
+                                <h5 class="modal-title font__oswald text-center" id="exampleModalToggleLabel1">
+                                    Đăng Nhập Tài Khoản
+                                </h5>
+                            </div>
+                        </div>
+                        <div class="modal-body">
+                            <!-- Views Đăng Ký  -->
+                            <form class="font__oswald">
+                                <div class="mb-2">
+                                    <label for="exampleInputPassword1" class="form-label">Họ và tên</label>
+                                    <input type="name" class="form-control" id="exampleInputName"
+                                           placeholder="Nhập Họ và tên"/>
+                                </div>
+                                <div class="mb-2">
+                                    <label for="exampleInputEmail1" class="form-label">Email</label>
+                                    <input type="email" class="form-control" id="exampleInputEmail1"
+                                           aria-describedby="emailHelp" placeholder="Nhập Email"/>
+                                </div>
+                                <div class="mb-2">
+                                    <label for="exampleInputPassword1" class="form-label">Số điện thoại</label>
+                                    <input type="name" class="form-control" id="exampleInputPhone"
+                                           placeholder="Nhập số điện thoại"/>
+                                </div>
+                                <div class="mb-2">
+                                    <form class="gender__radiobutton">
+                                        <input class="ms-2 me-1" name="gender" type="radio" value="Nam"/>Nam
+                                        <input class="ms-2 me-1" name="gender" type="radio" value="Nữ"/>Nữ
+                                        <input class="ms-2 me-1" name="gender" type="radio" value="Khác"/>Khác
+                                    </form>
+                                </div>
+                                <div class="mb-2 font__oswald">
+                                    <label for="exampleInputPassword1" class="form-label">Mật khẩu</label>
+                                    <input type="password" class="form-control" id="exampleInputPassword"
+                                           placeholder="Nhập mật khẩu"/>
+                                </div>
+                                <div class="mb-2 font__oswald">
+                                    <label for="exampleInputPassword1" class="form-label">Nhập lại mật khẩu</label>
+                                    <input type="password" class="form-control" id="exampleInputPassword2"
+                                           placeholder="Nhập lại mật khẩu"/>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="container">
+                            <div>
+                                <button class="btn btn-login" type="submit">Đăng Ký</button>
+                            </div>
+                            <div class="boder-solid mt-4"></div>
+                            <div class="mt-4 text-center">
+                                <a class="font__oswald" href="#">Bạn đã có tài khoản?</a>
+                            </div>
+                            <button class="btn btn-login mt-2 mb-5" data-bs-target="#exampleModalToggle"
+                                    data-bs-toggle="modal" data-bs-dismiss="modal">
+                                Đăng Nhập
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <a id="loginToggleBtn" class="btn btn__movie font__source" data-bs-toggle="modal" href="#exampleModalToggle"
+               role="button">Đăng Nhập | Đăng Ký</a>
+            <a id="logoutBtn" class="btn btn__movie font__source" href="">Đăng Xuất</a>
+        </div>
+        <!-- Dịch tiếng việt tiếng anh  -->
+        <div class="col-lg-2 col-md-6 col-sm-6 header__language font justify-content-start p-0">
+            <a href=""><img src="../img/logo/language__logo.png" alt=""></a>
+        </div>
+    </div>
+</div>
+<!-- Navigatione Menu  -->
+<nav class=" navbar navbar-expand-lg navbar-light navigation">
+    <div class="container navigation__menu">
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse mb-2" id="navbarSupportedContent">
+            <ul class="d-flex justify-content-center navbar-nav nav nav-pills" id="pills-tab" role="tablist"
+                style="width: 100%;">
+                <li class="nav-item ms-3 font__oswald" role="presentation">
+                    <a style="text-decoration: none" href="http://localhost:8085/DynamicCinema/index">
+                        <button class="nav-link btn__nvgt active" id="pills-buyVe-tab" data-bs-toggle="pill"
+                                data-bs-target="#pills-buyVe" type="button" role="tab" aria-controls="pills-home"
+                                aria-selected="true">
+                            LỊCH CHIẾU THEO RẠP
+                        </button>
+                    </a>
+                </li>
+                <li class="nav-item ms-3 font__oswald " role="presentation">
+                    <a style="text-decoration: none;list-style-type: none;color: black"
+                       href="http://localhost:8085/DynamicCinema/movies">
+                        <button class="nav-link btn__nvgt" id="pills-movie-tab" data-bs-toggle="pill"
+                                data-bs-target="#pills-movie" type="button" role="tab" aria-controls="pills-profile"
+                                aria-selected="false">
+                            PHIM
+                        </button>
+                    </a>
+                </li>
+                <li class="nav-item ms-3 font__oswald " role="presentation">
+                    <button class="nav-link btn__nvgt" id="pills-contact-tab" data-bs-toggle="pill"
+                            data-bs-target="#pills-contact" type="button" role="tab" aria-controls="pills-contact"
+                            aria-selected="false">GÓC ĐIỆN ẢNH
+                    </button>
+                </li>
+                <li class="nav-item ms-3 font__oswald " role="presentation">
+                    <button class="nav-link btn__nvgt" id="pills-suKien-tab" data-bs-toggle="pill"
+                            data-bs-target="#pills-suKien" type="button" role="tab" aria-controls="pills-hiubeba"
+                            aria-selected="false">SỰ KIỆN
+                    </button>
+                </li>
+                <li class="nav-item ms-3 font__oswald " role="presentation">
+                    <a style="text-decoration: none;list-style-type: none;color: black"
+                       href="http://localhost:8085/DynamicCinema/priceTicket">
+                        <button class="nav-link btn__nvgt" id="pills-rap-tab" data-bs-toggle="pill"
+                                data-bs-target="#pills-rap" type="button" role="tab" aria-controls="pills-hiubeba"
+                                aria-selected="false">
+                            RẠP/GIÁ VÉ
+                        </button>
+                    </a>
+                </li>
+                <li class="nav-item ms-3 font__oswald " role="presentation">
+                    <button class="nav-link btn__nvgt" id="pills-support-tab" data-bs-toggle="pill"
+                            data-bs-target="#pills-support" type="button" role="tab" aria-controls="pills-hiubeba"
+                            aria-selected="false">HỖ TRỢ
+                    </button>
+                </li>
+                <li class="nav-item ms-3 font__oswald " role="presentation">
+                    <button class="nav-link btn__nvgt" id="pills-thanhvien-tab" data-bs-toggle="pill"
+                            data-bs-target="#pills-thanhvien" type="button" role="tab" aria-controls="pills-hiubeba"
+                            aria-selected="false">THÀNH VIÊN
+                    </button>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<!-- Card item movie  -->
+<div class="tab-content" id="pills-tabContent">
+    <!-- Lịch Chiếu Theo Rạp  -->
+    <div class="tab-pane fade show active" id="pills-buyVe" role="tabpanel" aria-labelledby="pills-buyVe-tab">
+        <!-- SLIDE BAR  -->
+        <div class="card-body" style="padding: 0;">
+            <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
+                <div class="carousel-indicators">
+                    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0"
+                            class="active" aria-current="true" aria-label="Slide 1"></button>
+                    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1"
+                            aria-label="Slide 2"></button>
+                    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2"
+                            aria-label="Slide 3"></button>
+                    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="3"
+                            aria-label="Slide 4"></button>
+                </div>
+                <div class="carousel-inner">
+                    <div class="carousel-item active" data-bs-interval="2000">
+                        <img src="../img/slide/1.jpg" class="d-block w-100" alt="...">
+                    </div>
+                    <div class="carousel-item" data-bs-interval="2000">
+                        <img src="..//img/slide/2.jpg" class="d-block w-100" alt="...">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="../img/slide/3.jpg" class="d-block w-100" alt="...">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="../img/slide/4.jpg" class="d-block w-100" alt="...">
+                    </div>
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions"
+                        data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions"
+                        data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                </button>
+            </div>
+        </div>
+        <!-- SLIDE BAR  -->
+        <div class="container">
+            <ul class="nav nav-tabs d-flex justify-content-center font__oswald" id="myTab" role="tablist"
+                style="margin: 12px 0; font-size: 18px; border-bottom: 2px solid #0000003b; border-bottom: 0px solid white;">
+                <li class="nav-item" role="presentation">
+                    <a style="text-decoration: none;list-style-type: none" href="#dangchieu">
+                        <button class="nav-link btn__navMovie active" id="dangchieu-tab" data-bs-toggle="tab"
+                                data-bs-target="#dangchieu" type="button" role="tab" aria-controls="dangchieu"
+                                aria-selected="true" style="color: black;">PHIM ĐANG CHIẾU
+                        </button>
+                    </a>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <a style="text-decoration: none;list-style-type: none" href="#sapchieu">
+                        <button class="nav-link btn__navMovie" id="sapchieu-tab" data-bs-toggle="tab"
+                                data-bs-target="#sapchieu" type="button" role="tab" aria-controls="sapchieu"
+                                aria-selected="false" style="color: black;">PHIM SẮP CHIẾU
+                        </button>
+                    </a>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <a style="text-decoration: none;list-style-type: none" href="#suatchieudacbiet">
+                        <button class="nav-link btn__navMovie" id="suatchieudacbiet-tab" data-bs-toggle="tab"
+                                data-bs-target="#suatchieudacbiet" type="button" role="tab"
+                                aria-controls="suatchieudacbiet"
+                                aria-selected="false" style="color: black;">SUẤT CHIẾU
+                            ĐẶC BIỆT
+                        </button>
+                    </a>
+                </li>
+            </ul>
+            <div class="tab-content" id="myTabContent">
+                <div class="container mt-3" id="phimContainer">
+                    <div class="row" id="phimList">
+                        <!-- PHIM ĐANG CHIẾU  -->
+                        <div class="tab-pane fade show active" id="dangchieu" role="tabpanel"
+                             aria-labelledby="dangchieu-tab">
+                        </div>
+                        <!-- PHIM SẮP CHIẾU  -->
+                        <div class="tab-pane fade" id="sapchieu" role="tabpanel" aria-labelledby="sapchieu-tab">
+                            <div class="container mt-3">
+                                <div class="row">
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Suất Chiếu Đặc Biệt  -->
+                        <div class="tab-pane fade" id="suatchieudacbiet" role="tabpanel"
+                             aria-labelledby="suatchieudacbiet-tab">
+                            <div class="container mt-3">
+                                <div class="row">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- ITEAM MOVIE  -->
+        </div>
+    </div>
+    <!-- LỊCH CHIẾU THEO RẠP END  -->
+
+
+    <div class="tab-pane fade" id="pills-movie" role="tabpanel" aria-labelledby="pills-movie-tab">
+        <div class="container mt-3">
+            <div class="row">
+                <!--
+                        <div class="col-lg-3 col-md-6 col-12 item__movie mb-5">
+                        <div class="d-flex justify-content-center">
+                        <img class="mt-2" src="../img/phim/cuMayAnTien.png" alt="" width="227px" height="360px">
+                    </div>
+                    <div class="information mt-3">
+                        <h3 class="font__oswald ms-5" style="color: #337AB7;">Cú Máy
+                            Ăn Tiền</h3>
+                        <p class="font__source ms-5">
+                            Thể loại: Tâm lý, hài hước <br> Thời lượng: 132 phút <br>
+                            Ngày khởi chiếu: 13/10/2023
+                        </p>
+                    </div>
+                    </div>
+                    -->
+            </div>
+            <!-- ITEAM MOVIE  -->
+        </div>
+    </div>
+    <div class="tab-pane fade" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab">
+        <h2>Góc Điện Ảnh</h2>
+    </div>
+    <div class="tab-pane fade" id="pills-suKien" role="tabpanel" aria-labelledby="pills-suKien-tab">
+        <h2>Sự Kiện</h2>
+    </div>
+    <div class="tab-pane fade" id="pills-rap" role="tabpanel" aria-labelledby="pills-rap-tab">
+        <h2>Rạp/Giá Vé</h2>
+    </div>
+    <div class="tab-pane fade" id="pills-support" role="tabpanel" aria-labelledby="pills-support-tab">
+        <h2>Hỗ Trợ</h2>
+    </div>
+    <div class="tab-pane fade" id="pills-thanhvien" role="tabpanel" aria-labelledby="pills-thanhvien-tab">
+        <h2>Thành Viên</h2>
+    </div>
+</div>
+<!-- Footer  -->
+<footer>
+    <div class="container footer">
+        <div class="row  font__source">
+            <div class="footer__logo col-lg-4 col-md-6 col-12">
+                <img src="../img/logo/footer__logo.png" alt="">
+                <div class="footer--menu text-center">
+                    <ul>
+                        <li><a href="#">Tuyển dụng</a></li>
+                        <li><a href="#">Giới thiệu</a></li>
+                        <li><a href="#">Liên hệ</a></li>
+                        <li><a href="#">Điều khoản sử dụng</a></li>
+                        <li><a href="#">Liên hệ quảng cáo</a></li>
+                        <li><a href="#">Điều khoản bảo mật</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer__list-Address col-lg-4 col-md-6 col-12">
+                <h4>ĐỊA CHỈ RẠP PHIM TOÀN QUỐC</h4>
+                <div class="footer--menu">
+                    <ul>
+                        <li><a href="#">Dynamic Energy Cinemas TP. HCM</a></li>
+                        <li><a href="#">Dynamic Energy Cinemas Hà Nội</a></li>
+                        <li><a href="#">Dynamic Energy Cinemas Đà Nẵng</a></li>
+                        <li><a href="#">Dynamic Energy Cinemas Bắc Giang</a></li>
+                        <li><a href="#">Dynamic Energy Cinemas Khánh Hòa</a></li>
+                        <!-- <li><a href="#">Điều khoản bảo mật</a></li> -->
+                    </ul>
+                </div>
+            </div>
+            <div class="footer__list-Address col-lg-4 col-md-6 col-12 text-center ">
+                <h4>Kết nối với chúng tôi</h4>
+                <div class="footer__connection text-center"></div>
+            </div>
+        </div>
+    </div>
+</footer>
+<!-- Separate Popper and Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"
+        integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p"
+        crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"
+        integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>

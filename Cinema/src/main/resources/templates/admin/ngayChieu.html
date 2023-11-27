@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Suất chiếu</title>
+
+    <!-- ======= Styles ====== -->
+    <link rel="stylesheet" href="/css/style__admin.css">
+    <link rel="stylesheet" href="/css/custom.css">
+</head>
+
+<body>
+<!-- =============== Navigation ================ -->
+<div class="container">
+    <div class="navigation">
+        <ul>
+            <li>
+                <a href="http://localhost:8085/DynamicCinema/index">
+                    <!--                       <span class="icon">&ndash;&gt;-->
+                    <!--                         <ion-icon name="film-outline"></ion-icon>-->
+                    <!--                      </span>-->
+                    <span class="title">CINEMAS</span>
+                </a>
+            </li>
+
+            <li>
+                <a href="http://localhost:8085/DynamicCinema/admin/index">
+                        <span class="icon">
+                            <ion-icon name="stats-chart-outline"></ion-icon>
+                        </span>
+                    <span class="title">Thống kê</span>
+                </a>
+            </li>
+
+            <li>
+                <a href="http://localhost:8085/DynamicCinema/admin/khachHang">
+                        <span class="icon">
+                            <ion-icon name="people-outline"></ion-icon>
+                        </span>
+                    <span class="title">Khách hàng</span>
+                </a>
+            </li>
+
+            <li>
+                <a href="http://localhost:8085/DynamicCinema/admin/phim">
+                        <span class="icon">
+                            <ion-icon name="videocam-outline"></ion-icon>
+                        </span>
+                    <span class="title">Phim</span>
+                </a>
+            </li>
+
+            <li>
+                <a href="http://localhost:8085/DynamicCinema/admin/suatChieu">
+                        <span class="icon">
+                            <ion-icon name="ticket-outline"></ion-icon>
+                        </span>
+                    <span class="title">Suất chiếu</span>
+                </a>
+            </li>
+
+            <li>
+                <a href="http://localhost:8085/DynamicCinema/admin/ngayChieu">
+                        <span class="icon">
+                            <ion-icon name="calendar-outline"></ion-icon>
+                        </span>
+                    <span class="title">Ngày chiếu</span>
+                </a>
+            </li>
+
+            <li>
+                <a href="http://localhost:8085/DynamicCinema/admin/ve">
+                        <span class="icon">
+                            <ion-icon name="film-outline"></ion-icon>
+                        </span>
+                    <span class="title">Vé</span>
+                </a>
+            </li>
+
+            <li>
+                <a href="http://localhost:8085/DynamicCinema/admin/topping">
+                        <span class="icon">
+                            <ion-icon name="ice-cream-outline"></ion-icon>
+                        </span>
+                    <span class="title">Topping</span>
+                </a>
+            </li>
+
+            <li>
+                <a href="http://localhost:8085/DynamicCinema/admin/quanLyHoaDon">
+                        <span class="icon">
+                            <ion-icon name="reader-outline"></ion-icon>
+                        </span>
+                    <span class="title">Hóa đơn</span>
+                </a>
+            </li>
+
+            <li>
+                <a id="logoutBtn" class="btn btn__movie font__source" href="http://localhost:8085/DynamicCinema/index">
+                        <span class="icon">
+                            <ion-icon name="log-out-outline"></ion-icon>
+                        </span>
+                    <span class="title">Đăng xuất</span>
+                </a>
+            </li>
+        </ul>
+    </div>
+
+    <!-- ========================= Main ==================== -->
+    <div class="main">
+        <div class="topbar">
+            <div class="toggle">
+                <ion-icon name="menu-outline"></ion-icon>
+            </div>
+
+            <div class="search">
+                <label>
+                    <input type="text" placeholder="Tìm kiếm">
+                    <ion-icon name="search-outline"></ion-icon>
+                </label>
+            </div>
+
+            <div class="user">
+                <img src="../img/customer01.jpg" alt="">
+            </div>
+        </div>
+
+        <!-- ======================= CRUD ================== -->
+        <div class="CRUDBox">
+            <div class="CRUD">
+                <div class="CRUD-body">
+                    <div class="coolinput">
+                        <label for="input" class="text">STT</label>
+                        <input type="text" placeholder="" name="input" class="input">
+                    </div>
+                </div>
+                <div class="CRUD-body">
+                    <div class="coolinput">
+                        <label for="input" class="text">Ngày Chiếu</label>
+                        <input type="text" placeholder="" name="input" class="input">
+                    </div>
+                </div>
+                <div class="CRUD-body">
+                    <div class="coolinput">
+                        <label for="input" class="text">Giờ Bắt Đầu</label>
+                        <input type="text" placeholder="" name="input" class="input">
+                    </div>
+                </div>
+            </div>
+            <div class="btn-crud" style="text-align: center; margin-top: 20px;">
+                <button class="btn reset">Làm mới</button>
+                <button class="btn new">Thêm</button>
+                <button class="btn fix">Sửa</button>
+                <button class="btn del">Xóa</button>
+            </div>
+        </div>
+        <!-- ================ Order Details List ================= -->
+        <div class="details">
+            <div class="recentOrders">
+                <div class="cardHeader">
+                    <h2>NGÀY CHIẾU</h2>
+                    <!--                            <a href="#" class="btn">View All</a>-->
+                </div>
+
+                <table class="table">
+                    <thead>
+                    <tr>
+                        <th scope="col">STT</th>
+                        <th scope="col">Ngày Chiếu</th>
+                        <th scope="col">Giờ Bắt Đầu</th>
+                    </tr>
+                    </thead>
+
+                    <tbody style="text-align: center!important;">
+                    <tr>
+                        <td></td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<!-- =========== Scripts =========  -->
+<script src="/js/main.js"></script>
+
+<!-- ====== ionicons ======= -->
+<script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+</body>
+
+</html>
