@@ -16,17 +16,17 @@ import javax.persistence.*;
 public class XuatChieu {
 	@Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "Stt")
+    @Column(name = "stt")
     private Integer stt;
-    @Column(name = "Gia_Xuat_Chieu")
+    @Column(name = "gia_xuat_chieu")
     private Float giaXuatChieu;
     @ManyToOne
-    @JoinColumn(name = "Ma_Phong")
+    @JoinColumn(name = "ma_phong")
     private PhongChieu phongChieu;
     @ManyToOne
-    @JoinColumn(name = "Ma_Phim")
+    @JoinColumn(name = "ma_phim")
     private Phim phim;
     @ManyToOne
-    @JoinColumn(name = "Ma_Ngay_Chieu")
+    @JoinColumn(name = "ma_ngay_chieu")
     private NgayChieu ngayChieu;
 }

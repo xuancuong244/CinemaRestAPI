@@ -29,4 +29,6 @@ public class XuatChieuRestController {
         List<XuatChieu> xuatChieus = xuatChieuService.findByMaPhim(maPhim);
         return ResponseEntity.ok(xuatChieus);
     }
+
+
 }

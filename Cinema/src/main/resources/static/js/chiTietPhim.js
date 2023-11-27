@@ -1,4 +1,58 @@
 document.addEventListener('DOMContentLoaded', function () {
+
+
+    function loadShowtimes(maPhim) {
+        // Sử dụng fetch để gửi yêu cầu GET đến API với mã chi nhánh
+        fetch(`http://localhost:8085/api/NgayChieu/maPhim?maPhim=${maPhim}`)
+            .then(function (response) {
+                return response.json(); // Chuyển đổi dữ liệu nhận được thành đối tượng JSON
+            })
+            .then(function (data) {
+                // Làm điều gì đó với thông tin ngày chiếu và suất chiếu, có thể tạo các nút hoặc hiển thị trong giao diện
+                console.log("Thông tin ngày và suất chiếu:", data);
+
+                // Lặp qua danh sách ngày chiếu và suất chiếu để hiển thị trong giao diện
+                var xuatChieuList = document.getElementById("xuatChieuList");
+                xuatChieuList.innerHTML = ''; // Xóa các mục cũ trong danh sách
+
+                var ngayChieuList = document.getElementById("ngayChieuList");
+                ngayChieuList.innerHTML = '';
+
+                data.forEach(function (showtime) {
+                    // Tạo nút cho suất chiếu
+                    var timeButton = document.createElement("button");
+                    timeButton.type = "button";
+                    timeButton.className = "btn btn__time";
+                    timeButton.textContent = showtime.gioBatDau;
+
+                    // Tạo nút cho ngày chiếu
+                    var dateButton = document.createElement("button");
+                    dateButton.type = "button";
+                    dateButton.className = "btn btn__date";
+                    dateButton.textContent = showtime.ngay;
+
+                    // Thêm sự kiện khi người dùng click vào nút
+                    dateButton.addEventListener('click', function () {
+                        // Xử lý khi người dùng chọn ngày và suất chiếu, có thể hiển thị thông tin chi tiết, chẳng hạn
+                        console.log("Đã chọn ngày chiếu:", showtime.ngay);
+                    });
+
+                    timeButton.addEventListener('click',function (){
+                        console.log("Đã chọn suất chiếu:", showtime.gioBatDau);
+                    })
+
+                    xuatChieuList.appendChild(timeButton);
+                    ngayChieuList.appendChild(dateButton);
+                });
+            })
+            .catch(function (error) {
+                console.error('Lỗi khi tải dữ liệu từ API về ngày và suất chiếu', error);
+            });
+    }
+
+
+
+
     function createMovieDetailHTML(data) {
         // Lấy tên phim và cập nhật #movieName (Trang Chủ / #movieName)
         const movieName = document.getElementById('movieName');
@@ -48,6 +102,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const maPhim = getMaPhimFromURL();
 
     if (maPhim) {
+        loadShowtimes(maPhim);
         // Gọi API để lấy thông tin chi tiết phim
         fetch(`http://localhost:8085/api/Phim/${maPhim}`)
             .then(response => response.json())
@@ -56,20 +111,11 @@ document.addEventListener('DOMContentLoaded', function () {
                 chiTietPhim.innerHTML = createMovieDetailHTML(data);
 
                 localStorage.setItem('selectedMovie', JSON.stringify(data));
+
             })
             .catch(error => {
                 console.error('Lỗi:', error);
             });
     }
-        fetch('http://localhost:8085/api/NgayChieu/')
-        .then(response => response.json())
-        .then(data => {
-            // Assuming the API response contains a 'releaseDate' property
-            const releaseDate = data.releaseDate;
-            document.getElementById('releaseDate').textContent = `Release Date: ${releaseDate}`;
-        })
-        .catch(error => {
-            console.error('Error fetching API data:', error);
-        });
 });
 

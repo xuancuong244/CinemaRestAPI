@@ -18,6 +18,7 @@ function loadData() {
                 link.href = `http://localhost:8085/DynamicCinema/index/${encodeURIComponent(cn.maCN)}`; // Thay href bằng thuộc tính tương ứng
                 link.addEventListener('click', function(event) {
                     event.preventDefault();
+                    console.log("Chi nhánh được chọn:", cn.tenCN);
                 });
                 listItem.appendChild(link);
                 myList.appendChild(listItem);

@@ -298,29 +298,32 @@
 
     <div class="date">
         <div class="container">
+            <!--Ngày chiếu-->
             <ul class="nav nav-tabs font__oswald date__menu" id="myTab"
                 role="tablist"
                 style="margin: 12px 0; font-size: 18px; border-bottom: 2px solid #0000003b; border-bottom: 0px solid white;">
                 <li class="nav-item" role="presentation">
-                    <button class="nav-link btn__date active" id="ngay-tab"
-                            data-bs-toggle="tab" data-bs-target="#ngay" type="button"
-                            role="tab" aria-controls="ngay" aria-selected="true"
-                            style="color: black;">
-                        <span class="date__ngay" >06/11/2023</span>
-                    </button>
+                    <div id="ngayChieuList" class="d-flex"><!-- Container for date buttons -->
+                        <button class="nav-link btn__date active" id="ngay-tab"
+                                data-bs-toggle="tab" data-bs-target="#ngay" type="button"
+                                role="tab" aria-controls="ngay" aria-selected="true"
+                                style="color: black;">
+                            <span class="date__ngay"></span>
+                        </button>
+                    </div>
                 </li>
             </ul>
+            <!--Suất chiếu-->
             <div class="tab-content" id="myTabContent">
                 <div class="tab-pane fade show active" id="xuatChieu" role="tabpanel"
                      aria-labelledby="xuatChieu-tab">
                     <div class="2d-Movie-Vietsub">
                         <h5 class="font__oswald mt-3 date__phude">2D PHỤ ĐỀ</h5>
-                        <!-- Button trigger modal -->
                         <div id="xuatChieuList">
                             <a style="list-style-type: none;text-decoration: none;color: black"
                                href="http://localhost:8085/DynamicCinema/select">
-                                <button type="button" class="btn btn__time" data-bs-toggle="modal"
-                                        data-bs-target="#staticBackdrop"> 20:00
+                                <button type="button" className="btn btn__time" id="showtimeButton">
+
                                 </button>
                             </a>
                         </div>

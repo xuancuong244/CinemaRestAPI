@@ -94,4 +94,21 @@ document.addEventListener('DOMContentLoaded', function () {
         `;
         window.selectedMovieInfo = selectedMovie;
     }
+
+    // function loadRooms() {
+    //     // Sử dụng fetch để gửi yêu cầu GET đến API
+    //     fetch('http://localhost:8085/api/PhongChieu/all')
+    //         .then(function (response) {
+    //             return response.json(); // Chuyển đổi dữ liệu nhận được thành đối tượng JSON
+    //         })
+    //         .then(function (data) {
+    //             // Làm điều gì đó với thông tin phòng chiếu, có thể tạo các nút hoặc hiển thị trong giao diện
+    //             console.log("Thông tin phòng chiếu:", data);
+    //             // Tiếp theo, bạn có thể triển khai mã để hiển thị danh sách phòng chiếu trong giao diện
+    //         })
+    //         .catch(function (error) {
+    //             console.error('Lỗi khi tải dữ liệu từ API về phòng chiếu', error);
+    //         });
+    // }
+
 });

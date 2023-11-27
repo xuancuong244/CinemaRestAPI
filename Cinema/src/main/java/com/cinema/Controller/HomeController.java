@@ -55,5 +55,14 @@ public class HomeController {
         return "customer/thanhtoan";
     }
 
+    @RequestMapping("/DynamicCinema/member")
+    public String member() {
+        return "customer/account_information_index";
+    }
+
+    @RequestMapping("/DynamicCinema/support")
+    public String support() {
+        return "customer/support_index";
+    }
 
 }
