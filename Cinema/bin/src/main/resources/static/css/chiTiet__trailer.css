@@ -1,0 +1,14 @@
+.trailer{
+    background-color: #3C3E4D;
+}
+
+.trailer__text{
+    display: inline-block;
+    color: white;
+    font-size: 33px;
+    border-bottom: 4px solid transparent;
+    border-image: linear-gradient(to right, #39adf0 0%, #075fa3 100%);
+    border-image-slice: 1;
+    line-height: 2em;
+    font-weight: 500 !important;
+}
