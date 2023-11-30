@@ -22,11 +22,10 @@ import javax.persistence.Table;
 @Table(name = "Ghe")
 public class Ghe {
 	@Id
-    @Column(name = "Ma_Ghe")
+    @Column(name = "ma_ghe")
     private String maGhe;
-    @Column(name = "Ten_Ghe")
+    @Column(name = "ten_ghe")
     private String tenGhe;
-    @Column(name = "Ma_Loai")
+    @Column(name = "ma_loai")
     private Integer maLoai;
-
 }

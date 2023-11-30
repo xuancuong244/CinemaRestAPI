@@ -38,6 +38,27 @@ public class PhimRestController {
         return ResponseEntity.ok(phims);
     }
 
+    @PostMapping()
+    public ResponseEntity<?> create(@RequestBody Phim phim){
+        if (phim == null){
+            return ResponseEntity.badRequest().build();
+        }
+        phimService.create(phim);
+        return ResponseEntity.ok(phim);
+    }
+
+    @PutMapping("/{id}")
+    public ResponseEntity<?> update(@PathVariable("id") String id,@RequestBody Phim phim){
+        phimService.update(phim);
+        return ResponseEntity.ok(phim);
+    }
+
+    @DeleteMapping("{id}")
+    public ResponseEntity<?> delete(@PathVariable("id") String id){
+        phimService.delete(id);
+        return ResponseEntity.ok().build();
+    }
+
 }
 
 

@@ -34,4 +34,13 @@ public class AdminController {
     public String quanLyHoaDon() {
         return "admin/quanLyHoaDon";
     }
+
+    @RequestMapping("/DynamicCinema/admin/ngayChieu")
+    public String ngayChieu() {
+        return "admin/ngayChieu";
+    }
+    @RequestMapping("/DynamicCinema/admin/ve")
+    public String ve() {
+        return "admin/ve";
+    }
 }

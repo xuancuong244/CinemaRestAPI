@@ -1,15 +1,76 @@
 document.addEventListener('DOMContentLoaded', function () {
     // Lấy thông tin từ localStorage
     const selectedDateTime = JSON.parse(localStorage.getItem('selectedDateTime'));
+    const selectedMovieInfo = JSON.parse(localStorage.getItem('selectedMovie'));
+    const selectedSeatsInfo = JSON.parse(localStorage.getItem('selectedSeats'));
 
-    // Hiển thị thông tin đã chọn trong console (bạn có thể thay đổi phần này tùy theo nhu cầu)
+    // Hiển thị thông tin đã chọn trong console
     console.log("Ngày chiếu đã chọn:", selectedDateTime.date);
     console.log("Suất chiếu đã chọn:", selectedDateTime.showtime);
+    console.log("SelectedSeatsInfo:", selectedSeatsInfo);
+    console.log(selectedSeats);
+    console.log(localStorage.getItem('selectedSeats'));
 
-    const selectedMovieInfo = JSON.parse(localStorage.getItem('selectedMovie'));
-    const selectedSeats = JSON.parse(localStorage.getItem('selectedSeats'));
 
-    if (selectedMovieInfo && selectedDateTime && selectedSeats) {
+    // Hàm hiển thị thông tin ghế đã chọn
+    function displaySelectedSeats(seatsInfo) {
+        const selectedSeatsContainer = document.getElementById('selected-seats');
+        if (selectedSeatsContainer && seatsInfo) {
+            const seatsHTML = seatsInfo.map(seatInfo => {
+                return `<span class='text-danger'>${seatInfo.seat}(${seatInfo.seatType})</span>`;
+            }).join(", ");
+            selectedSeatsContainer.innerHTML = seatsHTML;
+        }
+    }
+    // Gọi hàm để hiển thị thông tin ghế đã chọn
+    if (selectedSeatsInfo && selectedSeatsInfo.length > 0) {
+        displaySelectedSeats(selectedSeatsInfo);
+    }
+
+    if (selectedSeatsInfo) {
+        // Duyệt qua danh sách ghế đã chọn và hiển thị thông tin
+        selectedSeatsInfo.forEach(seatInfo => {
+            displaySeatInfo(seatInfo);
+        });
+    }
+
+    function displaySeatInfo(seatInfo) {
+        const seatPriceContainer = document.querySelector('.seatPrice');
+        const seatBox = document.createElement('div');
+        seatBox.classList.add('seatPrice__box', 'row', 'font__oswald', 'mt-3');
+
+        const seatTitleCol = document.createElement('div');
+        seatTitleCol.classList.add('col-8');
+        const seatTitle = document.createElement('p');
+        seatTitle.classList.add('seatPrice__title');
+        seatTitle.innerText = `GHẾ ${seatInfo.seatType.toUpperCase()}`;
+        seatTitleCol.appendChild(seatTitle);
+
+        const seatTextPriceCol = document.createElement('div');
+        seatTextPriceCol.classList.add('col-4');
+        const seatTextPrice = document.createElement('p');
+        seatTextPrice.classList.add('text-end', 'seatPrice__textPrice', 'me-5');
+        seatTextPrice.innerText = `${getSeatPrice(seatInfo.seatType)}`;
+        seatTextPriceCol.appendChild(seatTextPrice);
+
+        seatBox.appendChild(seatTitleCol);
+        seatBox.appendChild(seatTextPriceCol);
+        seatPriceContainer.appendChild(seatBox);
+    }
+
+    function getSeatPrice(seatType) {
+        // Giả sử giá được lưu trữ trong một đối tượng hoặc bảng dữ liệu
+        const seatPrices = {
+            'Vip': 75000,
+            'Thường': 45000,
+            // Thêm các loại ghế khác nếu có
+        };
+
+        // Trả về giá ghế tương ứng với loại ghế
+        return seatPrices[seatType] || 0; // Trả về giá mặc định nếu không tìm thấy loại ghế
+    }
+
+    if (selectedMovieInfo && selectedDateTime) {
         //Lấy tên phim
         const movieName = document.getElementById('movieName');
         movieName.innerText = selectedMovieInfo.tenPhim;
@@ -22,7 +83,6 @@ document.addEventListener('DOMContentLoaded', function () {
         const paymentMovieInformation = document.querySelector('.select__movieInformation');
 
         paymentMovieInformation.innerHTML = `
-            <!-- Các đoạn mã HTML tương ứng với thông tin phim, bạn có thể thay đổi phần này dựa trên giao diện của bạn -->
             <div class="row">
                 <div class="col-4">
                     <img src="../img/phim/${selectedMovieInfo.hinh}" width="150px;" height="220px" alt="" />
@@ -90,7 +150,7 @@ document.addEventListener('DOMContentLoaded', function () {
                                 <p class="font__source" style="font-weight: bold">P3</p>
                             </div>
                             <div class="mt-3">
-                                <div id="selected-seats" style="color: red;font-weight: bold">${selectedSeats.join(', ')}</div>
+                                <div id="selected-seats" style="color: red;font-weight: bold"></div>
                             </div>
                         </div>
                     </div>

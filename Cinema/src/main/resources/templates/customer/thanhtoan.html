@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Cổng thanh toán</title>
-    <link rel="stylesheet" href="../css/style__thanhtoan.css" />
+    <link rel="stylesheet" href="../../static/css/style__thanhtoan.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -21,77 +21,74 @@
 <body>
 <div class="header__pay pb-2">
     <div class="container mt-2">
-        <img src="../img/logo/logo__momo.png" alt="" />
+        <img src="../../static/img/logo/logo__momo.png" alt="" />
         <p class="header__text">Cổng thanh toán MoMo</p>
     </div>
 </div>
 <div class="pay__item mt-3">
     <div class="container d-flex justify-content-center">
-       <div class="row">
-           <!-- Thông tin vé chuẩn bị thanh toán  -->
-           <div class="col-5">
-               <div class="pay__thongtindonhang">
-                   <p
-                           class="pay__textItem--thongtindonhang mt-3 ms-3"
-                           style="font-size: 26px"
-                   >
-                       Thông tin đơn hàng
-                   </p>
-                   <!-- Nhà Cung cấp  -->
-                   <div class="container">
-                       <p class="pay__textItem--thongtin ms-2 mb-2">Nhà cung cấp</p>
-                       <div class="pay__chinhanh pb-2">
-                           <div class="row">
-                               <div class="col-5 d-flex align-items-center">
-                                   <img
-                                           src="../img/logo/logo_thongtindonhang.png"
-                                           alt=""
-                                   />
-                               </div>
-                               <div class="col-7">
-                                   <b
-                                   >CHI NHÁNH THÁI NGUYÊN - CÔNG TY CỔ PHẦN DYNAMIC ENERGY
-                                       MEDIA</b
-                                   >
-                               </div>
-                           </div>
-                       </div>
-                   </div>
-                   <!-- Mã đơn hàng  -->
-                   <div class="container">
-                       <p class="pay__textItem--thongtin ms-2 mb-0 mt-2">Mã đơn hàng</p>
-                       <div class="pay__chinhanh pb-2 ms-2 mb-2">
-                           <b>be7c3b41-9b09-428f-a18b-00b147f14652</b>
-                       </div>
-                   </div>
-                   <!-- Mô tả  -->
-                   <div class="container">
-                       <p class="pay__textItem--thongtin ms-2 mb-0 mt-2">Mô tả</p>
-                       <div class="pay__chinhanh pb-2 ms-2 mb-2">
-                           <b>Rạp DYNAMIC ENERGY Thái Nguyên</b>
-                       </div>
-                   </div>
-                   <!-- Số tiền  -->
-                   <div class="container">
-                       <p class="pay__textItem--thongtin ms-2 mb-0 mt-2">Số tiền</p>
-                       <div class="pay__chinhanh pb-2 ms-2 mb-2" style="border: none">
-                           <b>50.000đ</b>
-                       </div>
-                   </div>
-               </div>
-               <!-- Thời gian hàng  -->
-               <div class="pay__time mt-3">
+        <!-- Thông tin vé chuẩn bị thanh toán  -->
+        <div class="col-3">
+            <div class="pay__thongtindonhang">
+                <p
+                        class="pay__textItem--thongtindonhang mt-3 ms-3"
+                        style="font-size: 26px"
+                >
+                    Thông tin đơn hàng
+                </p>
+                <!-- Nhà Cung cấp  -->
+                <div class="container">
+                    <p class="pay__textItem--thongtin ms-2 mb-2">Nhà cung cấp</p>
+                    <div class="pay__chinhanh pb-2">
+                        <div class="row">
+                            <div class="col-5 d-flex align-items-center">
+                                <img
+                                        src="../../static/img/logo/logo_thongtindonhang.png"
+                                        alt=""
+                                />
+                            </div>
+                            <div class="col-7">
+                                <b
+                                >CHI NHÁNH THÁI NGUYÊN - CÔNG TY CỔ PHẦN DYNAMIC ENERGY
+                                    MEDIA</b
+                                >
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Mã đơn hàng  -->
+                <div class="container">
+                    <p class="pay__textItem--thongtin ms-2 mb-0 mt-2">Mã đơn hàng</p>
+                    <div class="pay__chinhanh pb-2 ms-2 mb-2">
+                        <b>be7c3b41-9b09-428f-a18b-00b147f14652</b>
+                    </div>
+                </div>
+                <!-- Mô tả  -->
+                <div class="container">
+                    <p class="pay__textItem--thongtin ms-2 mb-0 mt-2">Mô tả</p>
+                    <div class="pay__chinhanh pb-2 ms-2 mb-2">
+                        <b>Rạp DYNAMIC ENERGY Thái Nguyên</b>
+                    </div>
+                </div>
+                <!-- Số tiền  -->
+                <div class="container">
+                    <p class="pay__textItem--thongtin ms-2 mb-0 mt-2">Số tiền</p>
+                    <div class="pay__chinhanh pb-2 ms-2 mb-2" style="border: none">
+                        <b>50.000đ</b>
+                    </div>
+                </div>
+            </div>
+            <!-- Thời gian hàng  -->
+            <div class="pay__time mt-3">
 
-               </div>
-           </div>
-           <!-- QR Thanh Toán  -->
-           <div class="col-7">
+            </div>
+        </div>
+        <!-- QR Thanh Toán  -->
+        <div class="col-5">
 
-           </div>
-       </div>
+        </div>
     </div>
 </div>
-<script src="../js/auth.js"></script>
 <script
         src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"

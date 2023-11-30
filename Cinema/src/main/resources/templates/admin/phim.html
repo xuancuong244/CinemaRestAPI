@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" ng-app="myApp">
 
 <head>
     <meta charset="UTF-8">
@@ -14,10 +14,11 @@
     <!-- ======= Styles ====== -->
     <link rel="stylesheet" href="/css/style__admin.css">
     <link rel="stylesheet" href="/css/custom.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
     <script src="/js/admin/CRUDMovie.js"></script>
 </head>
 
-<body>
+<body ng-controller="PhimController">
     <!-- =============== Navigation ================ -->
     <div class="container">
         <div class="navigation">
@@ -121,67 +122,67 @@
                     <div class="CRUD-body">
                         <div class="coolinput">
                             <label class="text">Mã phim</label>
-                            <input type="text" placeholder="" name="input" class="input">
+                            <input type="text" placeholder="" name="input" class="input" ng-model="selectedMovie.maPhim">
                         </div>
                     </div>
                     <div class="CRUD-body">
                         <div class="coolinput">
                             <label class="text">Tên phim</label>
-                            <input type="text" placeholder="" name="input" class="input">
+                            <input type="text" placeholder="" name="input" class="input" ng-model="selectedMovie.tenPhim">
                         </div>
                     </div>
                     <div class="CRUD-body">
                         <div class="coolinput">
                             <label class="text">Diễn viên</label>
-                            <input type="text" placeholder="" name="input" class="input">
+                            <input type="text" placeholder="" name="input" class="input" ng-model="selectedMovie.dienVien">
                         </div>
                     </div>
                     <div class="CRUD-body">
                         <div class="coolinput">
                             <label class="text">Năm SX</label>
-                            <input type="text" placeholder="" name="input" class="input">
+                            <input type="text" placeholder="" name="input" class="input" ng-model="selectedMovie.namSX">
                         </div>
                     </div>
                     <div class="CRUD-body">
                         <div class="coolinput">
                             <label class="text">Đạo diễn</label>
-                            <input type="text" placeholder="" name="input" class="input">
+                            <input type="text" placeholder="" name="input" class="input" ng-model="selectedMovie.daoDien">
                         </div>
                     </div>
                     <div class="CRUD-body">
                         <div class="coolinput">
                             <label class="text">Quốc gia</label>
-                            <input type="text" placeholder="" name="input" class="input">
+                            <input type="text" placeholder="" name="input" class="input" ng-model="selectedMovie.quocGia">
                         </div>
                     </div>
                     <div class="CRUD-body">
                         <div class="coolinput">
                             <label class="text">Thời lượng</label>
-                            <input type="text" placeholder="" name="input" class="input">
+                            <input type="text" placeholder="" name="input" class="input" ng-model="selectedMovie.thoiLuong">
                         </div>
                     </div>
                     <div class="CRUD-body">
                         <div class="coolinput">
                             <label class="text">Mô tả</label>
-                            <input type="text" placeholder="" name="input" class="input">
+                            <input type="text" placeholder="" name="input" class="input" ng-model="selectedMovie.moTa">
                         </div>
                     </div>
                     <div class="CRUD-body">
                         <div class="coolinput">
                             <label class="text">Trailer</label>
-                            <input type="text" placeholder="" name="input" class="input">
+                            <input type="text" placeholder="" name="input" class="input" ng-model="selectedMovie.trailer">
                         </div>
                     </div>
                     <div class="CRUD-body">
-                        <label class="text" style="    color: #2a2185; margin-bottom: 5px;">Hình</label>
-                        <input name="input" class="form-control" type="file">
+                        <label class="text" style=" color: #2a2185; margin-bottom: 5px;">Hình</label>
+                        <input name="input" class="form-control" type="file" ng-model="selectedMovie.hinh">
                     </div>
                 </div>
                 <div class="btn-crud" style="text-align: center; margin-top: 20px;">
-                    <button class="btn reset" onclick="resetForm()">Làm mới</button>
-                    <button class="btn new" onclick="addMovie()">Thêm</button>
-                    <button class="btn fix" onclick="editMovie()">Sửa</button>
-                    <button class="btn del" onclick="deleteMovie()">Xóa</button>
+                    <button class="btn reset" ng-click="resetForm()">Làm mới</button>
+                    <button class="btn new" ng-click="addMovie()">Thêm</button>
+                    <button class="btn fix" ng-click="editMovie()">Sửa</button>
+                    <button class="btn del" ng-click="deleteMovie()">Xóa</button>
                 </div>
             </div>
             <!-- ================ Order Details List ================= -->
@@ -198,21 +199,33 @@
                                 <th scope="col">Mã phim</th>
                                 <th scope="col">Tên phim</th>
 <!--                                <th scope="col">Diễn viên</th>-->
-                                <th scope="col">Đạo diễn</th>
-                                <th scope="col">Năm SX</th>
+<!--                                <th scope="col">Đạo diễn</th>-->
+<!--                                <th scope="col">Năm SX</th>-->
                                 <th scope="col">Quốc gia</th>
                                 <th scope="col">Thời lượng</th>
 <!--                                <th scope="col">Mô tả</th>-->
                                 <th scope="col">Hình</th>
                                 <th scope="col">Trailer</th>
+                                <th scope="col"></th>
                             </tr>
                         </thead>
                         <tbody style="text-align: center!important;">
-
+                            <tr ng-repeat="movie in movies">
+                                <td>{{ movie.maPhim }}</td>
+                                <td>{{ movie.tenPhim }}</td>
+                                <td>{{ movie.quocGia }}</td>
+                                <td>{{ movie.thoiLuong }}</td>
+                                <td>{{ movie.hinh }}</td>
+                                <td>{{ movie.trailer }}</td>
+                                <td>
+                                    <div class="btn-group btn-group-xs">
+                                        <button class="btn btn-warning" ng-click="fillForm($index)">Edit</button>
+                                    </div>
+                                </td>
+                            </tr>
                         </tbody>
                     </table>
                 </div>
-
             </div>
         </div>
     </div>

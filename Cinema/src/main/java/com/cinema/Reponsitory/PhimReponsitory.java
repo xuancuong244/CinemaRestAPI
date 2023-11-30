@@ -14,4 +14,6 @@ public interface PhimReponsitory extends JpaRepository<Phim, String> {
     @Query("SELECT p FROM Phim p WHERE p.trangThai = :trangThai")
     List<Phim> findPhimByTrangThai(String trangThai);
 
+    @Query("SELECT p FROM Phim p WHERE p.tenPhim like ?1")
+    List<Phim> findByKeywords(String keyword);
 }

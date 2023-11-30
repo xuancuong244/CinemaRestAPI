@@ -19,12 +19,12 @@ import javax.persistence.*;
 @Table(name = "ChiTietGhe")
 public class ChiTietGhe{
 	@Id
-	@Column(name = "Ma_CTGhe")
+	@Column(name = "ma_ctghe")
 	private Integer maCTGhe;
 
-	@Column(name = "Ma_Phong")
+	@Column(name = "ma_phong")
 	private String maPhong;
 	@ManyToOne
-	@JoinColumn(name = "Ma_Ghe")
+	@JoinColumn(name = "ma_ghe")
 	private Ghe ghe;
 }

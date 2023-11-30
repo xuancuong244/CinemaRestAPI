@@ -27,4 +27,24 @@ public class PhimServiceImpl implements PhimService {
     public Optional<Phim> findById(String maPhim) {
         return phimReponsitory.findById(maPhim);
     }
+
+    @Override
+    public Phim create(Phim phim) {
+        return phimReponsitory.save(phim);
+    }
+
+    @Override
+    public Phim update(Phim phim) {
+        return phimReponsitory.save(phim);
+    }
+
+    @Override
+    public void delete(String phim) {
+        phimReponsitory.deleteById(phim);
+    }
+
+    @Override
+    public List<Phim> findByKeywords(String keyword) {
+        return phimReponsitory.findByKeywords(keyword);
+    }
 }
