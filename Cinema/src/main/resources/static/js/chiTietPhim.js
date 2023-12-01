@@ -38,6 +38,7 @@ document.addEventListener('DOMContentLoaded', function () {
                     selectedDate = data[0].ngay;
                     showShowtimesForSelectedDate(data, selectedDate);
                 }
+
             })
             .catch(function (error) {
                 console.error('Lỗi khi tải dữ liệu từ API về ngày và suất chiếu', error);
@@ -107,6 +108,10 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     function createMovieDetailHTML(data) {
+
+        // Lấy thông tin thể loại từ đối tượng Phim
+        const genres = data.theLoai.map(theloai => theloai.tenTheLoai).join(', ');
+
         // Lấy tên phim và cập nhật #movieName (Trang Chủ / #movieName)
         const movieName = document.getElementById('movieName');
         movieName.innerText = data.tenPhim;
@@ -119,6 +124,7 @@ document.addEventListener('DOMContentLoaded', function () {
         // Cập nhật đường dẫn của iframe
         trailerFrame.src = videoUrl;
 
+        //Hiển thị ngày chiếu và format ngày chiếu theo dạng ngày/tháng/năm
         const ngayKhoiChieu = new Date(data.ngayKhoiChieu);
         const formattedNgayKhoiChieu = `${ngayKhoiChieu.getDate()}/${ngayKhoiChieu.getMonth()+1}/${ngayKhoiChieu.getFullYear()}`;
 
@@ -129,6 +135,9 @@ document.addEventListener('DOMContentLoaded', function () {
                 <div class="col-9 p-0">
                     <p class="font__oswald" style="font-size: 32px;">${data.tenPhim}</p>
                     <P class="font__source content__chiTiet--moTa">${data.moTa}</P>
+                    <p class="m-0 font__source mt-3">
+                        <b>THỂ LOẠI: ${genres}</b>
+                    </p>
                     <p class="m-0 font__source mt-3">
                         <b>ĐẠO DIỄN: ${data.daoDien}</b>
                     </p>
@@ -152,6 +161,8 @@ document.addEventListener('DOMContentLoaded', function () {
         return urlParams.get('maPhim');
     }
 
+
+
     const maPhim = getMaPhimFromURL();
 
     if (maPhim) {
@@ -160,11 +171,22 @@ document.addEventListener('DOMContentLoaded', function () {
         fetch(`http://localhost:8085/api/Phim/${maPhim}`)
             .then(response => response.json())
             .then(data => {
+                const genresUrl = `http://localhost:8085/api/Phim/${maPhim}/theLoai`;
+                fetch(genresUrl)
+                    .then(response => response.json())
+                    .then(genres => {
+                        // Cập nhật đối tượng Phim với thông tin thể loại
+                        data.theLoai = genres;
+
                 const chiTietPhim = document.getElementById('chiTietPhim');
                 chiTietPhim.innerHTML = createMovieDetailHTML(data);
+
                 localStorage.setItem('selectedMovie', JSON.stringify(data));
-
-
+                localStorage.setItem('selectedGenres', JSON.stringify(genres));
+            })
+                    .catch(error => {
+                        console.error('Lỗi khi lấy thông tin thể loại', error);
+                    });
             })
             .catch(error => {
                 console.error('Lỗi:', error);

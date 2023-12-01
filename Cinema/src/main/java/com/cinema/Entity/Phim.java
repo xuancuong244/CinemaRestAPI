@@ -2,7 +2,10 @@ package com.cinema.Entity;
 
 import java.util.Date;
 import java.util.List;
+import java.util.Set;
+import java.util.stream.Collectors;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -43,4 +46,15 @@ public class Phim {
     @Temporal(TemporalType.DATE)
     @Column(name = "ngay_khoi_chieu")
     private Date ngayKhoiChieu;
+
+    @JsonIgnore
+    @OneToMany(mappedBy = "phim")
+    private List<ChiTietPhim> chiTietPhimList;
+
+    // Thêm phương thức getter cho trường theLoai
+    public List<TheLoaiPhim> getTheLoai() {
+        return chiTietPhimList.stream()
+                .map(ChiTietPhim::getTheLoaiPhim)
+                .collect(Collectors.toList());
+    }
 }

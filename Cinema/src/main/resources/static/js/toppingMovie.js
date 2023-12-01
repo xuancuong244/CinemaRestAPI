@@ -1,8 +1,18 @@
 document.addEventListener('DOMContentLoaded', function () {
-    // Lấy thông tin từ localStorage
+    // Lấy thông tin ngày chiếu từ localStorage
     const selectedDateTime = JSON.parse(localStorage.getItem('selectedDateTime'));
+
+    // Lấy thông tin Phim từ localStorage
     const selectedMovieInfo = JSON.parse(localStorage.getItem('selectedMovie'));
+
+    // Lấy thông tin ghế từ localStorage
     const selectedSeatsInfo = JSON.parse(localStorage.getItem('selectedSeats'));
+
+    // Lấy thông tin chi nhánh từ localStorage
+    const selectedBranch = JSON.parse(localStorage.getItem('selectedBranch'));
+
+    // Lấy thông tin thể loại phim đã được lưu trong localStorage
+    const selectedGenres = JSON.parse(localStorage.getItem('selectedGenres'));
 
     // Hiển thị thông tin đã chọn trong console
     console.log("Ngày chiếu đã chọn:", selectedDateTime.date);
@@ -70,7 +80,7 @@ document.addEventListener('DOMContentLoaded', function () {
         return seatPrices[seatType] || 0; // Trả về giá mặc định nếu không tìm thấy loại ghế
     }
 
-    if (selectedMovieInfo && selectedDateTime) {
+    if (selectedMovieInfo && selectedDateTime && selectedBranch && selectedGenres) {
         //Lấy tên phim
         const movieName = document.getElementById('movieName');
         movieName.innerText = selectedMovieInfo.tenPhim;
@@ -106,7 +116,7 @@ document.addEventListener('DOMContentLoaded', function () {
                         </div>
                         <div class="col-6 mt-3">
                             <div>
-                                <p class="font__source" style="font-weight: bold">Tâm lý</p>
+                                <p class="font__source" style="font-weight: bold">${selectedGenres.map(genre => genre.tenTheLoai).join(', ')}</p>
                             </div>
                             <div class="mt-3">
                                 <p class="font__source" style="font-weight: bold">${selectedMovieInfo.thoiLuong}</p>
@@ -138,7 +148,7 @@ document.addEventListener('DOMContentLoaded', function () {
                         </div>
                         <div class="col-6 mt-3">
                             <div>
-                                <p class="font__source" style="font-weight: bold">DEC Quang Trung</p>
+                                <p class="font__source" style="font-weight: bold">${selectedBranch.tenChiNhanh}</p>
                             </div>
                             <div class="mt-3">
                                 <p class="font__source" style="font-weight: bold">${formattedDate}</p>

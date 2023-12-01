@@ -2,17 +2,26 @@ document.addEventListener('DOMContentLoaded', function () {
     // Lấy thông tin từ localStorage
     const selectedDateTime = JSON.parse(localStorage.getItem('selectedDateTime'));
 
+    // Lấy thông tin chi nhánh từ localStorage
+    const selectedBranch = JSON.parse(localStorage.getItem('selectedBranch'));
+
     // Hiển thị thông tin đã chọn trong console (bạn có thể thay đổi phần này tùy theo nhu cầu)
     console.log("Ngày chiếu đã chọn:", selectedDateTime.date);
     console.log("Suất chiếu đã chọn:", selectedDateTime.showtime);
 
-    // Kiểm tra xem có thông tin phim đã được lưu trong localStorage hay không
+    // Lấy thông tin phim đã được lưu trong localStorage
     const selectedMovie = JSON.parse(localStorage.getItem('selectedMovie'));
 
+    // Lấy thông tin thể loại phim đã được lưu trong localStorage
+    const selectedGenres = JSON.parse(localStorage.getItem('selectedGenres'));
 
-    if (selectedMovie && selectedDateTime) {
+    if (selectedMovie && selectedDateTime && selectedBranch && selectedGenres) {
+
         // Hiển thị thông tin phim lấy từ localStorage lên trang select
         const selectMovieInformation = document.querySelector('.select__movieInformation');
+
+        // Hiển thị thông tin chi nhánh lên trang select
+        const selectBranchInformation = document.querySelector('.select__branchInformation');
 
         const movieName = document.getElementById('movieName');
         movieName.innerText = selectedMovie.tenPhim;
@@ -46,7 +55,7 @@ document.addEventListener('DOMContentLoaded', function () {
                         </div>
                         <div class="col-6 mt-3">
                             <div>
-                                <p class="font__source" style="font-weight: bold">Tâm lý</p>
+                                <p class="font__source" style="font-weight: bold">${selectedGenres.map(genre => genre.tenTheLoai).join(', ')}</p>
                             </div>
                             <div class="mt-3">
                                 <p class="font__source" style="font-weight: bold">${selectedMovie.thoiLuong}</p>
@@ -78,7 +87,7 @@ document.addEventListener('DOMContentLoaded', function () {
                         </div>
                         <div class="col-6 mt-3">
                             <div>
-                                <p class="font__source" style="font-weight: bold">DEC Quang Trung</p>
+                                <p class="font__source" style="font-weight: bold">${selectedBranch.tenChiNhanh}</p>
                             </div>
                             <div class="mt-3">
                                 <p class="font__source" style="font-weight: bold">${formattedDate}</p>

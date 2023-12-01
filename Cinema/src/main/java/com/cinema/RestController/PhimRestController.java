@@ -1,6 +1,7 @@
 package com.cinema.RestController;
 
 import com.cinema.Entity.Phim;
+import com.cinema.Entity.TheLoaiPhim;
 import com.cinema.Services.PhimService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -8,6 +9,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.Set;
 
 @CrossOrigin("*")
 @RestController
@@ -20,6 +22,17 @@ public class PhimRestController {
     public ResponseEntity<?> doGetAll(){
         List<Phim> phims = phimService.findAll();
         return ResponseEntity.ok(phims);
+    }
+
+    @GetMapping("/{maPhim}/theLoai")
+    public ResponseEntity<?> getGenresByMaPhim(@PathVariable String maPhim) {
+        Optional<Phim> phim = phimService.findById(maPhim);
+        if (phim.isPresent()) {
+            List<TheLoaiPhim> genres = phim.get().getTheLoai();
+            return ResponseEntity.ok(genres);
+        } else {
+            return ResponseEntity.notFound().build();
+        }
     }
 
     @GetMapping("/{maPhim}")

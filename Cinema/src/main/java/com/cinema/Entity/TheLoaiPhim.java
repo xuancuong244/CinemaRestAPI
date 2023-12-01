@@ -22,4 +22,5 @@ public class TheLoaiPhim {
     private String maTheLoai;
     @Column(name = "ten_the_loai")
     private String tenTheLoai;
+
 }
