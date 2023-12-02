@@ -7,7 +7,6 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // Lấy thông tin ghế từ localStorage
     const selectedSeatsInfo = JSON.parse(localStorage.getItem('selectedSeats'));
-
     // Lấy thông tin chi nhánh từ localStorage
     const selectedBranch = JSON.parse(localStorage.getItem('selectedBranch'));
 
@@ -18,25 +17,37 @@ document.addEventListener('DOMContentLoaded', function () {
     console.log("Ngày chiếu đã chọn:", selectedDateTime.date);
     console.log("Suất chiếu đã chọn:", selectedDateTime.showtime);
     console.log("SelectedSeatsInfo:", selectedSeatsInfo);
-    console.log(selectedSeats);
-    console.log(localStorage.getItem('selectedSeats'));
 
 
     // Hàm hiển thị thông tin ghế đã chọn
-    function displaySelectedSeats(seatsInfo) {
-        const selectedSeatsContainer = document.getElementById('selected-seats');
-        if (selectedSeatsContainer && seatsInfo) {
-            const seatsHTML = seatsInfo.map(seatInfo => {
-                return `<span class='text-danger'>${seatInfo.seat}(${seatInfo.seatType})</span>`;
-            }).join(", ");
-            selectedSeatsContainer.innerHTML = seatsHTML;
-        }
-    }
-    // Gọi hàm để hiển thị thông tin ghế đã chọn
-    if (selectedSeatsInfo && selectedSeatsInfo.length > 0) {
-        displaySelectedSeats(selectedSeatsInfo);
-    }
+    // function displaySelectedSeats(selectedSeatsInfo) {
+    //     const selectedSeatsContainer = document.getElementById('selected-seats');
+    //
+    //     // Kiểm tra xem có phần tử 'selected-seats' không
+    //     if (selectedSeatsContainer) {
+    //         // Kiểm tra xem có ghế nào được chọn không
+    //         if (selectedSeatsInfo && selectedSeatsInfo.length > 0) {
+    //             // Tạo một chuỗi HTML để hiển thị danh sách ghế đã chọn
+    //             const seatsHTML = selectedSeatsInfo.map(seatInfo => {
+    //                 return `<span class='text-danger'>${seatInfo.seat}(${seatInfo.seatType})</span>`;
+    //             }).join(", ");
+    //
+    //             // Hiển thị danh sách ghế vào thẻ selected-seats
+    //             selectedSeatsContainer.innerHTML = seatsHTML;
+    //         } else {
+    //             // Nếu không có ghế nào được chọn, hiển thị thông báo
+    //             console.error("Không có ghế nào được chọn.");
+    //             // Hiển thị thông báo trên trang web
+    //             selectedSeatsContainer.innerHTML = "Không có ghế nào được chọn.";
+    //         }
+    //     } else {
+    //         // Nếu không tìm thấy phần tử 'selected-seats', hiển thị thông báo
+    //         console.error("Không thể tìm thấy phần tử 'selected-seats'.");
+    //     }
+    // }
 
+
+    // Gọi hàm để hiển thị thông tin ghế đã chọn
     if (selectedSeatsInfo) {
         // Duyệt qua danh sách ghế đã chọn và hiển thị thông tin
         selectedSeatsInfo.forEach(seatInfo => {
@@ -60,7 +71,7 @@ document.addEventListener('DOMContentLoaded', function () {
         seatTextPriceCol.classList.add('col-4');
         const seatTextPrice = document.createElement('p');
         seatTextPrice.classList.add('text-end', 'seatPrice__textPrice', 'me-5');
-        seatTextPrice.innerText = `${getSeatPrice(seatInfo.seatType)}`;
+        seatTextPrice.innerText = `${getSeatPrice(seatInfo.seatType)} VNĐ`;
         seatTextPriceCol.appendChild(seatTextPrice);
 
         seatBox.appendChild(seatTitleCol);
@@ -79,6 +90,8 @@ document.addEventListener('DOMContentLoaded', function () {
         // Trả về giá ghế tương ứng với loại ghế
         return seatPrices[seatType] || 0; // Trả về giá mặc định nếu không tìm thấy loại ghế
     }
+
+
 
     if (selectedMovieInfo && selectedDateTime && selectedBranch && selectedGenres) {
         //Lấy tên phim
@@ -141,10 +154,10 @@ document.addEventListener('DOMContentLoaded', function () {
                                 <img src="../img/logo/phongChieu.png" alt="" width="12px" height="12px">
                                 <p class="ms-1 font__source">Phòng chiếu</p>
                             </div>
-                            <div class="mt-3">
-                                <img src="../img/logo/gheNgoi.png" alt="" width="12px" height="12px">
-                                <p class="ms-1 font__source">Ghế ngồi</p>
-                            </div>
+<!--                            <div class="mt-3">-->
+<!--                                <img src="../img/logo/gheNgoi.png" alt="" width="12px" height="12px">-->
+<!--                                <p class="ms-1 font__source">Ghế ngồi</p>-->
+<!--                            </div>-->
                         </div>
                         <div class="col-6 mt-3">
                             <div>
@@ -159,9 +172,9 @@ document.addEventListener('DOMContentLoaded', function () {
                             <div class="mt-3">
                                 <p class="font__source" style="font-weight: bold">P3</p>
                             </div>
-                            <div class="mt-3">
-                                <div id="selected-seats" style="color: red;font-weight: bold"></div>
-                            </div>
+<!--                            <div class="mt-3">-->
+<!--                                <div id="selected-seats" style="color: red;font-weight: bold"></div>-->
+<!--                            </div>-->
                         </div>
                     </div>
                     <div class="text-center mt-3">

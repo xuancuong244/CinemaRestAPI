@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class KhachHangServiceImpl implements KhachHangService {
@@ -31,5 +32,10 @@ public class KhachHangServiceImpl implements KhachHangService {
     @Override
     public KhachHang save(KhachHang khachHang) {
         return khachHangReponsitory.save(khachHang);
+    }
+
+    @Override
+    public Optional<KhachHang> findById(Integer userId) {
+        return khachHangReponsitory.findById(userId);
     }
 }

@@ -1,25 +1,32 @@
 $(document).ready(function () {
 
-    if (sessionStorage.getItem("loggedIn") === "true") {
+    function checkLoggedInStatus() {
+        if (sessionStorage.getItem("loggedIn") === "true") {
 
-        // Đã đăng nhập, ẩn phần đăng nhập/đăng ký
-        $("#loginToggleBtn").hide();
+            // Đã đăng nhập, ẩn phần đăng nhập/đăng ký
+            $("#loginToggleBtn").hide();
 
-        // Hiển thị nút đăng xuất
-        $("#logoutBtn").show();
-    } else {
-        // Chưa đăng nhập, hiển thị phần đăng nhập/đăng ký
-        $("#loginToggleBtn").show();
+            // Hiển thị nút đăng xuất
+            $("#logoutBtn").show();
+        } else {
+            // Chưa đăng nhập, hiển thị phần đăng nhập/đăng ký
+            $("#loginToggleBtn").show();
 
-        // Ẩn nút đăng xuất
-        $("#logoutBtn").hide();
+            // Ẩn nút đăng xuất
+            $("#logoutBtn").hide();
+        }
     }
+
+    // Kiểm tra trạng thái đăng nhập
+    checkLoggedInStatus();
 
     // Xử lý sự kiện click trên nút Đăng Xuất
     $("#logoutBtn").click(function () {
         // Xóa thông tin session
         sessionStorage.removeItem("loggedIn");
         sessionStorage.removeItem("userRole");
+
+        checkLoggedInStatus();
 
         // Hiển thị phần đăng nhập/đăng ký
         $("#loginToggleBtn").show();
@@ -52,8 +59,31 @@ $(document).ready(function () {
                         sessionStorage.setItem("userRole", data.role);
                         // Lưu thêm thông tin khác nếu cần
                         sessionStorage.setItem("userId", data.userId); // Ví dụ: lưu ID của người dùng
+
+                        checkLoggedInStatus();
+
                         // Thực hiện các hành động cho quyền nhân viên hoặc khách hàng
-                        window.location.href = (data.role === "nhan_vien") ? "http://localhost:8085/DynamicCinema/admin/index" : "http://localhost:8085/DynamicCinema/index";
+                        if (data.role === "nhan_vien") {
+                            alert("Đăng nhập thành công với quyền nhân viên");
+                            // Gọi lại hàm kiểm tra trạng thái đăng nhập
+                            checkLoggedInStatus();
+                            // Chuyển hướng đến trang admin
+                            window.location.href = "http://localhost:8085/DynamicCinema/admin/index";
+                        } else if (data.role === "khach_hang") {
+                            alert("Đăng nhập thành công với quyền khách hàng");
+                            // Gọi lại hàm kiểm tra trạng thái đăng nhập
+                            checkLoggedInStatus();
+
+                            // Kiểm tra nếu đường dẫn không chứa /admin/ thì mới chuyển hướng
+                            if (!window.location.href.includes("/admin/")) {
+                                // Chuyển hướng đến trang khách hàng
+                                window.location.href = "http://localhost:8085/DynamicCinema/index";
+                            } else {
+                                alert("Bạn không có quyền truy cập trang admin.");
+                            }
+                        } else {
+                            alert("Đăng nhập không thành công. Kiểm tra lại thông tin đăng nhập");
+                        }
                     } else {
                         alert("Đăng nhập không thành công. Kiểm tra lại thông tin đăng nhập");
                     }

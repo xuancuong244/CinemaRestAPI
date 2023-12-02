@@ -29,11 +29,12 @@
           integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <!-- CSS font-awesome  -->
     <link rel="stylesheet" href="/css/font-awesome-4.7.0/css/font-awesome.min.css"/>
-    <title>Mua vé xem phim</title>
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
     <script src="../js/loadMovieByStatus.js"></script>
     <script src="../js/chiNhanh.js"></script>
+    <script src="../js/auth.js"></script>
+    <title>Phim</title>
 </head>
-
 <body>
 <!-- Header  -->
 <div class="container header">
@@ -98,7 +99,7 @@
                         <div class="container">
                             <!-- Nút đăng Nhập  -->
                             <div>
-                                <button class="btn btn-login font__oswald">
+                                <button class="btn btn-login font__oswald" type="submit">
                                     Đăng Nhập
                                 </button>
                             </div>
@@ -175,7 +176,7 @@
                         </div>
                         <div class="container">
                             <div>
-                                <button class="btn btn-login">Đăng Ký</button>
+                                <button class="btn btn-login" type="submit">Đăng Ký</button>
                             </div>
                             <div class="boder-solid mt-4"></div>
                             <div class="mt-4 text-center">
@@ -189,8 +190,9 @@
                     </div>
                 </div>
             </div>
-            <a class="btn btn__movie font__source" data-bs-toggle="modal" href="#exampleModalToggle"
+            <a id="loginToggleBtn" class="btn btn__movie font__source" data-bs-toggle="modal" href="#exampleModalToggle"
                role="button">Đăng Nhập | Đăng Ký</a>
+            <a id="logoutBtn" class="btn btn__movie font__source" href="">Đăng Xuất</a>
         </div>
         <!-- Dịch tiếng việt tiếng anh  -->
         <div class="col-lg-2 col-md-6 col-sm-6 header__language font justify-content-start p-0">

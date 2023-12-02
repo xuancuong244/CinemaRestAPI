@@ -34,14 +34,18 @@ function updateSelectedSeats() {
     return { seat: seat.seat, seatType: seatType };
   });
 
-  const seatsHTML = selectedSeatsInfo
-    .map(function (seatInfo) {
-      return `<span class='text-danger'>${seatInfo.seat}(${seatInfo.seatType})</span>`;
-    })
-    .join(", ");
-
-
-  document.getElementById("selected-seats").innerHTML = seatsHTML;
+  const selectedSeatsContainer = document.getElementById("selected-seats");
+  if (selectedSeatsContainer) {
+    const seatsHTML = selectedSeatsInfo
+        .map(function (seatInfo) {
+          return `<span class='text-danger'>${seatInfo.seat}(${seatInfo.seatType})</span>`;
+        })
+        .join(", ");
+    selectedSeatsContainer.innerHTML = seatsHTML;
+  }else {
+    console.error("Không thể tìm thấy phần tử 'selected-seats'.");
+  }
+  // document.getElementById("selected-seats").innerHTML = seatsHTML;
 
   // Lưu danh sách ghế đã chọn vào localStorage
   localStorage.setItem('selectedSeats', JSON.stringify(selectedSeatsInfo));
