@@ -14,11 +14,13 @@
     <!-- ======= Styles ====== -->
     <link rel="stylesheet" href="/css/style__admin.css">
     <link rel="stylesheet" href="/css/custom.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+    <script src="/js/admin/CRUDSuatChieu.js"></script>
 </head>
 
 <body>
 <!-- =============== Navigation ================ -->
-<div class="container">
+<div class="container" ng-app="myApp" ng-controller="SuatChieuController">
     <div class="navigation">
         <ul>
             <li>
@@ -152,10 +154,10 @@
                 </div>
             </div>
             <div class="btn-crud" style="text-align: center; margin-top: 20px;">
-                <button class="btn reset">Làm mới</button>
-                <button class="btn new">Thêm</button>
-                <button class="btn fix">Sửa</button>
-                <button class="btn del">Xóa</button>
+                <button class="btn reset" ng-click="resetForm()">Làm mới</button>
+                <button class="btn new" ng-click="addMovie()">Thêm</button>
+                <button class="btn fix" ng-click="editMovie()">Sửa</button>
+                <button class="btn del" ng-click="deleteMovie()">Xóa</button>
             </div>
         </div>
         <!-- ================ Order Details List ================= -->
@@ -177,9 +179,13 @@
                     </tr>
                     </thead>
 
-                    <tbody style="text-align: center!important;">
-                    <tr>
-
+                    <tbody style="text-align: center!important;" >
+                    <tr ng-repeat="suatChieu in movies">
+                        <td>{{ suatChieu.stt }}</td>
+                        <td>{{ suatChieu.tenPhim }}</td>
+                        <td>{{ suatChieu.phongChieu }}</td>
+                        <td>{{ suatChieu.ngayChieu }}</td>
+                        <td>{{ suatChieu.giaXuatChieu }}</td>
                     </tr>
 
                     </tbody>
