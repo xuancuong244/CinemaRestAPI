@@ -14,12 +14,13 @@
     <!-- ======= Styles ====== -->
     <link rel="stylesheet" href="/css/style__admin.css">
     <link rel="stylesheet" href="/css/custom.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
     <script src="/js/admin/CRUDTopping.js"></script>
 </head>
 
-<body>
+<body ng-app="myApp">
     <!-- =============== Navigation ================ -->
-    <div class="container">
+    <div class="container" ng-controller="ToppingController">
         <div class="navigation">
             <ul>
                 <li>
@@ -66,7 +67,23 @@
                         <span class="title">Suất chiếu</span>
                     </a>
                 </li>
+                <li>
+                    <a href="http://localhost:8085/DynamicCinema/admin/ngayChieu">
+                        <span class="icon">
+                            <ion-icon name="calendar-outline"></ion-icon>
+                        </span>
+                        <span class="title">Ngày chiếu</span>
+                    </a>
+                </li>
 
+                <li>
+                    <a href="http://localhost:8085/DynamicCinema/admin/ve">
+                        <span class="icon">
+                            <ion-icon name="film-outline"></ion-icon>
+                        </span>
+                        <span class="title">Vé</span>
+                    </a>
+                </li>
                 <li>
                     <a href="http://localhost:8085/DynamicCinema/admin/topping">
                         <span class="icon">
@@ -121,39 +138,38 @@
                     <div class="CRUD-body">
                         <div class="coolinput">
                             <label class="text">Mã topping</label>
-                            <input type="text" placeholder="" name="input" class="input">
+                            <input type="text" placeholder="" name="input" class="input" ng-model="selectedTP.maTopping">
                         </div>
                     </div>
                     <div class="CRUD-body">
                         <div class="coolinput">
                             <label class="text">Tên topping</label>
-                            <input type="text" placeholder="" name="input" class="input">
+                            <input type="text" placeholder="" name="input" class="input" ng-model="selectedTP.tenTopping">
                         </div>
                     </div>
                     <div class="CRUD-body">
                         <div class="coolinput">
                             <label class="text">Số Lượng đang có</label>
-                            <input type="text" placeholder="" name="input" class="input">
+                            <input type="text" placeholder="" name="input" class="input" ng-model="selectedTP.soLuongDangCo">
                         </div>
                     </div>
                     <div class="CRUD-body">
                         <div class="coolinput">
                             <label class="text">Giá</label>
-                            <input type="text" placeholder="" name="input" class="input">
+                            <input type="text" placeholder="" name="input" class="input" ng-model="selectedTP.gia">
                         </div>
                     </div>
                     
                     <div class="CRUD-body">
                         <label class="text" style=" color: #2a2185; display: block; margin-bottom: 5px;">Hình</label>
-                        <input class="form-control" type="file">
+                        <input class="form-control" type="file" ng-model="selectedTP.hinh">
                     </div>
                 </div>
                 <div class="btn-crud" style="text-align: center; margin-top: 20px;">
-                    <button class="btn reset">Làm mới</button>
-                    <button class="btn new">Thêm</button>
-                    <button class="btn fix">Sửa</button>
-                    <button class="btn del">Xóa</button>
-                </div>
+                    <button class="btn reset" ng-click="resetForm()">Làm mới</button>
+                    <button class="btn new" ng-click="addTopping()">Thêm</button>
+                    <button class="btn fix" ng-click="editTopping()">Sửa</button>
+                    <button class="btn del" ng-click="deleteTopping()">Xóa</button>
                 </div>
                 <!-- ================ Order Details List ================= -->
                 <div class="details">
@@ -170,11 +186,23 @@
                                     <th scope="col">Tên topping</th>
                                     <th scope="col">Số lượng đang có</th>
                                     <th scope="col">Giá</th>
+                                    <th scope="col">Hình</th>
                                 </tr>
                             </thead>
 
                             <tbody style="text-align: center!important;">
-
+                            <tr ng-repeat="tp in toppings">
+                                <td>{{ tp.maTopping }}</td>
+                                <td>{{ tp.tenTopping }}</td>
+                                <td>{{ tp.soLuongDangCo }}</td>
+                                <td>{{ tp.gia }}</td>
+                                <td>{{ tp.hinh }}</td>
+                                <td>
+                                    <div class="btn-group btn-group-xs">
+                                        <button class="btn btn-warning" ng-click="fillForm($index)">Edit</button>
+                                    </div>
+                                </td>
+                            </tr>
                             </tbody>
                         </table>
                     </div>

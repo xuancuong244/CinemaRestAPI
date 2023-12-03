@@ -10,11 +10,13 @@
     <!-- ======= Styles ====== -->
     <link rel="stylesheet" href="/css/style__admin.css">
     <link rel="stylesheet" href="/css/custom.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+
 </head>
 
-<body>
+<body ng-app="myApp">
 <!-- =============== Navigation ================ -->
-<div class="container">
+<div class="container" ng-controller="NgayChieuController">
     <div class="navigation">
         <ul>
             <li>
@@ -134,27 +136,27 @@
                 <div class="CRUD-body">
                     <div class="coolinput">
                         <label for="input" class="text">STT</label>
-                        <input type="text" placeholder="" name="input" class="input">
+                        <input type="text" placeholder="" name="input" class="input" ng-model="selectedNC.stt">
                     </div>
                 </div>
                 <div class="CRUD-body">
                     <div class="coolinput">
                         <label for="input" class="text">Ngày Chiếu</label>
-                        <input type="text" placeholder="" name="input" class="input">
+                        <input type="text" placeholder="" name="input" class="input" ng-model="selectedNC.ngay">
                     </div>
                 </div>
                 <div class="CRUD-body">
                     <div class="coolinput">
                         <label for="input" class="text">Giờ Bắt Đầu</label>
-                        <input type="text" placeholder="" name="input" class="input">
+                        <input type="text" placeholder="" name="input" class="input" ng-model="selectedNC.gioBatDau">
                     </div>
                 </div>
             </div>
             <div class="btn-crud" style="text-align: center; margin-top: 20px;">
-                <button class="btn reset">Làm mới</button>
-                <button class="btn new">Thêm</button>
-                <button class="btn fix">Sửa</button>
-                <button class="btn del">Xóa</button>
+                <button class="btn reset" ng-click="resetForm()">Làm mới</button>
+                <button class="btn new" ng-click="addNgayChieu()">Thêm</button>
+                <button class="btn fix" ng-click="editNgayChieu()">Sửa</button>
+                <button class="btn del" ng-click="deleteNgayChieu()">Xóa</button>
             </div>
         </div>
         <!-- ================ Order Details List ================= -->
@@ -171,12 +173,20 @@
                         <th scope="col">STT</th>
                         <th scope="col">Ngày Chiếu</th>
                         <th scope="col">Giờ Bắt Đầu</th>
+                        <th scope="col"></th>
                     </tr>
                     </thead>
 
                     <tbody style="text-align: center!important;">
-                    <tr>
-                        <td></td>
+                    <tr ng-repeat="nc in ngayChieu">
+                        <td>{{nc.stt}}</td>
+                        <td>{{nc.ngay}}</td>
+                        <td>{{nc.gioBatDau}}</td>
+                        <td>
+                            <div class="btn-group btn-group-xs">
+                                <button class="btn btn-warning" ng-click="fillForm($index)">Edit</button>
+                            </div>
+                        </td>
                     </tr>
                     </tbody>
                 </table>
@@ -188,7 +198,7 @@
 
 <!-- =========== Scripts =========  -->
 <script src="/js/main.js"></script>
-
+<script src="/js/admin/CRUDNgayChieu.js"></script>
 <!-- ====== ionicons ======= -->
 <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
 <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>

@@ -10,11 +10,13 @@
     <!-- ======= Styles ====== -->
     <link rel="stylesheet" href="/css/style__admin.css">
     <link rel="stylesheet" href="/css/custom.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+    <script src="/js/admin/CRUDVe.js"></script>
 </head>
 
-<body>
+<body ng-app="myApp">
 <!-- =============== Navigation ================ -->
-<div class="container">
+<div class="container" ng-controller="VeController">
     <div class="navigation">
         <ul>
             <li>
@@ -134,45 +136,27 @@
                 <div class="CRUD-body">
                     <div class="coolinput">
                         <label for="input" class="text">ID Vé</label>
-                        <input type="text" placeholder="" name="input" class="input">
-                    </div>
-                </div>
-                <div class="CRUD-body">
-                    <div class="coolinput">
-                        <label for="input" class="text">Mã Khách Hàng</label>
-                        <input type="text" placeholder="" name="input" class="input">
-                    </div>
-                </div>
-                <div class="CRUD-body">
-                    <div class="coolinput">
-                        <label for="input" class="text">Mã Chi Tiết Ghế</label>
-                        <input type="text" placeholder="" name="input" class="input">
-                    </div>
-                </div>
-                <div class="CRUD-body">
-                    <div class="coolinput">
-                        <label for="input" class="text">STT Suất Chiếu</label>
-                        <input type="text" placeholder="" name="input" class="input">
+                        <input type="text" placeholder="" name="input" class="input" ng-model="selectedVe.idVe">
                     </div>
                 </div>
                 <div class="CRUD-body">
                     <div class="coolinput">
                         <label for="input" class="text">Thuế VAT</label>
-                        <input type="text" placeholder="" name="input" class="input">
+                        <input type="text" placeholder="" name="input" class="input" ng-model="selectedVe.thueVAT">
                     </div>
                 </div>
                 <div class="CRUD-body">
                     <div class="coolinput">
                         <label for="input" class="text">Tổng Giá Vé</label>
-                        <input type="text" placeholder="" name="input" class="input">
+                        <input type="text" placeholder="" name="input" class="input" ng-model="selectedVe.tongGiaVe">
                     </div>
                 </div>
             </div>
             <div class="btn-crud" style="text-align: center; margin-top: 20px;">
-                <button class="btn reset">Làm mới</button>
-                <button class="btn new">Thêm</button>
-                <button class="btn fix">Sửa</button>
-                <button class="btn del">Xóa</button>
+                <button class="btn reset" ng-click="resetForm()">Làm mới</button>
+                <button class="btn new" ng-click="addVe()">Thêm</button>
+                <button class="btn fix" ng-click="editVe()">Sửa</button>
+                <button class="btn del" ng-click="deleteVe()">Xóa</button>
             </div>
         </div>
         <!-- ================ Order Details List ================= -->
@@ -187,17 +171,22 @@
                     <thead>
                     <tr>
                         <th scope="col">ID Vé</th>
-                        <th scope="col">Mã Khách Hàng</th>
-                        <th scope="col">Mã Chi Tiết Ghế</th>
-                        <th scope="col">STT Suất Chiếu</th>
                         <th scope="col">Thuế VAT</th>
                         <th scope="col">Tổng Giá Vé</th>
+                        <th scope="col"></th>
                     </tr>
                     </thead>
 
                     <tbody style="text-align: center!important;">
-                    <tr>
-
+                    <tr ng-repeat="ves in ve">
+                        <td>{{ves.idVe}}</td>
+                        <td>{{ves.thueVAT}}</td>
+                        <td>{{ves.tongGiaVe}}</td>
+                        <td>
+                            <div class="btn-group btn-group-xs">
+                                <button class="btn btn-warning" ng-click="fillForm($index)">Edit</button>
+                            </div>
+                        </td>
                     </tr>
 
                     </tbody>

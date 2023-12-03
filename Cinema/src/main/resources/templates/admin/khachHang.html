@@ -68,7 +68,23 @@
                         <span class="title">Suất chiếu</span>
                     </a>
                 </li>
+                <li>
+                    <a href="http://localhost:8085/DynamicCinema/admin/ngayChieu">
+                        <span class="icon">
+                            <ion-icon name="calendar-outline"></ion-icon>
+                        </span>
+                        <span class="title">Ngày chiếu</span>
+                    </a>
+                </li>
 
+                <li>
+                    <a href="http://localhost:8085/DynamicCinema/admin/ve">
+                        <span class="icon">
+                            <ion-icon name="film-outline"></ion-icon>
+                        </span>
+                        <span class="title">Vé</span>
+                    </a>
+                </li>
                 <li>
                     <a href="http://localhost:8085/DynamicCinema/admin/topping">
                         <span class="icon">
@@ -122,58 +138,52 @@
                 <div class="CRUD">
                     <div class="CRUD-body">
                         <div class="coolinput">
-                            <label for="input" class="text">Mã KH</label>
-                            <input type="text" placeholder="" name="input" class="input" disabled>
+                            <label for="input" class="text">Mã Khách Hàng</label>
+                            <input type="text" placeholder="" name="input" class="input" ng-model="selectedCus.maKH" disabled>
                         </div>
                     </div>
                     <div class="CRUD-body">
                         <div class="coolinput">
                             <label for="input" class="text">Tên KH</label>
-                            <input type="text" placeholder="" name="input" class="input">
+                            <input type="text" placeholder="" name="input" class="input" ng-model="selectedCus.tenKH">
                         </div>
                     </div>
                     <div class="CRUD-body">
                         <div class="coolinput">
                             <label for="input" class="text">Mật khẩu</label>
-                            <input type="text" placeholder="" name="input" class="input">
+                            <input type="text" placeholder="" name="input" class="input" ng-model="selectedCus.matKhau">
                         </div>
                     </div>
                     <div class="CRUD-body">
                         <div class="coolinput">
                             <label for="input" class="text">Email</label>
-                            <input type="text" placeholder="" name="input" class="input">
+                            <input type="text" placeholder="" name="input" class="input" ng-model="selectedCus.email">
                         </div>
                     </div>
                     <div class="CRUD-body">
                         <div class="coolinput">
                             <label for="input" class="text">SĐT</label>
-                            <input type="text" placeholder="" name="input" class="input">
+                            <input type="text" placeholder="" name="input" class="input" ng-model="selectedCus.soDT">
                         </div>
                     </div>
                     <div class="CRUD-body">
                         <div class="coolinput">
                             <label for="input" class="text">Địa chỉ</label>
-                            <input type="text" placeholder="" name="input" class="input">
+                            <input type="text" placeholder="" name="input" class="input" ng-model="selectedCus.diaChi">
                         </div>
                     </div>
 
                     <div class="CRUD-body">
-                        <div class="coolinput">
-                            <label for="input" class="text">ID FB</label>
-                            <input type="text" placeholder="" name="input" class="input">
-                        </div>
-                    </div>
-                    <div class="CRUD-body">
                         <div class="radio-gender">
                             <div class="radio-button">
-                                <input type="radio" class="radio-button__input" id="radio1" name="radio-group">
+                                <input type="radio" class="radio-button__input" id="radio1" name="radio-group" ng-model="selectedCus.gioiTinh">
                                 <label class="radio-button__label" for="radio1">
                                     <span class="radio-button__custom"></span>
                                     Nam
                                 </label>
                             </div>
                             <div class="radio-button">
-                                <input type="radio" class="radio-button__input" id="radio3" name="radio-group">
+                                <input type="radio" class="radio-button__input" id="radio3" name="radio-group" >
                                 <label class="radio-button__label" for="radio3">
                                     <span class="radio-button__custom"></span>
                                     Nữ
@@ -186,9 +196,9 @@
                 </div>
                 <div class="btn-crud" style="text-align: center; margin-top: 20px;">
                     <button class="btn reset" ng-click="resetForm()">Làm mới</button>
-                    <button class="btn new" ng-click="addMovie()">Thêm</button>
-                    <button class="btn fix" ng-click="editMovie()">Sửa</button>
-                    <button class="btn del" ng-click="deleteMovie()">Xóa</button>
+                    <button class="btn new" ng-click="addCustomer()">Thêm</button>
+                    <button class="btn fix" ng-click="editCustomer()">Sửa</button>
+                    <button class="btn del" ng-click="deleteCustomer()">Xóa</button>
                 </div>
             </div>
 
@@ -210,6 +220,7 @@
                                 <th scope="col">SĐT</th>
                                 <th scope="col">Địa chỉ</th>
                                 <th scope="col">Giới tính</th>
+                                <th scope="col"></th>
                             </tr>
                         </thead>
 

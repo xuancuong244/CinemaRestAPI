@@ -1,44 +1,80 @@
-// Function to make an API request and update the table
-function loadMovies() {
-    var xhr = new XMLHttpRequest();
-    xhr.open("GET", "http://localhost:8085/api/OrderTopping/all", true);
-    xhr.onreadystatechange = function () {
-        if (xhr.readyState == 4 && xhr.status == 200) {
-            var toppings = JSON.parse(xhr.responseText);
-            updateTable(toppings);
-        }
+var app = angular.module('myApp', []);
+
+app.controller('ToppingController', function ($scope, $http) {
+    // Khởi tạo mảng phim
+    $scope.toppings = [];
+
+    $scope.tpTemplate = {
+        maTopping: '',
+        tenTopping: '',
+        soLuongDangCo: '',
+        gia: '',
+        hinh: '',
+
     };
-    xhr.send();
-}
-
-// Function to update the table with movie data
-function updateTable(toppings) {
-    var tableBody = document.getElementById("toppingTable").getElementsByTagName('tbody')[0];
-
-    // Clear existing rows
-    tableBody.innerHTML = "";
-
-    // Iterate through the movies and add rows to the table
-    for (var i = 0; i < toppings.length; i++) {
-        var topping = toppings[i];
-        var row = tableBody.insertRow(i);
-
-        var cell1 = row.insertCell(0);
-        cell1.textContent = topping.maTopping;
-
-        var cell2 = row.insertCell(1);
-        cell2.textContent = topping.tenTopping;
-
-        var cell3 = row.insertCell(2);
-        cell3.textContent = topping.soLuongDangCo;
-
-        var cell4 = row.insertCell(3);
-        cell4.textContent = topping.gia;
-
+    $scope.index = -1;
+    // Hàm để tải danh sách phim từ máy chủ
+    function loadToppings() {
+        $http.get('/api/OrderTopping/all')
+            .then(function (response) {
+                $scope.toppings = response.data;
+            });
     }
-}
 
-// Call the loadMovies function when the page is loaded
-window.onload = function () {
-    loadMovies();
-};
+    // Tải ban đầu
+    loadToppings();
+
+    // Hàm để làm mới biểu mẫu
+    $scope.resetForm = function () {
+        // Xóa các trường của biểu mẫu
+        $scope.newTP = angular.copy($scope.tpTemplate);
+        $scope.index = -1;
+    };
+
+    $scope.resetForm();
+
+    // Hàm để thêm phim mới
+    $scope.addTopping = function () {
+        console.log("Thêm Topping:", $scope.newTP);
+        // Gửi yêu cầu POST để thêm phim mới
+        $http.post('/api/OrderTopping', $scope.newTP)
+            .then(function (response) {
+                // Làm mới danh sách phim
+                loadToppings();
+                // Xóa các trường của biểu mẫu
+                $scope.resetForm();
+            });
+    };
+
+    // Hàm để sửa phim
+    $scope.editTopping = function () {
+        // Gửi yêu cầu PUT để sửa phim đã chọn
+        if (!$scope.selectedTP) {
+            alert('Chưa chọn topping để sửa !');
+            return;
+        }
+        $http.put('/api/OrderTopping/' + $scope.selectedTP.maTopping, $scope.selectedTP)
+            .then(function (response) {
+                // Làm mới danh sách phim
+                loadToppings();
+                // Xóa các trường của biểu mẫu
+                $scope.resetForm();
+            });
+    };
+
+    // Hàm để xóa phim
+    $scope.deleteTopping = function () {
+        // Gửi yêu cầu DELETE để xóa phim đã chọn
+        $http.delete('/api/OrderTopping/' + $scope.selectedTP.maTopping)
+            .then(function (response) {
+                // Làm mới danh sách phim
+                loadToppings();
+                // Xóa các trường của biểu mẫu
+                $scope.resetForm();
+            });
+    };
+
+    $scope.fillForm = function (index){
+        $scope.selectedTP= angular.copy($scope.toppings[index]);
+    }
+});

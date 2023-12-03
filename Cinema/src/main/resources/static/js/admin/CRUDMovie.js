@@ -179,7 +179,7 @@ app.controller('PhimController', function ($scope, $http) {
         hinh: '',
         trailer: ''
     };
-
+    $scope.index = -1;
     // Hàm để tải danh sách phim từ máy chủ
     function loadMovies() {
         $http.get('/api/Phim/all')
@@ -195,6 +195,7 @@ app.controller('PhimController', function ($scope, $http) {
     $scope.resetForm = function () {
         // Xóa các trường của biểu mẫu
         $scope.newMovie = angular.copy($scope.movieTemplate);
+        $scope.index = -1;
     };
 
     $scope.resetForm();

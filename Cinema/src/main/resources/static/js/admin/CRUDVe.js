@@ -1,83 +1,76 @@
 var app = angular.module('myApp', []);
 
-app.controller('KhachHangController', function ($scope, $http) {
+app.controller('VeController', function ($scope, $http) {
     // Khởi tạo mảng phim
-    $scope.cus = [];
+    $scope.ve = [];
 
-    $scope.cusTemplate = {
-        maKH: '',
-        tenKH: '',
-        matKhau: '',
-        email: '',
-        soDT: '',
-        diaChi: '',
-        gioiTinh: ''
+    $scope.veTemplate = {
+        idVe: '',
+        tongGiaVe: '',
+        thueVAT: ''
     };
     $scope.index = -1;
     // Hàm để tải danh sách phim từ máy chủ
-    function loadCustomer() {
-        $http.get('/api/KhachHang/all')
+    function loadVe() {
+        $http.get('/api/Ve/all')
             .then(function (response) {
-                $scope.cus = response.data;
+                $scope.ve = response.data;
             });
     }
-    function convertGender(value) {
-        return value ? "Nam" : "Nữ";
-    }
     // Tải ban đầu
-    loadCustomer();
+    loadVe();
 
     // Hàm để làm mới biểu mẫu
     $scope.resetForm = function () {
         // Xóa các trường của biểu mẫu
-        $scope.newCus = angular.copy($scope.cusTemplate);
+        $scope.newVe = angular.copy($scope.veTemplate);
         $scope.index = -1;
     };
 
     $scope.resetForm();
 
     // Hàm để thêm phim mới
-    $scope.addCustomer = function () {
-        console.log("Thêm Khách hàng:", $scope.newCus);
+    $scope.addVe = function () {
+        console.log("Thêm Vé:", $scope.newVe);
         // Gửi yêu cầu POST để thêm phim mới
-        $http.post('/api/KhachHang', $scope.newCus)
+        $http.post('/api/Ve', $scope.newVe)
             .then(function (response) {
                 // Làm mới danh sách phim
-                loadMovies();
+                loadVe();
                 // Xóa các trường của biểu mẫu
                 $scope.resetForm();
             });
     };
 
     // Hàm để sửa phim
-    $scope.editCustomer = function () {
+    $scope.editVe = function () {
         // Gửi yêu cầu PUT để sửa phim đã chọn
-        if (!$scope.selectedCus) {
-            alert('Chưa chọn khách hàng để sửa !');
+        if (!$scope.selectedVe) {
+            alert('Chưa chọn vé để sửa !');
             return;
         }
-        $http.put('/api/KhachHang/' + $scope.selectedCus.maKH, $scope.selectedCus)
+        $http.put('/api/Ve/' + $scope.selectedVe.idVe, $scope.selectedVe)
             .then(function (response) {
                 // Làm mới danh sách phim
-                loadCustomer();
+                loadVe();
                 // Xóa các trường của biểu mẫu
                 $scope.resetForm();
             });
     };
 
     // Hàm để xóa phim
-    $scope.deleteCustomer = function () {
+    $scope.deleteVe = function () {
         // Gửi yêu cầu DELETE để xóa phim đã chọn
-        $http.delete('/api/KhachHang/' + $scope.selectedCus.maKH)
+        $http.delete('/api/Ve/' + $scope.selectedVe.idVe)
             .then(function (response) {
                 // Làm mới danh sách phim
-                loadCustomer();
+                loadVe();
                 // Xóa các trường của biểu mẫu
                 $scope.resetForm();
             });
     };
 
     $scope.fillForm = function (index){
-        $scope.selectedCus= angular.copy($scope.cus[index]);
+        $scope.selectedVe= angular.copy($scope.ve[index]);
     }
 });
