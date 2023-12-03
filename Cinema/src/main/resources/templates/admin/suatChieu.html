@@ -18,10 +18,10 @@
     <script src="/js/admin/CRUDSuatChieu.js"></script>
 </head>
 
-<body>
+<body ng-app="myApp">
 <!-- =============== Navigation ================ -->
-<div class="container" ng-app="myApp" ng-controller="SuatChieuController">
-    <div class="navigation">
+<div class="container"  ng-controller="SuatChieuController">
+    <div class="navigation" >
         <ul>
             <li>
                 <a href="#">
@@ -180,12 +180,17 @@
                     </thead>
 
                     <tbody style="text-align: center!important;" >
-                    <tr ng-repeat="suatChieu in movies">
-                        <td>{{ suatChieu.stt }}</td>
-                        <td>{{ suatChieu.tenPhim }}</td>
-                        <td>{{ suatChieu.phongChieu }}</td>
-                        <td>{{ suatChieu.ngayChieu }}</td>
-                        <td>{{ suatChieu.giaXuatChieu }}</td>
+                    <tr ng-repeat="suatChieus in suatChieu">
+                        <td>{{ suatChieus.stt }}</td>
+                        <td>{{ suatChieus.phim }}</td>
+                        <td>{{ suatChieus.phongChieu }}</td>
+                        <td>{{ suatChieus.ngayChieu }}</td>
+                        <td>{{ suatChieus.giaXuatChieu }}</td>
+                        <td>
+                            <div class="btn-group btn-group-xs">
+                                <button class="btn btn-warning" ng-click="fillForm($index)">Edit</button>
+                            </div>
+                        </td>
                     </tr>
 
                     </tbody>

@@ -1,67 +1,80 @@
-function loadCustomer() {
-    var xhr = new XMLHttpRequest();
-    xhr.open("GET", "http://localhost:8085/api/KhachHang/all", true);
-    xhr.onreadystatechange = function () {
-        if (xhr.readyState == 4 && xhr.status == 200) {
-            var customer = JSON.parse(xhr.responseText);
-            updateTable(customer);
-        }
+var app = angular.module('myApp', []);
+
+app.controller('KhachHangController', function ($scope, $http) {
+    // Khởi tạo mảng phim
+    $scope.cus = [];
+
+    $scope.cusTemplate = {
+        maKH: '',
+        tenKH: '',
+        matKhau: '',
+        email: '',
+        soDT: '',
+        diaChi: '',
+        gioiTinh: '' ? "Nam" : "Nữ"
     };
-    xhr.send();
-}
 
-function convertGender(value) {
-    return value ? "Nam" : "Nữ";
-}
-
-function updateTable(customers) {
-    var tableBody = document.getElementById("customerTable").getElementsByTagName('tbody')[0];
-
-    // Clear existing rows
-    tableBody.innerHTML = "";
-
-    // Iterate through the movies and add rows to the table
-    for (var i = 0; i < customers.length; i++) {
-        var customer = customers[i];
-        var row = tableBody.insertRow(i);
-
-        var cell1 = row.insertCell(0);
-        cell1.textContent = customer.maKH;
-
-        var cell2 = row.insertCell(1);
-        cell2.textContent = customer.tenKH;
-
-        var cell3 = row.insertCell(2);
-        cell3.textContent = customer.matKhau;
-
-        // var cell4 = row.insertCell(3);
-        // cell4.textContent = movie.daoDien;
-
-        var cell5 = row.insertCell(3);
-        cell5.textContent = customer.email;
-
-        var cell6 = row.insertCell(4);
-        cell6.textContent = customer.soDT;
-
-        var cell7 = row.insertCell(5);
-        cell7.textContent = customer.diaChi;
-
-        // var cell8 = row.insertCell(6);
-        // cell8.textContent = movie.moTa;
-
-        var cell9 = row.insertCell(6);
-        cell9.textContent = convertGender(customer.gioiTinh);
-
-        var cell10 = row.insertCell(7);
-        cell10.textContent = customer.idFB;
-
-        var cell10 = row.insertCell(8);
-        cell10.textContent = customer.hinhFB;
+    // Hàm để tải danh sách phim từ máy chủ
+    function loadMovies() {
+        $http.get('/api/KhachHang/all')
+            .then(function (response) {
+                $scope.cus = response.data;
+            });
     }
-}
 
-// Call the loadMovies function when the page is loaded
-window.onload = function () {
-    loadCustomer();
-};
+    // Tải ban đầu
+    loadMovies();
 
+    // Hàm để làm mới biểu mẫu
+    $scope.resetForm = function () {
+        // Xóa các trường của biểu mẫu
+        $scope.newCus = angular.copy($scope.cusTemplate);
+    };
+
+    $scope.resetForm();
+
+    // Hàm để thêm phim mới
+    $scope.addMovie = function () {
+        console.log("Thêm Khách hàng:", $scope.newCus);
+        // Gửi yêu cầu POST để thêm phim mới
+        $http.post('/api/KhachHang', $scope.newCus)
+            .then(function (response) {
+                // Làm mới danh sách phim
+                loadMovies();
+                // Xóa các trường của biểu mẫu
+                $scope.resetForm();
+            });
+    };
+
+    // Hàm để sửa phim
+    $scope.editMovie = function () {
+        // Gửi yêu cầu PUT để sửa phim đã chọn
+        if (!$scope.selectedCus) {
+            alert('Chưa chọn phim để sửa !');
+            return;
+        }
+        $http.put('/api/KhachHang/' + $scope.selectedCus.maKH, $scope.selectedCus)
+            .then(function (response) {
+                // Làm mới danh sách phim
+                loadMovies();
+                // Xóa các trường của biểu mẫu
+                $scope.resetForm();
+            });
+    };
+
+    // Hàm để xóa phim
+    $scope.deleteMovie = function () {
+        // Gửi yêu cầu DELETE để xóa phim đã chọn
+        $http.delete('/api/KhachHang/' + $scope.selectedCus.maKH)
+            .then(function (response) {
+                // Làm mới danh sách phim
+                loadMovies();
+                // Xóa các trường của biểu mẫu
+                $scope.resetForm();
+            });
+    };
+
+    $scope.fillForm = function (index){
+        $scope.selectedCus= angular.copy($scope.cus[index]);
+    }
+});

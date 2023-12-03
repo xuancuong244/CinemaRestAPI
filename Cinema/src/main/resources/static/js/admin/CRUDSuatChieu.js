@@ -2,9 +2,9 @@ var app = angular.module('myApp', []);
 
 app.controller('SuatChieuController', function ($scope, $http) {
     // Khởi tạo mảng phim
-    $scope.movies = [];
+    $scope.suatChieu = [];
 
-    $scope.movieTemplate = {
+    $scope.suatChieuTemplate = {
         stt: '',
         phim: '',
         phongChieu: '',
@@ -16,7 +16,7 @@ app.controller('SuatChieuController', function ($scope, $http) {
     function loadSuatChieu() {
         $http.get('/api/XuatChieu/all')
             .then(function (response) {
-                $scope.movies = response.data;
+                $scope.suatChieu = response.data;
             });
     }
 
@@ -26,16 +26,16 @@ app.controller('SuatChieuController', function ($scope, $http) {
     // Hàm để làm mới biểu mẫu
     $scope.resetForm = function () {
         // Xóa các trường của biểu mẫu
-        $scope.newMovie = angular.copy($scope.movieTemplate);
+        $scope.newSuatChieu = angular.copy($scope.suatChieuTemplate);
     };
 
     $scope.resetForm();
 
     // Hàm để thêm phim mới
     $scope.addMovie = function () {
-        console.log("Đã thêm suất chiếu:", $scope.newMovie);
+        console.log("Đã thêm suất chiếu:", $scope.newSuatChieu);
         // Gửi yêu cầu POST để thêm phim mới
-        $http.post('/api/XuatChieu', $scope.newMovie)
+        $http.post('/api/XuatChieu', $scope.newSuatChieu)
             .then(function (response) {
                 // Làm mới danh sách phim
                 loadMovies();
@@ -47,11 +47,11 @@ app.controller('SuatChieuController', function ($scope, $http) {
     // Hàm để sửa phim
     $scope.editMovie = function () {
         // Gửi yêu cầu PUT để sửa phim đã chọn
-        if (!$scope.selectedMovie) {
+        if (!$scope.selectedSuatChieu) {
             alert('Chưa chọn suất chiếu để sửa !');
             return;
         }
-        $http.put('/api/XuatChieu/' + $scope.selectedMovie.stt, $scope.selectedMovie)
+        $http.put('/api/XuatChieu/' + $scope.selectedSuatChieu.stt, $scope.selectedSuatChieu)
             .then(function (response) {
                 // Làm mới danh sách phim
                 loadMovies();
@@ -63,7 +63,7 @@ app.controller('SuatChieuController', function ($scope, $http) {
     // Hàm để xóa phim
     $scope.deleteMovie = function () {
         // Gửi yêu cầu DELETE để xóa phim đã chọn
-        $http.delete('/api/XuatChieu/' + $scope.selectedMovie.stt)
+        $http.delete('/api/XuatChieu/' + $scope.selectedSuatChieu.stt)
             .then(function (response) {
                 // Làm mới danh sách phim
                 loadMovies();
@@ -73,6 +73,6 @@ app.controller('SuatChieuController', function ($scope, $http) {
     };
 
     $scope.fillForm = function (index){
-        $scope.selectedMovie = angular.copy($scope.movies[index]);
+        $scope.selectedSuatChieu = angular.copy($scope.suatChieu[index]);
     }
 });

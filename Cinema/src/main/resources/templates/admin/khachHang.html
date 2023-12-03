@@ -16,11 +16,12 @@
     <!-- ======= Styles ====== -->
     <link rel="stylesheet" href="/css/style__admin.css">
     <link rel="stylesheet" href="/css/custom.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
 </head>
 
-<body>
+<body ng-app="myApp" >
     <!-- =============== Navigation ================ -->
-    <div class="container">
+    <div class="container" ng-controller="KhachHangController">
         <div class="navigation">
             <ul>
                 <li>
@@ -184,10 +185,10 @@
 
                 </div>
                 <div class="btn-crud" style="text-align: center; margin-top: 20px;">
-                    <button class="btn reset">Làm mới</button>
-                    <button class="btn new">Thêm</button>
-                    <button class="btn fix">Sửa</button>
-                    <button class="btn del">Xóa</button>
+                    <button class="btn reset" ng-click="resetForm()">Làm mới</button>
+                    <button class="btn new" ng-click="addMovie()">Thêm</button>
+                    <button class="btn fix" ng-click="editMovie()">Sửa</button>
+                    <button class="btn del" ng-click="deleteMovie()">Xóa</button>
                 </div>
             </div>
 
@@ -214,6 +215,20 @@
 
                         <tbody style="text-align: center!important;">
 
+                        <tr ng-repeat="customer in cus">
+                            <td>{{ customer.maKH }}</td>
+                            <td>{{ customer.tenKH }}</td>
+                            <td>{{ customer.matKhau }}</td>
+                            <td>{{ customer.email }}</td>
+                            <td>{{ customer.soDT }}</td>
+                            <td>{{ customer.diaChi }}</td>
+                            <td>{{ customer.gioiTinh }}</td>
+                            <td>
+                                <div class="btn-group btn-group-xs">
+                                    <button class="btn btn-warning" ng-click="fillForm($index)">Edit</button>
+                                </div>
+                            </td>
+                        </tr>
                         </tbody>
                     </table>
                 </div>
