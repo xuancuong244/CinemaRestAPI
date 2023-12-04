@@ -58,7 +58,7 @@ $(document).ready(function () {
                         sessionStorage.setItem("loggedIn", true);
                         sessionStorage.setItem("userRole", data.role);
                         // Lưu thêm thông tin khác nếu cần
-                        sessionStorage.setItem("userId", data.userId); // Ví dụ: lưu ID của người dùng
+                        sessionStorage.setItem("maKH", data.maKH); // Ví dụ: lưu ID của người dùng
 
                         checkLoggedInStatus();
 
@@ -75,7 +75,7 @@ $(document).ready(function () {
                             checkLoggedInStatus();
 
                             // Kiểm tra nếu đường dẫn không chứa /admin/ thì mới chuyển hướng
-                            if (!window.location.href.includes("/admin/")) {
+                            if (!window.location.href.includes("http://localhost:8085/DynamicCinema/admin/index")) {
                                 // Chuyển hướng đến trang khách hàng
                                 window.location.href = "http://localhost:8085/DynamicCinema/index";
                             } else {

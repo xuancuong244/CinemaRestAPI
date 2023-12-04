@@ -22,9 +22,9 @@ public class KhachHangRestController {
         return ResponseEntity.ok(khachHangs);
     }
 
-    @GetMapping("/{userId}")
-    public ResponseEntity<?> doGetOne(@PathVariable Integer userId){
-        Optional<KhachHang> khachHangs = khachHangService.findById(userId);
+    @GetMapping("/{maKH}")
+    public ResponseEntity<?> doGetOne(@PathVariable Integer maKH){
+        Optional<KhachHang> khachHangs = khachHangService.findById(maKH);
         return ResponseEntity.ok(khachHangs);
     }
 }

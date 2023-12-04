@@ -2,11 +2,11 @@ document.addEventListener("DOMContentLoaded", function () {
     // Kiểm tra xem người dùng đã đăng nhập chưa
     if (sessionStorage.getItem("loggedIn") === "true") {
         // Lấy userId từ sessionStorage
-        const userId = sessionStorage.getItem("userId");
+        const maKH = sessionStorage.getItem("maKH");
 
-        if(userId){
+        if(maKH){
             // Gửi yêu cầu API để lấy thông tin khách hàng
-            fetch(`http://localhost:8085/api/KhachHang/${userId}`)
+            fetch(`http://localhost:8085/api/KhachHang/${maKH}`)
                 .then(response => response.json())
                 .then(data => {
                     const customerName = data.tenKH;
@@ -22,7 +22,7 @@ document.addEventListener("DOMContentLoaded", function () {
                     console.error('Error fetching customer data:', error);
                 });
         }else {
-            console.error('userId is undefined');
+            console.error('maKH is undefined');
         }
     }
 });
