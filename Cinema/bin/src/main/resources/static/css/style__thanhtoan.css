@@ -1,0 +1,52 @@
+.header__pay {
+  border-bottom: 2px solid rgb(131, 129, 130);
+}
+
+.header__text {
+  display: inline;
+  font-family: "Inter", sans-serif;
+  font-family: "Oswald", sans-serif;
+  color: rgba(0, 0, 0, 0.75);
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 300;
+  line-height: normal;
+}
+
+.pay__thongtindonhang {
+  border-radius: 10px;
+  border: 1px solid rgba(0, 0, 0, 0.5);
+  /* opacity: 0.5; */
+  background: #ffffff6f;
+}
+.pay__textItem--thongtindonhang {
+  color: #000;
+  /* text-align: center; */
+  font-family: Overpass;
+  font-size: 26px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+}
+.pay__chinhanh {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.25);
+}
+.pay__textItem--thongtin {
+  color: #000;
+  /* text-align: center; */
+  font-family: Overpass;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  opacity: 0.5;
+}
+.border-bottom {
+}
+.pay__time {
+  border-radius: 10px;
+  background: rgba(216, 26, 139, 0.1);
+  width: 327px;
+  height: 178px;
+  flex-shrink: 0;
+}

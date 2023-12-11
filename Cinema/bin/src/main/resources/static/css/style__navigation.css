@@ -1,6 +1,7 @@
-/* .navigation {
-    background-color: #2661a6;
-} */
+.navigation {
+    background: #fff;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.1);
+}
 
 .navigation__menu ul li button{
     font-weight: 500;

@@ -1,0 +1,634 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Style CSS  -->
+    <link rel="stylesheet" href="../css/style.css" />
+    <!-- Style CSS  -->
+    <link rel="stylesheet" href="../css/style__header.css" />
+    <!-- Style CSS  -->
+    <link rel="stylesheet" href="../css/style__navigation.css">
+    <link rel="stylesheet" href="../css/style_chonGhe.css" />
+    <!-- Style CSS  -->
+    <link rel="stylesheet" href="../css/style__footer.css">
+    <!-- Font Chữ Web Phim Movie  -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200;300;400;500&display=swap" rel="stylesheet" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+            href="https://fonts.googleapis.com/css2?family=Oswald:wght@200;300;400;500&family=Source+Sans+3:ital,wght@0,200;0,300;0,400;0,500;0,600;1,200;1,300;1,400;1,500;1,600&display=swap"
+            rel="stylesheet" />
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous" />
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script src="../js/selectSeat.js"></script>
+    <script src="../js/auth.js"></script>
+    <title>Mua vé xem phim</title>
+</head>
+
+<body>
+<!-- Header  -->
+<div class="container header">
+    <div class="row">
+        <!-- logo  -->
+        <div class="col-lg-3 col-md-6 col-12 header__logo">
+            <img src="../img/logo/Logo_Web.png" alt="" />
+        </div>
+        <!-- Option  -->
+        <div class="col-lg-5 col-md-6 col-12 header__search">
+            <!-- Example single danger button -->
+            <div class="btn-group font__source">
+                <button onclick="loadData()" type="button" class="btn dropdown-toggle" data-bs-toggle="dropdown"
+                        aria-expanded="false"  >Tỉnh/Thành Phố
+                </button>
+                <ul id="myList" class="dropdown-menu" onclick="showHTML(event)">
+                    <!--                    <li><a class="dropdown-item" href="#">DEC TP.HCM</a></li>-->
+                    <!--                    <li><a class="dropdown-item" href="#">DEC HÀ NỘI</a></li>-->
+                    <!--                    <li><a class="dropdown-item" href="#">DEC ĐÀ NẴNG</a></li>-->
+                    <!--                    <li><a class="dropdown-item" href="#">DEC BẮC GIANG</a></li>-->
+                    <!--                    <li><a class="dropdown-item" href="#">DEC KHÁNH HÒA</a></li>-->
+                </ul>
+            </div>
+        </div>
+        <!-- Đăng Nhập đăng Ký  -->
+        <div class="col-lg-2 col-md-6 col-sm-6 text-start header__login justify-content-end">
+            <div class="modal fade" id="exampleModalToggle" aria-hidden="true"
+                 aria-labelledby="exampleModalToggleLabel" tabindex="-1">
+                <div class="modal-dialog modal-dialog-centered">
+                    <div class="modal-content">
+                        <div>
+                            <!-- Title Đăng Nhập  -->
+                            <div class="text-end">
+                                <button type="button" class="btn-close mt-2 me-2" data-bs-dismiss="modal"
+                                        aria-label="Close"></button>
+                            </div>
+                            <div class="login__header justify-content-center">
+                                <div class="text-center">
+                                    <img class="" src="../img/logo/image 4.png" alt=""/>
+                                </div>
+                                <h5 class="modal-title font__oswald text-center" id="exampleModalToggleLabel">
+                                    Đăng Nhập Tài Khoản
+                                </h5>
+                            </div>
+                        </div>
+                        <div class="container">
+                            <!-- Form Đăng Nhập  -->
+                            <form>
+                                <div class="mb-3">
+                                    <label for="exampleInputEmail1" class="form-label font__oswald">Email</label>
+                                    <input type="email" class="form-control font__oswald" id="exampleInputMail"
+                                           aria-describedby="emailHelp" placeholder="Nhập Email"/>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="exampleInputPassword1" class="form-label font__oswald">Mật
+                                        khẩu</label>
+                                    <input type="password" class="form-control font__oswald"
+                                           id="exampleInputPassword1" placeholder="Nhập mật khẩu"/>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="container">
+                            <!-- Nút đăng Nhập  -->
+                            <div>
+                                <button class="btn btn-login font__oswald" type="submit">
+                                    Đăng Nhập
+                                </button>
+                            </div>
+                            <a class="font__oswald" href="#">Quên mật khẩu ?</a>
+                            <div class="boder-solid mt-4"></div>
+                            <div class="text-center mt-4">
+                                <a class="font__oswald" href="#">Bạn chưa có tài khoản?</a>
+                            </div>
+                            <div class="mb-5">
+                                <button class="btn btn-login font__oswald" data-bs-target="#exampleModalToggle2"
+                                        data-bs-toggle="modal" data-bs-dismiss="modal">
+                                    Đăng Ký
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal fade" id="exampleModalToggle2" aria-hidden="true"
+                 aria-labelledby="exampleModalToggleLabel2" tabindex="-1">
+                <div class="modal-dialog modal-dialog-centered">
+                    <div class="modal-content">
+                        <div>
+                            <!-- Title Đăng Nhập  -->
+                            <div class="text-end">
+                                <button type="button" class="btn-close mt-2 me-2" data-bs-dismiss="modal"
+                                        aria-label="Close"></button>
+                            </div>
+                            <div class="login__header justify-content-center">
+                                <div class="text-center">
+                                    <img class="" src="../img/logo/image 4.png" alt=""/>
+                                </div>
+                                <h5 class="modal-title font__oswald text-center" id="exampleModalToggleLabel1">
+                                    Đăng Nhập Tài Khoản
+                                </h5>
+                            </div>
+                        </div>
+                        <div class="modal-body">
+                            <!-- Views Đăng Ký  -->
+                            <form class="font__oswald">
+                                <div class="mb-2">
+                                    <label for="exampleInputPassword1" class="form-label">Họ và tên</label>
+                                    <input type="name" class="form-control" id="exampleInputName"
+                                           placeholder="Nhập Họ và tên"/>
+                                </div>
+                                <div class="mb-2">
+                                    <label for="exampleInputEmail1" class="form-label">Email</label>
+                                    <input type="email" class="form-control" id="exampleInputEmail1"
+                                           aria-describedby="emailHelp" placeholder="Nhập Email"/>
+                                </div>
+                                <div class="mb-2">
+                                    <label for="exampleInputPassword1" class="form-label">Số điện thoại</label>
+                                    <input type="name" class="form-control" id="exampleInputPhone"
+                                           placeholder="Nhập số điện thoại"/>
+                                </div>
+                                <div class="mb-2">
+                                    <form class="gender__radiobutton">
+                                        <input class="ms-2 me-1" name="gender" type="radio" value="Nam"/>Nam
+                                        <input class="ms-2 me-1" name="gender" type="radio" value="Nữ"/>Nữ
+                                        <input class="ms-2 me-1" name="gender" type="radio" value="Khác"/>Khác
+                                    </form>
+                                </div>
+                                <div class="mb-2 font__oswald">
+                                    <label for="exampleInputPassword1" class="form-label">Mật khẩu</label>
+                                    <input type="password" class="form-control" id="exampleInputPassword"
+                                           placeholder="Nhập mật khẩu"/>
+                                </div>
+                                <div class="mb-2 font__oswald">
+                                    <label for="exampleInputPassword1" class="form-label">Nhập lại mật khẩu</label>
+                                    <input type="password" class="form-control" id="exampleInputPassword2"
+                                           placeholder="Nhập lại mật khẩu"/>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="container">
+                            <div>
+                                <button class="btn btn-login" type="submit">Đăng Ký</button>
+                            </div>
+                            <div class="boder-solid mt-4"></div>
+                            <div class="mt-4 text-center">
+                                <a class="font__oswald" href="#">Bạn đã có tài khoản?</a>
+                            </div>
+                            <button class="btn btn-login mt-2 mb-5" data-bs-target="#exampleModalToggle"
+                                    data-bs-toggle="modal" data-bs-dismiss="modal">
+                                Đăng Nhập
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <a id="loginToggleBtn" class="btn btn__movie font__source" data-bs-toggle="modal" href="#exampleModalToggle"
+               role="button">Đăng Nhập | Đăng Ký</a>
+            <a id="logoutBtn" class="btn btn__movie font__source" href="">Đăng Xuất</a>
+        </div>
+        <!-- Dịch tiếng việt tiếng anh  -->
+        <div class="col-lg-2 col-md-6 col-sm-6 header__language font justify-content-start p-0">
+            <a href=""><img src="../img/logo/language__logo.png" alt=""></a>
+        </div>
+    </div>
+</div>
+<!-- Navigatione Menu  -->
+<nav class=" navbar navbar-expand-lg navbar-light navigation">
+    <div class="container navigation__menu">
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse mb-2" id="navbarSupportedContent">
+            <ul class="d-flex justify-content-center navbar-nav nav nav-pills" id="pills-tab" role="tablist"
+                style="width: 100%;">
+                <li class="nav-item ms-3 font__oswald" role="presentation">
+                    <a style="text-decoration: none" href="http://localhost:8085/DynamicCinema/index">
+                        <button class="nav-link btn__nvgt active" id="pills-buyVe-tab" data-bs-toggle="pill"
+                                data-bs-target="#pills-buyVe" type="button" role="tab" aria-controls="pills-home"
+                                aria-selected="true">
+                            LỊCH CHIẾU THEO RẠP
+                        </button>
+                    </a>
+                </li>
+                <li class="nav-item ms-3 font__oswald " role="presentation">
+                    <a style="text-decoration: none;list-style-type: none;color: black"
+                       href="http://localhost:8085/DynamicCinema/movies">
+                        <button class="nav-link btn__nvgt" id="pills-movie-tab" data-bs-toggle="pill"
+                                data-bs-target="#pills-movie" type="button" role="tab" aria-controls="pills-profile"
+                                aria-selected="false">
+                            PHIM
+                        </button>
+                    </a>
+                </li>
+                <li class="nav-item ms-3 font__oswald " role="presentation">
+                    <a style="text-decoration: none;list-style-type: none;color: black"
+                       href="http://localhost:8085/DynamicCinema/cinemaCorner">
+                        <button class="nav-link btn__nvgt" id="pills-contact-tab" data-bs-toggle="pill"
+                                data-bs-target="#pills-contact" type="button" role="tab" aria-controls="pills-contact"
+                                aria-selected="false">GÓC ĐIỆN ẢNH
+                        </button>
+                    </a>
+                </li>
+                <li class="nav-item ms-3 font__oswald " role="presentation">
+                    <a style="text-decoration: none;list-style-type: none;color: black"
+                       href="http://localhost:8085/DynamicCinema/event">
+                        <button class="nav-link btn__nvgt" id="pills-suKien-tab" data-bs-toggle="pill"
+                                data-bs-target="#pills-suKien" type="button" role="tab" aria-controls="pills-hiubeba"
+                                aria-selected="false">SỰ KIỆN
+                        </button>
+                    </a>
+                </li>
+                <li class="nav-item ms-3 font__oswald " role="presentation">
+                    <a style="text-decoration: none;list-style-type: none;color: black"
+                       href="http://localhost:8085/DynamicCinema/priceTicket">
+                        <button class="nav-link btn__nvgt" id="pills-rap-tab" data-bs-toggle="pill"
+                                data-bs-target="#pills-rap" type="button" role="tab" aria-controls="pills-hiubeba"
+                                aria-selected="false">
+                            RẠP/GIÁ VÉ
+                        </button>
+                    </a>
+                </li>
+                <li class="nav-item ms-3 font__oswald " role="presentation">
+                    <a style="text-decoration: none;list-style-type: none;color: black"
+                       href="http://localhost:8085/DynamicCinema/support">
+                        <button class="nav-link btn__nvgt" id="pills-support-tab" data-bs-toggle="pill"
+                                data-bs-target="#pills-support" type="button" role="tab" aria-controls="pills-hiubeba"
+                                aria-selected="false">HỖ TRỢ
+                        </button>
+                    </a>
+                </li>
+                <li class="nav-item ms-3 font__oswald " role="presentation">
+                    <a style="text-decoration: none;list-style-type: none;color: black"
+                       href="http://localhost:8085/DynamicCinema/member">
+                        <button class="nav-link btn__nvgt" id="pills-thanhvien-tab" data-bs-toggle="pill"
+                                data-bs-target="#pills-thanhvien" type="button" role="tab" aria-controls="pills-hiubeba"
+                                aria-selected="false">THÀNH VIÊN
+                        </button>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<div style="background-color: #f8f8f8">
+    <div class="container select">
+        <div class="row">
+            <div class="col-8 select__seat">
+                <!-- Điều Hướng  -->
+                <nav style="
+                margin-top: 15px;
+                --bs-breadcrumb-divider: url(
+                  &#34;data:image/svg + xml,
+                  %3Csvgxmlns='http://www.w3.org/2000/svg'width='8'height='8'%3E%3Cpathd='M2.5 0L1 1.5 3.5 4 1 6.5 2.5 8l4-4-4-4z'fill='currentColor'/%3E%3C/svg%3E&#34;
+                );
+              " aria-label="breadcrumb">
+                    <ol class="breadcrumb font__oswald" style="font-size: 24px">
+                        <li class="breadcrumb-item">
+                            <a href="http://localhost:8085/DynamicCinema/index">Trang chủ</a>
+                        </li>
+                        <li class="breadcrumb-item">
+                            <a href="http://localhost:8085/DynamicCinema/movieDetails" id="movieName" style="color: rgb(13,110,253);text-decoration: underline"></a>
+                        </li>
+                        <li class="breadcrumb-item active" aria-current="page">
+                            Đặt Vé
+                        </li>
+                    </ol>
+                </nav>
+                <!-- Điều Hướng  -->
+                <div class="mt-4 select__seat-text">
+						<span class="seat" data-seat="A1">
+							<img src="../img/logo/gheThuong.png" alt="" />
+							<p class="font__oswald ms-1">Ghế trống</p>
+						</span>
+                    <span class="ms-5 seat" data-seat="A2">
+							<img src="../img/logo/gheDangChon.png" alt="" />
+							<p class="font__oswald ms-1">Ghế đang chọn</p>
+						</span>
+                    <span class="ms-5 seat" data-seat="A3">
+							<img src="../img/logo/gheDangDuocGiu.png" alt="" />
+							<p class="font__oswald ms-1">Ghế đang được giữ</p>
+						</span>
+                    <span class="ms-5 seat" data-seat="A4">
+							<img src="../img/logo/gheDaBan.png" alt="" />
+							<p class="font__oswald ms-1">Ghế đã bán</p>
+						</span>
+                </div>
+                <div class="text-center">
+                    <img src="../img/logo/ManHinhChieu.png" alt="" width="100%">
+                </div>
+                <div class="movie-seats">
+                    <div class="seat" data-seat="A1">A1</div>
+                    <div class="seat" data-seat="A2">A2</div>
+                    <div class="seat" data-seat="A3">A3</div>
+                    <div class="seat" data-seat="A4">A4</div>
+                    <div  style="margin-left: 50px" class="seat" data-seat="A5">A5</div>
+                    <div class="seat" data-seat="A6">A6</div>
+                    <div class="seat" data-seat="A7">A7</div>
+                    <div class="seat" data-seat="A8">A8</div>
+                    <div class="seat" data-seat="A9">A9</div>
+                    <div class="seat" data-seat="A10">A10</div>
+                    <div class="seat" data-seat="A11">A11</div>
+                    <div class="seat" data-seat="A12">A12</div>
+                    <div class="seat" data-seat="A13">A13</div>
+                    <div class="seat" data-seat="A14">A14</div>
+                    <div style="margin-left: 50px" class="seat" data-seat="A15">A15</div>
+                    <div class="seat" data-seat="A16">A16</div>
+                    <div class="seat" data-seat="A17">A17</div>
+                    <div class="seat" data-seat="A18">A18</div><br>
+                </div>
+                <div class="movie-seats">
+                    <div class="seat" data-seat="B1">B1</div>
+                    <div class="seat" data-seat="B2">B2</div>
+                    <div class="seat" data-seat="B3">B3</div>
+                    <div class="seat" data-seat="B4">B4</div>
+
+                    <div style="margin-left: 50px" class="seat" data-seat="B5">B5</div>
+                    <div class="seat" data-seat="B6">B6</div>
+                    <div class="seat" data-seat="B7">B7</div>
+                    <div class="seat" data-seat="B8">B8</div>
+                    <div class="seat" data-seat="B9">B9</div>
+                    <div class="seat" data-seat="B10">B10</div>
+                    <div class="seat" data-seat="B11">B11</div>
+                    <div class="seat" data-seat="B12">B12</div>
+                    <div class="seat" data-seat="B13">B13</div>
+                    <div class="seat" data-seat="B14">B14</div>
+
+                    <div style="margin-left: 50px" class="seat" data-seat="B15">B15</div>
+                    <div class="seat" data-seat="B16">B16</div>
+                    <div class="seat" data-seat="B17">B17</div>
+                    <div class="seat" data-seat="B18">B18</div>
+                </div>
+                <div class="movie-seats">
+                    <div class="seat" data-seat="C1">C1</div>
+                    <div class="seat" data-seat="C2">C2</div>
+                    <div class="seat" data-seat="C3">C3</div>
+                    <div class="seat" data-seat="C4">C4</div>
+
+                    <div style="margin-left: 50px" class="seat" data-seat="C5">C5</div>
+                    <div class="seat" data-seat="C6">C6</div>
+                    <div class="seat" data-seat="C7">C7</div>
+                    <div class="seat" data-seat="C8">C8</div>
+                    <div class="seat" data-seat="C9">C9</div>
+                    <div class="seat" data-seat="C10">C10</div>
+                    <div class="seat" data-seat="C11">C11</div>
+                    <div class="seat" data-seat="C12">C12</div>
+                    <div class="seat" data-seat="C13">C13</div>
+                    <div class="seat" data-seat="C14">C14</div>
+
+                    <div style="margin-left: 50px" class="seat" data-seat="C15">C15</div>
+                    <div class="seat" data-seat="C16">C16</div>
+                    <div class="seat" data-seat="C17">C17</div>
+                    <div class="seat" data-seat="C18">C18</div>
+                </div>
+                <div class="movie-seats">
+                    <div class="seat" data-seat="D1">D1</div>
+                    <div class="seat" data-seat="D2">D2</div>
+                    <div class="seat" data-seat="D3">D3</div>
+                    <div class="seat" data-seat="D4">D4</div>
+
+                    <div style="margin-left: 50px" class="seat" data-seat="D4">D5</div>
+                    <div class="seat" data-seat="D6">D6</div>
+                    <div class="seat" data-seat="D7">D7</div>
+                    <div class="seat" data-seat="D8">D8</div>
+                    <div class="seat" data-seat="D9">D9</div>
+                    <div class="seat" data-seat="D10">D10</div>
+                    <div class="seat" data-seat="D11">D11</div>
+                    <div class="seat" data-seat="D12">D12</div>
+                    <div class="seat" data-seat="D13">D13</div>
+                    <div class="seat" data-seat="D14">D14</div>
+
+                    <div style="margin-left: 50px" class="seat" data-seat="D15">D15</div>
+                    <div class="seat" data-seat="D16">D16</div>
+                    <div class="seat" data-seat="D17">D17</div>
+                    <div class="seat" data-seat="D18">D18</div>
+                </div>
+                <div class="movie-seats">
+                    <div class="seat" data-seat="E1">E1</div>
+                    <div class="seat" data-seat="E2">E2</div>
+                    <div class="seat" data-seat="E3">E3</div>
+                    <div class="seat" data-seat="E4">E4</div>
+
+                    <div style="margin-left: 50px" class="seat" data-seat="E5">E5</div>
+                    <div class="seat" data-seat="E6">E6</div>
+                    <div class="seat" data-seat="E7">E7</div>
+                    <div class="seat" data-seat="E8">E8</div>
+                    <div class="seat" data-seat="E9">E9</div>
+                    <div class="seat" data-seat="E10">E10</div>
+                    <div class="seat" data-seat="E11">E11</div>
+                    <div class="seat" data-seat="E12">E12</div>
+                    <div class="seat" data-seat="E13">E13</div>
+                    <div class="seat" data-seat="E14">E14</div>
+
+                    <div style="margin-left: 50px" class="seat" data-seat="E15">E15</div>
+                    <div class="seat" data-seat="E16">E16</div>
+                    <div class="seat" data-seat="E17">E17</div>
+                    <div class="seat" data-seat="E18">E18</div>
+                </div>
+                <div class="movie-seats">
+                    <div class="seat" data-seat="F1">F1</div>
+                    <div class="seat" data-seat="F2">F2</div>
+                    <div class="seat" data-seat="F3">F3</div>
+                    <div class="seat" data-seat="F4">F4</div>
+
+                    <div style="margin-left: 50px" class="seat" data-seat="F5">F5</div>
+                    <div class="seat" data-seat="F6">F6</div>
+                    <div class="seat" data-seat="F7">F7</div>
+                    <div class="seat" data-seat="F8">F8</div>
+                    <div class="seat" data-seat="F9">F9</div>
+                    <div class="seat" data-seat="F10">F10</div>
+                    <div class="seat" data-seat="F11">F11</div>
+                    <div class="seat" data-seat="F12">F12</div>
+                    <div class="seat" data-seat="F13">F13</div>
+                    <div class="seat" data-seat="F14">F14</div>
+
+                    <div style="margin-left: 50px" class="seat" data-seat="F15">F15</div>
+                    <div class="seat" data-seat="F16">F16</div>
+                    <div class="seat" data-seat="F17">F17</div>
+                    <div class="seat" data-seat="F18">F18</div>
+                </div>
+                <div class="movie-seats">
+                    <div class="seat" data-seat="G1">G1</div>
+                    <div class="seat" data-seat="G2">G2</div>
+                    <div class="seat" data-seat="G3">G3</div>
+                    <div class="seat" data-seat="G4">G4</div>
+
+                    <div style="margin-left: 50px" class="seat" data-seat="G5">G5</div>
+                    <div class="seat" data-seat="G6">G6</div>
+                    <div class="seat" data-seat="G7">G7</div>
+                    <div class="seat" data-seat="G8">G8</div>
+                    <div class="seat" data-seat="G9">G9</div>
+                    <div class="seat" data-seat="G10">G10</div>
+                    <div class="seat" data-seat="G11">G11</div>
+                    <div class="seat" data-seat="G12">G12</div>
+                    <div class="seat" data-seat="G13">G13</div>
+                    <div class="seat" data-seat="G14">G14</div>
+
+                    <div style="margin-left: 50px" class="seat" data-seat="G15">G15</div>
+                    <div class="seat" data-seat="G16">G16</div>
+                    <div class="seat" data-seat="G17">G17</div>
+                    <div class="seat" data-seat="G18">G18</div>
+                </div>
+                <div class="movie-seats">
+                    <div class="seat" data-seat="H1">H1</div>
+                    <div class="seat" data-seat="H2">H2</div>
+                    <div class="seat" data-seat="H3">H3</div>
+                    <div class="seat" data-seat="H4">H4</div>
+
+                    <div style="margin-left: 50px" class="seat" data-seat="H5">H5</div>
+                    <div class="seat" data-seat="H6">H6</div>
+                    <div class="seat" data-seat="H7">H7</div>
+                    <div class="seat" data-seat="H8">H8</div>
+                    <div class="seat" data-seat="H9">H9</div>
+                    <div class="seat" data-seat="H10">H10</div>
+                    <div class="seat" data-seat="H11">H11</div>
+                    <div class="seat" data-seat="H12">H12</div>
+                    <div class="seat" data-seat="H13">H13</div>
+                    <div class="seat" data-seat="H14">H14</div>
+
+                    <div style="margin-left: 50px" class="seat" data-seat="H15">H15</div>
+                    <div class="seat" data-seat="H16">H16</div>
+                    <div class="seat" data-seat="H17">H17</div>
+                    <div class="seat" data-seat="H18">H18</div>
+                </div>
+            </div>
+            <div class="col-4 p-0 select__movieInformation"
+                 style="background: #fff; box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.1);">
+<!--                <div class="row">-->
+<!--                    <div class="col-4">-->
+<!--                        <img src="../img/phim/datRungPhuongNam_ghe.png" alt="" />-->
+<!--                    </div>-->
+<!--                    <div class="col-8 select__movieInformation-text">-->
+<!--                        <h3 class="ms-3">Đất Rừng Phương Nam</h3>-->
+<!--                        <h4>2D Phụ đề</h4>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--                <div class="container">-->
+<!--                    <div class="row select__movieInformation-category">-->
+<!--                        <div class="col-6 mt-3">-->
+<!--                            <div>-->
+<!--                                <img src="../img/logo/vector.png" alt="" width="12px" height="12px">-->
+<!--                                <p class="ms-1 font__source">Thể loại</p>-->
+<!--                            </div>-->
+<!--                            <div class="mt-3">-->
+<!--                                <img src="../img/logo/time.png" alt="" width="12px" height="12px">-->
+<!--                                <p class="ms-1 font__source">Thời lượng</p>-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                        <div class="col-6 mt-3">-->
+<!--                            <div>-->
+<!--                                <p class="font__source">Tâm lý</p>-->
+<!--                            </div>-->
+<!--                            <div class="mt-3">-->
+<!--                                <p class="font__source">110 phút</p>-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                    <div class="row">-->
+<!--                        <div class="col-6 mt-3 select__movieInformation-ticket">-->
+<!--                            <div>-->
+<!--                                <img src="../img/logo/rapChieu.png" alt="" width="12px" height="12px">-->
+<!--                                <p class="ms-1 font__source">Rạp chiếu</p>-->
+<!--                            </div>-->
+<!--                            <div class="mt-3">-->
+<!--                                <img src="../img/logo/date.png" alt="" width="12px" height="12px">-->
+<!--                                <p class="ms-1 font__source">Ngày chiếu</p>-->
+<!--                            </div>-->
+<!--                            <div class="mt-3">-->
+<!--                                <img src="../img/logo/time.png" alt="" width="12px" height="12px">-->
+<!--                                <p class="ms-1 font__source">Giờ chiếu</p>-->
+<!--                            </div>-->
+<!--                            <div class="mt-3">-->
+<!--                                <img src="../img/logo/phongChieu.png" alt="" width="12px" height="12px">-->
+<!--                                <p class="ms-1 font__source">Phòng chiếu</p>-->
+<!--                            </div>-->
+<!--                            <div class="mt-3">-->
+<!--                                <img src="../img/logo/gheNgoi.png" alt="" width="12px" height="12px">-->
+<!--                                <p class="ms-1 font__source">Ghế ngồi</p>-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                        <div class="col-6 mt-3">-->
+<!--                            <div>-->
+<!--                                <p class="font__source">DEC Quang Trung</p>-->
+<!--                            </div>-->
+<!--                            <div class="mt-3">-->
+<!--                                <p class="font__source">13/10/2023</p>-->
+<!--                            </div>-->
+<!--                            <div class="mt-3">-->
+<!--                                <p class="font__source">19:00</p>-->
+<!--                            </div>-->
+<!--                            <div class="mt-3">-->
+<!--                                <p class="font__source">P3</p>-->
+<!--                            </div>-->
+<!--                            <div class="mt-3">-->
+<!--                                <div id="selected-seats"></div>-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                    <div class="text-center mt-3">-->
+<!--                        <a href="http://localhost:8085/DynamicCinema/payment" style="text-decoration: none;">-->
+<!--                        <button class="btn btn-login font__oswald" style="width: 45%;">-->
+<!--                            TIẾP TỤC-->
+<!--                        </button>-->
+<!--                        </a>-->
+<!--                    </div>-->
+<!--                </div>-->
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Footer  -->
+<footer style="margin: 15px 15px;">
+    <div class="container footer">
+        <div class="row  font__source">
+            <div class="footer__logo col-lg-4 col-md-6 col-12">
+                <img src="../img/logo/footer__logo.png" alt="">
+                <div class="footer--menu text-center">
+                    <ul>
+                        <li><a href="#">Tuyển dụng</a></li>
+                        <li><a href="#">Giới thiệu</a></li>
+                        <li><a href="#">Liên hệ</a></li>
+                        <li><a href="#">Điều khoản sử dụng</a></li>
+                        <li><a href="#">Liên hệ quảng cáo</a></li>
+                        <li><a href="#">Điều khoản bảo mật</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer__list-Address col-lg-4 col-md-6 col-12">
+                <h4>ĐỊA CHỈ RẠP PHIM TOÀN QUỐC</h4>
+                <div class="footer--menu">
+                    <ul>
+                        <li><a href="#">Dynamic Energy Cinemas TP. HCM</a></li>
+                        <li><a href="#">Dynamic Energy Cinemas Hà Nội</a></li>
+                        <li><a href="#">Dynamic Energy Cinemas Đà Nẵng</a></li>
+                        <li><a href="#">Dynamic Energy Cinemas Bắc Giang</a></li>
+                        <li><a href="#">Dynamic Energy Cinemas Khánh Hòa</a></li>
+                        <!-- <li><a href="#">Điều khoản bảo mật</a></li> -->
+                    </ul>
+                </div>
+            </div>
+            <div class="footer__list-Address col-lg-4 col-md-6 col-12 text-center ">
+                <h4>Kết nối với chúng tôi</h4>
+                <div class="footer__connection text-center"></div>
+            </div>
+        </div>
+    </div>
+</footer>
+<script src="../js/js_chonGhe.js"></script>
+<script src="../js/chiNhanh.js"></script>
+<script src="../js/auth.js"></script>
+<!-- Separate Popper and Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"
+        integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p"
+        crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"
+        integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>

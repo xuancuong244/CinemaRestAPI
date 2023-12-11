@@ -15,6 +15,10 @@ seats.forEach(function (seat) {
     const seatData = seat.dataset.seat; // Lấy dữ liệu ghế từ thuộc tính dataset
     console.log("Click on seat:", seatData);
 
+    // Kiểm tra ghế đã được thanh toán chưa
+    const isSeatPaid = seat.classList.contains("paid");
+
+    if (!isSeatPaid) {
     if (seat.classList.contains("selected")) {
       // Nếu đã chọn, bỏ chọn
       seat.classList.remove("selected");
@@ -24,7 +28,10 @@ seats.forEach(function (seat) {
       seat.classList.add("selected");
       selectedSeats.push({ seat: seatData, seatType: getSeatType(seatData) });
     }
-    updateSelectedSeats();
+      updateSelectedSeats();
+    }else {
+      console.log("Ghế đã bán và không thể chọn lại.");
+    }
   });
 });
 

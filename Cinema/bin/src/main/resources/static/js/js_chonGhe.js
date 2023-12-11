@@ -1,55 +1,59 @@
-// Lấy danh sách ghế
-const seats = document.querySelectorAll('.seat');
-
-// Danh sách ghế đã chọn
-let selectedSeats = [];
-
-// Xử lý khi click vào ghế
-seats.forEach(function (seat) {
-
-    seat.addEventListener('click', function () {
-
-        // Kiểm tra ghế đã được chọn chưa
-        if (seat.classList.contains('selected')) {
-            // Bỏ chọn
-            seat.classList.remove('selected');
-
-            // Xóa khỏi mảng ghế đã chọn
-            selectedSeats = selectedSeats.filter(item => item !== seat);
-        } else {
-            // Chọn ghế
-            seat.classList.add('selected');
-
-            // Thêm vào mảng ghế đã chọn  
-            selectedSeats.push(seat);
-        }
-
-        // Cập nhật giao diện
-        updateSelectedSeats();
-
-    });
-
-});
-
-// Hàm cập nhật giao diện
-function updateSelectedSeats() {
-    const selectedSeatsElement = document.getElementById('selected-seats');
-
-    // Xóa hết nội dung trước đó
-    selectedSeatsElement.innerHTML = '';
-
-    // Thêm danh sách ghế đã chọn
-    selectedSeats.forEach(function (seat) {
-        const li = document.createElement('li');
-        li.innerText = seat.dataset.name;
-        selectedSeatsElement.appendChild(li);
-    });
+function getSeatType(seat) {
+  const row = seat.charAt(0);  // Loại bỏ dòng này vì seat không còn là chuỗi
+  const seatNumber = parseInt(seat.slice(1), 10);
+  const isVIP = row >= 'A' && row <= 'H' && seatNumber >= 5 && seatNumber <= 14;
+  return isVIP ? 'Vip' : 'Thường';
 }
 
-// Xử lý khi ấn Đặt vé
-const bookBtn = document.getElementById('book-btn');
+const selectedSeats = [];
+const seats = document.querySelectorAll(".seat");
 
-bookBtn.addEventListener('click', function () {
-    // TODO: Validate và đặt vé
+seats.forEach(function (seat) {
+  // Xử lý click
+  seat.addEventListener("click", function () {
+
+    const seatData = seat.dataset.seat; // Lấy dữ liệu ghế từ thuộc tính dataset
+    console.log("Click on seat:", seatData);
+
+    // Kiểm tra ghế đã được thanh toán chưa
+    const isSeatPaid = seat.classList.contains("paid");
+
+    if (!isSeatPaid) {
+    if (seat.classList.contains("selected")) {
+      // Nếu đã chọn, bỏ chọn
+      seat.classList.remove("selected");
+      selectedSeats.splice(selectedSeats.findIndex(seat => seat.seat === seatData), 1);
+    } else {
+      // Nếu chưa chọn, thêm vào mảng
+      seat.classList.add("selected");
+      selectedSeats.push({ seat: seatData, seatType: getSeatType(seatData) });
+    }
+      updateSelectedSeats();
+    }else {
+      console.log("Ghế đã bán và không thể chọn lại.");
+    }
+  });
 });
 
+function updateSelectedSeats() {
+  const selectedSeatsInfo = selectedSeats.map(seat => {
+    const seatType = getSeatType(seat.seat);  // Hàm getSeatType để lấy loại ghế
+    return { seat: seat.seat, seatType: seatType };
+  });
+
+  const selectedSeatsContainer = document.getElementById("selected-seats");
+  if (selectedSeatsContainer) {
+    const seatsHTML = selectedSeatsInfo
+        .map(function (seatInfo) {
+          return `<span class='text-danger'>${seatInfo.seat}(${seatInfo.seatType})</span>`;
+        })
+        .join(", ");
+    selectedSeatsContainer.innerHTML = seatsHTML;
+  }else {
+    console.error("Không thể tìm thấy phần tử 'selected-seats'.");
+  }
+  // document.getElementById("selected-seats").innerHTML = seatsHTML;
+
+  // Lưu danh sách ghế đã chọn vào localStorage
+  localStorage.setItem('selectedSeats', JSON.stringify(selectedSeatsInfo));
+}

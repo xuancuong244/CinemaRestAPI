@@ -16,7 +16,7 @@ public class HomeController {
     @Autowired
     PhimService phimService;
 
-    @RequestMapping("/DynamicCinema/index")
+    @RequestMapping({"/","/DynamicCinema/index"})
     public String home() {
         return "customer/index";
     }

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 
 <head>
     <meta charset="UTF-8" />
@@ -25,9 +25,10 @@
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
           integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous" />
+
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
     <script src="../js/selectSeat.js"></script>
-    <script src="../js/auth.js"></script>
     <title>Mua vé xem phim</title>
 </head>
 
@@ -57,138 +58,19 @@
         </div>
         <!-- Đăng Nhập đăng Ký  -->
         <div class="col-lg-2 col-md-6 col-sm-6 text-start header__login justify-content-end">
-            <div class="modal fade" id="exampleModalToggle" aria-hidden="true"
-                 aria-labelledby="exampleModalToggleLabel" tabindex="-1">
-                <div class="modal-dialog modal-dialog-centered">
-                    <div class="modal-content">
-                        <div>
-                            <!-- Title Đăng Nhập  -->
-                            <div class="text-end">
-                                <button type="button" class="btn-close mt-2 me-2" data-bs-dismiss="modal"
-                                        aria-label="Close"></button>
-                            </div>
-                            <div class="login__header justify-content-center">
-                                <div class="text-center">
-                                    <img class="" src="../img/logo/image 4.png" alt=""/>
-                                </div>
-                                <h5 class="modal-title font__oswald text-center" id="exampleModalToggleLabel">
-                                    Đăng Nhập Tài Khoản
-                                </h5>
-                            </div>
-                        </div>
-                        <div class="container">
-                            <!-- Form Đăng Nhập  -->
-                            <form>
-                                <div class="mb-3">
-                                    <label for="exampleInputEmail1" class="form-label font__oswald">Email</label>
-                                    <input type="email" class="form-control font__oswald" id="exampleInputMail"
-                                           aria-describedby="emailHelp" placeholder="Nhập Email"/>
-                                </div>
-                                <div class="mb-3">
-                                    <label for="exampleInputPassword1" class="form-label font__oswald">Mật
-                                        khẩu</label>
-                                    <input type="password" class="form-control font__oswald"
-                                           id="exampleInputPassword1" placeholder="Nhập mật khẩu"/>
-                                </div>
-                            </form>
-                        </div>
-                        <div class="container">
-                            <!-- Nút đăng Nhập  -->
-                            <div>
-                                <button class="btn btn-login font__oswald" type="submit">
-                                    Đăng Nhập
-                                </button>
-                            </div>
-                            <a class="font__oswald" href="#">Quên mật khẩu ?</a>
-                            <div class="boder-solid mt-4"></div>
-                            <div class="text-center mt-4">
-                                <a class="font__oswald" href="#">Bạn chưa có tài khoản?</a>
-                            </div>
-                            <div class="mb-5">
-                                <button class="btn btn-login font__oswald" data-bs-target="#exampleModalToggle2"
-                                        data-bs-toggle="modal" data-bs-dismiss="modal">
-                                    Đăng Ký
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="modal fade" id="exampleModalToggle2" aria-hidden="true"
-                 aria-labelledby="exampleModalToggleLabel2" tabindex="-1">
-                <div class="modal-dialog modal-dialog-centered">
-                    <div class="modal-content">
-                        <div>
-                            <!-- Title Đăng Nhập  -->
-                            <div class="text-end">
-                                <button type="button" class="btn-close mt-2 me-2" data-bs-dismiss="modal"
-                                        aria-label="Close"></button>
-                            </div>
-                            <div class="login__header justify-content-center">
-                                <div class="text-center">
-                                    <img class="" src="../img/logo/image 4.png" alt=""/>
-                                </div>
-                                <h5 class="modal-title font__oswald text-center" id="exampleModalToggleLabel1">
-                                    Đăng Nhập Tài Khoản
-                                </h5>
-                            </div>
-                        </div>
-                        <div class="modal-body">
-                            <!-- Views Đăng Ký  -->
-                            <form class="font__oswald">
-                                <div class="mb-2">
-                                    <label for="exampleInputPassword1" class="form-label">Họ và tên</label>
-                                    <input type="name" class="form-control" id="exampleInputName"
-                                           placeholder="Nhập Họ và tên"/>
-                                </div>
-                                <div class="mb-2">
-                                    <label for="exampleInputEmail1" class="form-label">Email</label>
-                                    <input type="email" class="form-control" id="exampleInputEmail1"
-                                           aria-describedby="emailHelp" placeholder="Nhập Email"/>
-                                </div>
-                                <div class="mb-2">
-                                    <label for="exampleInputPassword1" class="form-label">Số điện thoại</label>
-                                    <input type="name" class="form-control" id="exampleInputPhone"
-                                           placeholder="Nhập số điện thoại"/>
-                                </div>
-                                <div class="mb-2">
-                                    <form class="gender__radiobutton">
-                                        <input class="ms-2 me-1" name="gender" type="radio" value="Nam"/>Nam
-                                        <input class="ms-2 me-1" name="gender" type="radio" value="Nữ"/>Nữ
-                                        <input class="ms-2 me-1" name="gender" type="radio" value="Khác"/>Khác
-                                    </form>
-                                </div>
-                                <div class="mb-2 font__oswald">
-                                    <label for="exampleInputPassword1" class="form-label">Mật khẩu</label>
-                                    <input type="password" class="form-control" id="exampleInputPassword"
-                                           placeholder="Nhập mật khẩu"/>
-                                </div>
-                                <div class="mb-2 font__oswald">
-                                    <label for="exampleInputPassword1" class="form-label">Nhập lại mật khẩu</label>
-                                    <input type="password" class="form-control" id="exampleInputPassword2"
-                                           placeholder="Nhập lại mật khẩu"/>
-                                </div>
-                            </form>
-                        </div>
-                        <div class="container">
-                            <div>
-                                <button class="btn btn-login" type="submit">Đăng Ký</button>
-                            </div>
-                            <div class="boder-solid mt-4"></div>
-                            <div class="mt-4 text-center">
-                                <a class="font__oswald" href="#">Bạn đã có tài khoản?</a>
-                            </div>
-                            <button class="btn btn-login mt-2 mb-5" data-bs-target="#exampleModalToggle"
-                                    data-bs-toggle="modal" data-bs-dismiss="modal">
-                                Đăng Nhập
-                            </button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <a id="loginToggleBtn" class="btn btn__movie font__source" data-bs-toggle="modal" href="#exampleModalToggle"
-               role="button">Đăng Nhập | Đăng Ký</a>
-            <a id="logoutBtn" class="btn btn__movie font__source" href="">Đăng Xuất</a>
+            <th:block th:unless="${#request.remoteUser}">
+                <a id="loginToggleBtn" class="btn btn__movie font__source"
+                   th:href="@{/security/login/form}"
+                   role="button">Đăng Nhập | Đăng Ký</a>
+            </th:block>
+            <th:block th:if="${#request.remoteUser}">
+                <span>Xin chào, <span th:text="${#request.userPrincipal.name}"></span>!</span>
+                <a id="historyBtn" class="btn btn__movie font__source" th:href="@{/order/list}">Lịch Sử Đặt Vé</a>
+                <a id="logoutBtn" class="btn btn__movie font__source" th:href="@{/security/logoff}">Đăng Xuất</a>
+                <li class="nav-item" th:if="${#request.isUserInRole('DIRE')}"><a class="nav-link"
+                                                                                 th:href="@{/admin/home/index}">Admin</a>
+                </li>
+            </th:block>
         </div>
         <!-- Dịch tiếng việt tiếng anh  -->
         <div class="col-lg-2 col-md-6 col-sm-6 header__language font justify-content-start p-0">
@@ -302,25 +184,21 @@
                 </nav>
                 <!-- Điều Hướng  -->
                 <div class="mt-4 select__seat-text">
-						<span>
+						<span class="seat" data-seat="A1">
 							<img src="../img/logo/gheThuong.png" alt="" />
 							<p class="font__oswald ms-1">Ghế trống</p>
 						</span>
-                    <span class="ms-5">
+                    <span class="ms-5 seat" data-seat="A2">
 							<img src="../img/logo/gheDangChon.png" alt="" />
 							<p class="font__oswald ms-1">Ghế đang chọn</p>
 						</span>
-                    <span class="ms-5">
+                    <span class="ms-5 seat" data-seat="A3">
 							<img src="../img/logo/gheDangDuocGiu.png" alt="" />
 							<p class="font__oswald ms-1">Ghế đang được giữ</p>
 						</span>
-                    <span class="ms-5">
+                    <span class="ms-5 seat" data-seat="A4">
 							<img src="../img/logo/gheDaBan.png" alt="" />
 							<p class="font__oswald ms-1">Ghế đã bán</p>
-						</span>
-                    <span class="ms-5">
-							<img src="../img/logo/gheDatTruoc.png" alt="" />
-							<p class="font__oswald ms-1">Ghế đặt trước</p>
 						</span>
                 </div>
                 <div class="text-center">
@@ -625,7 +503,6 @@
 </footer>
 <script src="../js/js_chonGhe.js"></script>
 <script src="../js/chiNhanh.js"></script>
-<script src="../js/auth.js"></script>
 <!-- Separate Popper and Bootstrap JS -->
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"
         integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p"

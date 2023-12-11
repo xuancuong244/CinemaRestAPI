@@ -1,0 +1,883 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Style CSS  -->
+    <link rel="stylesheet" href="../css/style.css" />
+    <link rel="stylesheet" href="../css/style__header.css" />
+    <link rel="stylesheet" href="../css/style__navigation.css">
+    <link rel="stylesheet" href="../css/topping_style.css">
+    <link rel="stylesheet" href="../css/style_chonGhe.css">
+    <link rel="stylesheet" href="../css/style__footer.css">
+    <!-- Style CSS  -->
+    <!-- Font Chữ Web Phim Movie  -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200;300;400;500&display=swap" rel="stylesheet" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+            href="https://fonts.googleapis.com/css2?family=Oswald:wght@200;300;400;500&family=Source+Sans+3:ital,wght@0,200;0,300;0,400;0,500;0,600;1,200;1,300;1,400;1,500;1,600&display=swap"
+            rel="stylesheet" />
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous" />
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <title>Mua vé xem phim</title>
+    <script src="../js/chiNhanh.js"></script>
+<!--    <script src="../js/topping.js"></script>-->
+    <script src="../js/toppingMovie.js"></script>
+    <script src="../js/auth.js"></script>
+</head>
+
+<body ng-app="">
+<!-- Header  -->
+<div class="container header">
+    <div class="row">
+        <!-- logo  -->
+        <div class="col-lg-3 col-md-6 col-12 header__logo">
+            <img src="../img/logo/Logo_Web.png" alt="" />
+        </div>
+        <!-- Option  -->
+        <div class="col-lg-5 col-md-6 col-12 header__search">
+            <!-- Example single danger button -->
+            <div class="btn-group font__source">
+                <button onclick="loadData()" type="button" class="btn dropdown-toggle" data-bs-toggle="dropdown"
+                        aria-expanded="false"  >Tỉnh/Thành Phố
+                </button>
+                <ul id="myList" class="dropdown-menu" onclick="showHTML(event)">
+                    <!--                    <li><a class="dropdown-item" href="#">DEC TP.HCM</a></li>-->
+                    <!--                    <li><a class="dropdown-item" href="#">DEC HÀ NỘI</a></li>-->
+                    <!--                    <li><a class="dropdown-item" href="#">DEC ĐÀ NẴNG</a></li>-->
+                    <!--                    <li><a class="dropdown-item" href="#">DEC BẮC GIANG</a></li>-->
+                    <!--                    <li><a class="dropdown-item" href="#">DEC KHÁNH HÒA</a></li>-->
+                </ul>
+            </div>
+        </div>
+        <!-- Đăng Nhập đăng Ký  -->
+        <div class="col-lg-2 col-md-6 col-sm-6 text-start header__login justify-content-end">
+            <div class="modal fade" id="exampleModalToggle" aria-hidden="true"
+                 aria-labelledby="exampleModalToggleLabel" tabindex="-1">
+                <div class="modal-dialog modal-dialog-centered">
+                    <div class="modal-content">
+                        <div>
+                            <!-- Title Đăng Nhập  -->
+                            <div class="text-end">
+                                <button type="button" class="btn-close mt-2 me-2" data-bs-dismiss="modal"
+                                        aria-label="Close"></button>
+                            </div>
+                            <div class="login__header justify-content-center">
+                                <div class="text-center">
+                                    <img class="" src="../img/logo/image 4.png" alt=""/>
+                                </div>
+                                <h5 class="modal-title font__oswald text-center" id="exampleModalToggleLabel">
+                                    Đăng Nhập Tài Khoản
+                                </h5>
+                            </div>
+                        </div>
+                        <div class="container">
+                            <!-- Form Đăng Nhập  -->
+                            <form>
+                                <div class="mb-3">
+                                    <label for="exampleInputEmail1" class="form-label font__oswald">Email</label>
+                                    <input type="email" class="form-control font__oswald" id="exampleInputMail"
+                                           aria-describedby="emailHelp" placeholder="Nhập Email"/>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="exampleInputPassword1" class="form-label font__oswald">Mật
+                                        khẩu</label>
+                                    <input type="password" class="form-control font__oswald"
+                                           id="exampleInputPassword1" placeholder="Nhập mật khẩu"/>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="container">
+                            <!-- Nút đăng Nhập  -->
+                            <div>
+                                <button class="btn btn-login font__oswald" type="submit">
+                                    Đăng Nhập
+                                </button>
+                            </div>
+                            <a class="font__oswald" href="#">Quên mật khẩu ?</a>
+                            <div class="boder-solid mt-4"></div>
+                            <div class="text-center mt-4">
+                                <a class="font__oswald" href="#">Bạn chưa có tài khoản?</a>
+                            </div>
+                            <div class="mb-5">
+                                <button class="btn btn-login font__oswald" data-bs-target="#exampleModalToggle2"
+                                        data-bs-toggle="modal" data-bs-dismiss="modal">
+                                    Đăng Ký
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal fade" id="exampleModalToggle2" aria-hidden="true"
+                 aria-labelledby="exampleModalToggleLabel2" tabindex="-1">
+                <div class="modal-dialog modal-dialog-centered">
+                    <div class="modal-content">
+                        <div>
+                            <!-- Title Đăng Nhập  -->
+                            <div class="text-end">
+                                <button type="button" class="btn-close mt-2 me-2" data-bs-dismiss="modal"
+                                        aria-label="Close"></button>
+                            </div>
+                            <div class="login__header justify-content-center">
+                                <div class="text-center">
+                                    <img class="" src="../img/logo/image 4.png" alt=""/>
+                                </div>
+                                <h5 class="modal-title font__oswald text-center" id="exampleModalToggleLabel1">
+                                    Đăng Nhập Tài Khoản
+                                </h5>
+                            </div>
+                        </div>
+                        <div class="modal-body">
+                            <!-- Views Đăng Ký  -->
+                            <form class="font__oswald">
+                                <div class="mb-2">
+                                    <label for="exampleInputPassword1" class="form-label">Họ và tên</label>
+                                    <input type="name" class="form-control" id="exampleInputName"
+                                           placeholder="Nhập Họ và tên"/>
+                                </div>
+                                <div class="mb-2">
+                                    <label for="exampleInputEmail1" class="form-label">Email</label>
+                                    <input type="email" class="form-control" id="exampleInputEmail1"
+                                           aria-describedby="emailHelp" placeholder="Nhập Email"/>
+                                </div>
+                                <div class="mb-2">
+                                    <label for="exampleInputPassword1" class="form-label">Số điện thoại</label>
+                                    <input type="name" class="form-control" id="exampleInputPhone"
+                                           placeholder="Nhập số điện thoại"/>
+                                </div>
+                                <div class="mb-2">
+                                    <form class="gender__radiobutton">
+                                        <input class="ms-2 me-1" name="gender" type="radio" value="Nam"/>Nam
+                                        <input class="ms-2 me-1" name="gender" type="radio" value="Nữ"/>Nữ
+                                        <input class="ms-2 me-1" name="gender" type="radio" value="Khác"/>Khác
+                                    </form>
+                                </div>
+                                <div class="mb-2 font__oswald">
+                                    <label for="exampleInputPassword1" class="form-label">Mật khẩu</label>
+                                    <input type="password" class="form-control" id="exampleInputPassword"
+                                           placeholder="Nhập mật khẩu"/>
+                                </div>
+                                <div class="mb-2 font__oswald">
+                                    <label for="exampleInputPassword1" class="form-label">Nhập lại mật khẩu</label>
+                                    <input type="password" class="form-control" id="exampleInputPassword2"
+                                           placeholder="Nhập lại mật khẩu"/>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="container">
+                            <div>
+                                <button class="btn btn-login" type="submit">Đăng Ký</button>
+                            </div>
+                            <div class="boder-solid mt-4"></div>
+                            <div class="mt-4 text-center">
+                                <a class="font__oswald" href="#">Bạn đã có tài khoản?</a>
+                            </div>
+                            <button class="btn btn-login mt-2 mb-5" data-bs-target="#exampleModalToggle"
+                                    data-bs-toggle="modal" data-bs-dismiss="modal">
+                                Đăng Nhập
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <a id="loginToggleBtn" class="btn btn__movie font__source" data-bs-toggle="modal" href="#exampleModalToggle"
+               role="button">Đăng Nhập | Đăng Ký</a>
+            <a id="logoutBtn" class="btn btn__movie font__source" href="">Đăng Xuất</a>
+        </div>
+        <!-- Dịch tiếng việt tiếng anh  -->
+        <div class="col-lg-2 col-md-6 col-sm-6 header__language font justify-content-start p-0">
+            <a href=""><img src="../img/logo/language__logo.png" alt=""></a>
+        </div>
+    </div>
+</div>
+<!-- Navigatione Menu  -->
+<nav class=" navbar navbar-expand-lg navbar-light navigation">
+    <div class="container navigation__menu">
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse mb-2" id="navbarSupportedContent">
+            <ul class="d-flex justify-content-center navbar-nav nav nav-pills" id="pills-tab" role="tablist"
+                style="width: 100%;">
+                <li class="nav-item ms-3 font__oswald" role="presentation">
+                    <a style="text-decoration: none" href="http://localhost:8085/DynamicCinema/index">
+                        <button class="nav-link btn__nvgt active" id="pills-buyVe-tab" data-bs-toggle="pill"
+                                data-bs-target="#pills-buyVe" type="button" role="tab" aria-controls="pills-home"
+                                aria-selected="true">
+                            LỊCH CHIẾU THEO RẠP
+                        </button>
+                    </a>
+                </li>
+                <li class="nav-item ms-3 font__oswald " role="presentation">
+                    <a style="text-decoration: none;list-style-type: none;color: black"
+                       href="http://localhost:8085/DynamicCinema/movies">
+                        <button class="nav-link btn__nvgt" id="pills-movie-tab" data-bs-toggle="pill"
+                                data-bs-target="#pills-movie" type="button" role="tab" aria-controls="pills-profile"
+                                aria-selected="false">
+                            Phim
+                        </button>
+                    </a>
+                </li>
+                <li class="nav-item ms-3 font__oswald " role="presentation">
+                    <button class="nav-link btn__nvgt" id="pills-contact-tab" data-bs-toggle="pill"
+                            data-bs-target="#pills-contact" type="button" role="tab" aria-controls="pills-contact"
+                            aria-selected="false">GÓC ĐIỆN ẢNH
+                    </button>
+                </li>
+                <li class="nav-item ms-3 font__oswald " role="presentation">
+                    <button class="nav-link btn__nvgt" id="pills-suKien-tab" data-bs-toggle="pill"
+                            data-bs-target="#pills-suKien" type="button" role="tab" aria-controls="pills-hiubeba"
+                            aria-selected="false">SỰ KIỆN
+                    </button>
+                </li>
+                <li class="nav-item ms-3 font__oswald " role="presentation">
+                    <a style="text-decoration: none;list-style-type: none;color: black"
+                       href="http://localhost:8085/DynamicCinema/priceTicket">
+                        <button class="nav-link btn__nvgt" id="pills-rap-tab" data-bs-toggle="pill"
+                                data-bs-target="#pills-rap" type="button" role="tab" aria-controls="pills-hiubeba"
+                                aria-selected="false">
+                            RẠP/GIÁ VÉ
+                        </button>
+                    </a>
+                </li>
+                <li class="nav-item ms-3 font__oswald " role="presentation">
+                    <button class="nav-link btn__nvgt" id="pills-support-tab" data-bs-toggle="pill"
+                            data-bs-target="#pills-support" type="button" role="tab" aria-controls="pills-hiubeba"
+                            aria-selected="false">HỖ TRỢ
+                    </button>
+                </li>
+                <li class="nav-item ms-3 font__oswald " role="presentation">
+                    <button class="nav-link btn__nvgt" id="pills-thanhvien-tab" data-bs-toggle="pill"
+                            data-bs-target="#pills-thanhvien" type="button" role="tab" aria-controls="pills-hiubeba"
+                            aria-selected="false">THÀNH VIÊN
+                    </button>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<div style="background-color: #f8f8f8">
+    <div class="container select">
+        <div class="row">
+            <div class="col-8 select__seat">
+                <!-- Điều Hướng  -->
+                <nav style="
+                    margin-top: 15px;
+                    --bs-breadcrumb-divider: url(
+                    &#34;data:image/svg + xml,
+                    %3Csvgxmlns='http://www.w3.org/2000/svg'width='8'height='8'%3E%3Cpathd='M2.5 0L1 1.5 3.5 4 1 6.5 2.5 8l4-4-4-4z'fill='currentColor'/%3E%3C/svg%3E&#34;
+                    );
+                    " aria-label="breadcrumb">
+                    <ol class="breadcrumb font__oswald " style="font-size: 24px;">
+                        <li class="breadcrumb-item"><a href="http://localhost:8085/DynamicCinema/index">Trang chủ</a></li>
+                        <li class="breadcrumb-item active" aria-current="page" id="movieName" style="color: rgb(13,110,253);text-decoration: underline"></li>
+                    </ol>
+                </nav>
+                <!-- Điều Hướng  -->
+
+                <!-- Thông tin thanh toán  -->
+                <div class="font__oswald">
+                    <div class="mt-4 d-flex align-items-center">
+                        <img src="../img/logo/user_thongTinThanhToan.png" alt="">
+                        <span class="text__thongTinThanhToan ms-3">Thông tin thanh toán</span>
+                    </div>
+                    <!-- Thông tin thanh toán  -->
+
+                    <!-- THÔNG TIN KHÁCH HÀNG ĐẶT VÉ  -->
+                    <div class="user row mt-3">
+                        <div class="col-4">
+                            <p class="m-0">Họ tên:</p>
+                            <p class="user__info" id="customerName"></p>
+                        </div>
+                        <div class="col-4">
+                            <p class="m-0">Số điện thoại:</p>
+                            <p class="user__info" id="customerPhone"></p>
+                        </div>
+                        <div class="col-4">
+                            <p class="m-0">Email:</p>
+                            <p class="user__info" id="customerEmail"></p>
+                        </div>
+                    </div>
+                </div>
+                <!-- THÔNG TIN KHÁCH HÀNG ĐẶT VÉ  -->
+
+                <!-- GIÁ TỪNG LOẠI GHẾ  -->
+                <div class="seatPrice">
+<!--                    <div class="seatPrice__box row font__oswald mt-3">-->
+<!--                        <div class="col-8">-->
+<!--                            <p class="seatPrice__title" id="thuongSeatTitle">GHẾ THƯỜNG</p>-->
+<!--                        </div>-->
+<!--                        <div class="col-4">-->
+<!--                            <p class="text-end seatPrice__textPrice me-5" id="thuongSeatPrice">1 x 45.00 = 45.000 vnđ</p>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                    <div class="seatPrice__box row font__oswald mt-3">-->
+<!--                        <div class="col-8">-->
+<!--                            <p class="seatPrice__title" id="vipSeatTitle">GHẾ V.I.P</p>-->
+<!--                        </div>-->
+<!--                        <div class="col-4">-->
+<!--                            <p class="text-end seatPrice__textPrice me-5" id="vipSeatPrice">1 x 75.00 = 75.000 vnđ</p>-->
+<!--                        </div>-->
+<!--                    </div>-->
+                </div>
+<!--                <div class="seatPrice__box row font__oswald mt-3">-->
+<!--                    <div class="col-8">-->
+<!--                        <p class="seatPrice__title" style="font-weight: bold">TỔNG TIỀN GHẾ :</p>-->
+<!--                    </div>-->
+<!--                    <div class="col-4">-->
+<!--                        <p class="text-end seatPric e__textPrice me-5"><span id="totalSeats" class="text-danger" style="font-weight: bold"> vnđ</span></p>-->
+<!--                    </div>-->
+<!--                </div>-->
+                <!-- GIÁ TỪNG LOẠI GHẾ  -->
+
+                <!-- COMBO ƯU ĐÃI STAR -->
+                <div class="font__oswald mt-4 d-flex align-items-center">
+                    <img src="../img/logo/comboUuDai.png" alt="">
+                    <span class="text__thongTinThanhToan ms-3">Combo Ưu Đãi</span>
+                </div>
+                <!-- COMBO ƯU ĐÃI END -->
+
+                <!-- LIST COMBO ƯU ĐÃ STAR  -->
+                <div class="listCombo">
+                    <table class="table font__oswald align-middle">
+                        <thead>
+                        <tr class="listCombo__title text-center">
+                            <th scope="col" class="listCombo__title--text"></th>
+                            <th scope="col" class="listCombo__title--text">Tên Combo</th>
+                            <th scope="col" class="listCombo__title--text">Mô tả</th>
+                            <th scope="col" class="listCombo__title--text">Số lượng</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <th scope="row"><img src="../img/logo/Combo1.png" alt=""></th>
+                            <td>Combo See Mê - Cầu Vồng</td>
+                            <td>
+                                GIÁ SỐC, Chỉ 139K sở hữu ngay: 1 Bắp (69oz) + 1 Cốc Cầu vồng kèm nước có gaz
+                            </td>
+                            <td class="text-center">
+                                <div class="quantity">
+                                    <button class="giam" data-id="1">-</button>
+                                    <input id="input-1" class="soluong" type="text" value="0">
+                                    <button class="tang" data-id="1">+</button>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th scope="row"><img src="../img/logo/Combo2.png" alt=""></th>
+                            <td>Sweet Combo 69ozt</td>
+                            <td>
+                                CHỈ 46K!!! Gồm: 1 Bắp (69oz) + 2 Nước có gaz (22oz)
+
+                            </td>
+                            <td class="text-center">
+                                <div class="quantity">
+                                    <button class="giam" data-id="2">-</button>
+                                    <input id="input-2" class="soluong" type="text" value="0">
+                                    <button class="tang" data-id="2">+</button>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th scope="row"><img src="../img/logo/Combo3.png" alt=""></th>
+                            <td>Beta Combo 69oz</td>
+                            <td>
+                                CHỈ 28K!!! Gồm: 1 Bắp (69oz) + 1 Nước có gaz (22oz)
+
+                            </td>
+                            <td class="text-center">
+                                <div class="quantity">
+                                    <button class="giam" data-id="3">-</button>
+                                    <input id="input-3" class="soluong" type="text" value="0">
+                                    <button class="tang" data-id="3">+</button>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th scope="row"><img src="../img/logo/Combo4.png" alt=""></th>
+                            <td>Family Combo 69oz</td>
+                            <td>
+                                CHỈ 95K!!! Gồm: 2 Bắp (69oz) + 4 Nước có gaz (22oz) + 2 Snack Oishi (80g)
+
+                            </td>
+                            <td class="text-center">
+                                <div class="quantity">
+                                    <button class="giam" data-id="4">-</button>
+                                    <input id="input-4" class="soluong" type="text" value="0">
+                                    <button class="tang" data-id="4">+</button>
+                                </div>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <!-- LIST COMBO ƯU ĐÃ END -->
+
+
+                <!--SALE START  -->
+<!--                <div class="font__oswald mt-5 d-flex align-items-center">-->
+<!--                    <img src="../img/logo/atm_giamGia.png" alt="">-->
+<!--                    <span class="text__thongTinThanhToan ms-3">Giảm Giá</span>-->
+<!--                </div>-->
+<!--                <div class="sale mt-3">-->
+<!--                    <div class="sale__item d-flex align-items-center font__oswald">-->
+<!--                        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" width="40px" height="40px"-->
+<!--                             fill="none">-->
+<!--                            <style>-->
+<!--                                @keyframes slide-15 {-->
+<!--                                    to {-->
+<!--                                        transform: translateX(1px)-->
+<!--                                    }-->
+<!--                                }-->
+<!--                            </style>-->
+<!--                            <rect width="14" height="14" x="5.523" y="5" stroke="#0A0A30" stroke-width="1.5"-->
+<!--                                  rx="7" />-->
+<!--                            <path fill="#265BFF" stroke="#265BFF" stroke-linecap="round" stroke-width=".4"-->
+<!--                                  d="M11.781 9.154a.429.429 0 00-.659.549L13.038 12l-1.915 2.297a.429.429 0 10.659.549l2.138-2.566a.428.428 0 000-.56l-2.138-2.566z"-->
+<!--                                  style="animation:slide-15 1s infinite alternate both cubic-bezier(1,-.01,0,.98)" />-->
+<!--                        </svg>-->
+<!--                        <span>Beta Voucher</span>-->
+<!--                        <a href="#" class="text-decoration-none ms-2">(Nhấn vào đây để xem danh sách voucher của-->
+<!--                            bạn)</a>-->
+<!--                    </div>-->
+<!--                    <div class="sale__item d-flex align-items-center font__oswald mt-3">-->
+<!--                        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" width="40px" height="40px"-->
+<!--                             fill="none">-->
+<!--                            <style>-->
+<!--                                @keyframes slide-15 {-->
+<!--                                    to {-->
+<!--                                        transform: translateX(1px)-->
+<!--                                    }-->
+<!--                                }-->
+<!--                            </style>-->
+<!--                            <rect width="14" height="14" x="5.523" y="5" stroke="#0A0A30" stroke-width="1.5"-->
+<!--                                  rx="7" />-->
+<!--                            <path fill="#265BFF" stroke="#265BFF" stroke-linecap="round" stroke-width=".4"-->
+<!--                                  d="M11.781 9.154a.429.429 0 00-.659.549L13.038 12l-1.915 2.297a.429.429 0 10.659.549l2.138-2.566a.428.428 0 000-.56l-2.138-2.566z"-->
+<!--                                  style="animation:slide-15 1s infinite alternate both cubic-bezier(1,-.01,0,.98)" />-->
+<!--                        </svg>-->
+<!--                        <span>Điểm Beta</span>-->
+<!--                        <a href="#" class="text-decoration-none ms-2">(Nhấn vào đây để xem điểm tích lũy của-->
+<!--                            bạn)</a>-->
+<!--                    </div>-->
+<!--                </div>-->
+                <!--SALE END -->
+
+                <!-- TÍNH TIỀN START  -->
+                <div class="bill row font__oswald mt-4">
+                    <div class="col-8">
+                        <div class="bill__text text-end">
+                            <p class="mb-0">TỔNG TIỀN GHẾ:</p>
+                            <p class="mb-0">TỔNG TIỀN TOPPING:</p>
+                            <p class="mb-0">TỔNG TIỀN CẦN THANH TOÁN:</p>
+                        </div>
+                    </div>
+                    <div class="col-4">
+                        <div class="bill__text text-end">
+                            <p class="mb-0"><span id="totalSeats" class="text-danger" style="font-weight: bold">0 vnđ</span></p>
+                            <p class="mb-0"><span id="total" class="text-danger" style="font-weight: bold">0 vnđ</span></p>
+                            <p class="mb-0"><span id="Alltotal" class="text-danger" style="font-weight: bold">0 vnđ</span></p>
+                        </div>
+                    </div>
+                </div>
+                <!-- TÍNH TIỀN END -->
+
+                <!-- Phương thức thanh toán START  -->
+                <div class="font__oswald mt-5 d-flex align-items-center row">
+                    <div class="col-6">
+                        <img src="../img/logo/atm_giamGia.png" alt="">
+                        <span class="text__thongTinThanhToan ms-3">Phương Thức Thanh Toán</span>
+                    </div>
+                    <div class="col-6 text-end">
+                        <a href="#" class="text-decoration-none ms-2 " style="left: 0;">Hướng dẫn thanh toán</a>
+                    </div>
+                </div>
+                <!-- Chọn thẻ thanh toán START  -->
+                <div class="selectAtm mt-3">
+                    <p class="selectAtm__title font__oswald mb-1">Chọn thẻ thanh toán</p>
+                </div>
+
+                <div class="selectPay row d-flex align-items-center mt-3">
+                    <div class="col-3">
+                        <input id="theNoiDia" type="radio" name="..." value="Thẻ nội địa">
+                        <label for="theNoiDia">
+                            <img src="../img/logo/theNoiDia.png" alt="">
+                            <span class="selectPay__text">Thẻ nội địa</span>
+                        </label>
+                    </div>
+                    <div class="col-3">
+                        <input id="theQuocTe" type="radio" name="..." value="Thẻ quốc tế">
+                        <label for="theQuocTe">
+                            <img src="../img/logo/theQuocTe.png" alt="">
+                            <span class="selectPay__text">Thẻ quốc tế</span>
+                        </label>
+                    </div>
+                    <div class="col-3">
+                        <input id="shopeePay" type="radio" name="..." value="Shopee Pay">
+                        <label for="shopeePay">
+                            <img src="../img/logo/shopeePay.png" alt="">
+                            <span class="selectPay__text">Ví ShopeePay</span>
+                        </label>
+                    </div>
+                    <div class="col-3">
+                        <input id="Momo" type="radio" name="..." value="Momo">
+                        <label for="Momo">
+                            <img src="../img/logo/viMomo.png" alt="">
+                            <span class="selectPay__text">Ví MoMo</span>
+                        </label>
+                    </div>
+                </div>
+                <!-- Chọn thẻ thanh toán END -->
+                <!-- Phương thức thanh toán END  -->
+
+                <!-- Lưu ý và thời gian thanh toán START  -->
+                <div class="row time mt-5 pt-5 mb-5 pb-5 ">
+                    <div class="col-10">
+                        <p>Vui lòng kiểm tra thông tin trước khi qua bước tiếp theo. <br>
+                            <span class="text-danger">*</span>Vé mua rồi không hoàn trả lại dưới mọi hình thức
+                        </p>
+                    </div>
+<!--                    <div class="time__box col-2 text-end">-->
+<!--                        <p class="font__oswald time__text">Thời gian còn lại</p>-->
+<!--                        <span class="time__run">08 : 20</span>-->
+<!--                    </div>-->
+                </div>
+                <!-- Lưu ý và thời gian thanh toán END -->
+
+            </div>
+            <div class="col-4 p-0 select__movieInformation">
+<!--                <div class="row">-->
+<!--                    <div class="col-4">-->
+<!--                        <img src="../img/phim/datRungPhuongNam_ghe.png" alt="" />-->
+<!--                    </div>-->
+<!--                    <div class="col-8 select__movieInformation-text">-->
+<!--                        <h3 class="ms-3">Đất Rừng Phương Nam</h3>-->
+<!--                        <h4>2D Phụ đề</h4>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--                <div class="container">-->
+<!--                    <div class="row select__movieInformation-category">-->
+<!--                        <div class="col-6 mt-3">-->
+<!--                            <div>-->
+<!--                                <img src="../img/logo/vector.png" alt="" width="12px" height="12px">-->
+<!--                                <p class="ms-1 font__source">Thể loại</p>-->
+<!--                            </div>-->
+<!--                            <div class="mt-3">-->
+<!--                                <img src="../img/logo/time.png" alt="" width="12px" height="12px">-->
+<!--                                <p class="ms-1 font__source">Thời lượng</p>-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                        <div class="col-6 mt-3">-->
+<!--                            <div>-->
+<!--                                <p class="font__source">Tâm lý</p>-->
+<!--                            </div>-->
+<!--                            <div class="mt-3">-->
+<!--                                <p class="font__source">110 phút</p>-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                    <div class="row">-->
+<!--                        <div class="col-6 mt-3 select__movieInformation-ticket">-->
+<!--                            <div>-->
+<!--                                <img src="../img/logo/rapChieu.png" alt="" width="12px" height="12px">-->
+<!--                                <p class="ms-1 font__source">Rạp chiếu</p>-->
+<!--                            </div>-->
+<!--                            <div class="mt-3">-->
+<!--                                <img src="../img/logo/date.png" alt="" width="12px" height="12px">-->
+<!--                                <p class="ms-1 font__source">Ngày chiếu</p>-->
+<!--                            </div>-->
+<!--                            <div class="mt-3">-->
+<!--                                <img src="../img/logo/time.png" alt="" width="12px" height="12px">-->
+<!--                                <p class="ms-1 font__source">Giờ chiếu</p>-->
+<!--                            </div>-->
+<!--                            <div class="mt-3">-->
+<!--                                <img src="../img/logo/phongChieu.png" alt="" width="12px" height="12px">-->
+<!--                                <p class="ms-1 font__source">Phòng chiếu</p>-->
+<!--                            </div>-->
+<!--                            <div class="mt-3">-->
+<!--                                <img src="../img/logo/gheNgoi.png" alt="" width="12px" height="12px">-->
+<!--                                <p class="ms-1 font__source">Ghế ngồi</p>-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                        <div class="col-6 mt-3">-->
+<!--                            <div>-->
+<!--                                <p class="font__source">DEC Quang Trung</p>-->
+<!--                            </div>-->
+<!--                            <div class="mt-3">-->
+<!--                                <p class="font__source">13/10/2023</p>-->
+<!--                            </div>-->
+<!--                            <div class="mt-3">-->
+<!--                                <p class="font__source">19:00</p>-->
+<!--                            </div>-->
+<!--                            <div class="mt-3">-->
+<!--                                <p class="font__source">P3</p>-->
+<!--                            </div>-->
+<!--                            <div class="mt-3">-->
+<!--                                <div id="selected-seats"></div>-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                    <div class="text-center mt-3">-->
+<!--                        <div class="row">-->
+<!--                            <div class="col-6">-->
+<!--                                <a href="http://localhost:8085/DynamicCinema/select" style="text-decoration: none;">-->
+<!--                                <button class="btn btn-login font__oswald" style="width: 95%;">-->
+<!--                                    QUAY LẠI-->
+<!--                                </button>-->
+<!--                                </a>-->
+<!--                            </div>-->
+<!--                            <div class="col-6">-->
+<!--                                <a href="http://localhost:8085/DynamicCinema/thanhtoan">-->
+<!--                                <button class="btn btn-login font__oswald" style="width: 95%;">-->
+<!--                                    TIẾP TỤC-->
+<!--                                </button>-->
+<!--                                </a>-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                </div>-->
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Footer  -->
+<footer class="">
+    <div class="container footer">
+        <div class="row  font__source">
+            <div class="footer__logo col-lg-4 col-md-6 col-12">
+                <img src="../img/logo/footer__logo.png" alt="">
+                <div class="footer--menu">
+                    <ul class="mt-3">
+                        <li><a style="text-transform: none;" href="#">
+                            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                 fill="none">
+                                <style>
+                                    @keyframes slide-17 {
+                                        to {
+                                            transform: translateX(2px)
+                                        }
+                                    }
+                                </style>
+                                <path fill="#0A0A30"
+                                      d="M11.039 17.692a.857.857 0 01-1.317-1.098L13.55 12 9.722 7.406a.857.857 0 111.317-1.098l4.276 5.132a.848.848 0 01.208.56.854.854 0 01-.208.56l-4.276 5.132z"
+                                      style="animation:slide-17 1s infinite alternate both cubic-bezier(1,-.01,0,.98)" />
+                            </svg>
+                            Tuyển dụng
+                        </a></li>
+                        <li><a style="text-transform: none;" href="#">
+                            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                 fill="none">
+                                <style>
+                                    @keyframes slide-17 {
+                                        to {
+                                            transform: translateX(2px)
+                                        }
+                                    }
+                                </style>
+                                <path fill="#0A0A30"
+                                      d="M11.039 17.692a.857.857 0 01-1.317-1.098L13.55 12 9.722 7.406a.857.857 0 111.317-1.098l4.276 5.132a.848.848 0 01.208.56.854.854 0 01-.208.56l-4.276 5.132z"
+                                      style="animation:slide-17 1s infinite alternate both cubic-bezier(1,-.01,0,.98)" />
+                            </svg>
+                            Giới thiệu
+                        </a></li>
+                        <li><a style="text-transform: none;" href="#">
+                            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                 fill="none">
+                                <style>
+                                    @keyframes slide-17 {
+                                        to {
+                                            transform: translateX(2px)
+                                        }
+                                    }
+                                </style>
+                                <path fill="#0A0A30"
+                                      d="M11.039 17.692a.857.857 0 01-1.317-1.098L13.55 12 9.722 7.406a.857.857 0 111.317-1.098l4.276 5.132a.848.848 0 01.208.56.854.854 0 01-.208.56l-4.276 5.132z"
+                                      style="animation:slide-17 1s infinite alternate both cubic-bezier(1,-.01,0,.98)" />
+                            </svg>
+                            Liên hệ
+                        </a></li>
+                        <li><a style="text-transform: none;" href="#">
+                            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                 fill="none">
+                                <style>
+                                    @keyframes slide-17 {
+                                        to {
+                                            transform: translateX(2px)
+                                        }
+                                    }
+                                </style>
+                                <path fill="#0A0A30"
+                                      d="M11.039 17.692a.857.857 0 01-1.317-1.098L13.55 12 9.722 7.406a.857.857 0 111.317-1.098l4.276 5.132a.848.848 0 01.208.56.854.854 0 01-.208.56l-4.276 5.132z"
+                                      style="animation:slide-17 1s infinite alternate both cubic-bezier(1,-.01,0,.98)" />
+                            </svg>
+                            Điều khoản sử dụng
+                        </a></li>
+                        <li><a style="text-transform: none;" href="#">
+                            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                 fill="none">
+                                <style>
+                                    @keyframes slide-17 {
+                                        to {
+                                            transform: translateX(2px)
+                                        }
+                                    }
+                                </style>
+                                <path fill="#0A0A30"
+                                      d="M11.039 17.692a.857.857 0 01-1.317-1.098L13.55 12 9.722 7.406a.857.857 0 111.317-1.098l4.276 5.132a.848.848 0 01.208.56.854.854 0 01-.208.56l-4.276 5.132z"
+                                      style="animation:slide-17 1s infinite alternate both cubic-bezier(1,-.01,0,.98)" />
+                            </svg>
+                            Liên hệ quảng cáo
+                        </a></li>
+                        <li><a style="text-transform: none;" href="#">
+                            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                 fill="none">
+                                <style>
+                                    @keyframes slide-17 {
+                                        to {
+                                            transform: translateX(2px)
+                                        }
+                                    }
+                                </style>
+                                <path fill="#0A0A30"
+                                      d="M11.039 17.692a.857.857 0 01-1.317-1.098L13.55 12 9.722 7.406a.857.857 0 111.317-1.098l4.276 5.132a.848.848 0 01.208.56.854.854 0 01-.208.56l-4.276 5.132z"
+                                      style="animation:slide-17 1s infinite alternate both cubic-bezier(1,-.01,0,.98)" />
+                            </svg>
+                            Điều khoản bảo mật
+                        </a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer__list-Address col-lg-4 col-md-6 col-12">
+                <div class="footer__title align-content-center">
+                    <h3>ĐỊA CHỈ RẠP PHIM TOÀN QUỐC</h3>
+                </div>
+                <div class="footer--menu mt-3">
+                    <ul>
+                        <li><a href="#">
+                            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                 fill="none">
+                                <style>
+                                    @keyframes slide-17 {
+                                        to {
+                                            transform: translateX(2px)
+                                        }
+                                    }
+                                </style>
+                                <path fill="#0A0A30"
+                                      d="M11.039 17.692a.857.857 0 01-1.317-1.098L13.55 12 9.722 7.406a.857.857 0 111.317-1.098l4.276 5.132a.848.848 0 01.208.56.854.854 0 01-.208.56l-4.276 5.132z"
+                                      style="animation:slide-17 1s infinite alternate both cubic-bezier(1,-.01,0,.98)" />
+                            </svg>
+                            Dynamic Energy Cinemas TP. HCM
+
+                        </a></li>
+                        <li><a href="#">
+                            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                 fill="none">
+                                <style>
+                                    @keyframes slide-17 {
+                                        to {
+                                            transform: translateX(2px)
+                                        }
+                                    }
+                                </style>
+                                <path fill="#0A0A30"
+                                      d="M11.039 17.692a.857.857 0 01-1.317-1.098L13.55 12 9.722 7.406a.857.857 0 111.317-1.098l4.276 5.132a.848.848 0 01.208.56.854.854 0 01-.208.56l-4.276 5.132z"
+                                      style="animation:slide-17 1s infinite alternate both cubic-bezier(1,-.01,0,.98)" />
+                            </svg>
+                            Dynamic Energy Cinemas Hà Nội
+
+                        </a></li>
+                        <li><a href="#">
+                            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                 fill="none">
+                                <style>
+                                    @keyframes slide-17 {
+                                        to {
+                                            transform: translateX(2px)
+                                        }
+                                    }
+                                </style>
+                                <path fill="#0A0A30"
+                                      d="M11.039 17.692a.857.857 0 01-1.317-1.098L13.55 12 9.722 7.406a.857.857 0 111.317-1.098l4.276 5.132a.848.848 0 01.208.56.854.854 0 01-.208.56l-4.276 5.132z"
+                                      style="animation:slide-17 1s infinite alternate both cubic-bezier(1,-.01,0,.98)" />
+                            </svg>
+                            Dynamic Energy Cinemas Đà Nẵng
+
+                        </a></li>
+                        <li><a href="#">
+                            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                 fill="none">
+                                <style>
+                                    @keyframes slide-17 {
+                                        to {
+                                            transform: translateX(2px)
+                                        }
+                                    }
+                                </style>
+                                <path fill="#0A0A30"
+                                      d="M11.039 17.692a.857.857 0 01-1.317-1.098L13.55 12 9.722 7.406a.857.857 0 111.317-1.098l4.276 5.132a.848.848 0 01.208.56.854.854 0 01-.208.56l-4.276 5.132z"
+                                      style="animation:slide-17 1s infinite alternate both cubic-bezier(1,-.01,0,.98)" />
+                            </svg>
+                            Dynamic Energy Cinemas Bắc Giang
+
+                        </a></li>
+                        <li><a href="#">
+                            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                 fill="none">
+                                <style>
+                                    @keyframes slide-17 {
+                                        to {
+                                            transform: translateX(2px)
+                                        }
+                                    }
+                                </style>
+                                <path fill="#0A0A30"
+                                      d="M11.039 17.692a.857.857 0 01-1.317-1.098L13.55 12 9.722 7.406a.857.857 0 111.317-1.098l4.276 5.132a.848.848 0 01.208.56.854.854 0 01-.208.56l-4.276 5.132z"
+                                      style="animation:slide-17 1s infinite alternate both cubic-bezier(1,-.01,0,.98)" />
+                            </svg>
+                            Dynamic Energy Cinemas Khánh Hòa
+
+                        </a></li>
+                        <!-- <li><a href="#">Điều khoản bảo mật</a></li> -->
+                    </ul>
+                </div>
+            </div>
+            <div class="footer__list-Address col-lg-4 col-md-6 col-12">
+                <div class="footer__title">
+                    <h3>KẾT NỐI VỚI CHÚNG TÔI</h3>
+                </div>
+                <div class="footer__connection mt-3 ms-2">
+                    <a href=""><img src="../img/logo/logo_fb.png" alt=""></a>
+                    <a class="ms-3" href=""><img src="../img/logo/iconYTB.png" alt=""></a>
+                </div>
+                <div class="mt-3">
+                    <img src="../img/logo/boCongThuong.png" alt="">
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+<script src="../js/js_tangGiamSL.js"></script>
+<script src="../js/js_chonGhe.js"></script>
+<script src="../js/auth.js"></script>
+<script src="../js/topping.js"></script>
+<!-- Separate Popper and Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"
+        integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p"
+        crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"
+        integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
