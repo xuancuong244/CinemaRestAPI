@@ -20,8 +20,8 @@ public class TaiKhoanServiceImpl implements TaiKhoanService {
     }
 
     @Override
-    public TaiKhoan findById(String email) {
-        return taiKhoanReponsitory.findById(email).get();
+    public TaiKhoan findById(String username) {
+        return taiKhoanReponsitory.findById(username).get();
     }
 
     @Override

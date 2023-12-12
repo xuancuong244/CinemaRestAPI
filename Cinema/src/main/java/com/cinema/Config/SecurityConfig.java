@@ -32,19 +32,18 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     //Cung cấp nguồn dữ liệu đăng nhập
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception{
-        auth.userDetailsService(email -> {
+        auth.userDetailsService(username -> {
             try {
-                TaiKhoan user= taiKhoanService.findById(email);
-                List<GrantedAuthority> authorities = user.getQuyens().stream()
-                        .map(quyen -> new SimpleGrantedAuthority("ROLE_" + quyen.getChucVu().getMaCV()))
-                        .collect(Collectors.toList());
-
-                return new User(email, user.getMatKhau(), authorities);
+                TaiKhoan user= taiKhoanService.findById(username);
+                String password= pe.encode(user.getMatKhau());
+                String[] roles= user.getQuyens().stream()
+                        .map(er -> er.getChucVu().getMaCV())
+                        .collect(Collectors.toList()).toArray(new String[0]);
+                return User.withUsername(username).password(password).roles(roles).build();
             }catch (NoSuchElementException e) {
-                throw new UsernameNotFoundException(email + " not found!");
+                throw new UsernameNotFoundException(username + " not found!");
             }
         });
-
     }
     //Phân quyền sử dụng
     @Override
@@ -59,7 +58,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         http.formLogin()
                 .loginPage("/security/login/form")
                 .loginProcessingUrl("/security/login")
-                .defaultSuccessUrl("/DynamicCinema/index")
+                .defaultSuccessUrl("/DynamicCinema/index",false)
                 .failureUrl("/security/login/form");
 
         http.rememberMe()

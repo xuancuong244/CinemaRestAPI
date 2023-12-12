@@ -23,7 +23,7 @@ public class SecurityController {
     public String loginSuccess(Model model) {
         model.addAttribute("message", "Đăng nhập thành công");
         System.out.println("Login success!");
-        return "redirect:/DynamicCinema/index";
+        return "security/login";
     }
 
     @RequestMapping("/security/login/error")
@@ -41,17 +41,17 @@ public class SecurityController {
     @RequestMapping("/security/logoff/success")
     public String logoffSuccess(Model model) {
         model.addAttribute("message", "Đăng xuất thành công !");
-        return "redirect:/DynamicCinema/index";
+        return "security/login";
     }
 
-    @PostMapping("/security/register")
-    public String register(@ModelAttribute TaiKhoan taiKhoan) {
-        // Thực hiện bất kỳ kiểm tra hợp lệ cần thiết
-
-        // Lưu người dùng
-        taiKhoanService.save(taiKhoan);
-
-        // Chuyển hướng đến trang đăng nhập hoặc bất kỳ trang khác phù hợp
-        return "redirect:/security/login/form";
-    }
+//    @PostMapping("/security/register")
+//    public String register(@ModelAttribute TaiKhoan taiKhoan) {
+//        // Thực hiện bất kỳ kiểm tra hợp lệ cần thiết
+//
+//        // Lưu người dùng
+//        taiKhoanService.save(taiKhoan);
+//
+//        // Chuyển hướng đến trang đăng nhập hoặc bất kỳ trang khác phù hợp
+//        return "security/login";
+//    }
 }

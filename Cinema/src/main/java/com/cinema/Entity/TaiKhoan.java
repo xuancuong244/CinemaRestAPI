@@ -17,8 +17,8 @@ import java.util.List;
 @Table(name = "tai_khoan")
 public class TaiKhoan {
     @Id
-    @Column(name = "email")
-    private String email;
+    @Column(name = "username")
+    private String username;
 
     @Column(name = "mat_khau")
     private String matKhau;

@@ -9,7 +9,7 @@ import java.io.Serializable;
 @Data
 @Entity
 @Table(name = "Quyen", uniqueConstraints = {
-        @UniqueConstraint(columnNames = {"Email", "ChucVuId"})
+        @UniqueConstraint(columnNames = {"Username", "ChucVuId"})
 })
 public class Quyen implements Serializable {
     @Id
@@ -17,7 +17,7 @@ public class Quyen implements Serializable {
     private Integer id;
 
     @ManyToOne
-    @JoinColumn(name = "Email")
+    @JoinColumn(name = "Username")
     private TaiKhoan taiKhoan;
 
     @ManyToOne
