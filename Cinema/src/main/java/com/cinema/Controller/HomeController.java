@@ -1,8 +1,13 @@
 package com.cinema.Controller;
 
 import com.cinema.Entity.Phim;
+import com.cinema.Entity.TaiKhoan;
+import com.cinema.Reponsitory.TaiKhoanReponsitory;
 import com.cinema.Services.PhimService;
+import com.cinema.Services.TaiKhoanService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -16,8 +21,30 @@ public class HomeController {
     @Autowired
     PhimService phimService;
 
+    @Autowired
+    TaiKhoanService taiKhoanService;
+
     @RequestMapping({"/","/DynamicCinema/index"})
-    public String home() {
+    public String home(Model model) {
+
+        // Lấy thông tin Authentication từ context
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+
+        // Lấy tên đăng nhập từ Authentication
+        String name = authentication.getName();
+
+        // Sử dụng TaiKhoanRepository để lấy thông tin TaiKhoan
+        Optional<TaiKhoan> taiKhoan = taiKhoanService.findTaiKhoanByHoTen(name);
+
+        if (taiKhoan.isPresent()) {
+            // Tài khoản tồn tại, lấy thông tin hoTen
+            String hoTen = taiKhoan.get().getHoTen();
+            model.addAttribute("hoTen", hoTen);
+        } else {
+            // Xử lý khi tài khoản không tồn tại
+            // ...
+        }
+
         return "customer/index";
     }
 

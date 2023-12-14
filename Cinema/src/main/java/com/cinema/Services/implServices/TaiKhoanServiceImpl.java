@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class TaiKhoanServiceImpl implements TaiKhoanService {
@@ -32,5 +33,10 @@ public class TaiKhoanServiceImpl implements TaiKhoanService {
     @Override
     public void save(TaiKhoan taiKhoan) {
         taiKhoanReponsitory.save(taiKhoan);
+    }
+
+    @Override
+    public Optional<TaiKhoan> findTaiKhoanByHoTen(String name) {
+        return taiKhoanReponsitory.findTaiKhoanByHoTen(name);
     }
 }

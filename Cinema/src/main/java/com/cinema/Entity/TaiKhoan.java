@@ -23,6 +23,9 @@ public class TaiKhoan {
     @Column(name = "mat_khau")
     private String matKhau;
 
+    @Column(name = "ho_ten")
+    private String hoTen;
+
     @JsonIgnore
     @OneToMany(mappedBy = "taiKhoan", fetch = FetchType.EAGER)
     private List<Quyen> quyens;
