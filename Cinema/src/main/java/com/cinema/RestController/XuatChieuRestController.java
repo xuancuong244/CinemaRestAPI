@@ -3,6 +3,7 @@ package com.cinema.RestController;
 import com.cinema.Entity.XuatChieu;
 import com.cinema.Services.XuatChieuService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -29,6 +30,26 @@ public class XuatChieuRestController {
         List<XuatChieu> xuatChieus = xuatChieuService.findByMaPhim(maPhim);
         return ResponseEntity.ok(xuatChieus);
     }
+    @PostMapping("/create")
+    public ResponseEntity<XuatChieu> createSC(@RequestBody XuatChieu sc) {
+        // Kiểm tra nếu mã khách hàng đã tồn tại
+        if (xuatChieuService.existsById(sc.getStt())) {
+            return ResponseEntity.status(HttpStatus.CONFLICT).body(null);
+        }
+        XuatChieu addedCustomer = xuatChieuService.addSC(sc);
+        return new ResponseEntity<>(addedCustomer, HttpStatus.CREATED);
+    }
 
+    @DeleteMapping("/{stt}")
+    public ResponseEntity<Void> deleteSC(@PathVariable int stt) {
+        xuatChieuService.deleteSC(stt);
+        return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+    }
+
+    @PutMapping("/{stt}")
+    public ResponseEntity<XuatChieu> updateCustomer(@PathVariable int stt, @RequestBody XuatChieu updateSC) {
+        XuatChieu result = xuatChieuService.updateSC(stt, updateSC);
+        return new ResponseEntity<>(result, HttpStatus.OK);
+    }
 
 }

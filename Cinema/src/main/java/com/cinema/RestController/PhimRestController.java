@@ -4,6 +4,7 @@ import com.cinema.Entity.Phim;
 import com.cinema.Entity.TheLoaiPhim;
 import com.cinema.Services.PhimService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -51,25 +52,34 @@ public class PhimRestController {
         return ResponseEntity.ok(phims);
     }
 
-    @PostMapping()
-    public ResponseEntity<?> create(@RequestBody Phim phim){
-        if (phim == null){
-            return ResponseEntity.badRequest().build();
+    // Thêm
+    @PostMapping("/create")
+    public ResponseEntity<?> addPhim(@RequestBody Phim phim) {
+        String maPhim = phim.getMaPhim();
+
+        // Kiểm tra xem mã phim đã tồn tại chưa
+        if (phimService.isMaPhimExisted(maPhim)) {
+            return new ResponseEntity<>("Mã phim đã tồn tại!", HttpStatus.BAD_REQUEST);
         }
-        phimService.create(phim);
-        return ResponseEntity.ok(phim);
+
+        // Tiếp tục thêm phim mới nếu mã phim chưa tồn tại
+        Phim addedPhim = phimService.addPhim(phim);
+
+        return new ResponseEntity<>(addedPhim, HttpStatus.CREATED);
     }
 
-    @PutMapping("/{id}")
-    public ResponseEntity<?> update(@PathVariable("id") String id,@RequestBody Phim phim){
-        phimService.update(phim);
-        return ResponseEntity.ok(phim);
+    // Xóa
+    @DeleteMapping("/{maPhim}")
+    public ResponseEntity<Void> deleteCustomer(@PathVariable String maPhim) {
+        phimService.delete(maPhim);
+        return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
 
-    @DeleteMapping("{id}")
-    public ResponseEntity<?> delete(@PathVariable("id") String id){
-        phimService.delete(id);
-        return ResponseEntity.ok().build();
+    // Update
+    @PutMapping("/{maPhim}")
+    public ResponseEntity<Phim> update(@PathVariable String maPhim, @RequestBody Phim updatedPhim) {
+        Phim result = phimService.update(maPhim, updatedPhim);
+        return new ResponseEntity<>(result, HttpStatus.OK);
     }
 
 }
