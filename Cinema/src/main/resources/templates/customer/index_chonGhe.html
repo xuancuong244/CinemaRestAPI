@@ -29,6 +29,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
     <script src="../js/selectSeat.js"></script>
+    <script src="../js/chiNhanh.js"></script>
     <title>Mua vé xem phim</title>
 </head>
 
@@ -64,11 +65,11 @@
                    role="button">Đăng Nhập | Đăng Ký</a>
             </th:block>
             <th:block th:if="${#request.remoteUser}">
-                <span>Xin chào, <span th:text="${hoTen}"></span>!</span>
+                <span style="font-size: 15px">Xin chào, <span style="font-weight: bold" th:text="${hoTen}"></span>!</span>
                 <!--                <a id="historyBtn" class="btn btn__movie font__source" th:href="@{/order/list}">Lịch Sử Đặt Vé</a>-->
-                <a id="logoutBtn" class="btn btn__movie font__source" th:href="@{/security/logoff}" role="button">Đăng Xuất</a>
+                <a id="logoutBtn" class="btn btn__movie font__source" th:href="@{/security/logoff}" role="button" style="font-size: 15px">Đăng Xuất</a>
                 <li class="nav-item" th:if="${#request.isUserInRole('DIRE')}"><a class="nav-link"
-                                                                                 th:href="@{/DynamicCinema/admin/index}">Admin</a>
+                                                                                 th:href="@{/DynamicCinema/admin/index}" style="font-size: 15px">Admin</a>
                 </li>
             </th:block>
         </div>

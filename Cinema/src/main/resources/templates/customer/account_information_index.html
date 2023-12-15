@@ -63,11 +63,11 @@
                    role="button">Đăng Nhập | Đăng Ký</a>
             </th:block>
             <th:block th:if="${#request.remoteUser}">
-                <span>Xin chào, <span th:text="${hoTen}"></span>!</span>
+                <span style="font-size: 15px">Xin chào, <span style="font-weight: bold" th:text="${hoTen}"></span>!</span>
                 <!--                <a id="historyBtn" class="btn btn__movie font__source" th:href="@{/order/list}">Lịch Sử Đặt Vé</a>-->
-                <a id="logoutBtn" class="btn btn__movie font__source" th:href="@{/security/logoff}" role="button">Đăng Xuất</a>
+                <a id="logoutBtn" class="btn btn__movie font__source" th:href="@{/security/logoff}" role="button" style="font-size: 15px">Đăng Xuất</a>
                 <li class="nav-item" th:if="${#request.isUserInRole('DIRE')}"><a class="nav-link"
-                                                                                 th:href="@{/DynamicCinema/admin/index}">Admin</a>
+                                                                                 th:href="@{/DynamicCinema/admin/index}" style="font-size: 15px">Admin</a>
                 </li>
             </th:block>
         </div>
@@ -164,57 +164,26 @@
     <div class="container">
         <h4 class="account-information__title text-center mt-5">THÔNG TIN TÀI KHOẢN</h4>
         <script class="jsbin" src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
-        <div class="file-upload row">
-            <div class="col-6">
-                <div class="image-upload-wrap">
-                    <input class="file-upload-input" type='file' onchange="readURL(this);" accept="image/*"/>
-                    <div class="drag-text">
-                        <h3>IMG AVATAR</h3>
-                    </div>
-                </div>
-                <div class="file-upload-content">
-                    <img class="file-upload-image" src="#" alt="your image"/>
-                    <div class="image-title-wrap">
-                        <button type="button" onclick="removeUpload()" class="remove-image">Remove
-                            <span class="image-title"></span></button>
-                    </div>
-                </div>
-            </div>
-            <div class="col-6">
-                <button class="file-upload-btn" type="button"
-                        onclick="$('.file-upload-input').trigger( 'click' )">TẢI ẢNH LÊN
-                </button>
-                <button type="button" class="btn btn-info mt-2" style="width: 256px;">LƯU ẢNH</button>
-            </div>
-        </div>
         <div class="row information ">
             <div class="col-6">
                 <p class="mb-1"><span class="text-danger">*</span> Họ tên</p>
-                <input type="text" placeholder="Ho Thanh Kiet">
+                <input type="text" placeholder="Ho Thanh Kiet" th:value="${hoTen}" style="font-weight: bold;color: black">
             </div>
             <div class="col-6">
                 <p class="mb-1"><span class="text-danger">*</span> Email</p>
-                <input type="text" placeholder="kiethtps22319@fpt.edu.vn">
+                <input type="text" placeholder="kiethtps22319@fpt.edu.vn" th:value="${email}" style="font-weight: bold;color: black">
             </div>
             <div class="col-6">
                 <p class="mb-1"><span class="text-danger">*</span> Số điện thoại</p>
-                <input type="phone" placeholder="0833338817">
+                <input type="phone" placeholder="0833338817" th:value="${soDT}" style="font-weight: bold;color: black">
             </div>
             <div class="col-6">
                 <p class="mb-1"><span class="text-danger">*</span> Giới tính</p>
-                <input type="text" placeholder="Nam">
-            </div>
-            <div class="col-6">
-                <p class="mb-1"><span class="text-danger">*</span> Ngày sinh</p>
-                <input type="date" placeholder="22/03/2003">
-            </div>
-            <div class="col-6">
-                <p class="mb-1"><span class="text-danger">*</span> Tỉnh/Thành phố</p>
-                <input type="text" placeholder="Thành phố Hồ Chí Minh">
+                <input type="text" placeholder="Nam" th:value="${gioiTinh ? 'Nam' : 'Nữ'}" style="font-weight: bold;color: black">
             </div>
             <div class="col-12">
                 <p class="mb-1"><span class="text-danger">*</span> Địa chỉ</p>
-                <textarea name="address" id="" cols="165" rows="5"></textarea>
+                <input name="address" th:value="${diaChi}" style="font-weight: bold;color: black">
             </div>
             <a class="information__text mt-2" href="#">Quên mật khẩu?</a>
             <div class="col-12 text-center">

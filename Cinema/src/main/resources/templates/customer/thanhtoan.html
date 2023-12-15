@@ -32,7 +32,6 @@
     <title>Mua vé xem phim</title>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-    <script src="../js/loadMovieByStatus.js"></script>
     <script src="../js/chiNhanh.js"></script>
 </head>
 
@@ -68,11 +67,11 @@
                    role="button">Đăng Nhập | Đăng Ký</a>
             </th:block>
             <th:block th:if="${#request.remoteUser}">
-                <span>Xin chào, <span th:text="${hoTen}"></span>!</span>
+                <span style="font-size: 15px">Xin chào, <span style="font-weight: bold" th:text="${hoTen}"></span>!</span>
                 <!--                <a id="historyBtn" class="btn btn__movie font__source" th:href="@{/order/list}">Lịch Sử Đặt Vé</a>-->
-                <a id="logoutBtn" class="btn btn__movie font__source" th:href="@{/security/logoff}" role="button">Đăng Xuất</a>
+                <a id="logoutBtn" class="btn btn__movie font__source" th:href="@{/security/logoff}" role="button" style="font-size: 15px">Đăng Xuất</a>
                 <li class="nav-item" th:if="${#request.isUserInRole('DIRE')}"><a class="nav-link"
-                                                                                 th:href="@{/DynamicCinema/admin/index}">Admin</a>
+                                                                                 th:href="@{/DynamicCinema/admin/index}" style="font-size: 15px">Admin</a>
                 </li>
             </th:block>
         </div>
@@ -252,7 +251,7 @@
 
         // Lấy thông tin topping từ localStorage
         const selectedToppings = JSON.parse(localStorage.getItem('selectedToppings'));
-
+        console.log("Topping đã chọn:",selectedToppings);
 
 
         // Hiển thị thông tin đã chọn trong console
@@ -299,7 +298,21 @@
             </div>
 
             `;
-        }}
+
+                // Tính tổng tiền ghế
+                const totalSeats = selectedSeatsInfo.reduce((total, seatInfo) => total + getSeatPrice(seatInfo.seatType), 0);
+
+                // Tính tổng tiền topping
+                const totalToppings = selectedToppings.reduce((total, toppingInfo) => total + (toppingInfo.price * toppingInfo.quantity), 0);
+
+                // Hiển thị tổng tiền, tiền ghế và tiền topping
+                document.getElementById('totalSeats').innerText = formatCurrency(totalSeats);
+                document.getElementById('total').innerText = formatCurrency(totalToppings);
+                const allTotal = totalSeats + totalToppings;
+                document.getElementById('Alltotal').innerText = formatCurrency(allTotal);
+        }else {
+                console.error("Không tìm thấy phần tử với id 'paymentDetails'");
+            }}
     });
 </script>
 <script src="../js/js_tangGiamSL.js"></script>

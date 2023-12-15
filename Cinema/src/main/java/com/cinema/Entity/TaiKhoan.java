@@ -28,6 +28,12 @@ public class TaiKhoan {
     @Column(name = "ho_ten")
     private String hoTen;
 
+    @Column(name = "gioi_tinh")
+    private Boolean gioiTinh;
+
+    @Column(name = "dia_chi")
+    private String diaChi;
+
     @JsonIgnore
     @OneToMany(mappedBy = "taiKhoan", fetch = FetchType.EAGER)
     private List<Quyen> quyens;
@@ -35,5 +41,9 @@ public class TaiKhoan {
     public String getHoTen() {
         System.out.println("HoTen: " + hoTen);
         return hoTen;
+    }
+
+    public String getGioiTinhText() {
+        return gioiTinh ? "Nam" : "Nữ";
     }
 }

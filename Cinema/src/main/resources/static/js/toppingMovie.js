@@ -13,7 +13,16 @@ document.addEventListener('DOMContentLoaded', function () {
     // Lấy thông tin thể loại phim đã được lưu trong localStorage
     const selectedGenres = JSON.parse(localStorage.getItem('selectedGenres'));
 
-
+    const paymentButton = document.getElementById('paymentButton');
+    if (paymentButton) {
+        paymentButton.addEventListener('click', function () {
+            // Thực hiện các hành động khi nút thanh toán được click
+            // Ví dụ: Chuyển đến trang thanh toán và truyền giá trị cần thiết
+            const totalToppings = calculateToppingsTotal();
+            const url = `http://localhost:8085/DynamicCinema/thanhtoan?totalToppings=${totalToppings}`;
+            window.location.href = url;
+        });
+    }
 
     // Hiển thị thông tin đã chọn trong console
     console.log("Ngày chiếu đã chọn:", selectedDateTime.date);

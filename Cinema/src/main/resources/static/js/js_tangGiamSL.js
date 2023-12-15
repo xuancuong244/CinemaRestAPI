@@ -8,7 +8,7 @@ const productPrices = {
 };
 // Hàm xử lý giảm số lượng
 function handleGiam(btn) {
-    const id = btn.dataset.id;
+    const id = +btn.getAttribute('data-id');
     const input = document.getElementById('input-' + id);
     let value = parseInt(input.value);
     value = Math.max(0, value - 1);
@@ -20,7 +20,7 @@ function handleGiam(btn) {
 
 // Hàm xử lý tăng số lượng
 function handleTang(btn) {
-    const id = btn.dataset.id;
+    const id = +btn.getAttribute('data-id');
     const input = document.getElementById('input-' + id);
     let value = parseInt(input.value);
     value = Math.max(1, value + 1);
@@ -33,6 +33,13 @@ function handleTang(btn) {
 function updateLocalStorage() {
     const selectedToppings = getSelectedToppings(); // Hàm này để lấy danh sách topping đã chọn
     localStorage.setItem('selectedToppings', JSON.stringify(selectedToppings));
+
+    const totalToppings = calculateToppingsTotal(selectedToppings);
+
+    // Cập nhật tổng tiền toppings
+    const totalElement = document.getElementById('total');
+    totalElement.textContent = formatCurrency(totalToppings);
+
     calculateTotal();
 }
 
@@ -48,16 +55,21 @@ function getSeatPrice(seatType) {
     return seatPrices[seatType] || 0; // Trả về giá mặc định nếu không tìm thấy loại ghế
 }
 
-function calculateToppingsTotal(selectedToppingsInfo) {
+function calculateToppingsTotal() {
     let totalToppings = 0;
 
-    // Kiểm tra xem có selectedToppingsInfo hay không
-    if (selectedToppingsInfo) {
-        // Duyệt qua danh sách các topping đã chọn
-        selectedToppingsInfo.forEach(function (toppingInfo) {
-            totalToppings += toppingInfo.price * toppingInfo.quantity;
-        });
-    }
+    // Lấy tất cả các trường nhập liệu có id bắt đầu bằng 'input-'
+    const inputs = document.querySelectorAll('[id^="input-"]');
+
+    // Duyệt qua danh sách các phần tử
+    inputs.forEach(function (input) {
+        const value = parseInt(input.value);
+        const id = input.id.slice(6);
+        const price = productPrices[id];
+        const subtotal = value * price;
+
+        totalToppings += subtotal;
+    });
     console.log('totalToppings (calculated):', totalToppings);
     return totalToppings;
 }
@@ -96,10 +108,6 @@ function calculateTotal() {
         // Tổng tiền = Tổng tiền ghế + Tổng tiền topping
         const total = totalSeats + totalToppings;
 
-        // Trong hàm calculateTotal
-        const totalSeatsElement = document.getElementById('totalSeats');
-        totalSeatsElement.textContent = formatCurrency(totalSeats);
-
         // Hiển thị tổng tiền ở một phần tử nào đó trên trang web
         const totalElement = document.getElementById('total');
         totalElement.textContent = formatCurrency(totalToppings);
@@ -115,24 +123,42 @@ function calculateTotal() {
 function getSelectedToppings() {
     const selectedToppings = [];
 
-    // Lấy tất cả các phần tử trong tbody
-    const comboRows = document.querySelectorAll('.listCombo tbody tr');
+    // Lấy tất cả các trường nhập liệu có id bắt đầu bằng 'input-'
+    const inputs = document.querySelectorAll('[id^="input-"]');
 
-    // Duyệt qua danh sách các phần tử combo
-    comboRows.forEach(function (comboRow, index) {
-        const name = comboRow.dataset.name; // Lấy tên combo từ thuộc tính data-name
-        const price = parseFloat(comboRow.dataset.price); // Nếu có thuộc tính data-price, bạn có thể sử dụng để lấy giá, tùy thuộc vào thiết kế của bạn
+    // Duyệt qua danh sách các phần tử
+    inputs.forEach(function (input) {
+        const value = parseInt(input.value);
+        const dataId = input.getAttribute('data-id');
+        // const price = productPrices[id];
 
-        // Kiểm tra số lượng đã chọn (nếu số lượng > 0, thì mới lưu vào danh sách)
-        const quantity = parseInt(comboRow.querySelector('.soluong').value, 10);
-        if (quantity > 0) {
-            selectedToppings.push({
-                name: name,
-                price: price,
-                quantity: quantity
-            });
+        if (dataId) {
+            const id = +dataId;
+            const price = productPrices[id];
+        // Kiểm tra nếu số lượng topping lớn hơn 0, thì thêm vào danh sách
+        if (value > 0) {
+            if (!isNaN(id) && Number.isInteger(id) && id !== 0 && value > 0) {
+                const comboRow = document.querySelector(`tr[data-name="Combo ${id}"]`);
+                if (comboRow) {
+                    const comboName = comboRow.dataset.name;
+                    selectedToppings.push({
+                        id: id,
+                        name: comboName,
+                        quantity: value,
+                        price: price
+                    });
+                } else {
+                    console.error(`Không tìm thấy phần tử với data-name="Combo ${id}"`);
+                }
+            } else {
+                console.error(`Giá trị không hợp lệ cho id: ${input.dataset.id}`);
+            }
+        }else {
+            console.error('Thuộc tính data-id không tồn tại cho phần tử input.');
         }
-    });
+        }});
+
+    console.log('selectedToppings:', selectedToppings);
 
     return selectedToppings;
 }

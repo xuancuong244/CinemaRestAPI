@@ -91,6 +91,7 @@ public class HomeController {
         if (principal != null) {
             String username = principal.getName();
             TaiKhoan user = taiKhoanService.findById(username);
+            model.addAttribute("hoTen", user.getHoTen());
             model.addAttribute("customerName", user.getHoTen());
             model.addAttribute("customerPhone", user.getSoDT());
             model.addAttribute("customerEmail", user.getUsername());
@@ -103,6 +104,7 @@ public class HomeController {
         if (principal != null) {
             String username = principal.getName();
             TaiKhoan user = taiKhoanService.findById(username);
+            model.addAttribute("hoTen", user.getHoTen());
             model.addAttribute("customerName", user.getHoTen());
             model.addAttribute("customerPhone", user.getSoDT());
             model.addAttribute("customerEmail", user.getUsername());
@@ -116,6 +118,10 @@ public class HomeController {
             String username = principal.getName();
             TaiKhoan user = taiKhoanService.findById(username);
             model.addAttribute("hoTen", user.getHoTen());
+            model.addAttribute("email", user.getUsername());
+            model.addAttribute("soDT", user.getSoDT());
+            model.addAttribute("gioiTinh", user.getGioiTinh());
+            model.addAttribute("diaChi", user.getDiaChi());
         }
         return "customer/account_information_index";
     }

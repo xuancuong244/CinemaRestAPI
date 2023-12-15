@@ -1,3 +1,8 @@
+function getQueryParam(name) {
+    const urlParams = new URLSearchParams(window.location.search);
+    return urlParams.get(name);
+}
+
 function showHTML(event) {
     if (event.target.tagName === 'A') {
         // Lấy tên chi nhánh từ nội dung của thẻ "a"
@@ -6,9 +11,13 @@ function showHTML(event) {
         // Lưu tên chi nhánh vào localStorage
         chonChiNhanh(tenCN);
 
+        // Thay đổi nội dung của nút "Tỉnh/Thành Phố" thành tên chi nhánh được chọn
+        var dropdownButton = document.querySelector('.header__search .dropdown-toggle');
+        dropdownButton.textContent = tenCN;
+
         // Thay đổi địa chỉ trang web
-        var name = encodeURIComponent(tenCN);
-        window.location.href = `http://localhost:8085/DynamicCinema/index?${name}`;
+        var maCN = encodeURIComponent(tenCN);
+        window.location.href = `http://localhost:8085/DynamicCinema/index?chiNhanh=${maCN}`;
     }
 }
 
@@ -32,6 +41,7 @@ function loadData() {
                 link.addEventListener('click', function (event) {
                     event.preventDefault();
                     console.log("Chi nhánh được chọn:", cn.tenCN);
+
                 });
                 listItem.appendChild(link);
                 myList.appendChild(listItem);
@@ -42,6 +52,20 @@ function loadData() {
         });
 }
 
+// Hàm để cập nhật nút "Tỉnh/Thành Phố" dựa trên tham số chiNhanh trong URL
+function updateTinhThanhPhoButton() {
+    var dropdownButton = document.querySelector('.header__search .dropdown-toggle');
+    var chiNhanhFromURL = getQueryParam('chiNhanh');
+
+    // Nếu có tham số chiNhanh trong URL, gán nó cho nút "Tỉnh/Thành Phố"
+    if (chiNhanhFromURL) {
+        dropdownButton.textContent = decodeURIComponent(chiNhanhFromURL);
+    } else {
+        // Nếu không có tham số chiNhanh, giữ nguyên nội dung là "Tỉnh/Thành Phố"
+        dropdownButton.textContent = 'Tỉnh/Thành Phố';
+    }
+}
+
 // Trong hàm xử lý sự kiện khi người dùng chọn chi nhánh
 function chonChiNhanh(tenChiNhanh) {
     // Lưu thông tin chi nhánh vào localStorage
@@ -49,9 +73,12 @@ function chonChiNhanh(tenChiNhanh) {
 }
 
 document.addEventListener("DOMContentLoaded", function () {
+    updateTinhThanhPhoButton();
     document.getElementById("myList").addEventListener("click", function (event) {
         loadData();
         showHTML(event);
+        // Cập nhật nút "Tỉnh/Thành Phố" sau khi chọn chi nhánh
+        updateTinhThanhPhoButton();
     });
 });
 
