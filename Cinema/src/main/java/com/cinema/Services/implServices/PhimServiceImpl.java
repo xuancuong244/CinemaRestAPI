@@ -6,6 +6,7 @@ import com.cinema.Services.PhimService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.persistence.EntityNotFoundException;
 import java.util.List;
 import java.util.Optional;
 
@@ -34,8 +35,32 @@ public class PhimServiceImpl implements PhimService {
     }
 
     @Override
-    public Phim update(Phim phim) {
+    public Phim addPhim(Phim phim) {
         return phimReponsitory.save(phim);
+    }
+
+    @Override
+    public Phim update(String maPhim, Phim updatedPhim) {
+        Phim existingPhim = phimReponsitory.findById(maPhim)
+                .orElseThrow(() -> new EntityNotFoundException("Không thể tìm Phim với ID: " + maPhim));
+
+        // Cập nhật thông tin Phim
+        existingPhim.setTenPhim(updatedPhim.getTenPhim());
+        existingPhim.setDienVien(updatedPhim.getDienVien());
+        existingPhim.setNamSX(updatedPhim.getNamSX());
+        existingPhim.setDaoDien(updatedPhim.getDaoDien());
+        existingPhim.setQuocGia(updatedPhim.getQuocGia());
+        existingPhim.setMoTa(updatedPhim.getMoTa());
+        existingPhim.setTrailer(updatedPhim.getTrailer());
+        existingPhim.setHinh(updatedPhim.getHinh());
+        existingPhim.setThoiLuong(updatedPhim.getThoiLuong());
+
+        // Lưu vào cơ sở dữ liệu
+        return phimReponsitory.save(existingPhim);
+    }
+    @Override
+    public boolean isMaPhimExisted(String maPhim) {
+        return phimReponsitory.existsById(maPhim);
     }
 
     @Override

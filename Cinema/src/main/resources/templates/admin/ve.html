@@ -47,6 +47,15 @@
             </li>
 
             <li>
+                <a href="http://localhost:8085/DynamicCinema/admin/nhanVien">
+                        <span class="icon">
+                            <ion-icon name="people-outline"></ion-icon>
+                        </span>
+                    <span class="title">Nhân Viên</span>
+                </a>
+            </li>
+
+            <li>
                 <a href="http://localhost:8085/DynamicCinema/admin/phim">
                         <span class="icon">
                             <ion-icon name="videocam-outline"></ion-icon>
@@ -136,19 +145,37 @@
                 <div class="CRUD-body">
                     <div class="coolinput">
                         <label for="input" class="text">ID Vé</label>
-                        <input type="text" placeholder="" name="input" class="input" ng-model="selectedVe.idVe">
+                        <input type="text" placeholder="" name="input" class="input" ng-model="form.idVe">
+                    </div>
+                </div>
+                <div class="CRUD-body">
+                    <div class="coolinput">
+                        <label for="input" class="text">Tên Khách Hàng</label>
+                        <input type="text" placeholder="" name="input" class="input" ng-model="form.khachHang.tenKH">
+                    </div>
+                </div>
+                <div class="CRUD-body">
+                    <div class="coolinput">
+                        <label for="input" class="text">Suất Chiếu</label>
+                        <input type="text" placeholder="" name="input" class="input" ng-model="form.xuatChieu.stt">
+                    </div>
+                </div>
+                <div class="CRUD-body">
+                    <div class="coolinput">
+                        <label for="input" class="text">Ghế</label>
+                        <input type="text" placeholder="" name="input" class="input" ng-model="form.chiTietGhe.ghe.tenGhe">
                     </div>
                 </div>
                 <div class="CRUD-body">
                     <div class="coolinput">
                         <label for="input" class="text">Thuế VAT</label>
-                        <input type="text" placeholder="" name="input" class="input" ng-model="selectedVe.thueVAT">
+                        <input type="text" placeholder="" name="input" class="input" ng-model="form.thueVAT">
                     </div>
                 </div>
                 <div class="CRUD-body">
                     <div class="coolinput">
                         <label for="input" class="text">Tổng Giá Vé</label>
-                        <input type="text" placeholder="" name="input" class="input" ng-model="selectedVe.tongGiaVe">
+                        <input type="text" placeholder="" name="input" class="input" ng-model="form.tongGiaVe">
                     </div>
                 </div>
             </div>
@@ -156,7 +183,7 @@
                 <button class="btn reset" ng-click="resetForm()">Làm mới</button>
                 <button class="btn new" ng-click="addVe()">Thêm</button>
                 <button class="btn fix" ng-click="editVe()">Sửa</button>
-                <button class="btn del" ng-click="deleteVe()">Xóa</button>
+                <button class="btn del" ng-click="delete(form.idVe)">Xóa</button>
             </div>
         </div>
         <!-- ================ Order Details List ================= -->
@@ -171,6 +198,9 @@
                     <thead>
                     <tr>
                         <th scope="col">ID Vé</th>
+                        <th scope="col">Tên Khách Hàng</th>
+                        <th scope="col">Suất Chiếu</th>
+                        <th scope="col">Ghế</th>
                         <th scope="col">Thuế VAT</th>
                         <th scope="col">Tổng Giá Vé</th>
                         <th scope="col"></th>
@@ -178,13 +208,21 @@
                     </thead>
 
                     <tbody style="text-align: center!important;">
-                    <tr ng-repeat="ves in ve">
-                        <td>{{ves.idVe}}</td>
-                        <td>{{ves.thueVAT}}</td>
-                        <td>{{ves.tongGiaVe}}</td>
+                    <tr ng-repeat="ve in items">
+                        <td>{{ve.idVe}}</td>
+                        <td>{{ve.khachHang.tenKH}}</td>
+                        <td>{{ve.xuatChieu.stt}}</td>
+                        <td>{{ve.chiTietGhe.ghe.tenGhe}}</td>
+                        <td>{{ve.thueVAT}}</td>
+                        <td>{{ve.tongGiaVe}}</td>
                         <td>
                             <div class="btn-group btn-group-xs">
-                                <button class="btn btn-warning" ng-click="fillForm($index)">Edit</button>
+                                <button class="btn btn-warning" ng-click="fillForm($index)">Sửa</button>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="btn-group btn-group-xs">
+                                <button class="btn btn-warning" ng-click="delete(ve.idVe)">Xóa</button>
                             </div>
                         </td>
                     </tr>

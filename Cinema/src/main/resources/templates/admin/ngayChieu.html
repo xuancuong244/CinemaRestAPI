@@ -47,6 +47,15 @@
             </li>
 
             <li>
+                <a href="http://localhost:8085/DynamicCinema/admin/nhanVien">
+                        <span class="icon">
+                            <ion-icon name="people-outline"></ion-icon>
+                        </span>
+                    <span class="title">Nhân Viên</span>
+                </a>
+            </li>
+
+            <li>
                 <a href="http://localhost:8085/DynamicCinema/admin/phim">
                         <span class="icon">
                             <ion-icon name="videocam-outline"></ion-icon>
@@ -136,27 +145,33 @@
                 <div class="CRUD-body">
                     <div class="coolinput">
                         <label for="input" class="text">STT</label>
-                        <input type="text" placeholder="" name="input" class="input" ng-model="selectedNC.stt">
+                        <input type="text" placeholder="" name="input" class="input" ng-model="form.stt">
+                    </div>
+                </div>
+                <div class="CRUD-body">
+                    <div class="coolinput">
+                        <label for="input" class="text">Mã Phim</label>
+                        <input type="text" placeholder="" name="input" class="input" ng-model="form.phim">
                     </div>
                 </div>
                 <div class="CRUD-body">
                     <div class="coolinput">
                         <label for="input" class="text">Ngày Chiếu</label>
-                        <input type="text" placeholder="" name="input" class="input" ng-model="selectedNC.ngay">
+                        <input type="text" placeholder="" name="input" class="input" ng-model="form.ngay">
                     </div>
                 </div>
                 <div class="CRUD-body">
                     <div class="coolinput">
                         <label for="input" class="text">Giờ Bắt Đầu</label>
-                        <input type="text" placeholder="" name="input" class="input" ng-model="selectedNC.gioBatDau">
+                        <input type="text" placeholder="" name="input" class="input" ng-model="form.gioBatDau">
                     </div>
                 </div>
             </div>
             <div class="btn-crud" style="text-align: center; margin-top: 20px;">
                 <button class="btn reset" ng-click="resetForm()">Làm mới</button>
-                <button class="btn new" ng-click="addNgayChieu()">Thêm</button>
-                <button class="btn fix" ng-click="editNgayChieu()">Sửa</button>
-                <button class="btn del" ng-click="deleteNgayChieu()">Xóa</button>
+                <button class="btn new" ng-click="add()">Thêm</button>
+                <button class="btn fix" ng-click="edit()">Sửa</button>
+                <button class="btn del" ng-click="delete(form.stt)">Xóa</button>
             </div>
         </div>
         <!-- ================ Order Details List ================= -->
@@ -164,28 +179,32 @@
             <div class="recentOrders">
                 <div class="cardHeader">
                     <h2>NGÀY CHIẾU</h2>
-                    <!--                            <a href="#" class="btn">View All</a>-->
                 </div>
-
                 <table class="table">
                     <thead>
                     <tr>
                         <th scope="col">STT</th>
+                        <th scope="col">Tên Phim</th>
                         <th scope="col">Ngày Chiếu</th>
                         <th scope="col">Giờ Bắt Đầu</th>
-                        <th scope="col"></th>
                     </tr>
                     </thead>
 
-                    <tbody style="text-align: center!important;">
-                    <tr ng-repeat="nc in ngayChieu">
+                    <tbody style="text-align: center !important;">
+                    <tr ng-repeat="nc in items">
                         <td>{{nc.stt}}</td>
+                        <td>{{nc.phim.tenPhim}}</td>
                         <td>{{nc.ngay}}</td>
                         <td>{{nc.gioBatDau}}</td>
                         <td>
                             <div class="btn-group btn-group-xs">
                                 <button class="btn btn-warning" ng-click="fillForm($index)">Edit</button>
                             </div>
+                        <td>
+                            <div class="btn-group btn-group-xs">
+                                <button class="btn btn-warning" ng-click="delete(nc.stt)">Xóa</button>
+                            </div>
+                        </td>
                         </td>
                     </tr>
                     </tbody>

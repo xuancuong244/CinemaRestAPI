@@ -1,32 +1,37 @@
 var app = angular.module('myApp', []);
-
-app.controller('VeController', function ($scope, $http) {
-    // Khởi tạo mảng phim
+app.controller('NhanVienController', function ($scope, $http) {
+    // Khởi tạo mảng Khách hàng
     $scope.items = [];
     $scope.form = {};
+
     $scope.clear = {
-        idVe: '',
-        tongGiaVe: '',
-        thueVAT: '',
-        khachHang: '',
-        chiTietGhe: '',
-        xuatChieu: ''
+        maNV: '',
+        hoTen: '',
+        email: '',
+        ngaySinh: '',
+        matKhau: '',
+        soDT: '',
+        chucVu: '',
+        gioiTinh: true
     };
     $scope.index = -1;
-    function loadVe() {
-        $http.get('/api/Ve/all')
+
+    // Hàm để tải danh sách Khách hàng từ máy chủ
+    function loadEmployee() {
+        $http.get('/api/NhanVien/all')
             .then(function (response) {
-                $scope.ve = response.data;
+                $scope.items = response.data;
+                console.log("Load Success");
             });
     }
 
     // Tải ban đầu
-    loadVe();
+    loadEmployee();
 
     // Hàm fill
     $scope.fillForm = function (index) {
         $scope.form = angular.copy($scope.items[index]);
-        console.log("Vé:", $scope.form);
+        console.log("Nhân Viên:", $scope.form);
     }
 
     // Hàm để làm mới biểu mẫu
@@ -38,10 +43,10 @@ app.controller('VeController', function ($scope, $http) {
 
     // Hàm để thêm Khách hàng mới
     $scope.add = function () {
-        console.log("Vé:", $scope.form);
+        console.log("Nhân Viên:", $scope.form);
         var item = angular.copy($scope.form);
 
-        $http.post('/api/Ve/create', item).then(resp => {
+        $http.post('/api/NhanVien/create', item).then(resp => {
             $scope.items.push(item);
             // Xóa các trường của biểu mẫu
             $scope.resetForm();
@@ -53,10 +58,10 @@ app.controller('VeController', function ($scope, $http) {
     };
 
     // Hàm để xóa khách hàng
-    $scope.delete = function (idVe) {
+    $scope.delete = function (maNV) {
         // Gửi yêu cầu DELETE để xóa khách hàng đã chọn
-        $http.delete('/api/Ve/' + idVe).then(resp => {
-            var index = $scope.items.findIndex(item => item.idVe === idVe);
+        $http.delete('/api/NhanVien/' + maNV).then(resp => {
+            var index = $scope.items.findIndex(item => item.maNV === maNV);
             $scope.items.splice(index, 1);
             $scope.resetForm();
             $scope.fillForm();
@@ -72,10 +77,10 @@ app.controller('VeController', function ($scope, $http) {
 
 
         // Gửi yêu cầu PUT để sửa Khách hàng đã chọn
-        $http.put('/api/Ve/' + $scope.form.idVe, $scope.form).then(
+        $http.put('/api/NhanVien/' + $scope.form.maNV, $scope.form).then(
             function (resp) {
                 // Cập nhật dữ liệu trong mảng $scope.items
-                var index = $scope.items.findIndex(item => item.idVe == $scope.form.idVe);
+                var index = $scope.items.findIndex(item => item.maNV == $scope.form.maNV);
                 $scope.items[index] = resp.data;
                 $scope.resetForm();
                 $scope.fillForm();
@@ -86,6 +91,26 @@ app.controller('VeController', function ($scope, $http) {
         });
     };
 
+    // Validate
+    // Hàm kiểm tra maKH là số
+    function isValidMaKH(maNV) {
+        return /^\d+$/.test(maNV);
+    }
 
+    // Hàm kiểm tra mật khẩu tối đa 10 ký tự số
+    function isValidPassword(password) {
+        return /^\d{1,10}$/.test(password);
+    }
 
+    // Hàm kiểm tra số điện thoại là 10 số
+    function isValidPhoneNumber(phoneNumber) {
+        return /^\d{10}$/.test(phoneNumber);
+    }
+
+    // Hàm kiểm tra email hợp lệ
+    function isValidEmail(email) {
+        // Bạn có thể sử dụng một biểu thức chính quy phức tạp hơn để kiểm tra định dạng email
+        // Dưới đây là một biểu thức đơn giản, nếu cần bạn có thể sử dụng biểu thức chính quy phức tạp hơn
+        return /\S+@\S+\.\S+/.test(email);
+    }
 });

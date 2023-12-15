@@ -47,6 +47,15 @@
                 </li>
 
                 <li>
+                    <a href="http://localhost:8085/DynamicCinema/admin/nhanVien">
+                        <span class="icon">
+                            <ion-icon name="people-outline"></ion-icon>
+                        </span>
+                        <span class="title">Nhân Viên</span>
+                    </a>
+                </li>
+
+                <li>
                     <a href="http://localhost:8085/DynamicCinema/admin/phim">
                         <span class="icon">
                             <ion-icon name="videocam-outline"></ion-icon>
@@ -103,7 +112,7 @@
                         <span class="icon">
                             <ion-icon name="log-out-outline"></ion-icon>
                         </span>
-                        <span class="title">Đăng xuất</span>
+                        <span ><a th:href="@{/security/logoff}">Đăng xuất</a></span>
                     </a>
                 </li>
             </ul>
@@ -191,69 +200,23 @@
                     <table>
                         <thead>
                             <tr>
-                                <td>Phim</td>
-                                <td>Giá</td>
-                                <td>Số vé</td>
-                                <td>Tổng</td>
+                                <td>Tên Khách Hàng</td>
+                                <td>Số Điện Thoại</td>
+                                <td>Tên Phim</td>
+                                <td>Các Ghế Đã Mua</td>
+                                <td>Doanh Thu</td>
                             </tr>
                         </thead>
 
                         <tbody>
-                            <tr>
-                                <td>Star Refrigerator</td>
-                                <td>$1200</td>
-                                <td>Paid</td>
-                                <td><span class="status delivered">Delivered</span></td>
+                            <tr  ng-repeat="tk in items">
+                                <td>{{tk.ten_kh}}</td>
+                                <td>{{tk.sodt}}</td>
+                                <td>{{tk.ten_phim}}</td>
+                                <td>{{tk.cac_ghe_da_mua}}</td>
+                                <td>{{tk.tong_tien}}</td>
                             </tr>
 
-                            <tr class="text-center">
-                                <td>Dell Laptop</td>
-                                <td>$110</td>
-                                <td>Due</td>
-                                <td><span class="status pending">Pending</span></td>
-                            </tr>
-
-                            <tr>
-                                <td>Apple Watch</td>
-                                <td>$1200</td>
-                                <td>Paid</td>
-                                <td><span class="status return">Return</span></td>
-                            </tr>
-
-                            <tr>
-                                <td>Addidas Shoes</td>
-                                <td>$620</td>
-                                <td>Due</td>
-                                <td><span class="status inProgress">In Progress</span></td>
-                            </tr>
-
-                            <tr>
-                                <td>Star Refrigerator</td>
-                                <td>$1200</td>
-                                <td>Paid</td>
-                                <td><span class="status delivered">Delivered</span></td>
-                            </tr>
-
-                            <tr>
-                                <td>Dell Laptop</td>
-                                <td>$110</td>
-                                <td>Due</td>
-                                <td><span class="status pending">Pending</span></td>
-                            </tr>
-
-                            <tr>
-                                <td>Apple Watch</td>
-                                <td>$1200</td>
-                                <td>Paid</td>
-                                <td><span class="status return">Return</span></td>
-                            </tr>
-
-                            <tr>
-                                <td>Addidas Shoes</td>
-                                <td>$620</td>
-                                <td>Due</td>
-                                <td><span class="status inProgress">In Progress</span></td>
-                            </tr>
                         </tbody>
                     </table>
                 </div>

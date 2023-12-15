@@ -13,4 +13,11 @@ public interface KhachHangService {
     KhachHang save(KhachHang khachHang);
 
     Optional<KhachHang> findById(Integer userId);
+    boolean existsById(Integer userId);
+
+    void deleteCustomer(int customerId);
+
+    KhachHang updateCustomer(int customerId, KhachHang updatedCustomer);
+
+    KhachHang addCustomer(KhachHang customer);
 }

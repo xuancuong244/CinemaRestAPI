@@ -33,7 +33,7 @@
             </li>
 
             <li>
-                <a href="http://localhost:8085/DynamicCinema/admin/inde">
+                <a href="http://localhost:8085/DynamicCinema/admin/index">
                         <span class="icon">
                             <ion-icon name="stats-chart-outline"></ion-icon>
                         </span>
@@ -47,6 +47,15 @@
                             <ion-icon name="people-outline"></ion-icon>
                         </span>
                     <span class="title">Khách hàng</span>
+                </a>
+            </li>
+
+            <li>
+                <a href="http://localhost:8085/DynamicCinema/admin/nhanVien">
+                        <span class="icon">
+                            <ion-icon name="people-outline"></ion-icon>
+                        </span>
+                    <span class="title">Nhân Viên</span>
                 </a>
             </li>
 
@@ -138,42 +147,44 @@
                 <div class="CRUD-body">
                     <div class="coolinput">
                         <label for="input" class="text">STT</label>
-                        <input type="text" placeholder="" name="input" class="input">
+                        <input type="text" class="input" ng-model="form.stt">
                     </div>
                 </div>
                 <div class="CRUD-body">
                     <div class="coolinput">
                         <label for="input" class="text">Tên phim</label>
-                        <input type="text" placeholder="" name="input" class="input">
+                        <input type="text" class="input" ng-model="form.phim">
                     </div>
                 </div>
 
                 <div class="CRUD-body">
                     <div class="coolinput">
                         <label for="input" class="text">Phòng chiếu</label>
-                        <input type="text" placeholder="" name="input" class="input">
+                        <input type="text" class="input" ng-model="form.phongChieu">
                     </div>
                 </div>
                 <div class="CRUD-body">
                     <div class="coolinput">
                         <label for="input" class="text">Ngày chiếu</label>
-                        <input type="date" placeholder="" name="input" class="input" style="padding: 11px 10px;font-size: 0.75rem;
+                        <input type="date" class="input" ng-model="form.ngayChieu"
+                               style="padding: 11px 10px;font-size: 0.75rem;
                         border: 2px #2a2185 solid;border-radius: 5px;background: #ffffff;">
                     </div>
                 </div>
                 <div class="CRUD-body">
                     <div class="coolinput">
                         <label for="input" class="text">Giá Suất chiếu</label>
-                        <input type="number" placeholder="" name="input" class="input" style="padding: 11px 10px;font-size: 0.75rem;
+                        <input type="number" class="input" ng-model="form.giaXuatChieu"
+                               style="padding: 11px 10px;font-size: 0.75rem;
                         border: 2px #2a2185 solid;border-radius: 5px;background: #ffffff;">
                     </div>
                 </div>
             </div>
             <div class="btn-crud" style="text-align: center; margin-top: 20px;">
                 <button class="btn reset" ng-click="resetForm()">Làm mới</button>
-                <button class="btn new" ng-click="addMovie()">Thêm</button>
-                <button class="btn fix" ng-click="editMovie()">Sửa</button>
-                <button class="btn del" ng-click="deleteMovie()">Xóa</button>
+                <button class="btn new" ng-click="add()">Thêm</button>
+                <button class="btn fix" ng-click="edit()">Sửa</button>
+                <button class="btn del" ng-click="delete(form.stt)">Xóa</button>
             </div>
         </div>
         <!-- ================ Order Details List ================= -->
@@ -196,15 +207,20 @@
                     </thead>
 
                     <tbody style="text-align: center!important;" >
-                    <tr ng-repeat="suatChieus in suatChieu">
-                        <td>{{ suatChieus.stt }}</td>
-                        <td>{{ suatChieus.phim }}</td>
-                        <td>{{ suatChieus.phongChieu }}</td>
-                        <td>{{ suatChieus.ngayChieu }}</td>
-                        <td>{{ suatChieus.giaXuatChieu }}</td>
+                    <tr ng-repeat="suatChieu in items">
+                        <td>{{ suatChieu.stt }}</td>
+                        <td>{{ suatChieu.phim.tenPhim }}</td>
+                        <td>{{ suatChieu.phongChieu.tenPhong }}</td>
+                        <td>{{ suatChieu.ngayChieu.ngay }}</td>
+                        <td>{{ suatChieu.giaXuatChieu }}</td>
                         <td>
                             <div class="btn-group btn-group-xs">
-                                <button class="btn btn-warning" ng-click="fillForm($index)">Edit</button>
+                                <button class="btn btn-warning" ng-click="fillForm($index)">Sửa</button>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="btn-group btn-group-xs">
+                                <button class="btn btn-warning" ng-click="delete(suatChieu.stt)">Xóa</button>
                             </div>
                         </td>
                     </tr>

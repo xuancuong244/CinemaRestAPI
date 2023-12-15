@@ -52,6 +52,15 @@
                 </li>
 
                 <li>
+                    <a href="http://localhost:8085/DynamicCinema/admin/nhanVien">
+                        <span class="icon">
+                            <ion-icon name="people-outline"></ion-icon>
+                        </span>
+                        <span class="title">Nhân Viên</span>
+                    </a>
+                </li>
+
+                <li>
                     <a href="http://localhost:8085/DynamicCinema/admin/phim">
                         <span class="icon">
                             <ion-icon name="videocam-outline"></ion-icon>
@@ -139,51 +148,53 @@
                     <div class="CRUD-body">
                         <div class="coolinput">
                             <label for="input" class="text">Mã Khách Hàng</label>
-                            <input type="text" placeholder="" name="input" class="input" ng-model="selectedCus.maKH" disabled>
+                            <input type="text" class="input" ng-model="form.maKH">
                         </div>
                     </div>
                     <div class="CRUD-body">
                         <div class="coolinput">
-                            <label for="input" class="text">Tên KH</label>
-                            <input type="text" placeholder="" name="input" class="input" ng-model="selectedCus.tenKH">
+                            <label for="input" class="text">Tên Khách Hàng</label>
+                            <input type="text" class="input" ng-model="form.tenKH">
                         </div>
                     </div>
                     <div class="CRUD-body">
                         <div class="coolinput">
                             <label for="input" class="text">Mật khẩu</label>
-                            <input type="text" placeholder="" name="input" class="input" ng-model="selectedCus.matKhau">
+                            <input type="text" class="input" ng-model="form.matKhau">
                         </div>
                     </div>
                     <div class="CRUD-body">
                         <div class="coolinput">
                             <label for="input" class="text">Email</label>
-                            <input type="text" placeholder="" name="input" class="input" ng-model="selectedCus.email">
+                            <input type="text" class="input" ng-model="form.email">
                         </div>
                     </div>
                     <div class="CRUD-body">
                         <div class="coolinput">
                             <label for="input" class="text">SĐT</label>
-                            <input type="text" placeholder="" name="input" class="input" ng-model="selectedCus.soDT">
+                            <input type="text" class="input" ng-model="form.soDT">
                         </div>
                     </div>
                     <div class="CRUD-body">
                         <div class="coolinput">
                             <label for="input" class="text">Địa chỉ</label>
-                            <input type="text" placeholder="" name="input" class="input" ng-model="selectedCus.diaChi">
+                            <input type="text" class="input" ng-model="form.diaChi">
                         </div>
                     </div>
 
                     <div class="CRUD-body">
                         <div class="radio-gender">
                             <div class="radio-button">
-                                <input type="radio" class="radio-button__input" id="radio1" name="radio-group" ng-model="selectedCus.gioiTinh">
+                                <input type="radio" class="radio-button__input" id="radio1" name="radio-group"
+                                       ng-model="form.gioiTinh" ng-value="true" checked>
                                 <label class="radio-button__label" for="radio1">
                                     <span class="radio-button__custom"></span>
                                     Nam
                                 </label>
                             </div>
                             <div class="radio-button">
-                                <input type="radio" class="radio-button__input" id="radio3" name="radio-group" >
+                                <input type="radio" class="radio-button__input" id="radio3" name="radio-group"
+                                       ng-model="form.gioiTinh" ng-value="false">
                                 <label class="radio-button__label" for="radio3">
                                     <span class="radio-button__custom"></span>
                                     Nữ
@@ -196,9 +207,9 @@
                 </div>
                 <div class="btn-crud" style="text-align: center; margin-top: 20px;">
                     <button class="btn reset" ng-click="resetForm()">Làm mới</button>
-                    <button class="btn new" ng-click="addCustomer()">Thêm</button>
-                    <button class="btn fix" ng-click="editCustomer()">Sửa</button>
-                    <button class="btn del" ng-click="deleteCustomer()">Xóa</button>
+                    <button class="btn new" ng-click="add()">Thêm</button>
+                    <button class="btn fix" ng-click="edit()">Sửa</button>
+                    <button class="btn del" ng-click="delete(form.maKH)">Xóa</button>
                 </div>
             </div>
 
@@ -226,17 +237,22 @@
 
                         <tbody style="text-align: center!important;">
 
-                        <tr ng-repeat="customer in cus">
+                        <tr ng-repeat="customer in items">
                             <td>{{ customer.maKH }}</td>
                             <td>{{ customer.tenKH }}</td>
                             <td>{{ customer.matKhau }}</td>
                             <td>{{ customer.email }}</td>
                             <td>{{ customer.soDT }}</td>
                             <td>{{ customer.diaChi }}</td>
-                            <td>{{ customer.gioiTinh }}</td>
+                            <td>{{ customer.gioiTinh ? 'Nam' : 'Nữ'}}</td>
                             <td>
                                 <div class="btn-group btn-group-xs">
-                                    <button class="btn btn-warning" ng-click="fillForm($index)">Edit</button>
+                                    <button class="btn btn-warning" ng-click="fillForm($index)">Sửa</button>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="btn-group btn-group-xs">
+                                    <button class="btn btn-warning" ng-click="delete(customer.maKH)">Xóa</button>
                                 </div>
                             </td>
                         </tr>

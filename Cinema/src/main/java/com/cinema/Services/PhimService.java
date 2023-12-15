@@ -11,7 +11,11 @@ public interface PhimService {
     Optional<Phim> findById(String maPhim);
 
     Phim create(Phim phim);
-    Phim update(Phim phim);
+    Phim update(String maPhim, Phim updatedPhim);
     void delete(String phim);
     List<Phim> findByKeywords(String keyword);
+
+    Phim addPhim(Phim phim);
+
+    boolean isMaPhimExisted(String maPhim);
 }

@@ -2,9 +2,10 @@ var app = angular.module('myApp', []);
 
 app.controller('ToppingController', function ($scope, $http) {
     // Khởi tạo mảng phim
-    $scope.toppings = [];
+    $scope.items = [];
+    $scope.form = {};
 
-    $scope.tpTemplate = {
+    $scope.clear = {
         maTopping: '',
         tenTopping: '',
         soLuongDangCo: '',
@@ -17,7 +18,7 @@ app.controller('ToppingController', function ($scope, $http) {
     function loadToppings() {
         $http.get('/api/OrderTopping/all')
             .then(function (response) {
-                $scope.toppings = response.data;
+                $scope.items = response.data;
             });
     }
 
@@ -27,54 +28,64 @@ app.controller('ToppingController', function ($scope, $http) {
     // Hàm để làm mới biểu mẫu
     $scope.resetForm = function () {
         // Xóa các trường của biểu mẫu
-        $scope.newTP = angular.copy($scope.tpTemplate);
+        $scope.form = angular.copy($scope.clear);
         $scope.index = -1;
+        loadToppings();
     };
 
     $scope.resetForm();
 
+    // Hàm fill
+    $scope.fillForm = function (index) {
+        $scope.form = angular.copy($scope.items[index]);
+        console.log("Topping:", $scope.form);
+    }
+
     // Hàm để thêm phim mới
     $scope.addTopping = function () {
-        console.log("Thêm Topping:", $scope.newTP);
-        // Gửi yêu cầu POST để thêm phim mới
-        $http.post('/api/OrderTopping', $scope.newTP)
-            .then(function (response) {
-                // Làm mới danh sách phim
-                loadToppings();
-                // Xóa các trường của biểu mẫu
-                $scope.resetForm();
-            });
+        console.log("Topping:", $scope.form);
+        var item = angular.copy($scope.form);
+
+        $http.post('/api/OrderTopping/create', item).then(resp => {
+            $scope.items.push(item);
+            // Xóa các trường của biểu mẫu
+            $scope.resetForm();
+            $scope.fillForm();
+            alert("Thêm thành công!");
+        }).catch(error => {
+            alert("Thêm thất bại");
+        });
     };
 
-    // Hàm để sửa phim
-    $scope.editTopping = function () {
-        // Gửi yêu cầu PUT để sửa phim đã chọn
-        if (!$scope.selectedTP) {
-            alert('Chưa chọn topping để sửa !');
-            return;
-        }
-        $http.put('/api/OrderTopping/' + $scope.selectedTP.maTopping, $scope.selectedTP)
-            .then(function (response) {
-                // Làm mới danh sách phim
-                loadToppings();
-                // Xóa các trường của biểu mẫu
-                $scope.resetForm();
-            });
+    $scope.delete = function (maTopping) {
+        // Gửi yêu cầu DELETE để xóa khách hàng đã chọn
+        $http.delete('/api/OrderTopping/' + maTopping).then(resp => {
+            var index = $scope.items.findIndex(item => item.maTopping === maTopping);
+            $scope.items.splice(index, 1);
+            $scope.resetForm();
+            $scope.fillForm();
+            alert("Xóa thành công!");
+        }).catch(error => {
+            alert("Xóa thất bại!");
+        });
     };
 
-    // Hàm để xóa phim
-    $scope.deleteTopping = function () {
-        // Gửi yêu cầu DELETE để xóa phim đã chọn
-        $http.delete('/api/OrderTopping/' + $scope.selectedTP.maTopping)
-            .then(function (response) {
-                // Làm mới danh sách phim
-                loadToppings();
-                // Xóa các trường của biểu mẫu
-                $scope.resetForm();
-            });
-    };
+    // Hàm cập nhật
+    $scope.edit = function () {
+        // Kiểm tra các điều kiện hợp lệ
 
-    $scope.fillForm = function (index){
-        $scope.selectedTP= angular.copy($scope.toppings[index]);
-    }
+        // Gửi yêu cầu PUT để sửa Khách hàng đã chọn
+        $http.put('/api/OrderTopping/' + $scope.form.maTopping, $scope.form).then(
+            function (resp) {
+                // Cập nhật dữ liệu trong mảng $scope.items
+                var index = $scope.items.findIndex(item => item.maTopping == $scope.form.maTopping);
+                $scope.items[index] = resp.data;
+                $scope.resetForm();
+                $scope.fillForm();
+                console.log("Success", resp);
+            }).catch(function (error) {
+            // Xử lý lỗi hoặc xuất thông báo cảnh báo
+            console.log("Error", error);
+        });
+    };
 });
