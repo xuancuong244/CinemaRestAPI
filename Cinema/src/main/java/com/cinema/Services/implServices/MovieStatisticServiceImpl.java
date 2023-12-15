@@ -10,10 +10,10 @@ import java.util.List;
 
 @Service
 public class MovieStatisticServiceImpl implements MovieStatisticService {
-    @Autowired
-    MovieStatisticReponsitory movieStatisticReponsitory;
-    @Override
-    public List<MovieStatistics> getMovieStatistics() {
-        return movieStatisticReponsitory.getMovieStatistics();
-    }
+//    @Autowired
+//    MovieStatisticReponsitory movieStatisticReponsitory;
+//    @Override
+//    public List<MovieStatistics> getMovieStatistics() {
+//        return movieStatisticReponsitory.getMovieStatistics();
+//    }
 }

@@ -14,7 +14,6 @@ import java.io.Serializable;
 import java.util.List;
 
 
-@SuppressWarnings("serial")
 @Entity
 @AllArgsConstructor
 @NoArgsConstructor

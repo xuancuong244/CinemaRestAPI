@@ -20,7 +20,7 @@ import javax.persistence.*;
 public class Ve {
 	@Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "Id_Ve")
+    @Column(name = "idVe")
     private Integer idVe;
     @Column(name = "Tong_Gia_Ve")
     private Float tongGiaVe;

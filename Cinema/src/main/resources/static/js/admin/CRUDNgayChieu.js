@@ -4,6 +4,10 @@ app.controller('NgayChieuController', function ($scope, $http) {
     // Khởi tạo mảng phim
     $scope.items = [];
     $scope.form = {};
+    $scope.form.ngay = new Date();
+    $scope.updateDateTime = function() {
+        // Handle changes to the selectedDateTime if needed
+    };
     $scope.clear = {
         stt: '',
         phim: '',

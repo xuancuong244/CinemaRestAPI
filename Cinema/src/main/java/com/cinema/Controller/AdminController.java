@@ -14,7 +14,10 @@ public class AdminController {
     public String khachHang() {
         return "admin/khachHang";
     }
-
+    @RequestMapping("/DynamicCinema/admin/nhanVien")
+    public String nhanVien() {
+        return "admin/nhanVien";
+    }
     @RequestMapping("/DynamicCinema/admin/phim")
     public String phim() {
         return "admin/phim";
