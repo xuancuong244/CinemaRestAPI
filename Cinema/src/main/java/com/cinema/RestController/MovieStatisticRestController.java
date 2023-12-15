@@ -15,12 +15,12 @@ import java.util.List;
 @RestController
 @RequestMapping("/api/Statistic")
 public class MovieStatisticRestController {
-//    @Autowired
-//    MovieStatisticService movieStatisticService;
-//
-//    @GetMapping("/all")
-//    public ResponseEntity<?> doGetAll(){
-//        List<MovieStatistics> movieStatistics = movieStatisticService.getMovieStatistics();
-//        return ResponseEntity.ok(movieStatistics);
-//    }
+    @Autowired
+    MovieStatisticService movieStatisticService;
+
+    @GetMapping("/all")
+    public ResponseEntity<?> doGetAll(){
+        List<MovieStatistics> movieStatistics = movieStatisticService.getMovieStatistics();
+        return ResponseEntity.ok(movieStatistics);
+    }
 }

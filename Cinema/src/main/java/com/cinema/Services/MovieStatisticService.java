@@ -5,5 +5,5 @@ import com.cinema.Entity.MovieStatistics;
 import java.util.List;
 
 public interface MovieStatisticService {
-//    List<MovieStatistics> getMovieStatistics();
+    List<MovieStatistics> getMovieStatistics();
 }
