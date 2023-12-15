@@ -1,102 +1,314 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Cổng thanh toán</title>
-    <link rel="stylesheet" href="../../static/css/style__thanhtoan.css" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Style CSS  -->
+    <link rel="stylesheet" href="../css/style.css">
+    <!-- Style CSS  -->
+    <link rel="stylesheet" href="../css/style__header.css"/>
+    <!-- Style CSS  -->
+    <link rel="stylesheet" href="../css/style__navigation.css">
+    <!-- Style CSS  -->
+    <link rel="stylesheet" href="../css/style__cardItem.css">
+    <!-- Style CSS  -->
+    <link rel="stylesheet" href="../css/style__footer.css">
+    <!-- Font Chữ Web Phim Movie  -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200;300;400;500&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
-            href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&family=Oswald:wght@200;300;400;500;600;700&family=Overpass:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
-            rel="stylesheet"
-    />
-    <link
-            href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
-            rel="stylesheet"
-            integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
-            crossorigin="anonymous"
-    />
+            href="https://fonts.googleapis.com/css2?family=Oswald:wght@200;300;400;500&family=Source+Sans+3:ital,wght@0,200;0,300;0,400;0,500;0,600;1,200;1,300;1,400;1,500;1,600&display=swap"
+            rel="stylesheet">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <!-- CSS font-awesome  -->
+    <link rel="stylesheet" href="/css/font-awesome-4.7.0/css/font-awesome.min.css"/>
+    <title>Mua vé xem phim</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
-    <script src="../js/auth.js"></script>
+    <script src="../js/loadMovieByStatus.js"></script>
     <script src="../js/chiNhanh.js"></script>
 </head>
+
 <body>
-<div class="header__pay pb-2">
-    <div class="container mt-2">
-        <img src="../../static/img/logo/logo__momo.png" alt="" />
-        <p class="header__text">Cổng thanh toán MoMo</p>
-    </div>
-</div>
-<div class="pay__item mt-3">
-    <div class="container d-flex justify-content-center">
-        <!-- Thông tin vé chuẩn bị thanh toán  -->
-        <div class="col-3">
-            <div class="pay__thongtindonhang">
-                <p
-                        class="pay__textItem--thongtindonhang mt-3 ms-3"
-                        style="font-size: 26px"
-                >
-                    Thông tin đơn hàng
-                </p>
-                <!-- Nhà Cung cấp  -->
-                <div class="container">
-                    <p class="pay__textItem--thongtin ms-2 mb-2">Nhà cung cấp</p>
-                    <div class="pay__chinhanh pb-2">
-                        <div class="row">
-                            <div class="col-5 d-flex align-items-center">
-                                <img
-                                        src="../../static/img/logo/logo_thongtindonhang.png"
-                                        alt=""
-                                />
-                            </div>
-                            <div class="col-7">
-                                <b
-                                >CHI NHÁNH THÁI NGUYÊN - CÔNG TY CỔ PHẦN DYNAMIC ENERGY
-                                    MEDIA</b
-                                >
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- Mã đơn hàng  -->
-                <div class="container">
-                    <p class="pay__textItem--thongtin ms-2 mb-0 mt-2">Mã đơn hàng</p>
-                    <div class="pay__chinhanh pb-2 ms-2 mb-2">
-                        <b>be7c3b41-9b09-428f-a18b-00b147f14652</b>
-                    </div>
-                </div>
-                <!-- Mô tả  -->
-                <div class="container">
-                    <p class="pay__textItem--thongtin ms-2 mb-0 mt-2">Mô tả</p>
-                    <div class="pay__chinhanh pb-2 ms-2 mb-2">
-                        <b>Rạp DYNAMIC ENERGY Thái Nguyên</b>
-                    </div>
-                </div>
-                <!-- Số tiền  -->
-                <div class="container">
-                    <p class="pay__textItem--thongtin ms-2 mb-0 mt-2">Số tiền</p>
-                    <div class="pay__chinhanh pb-2 ms-2 mb-2" style="border: none">
-                        <b>50.000đ</b>
-                    </div>
-                </div>
-            </div>
-            <!-- Thời gian hàng  -->
-            <div class="pay__time mt-3">
-
+<!-- Header  -->
+<div class="container header">
+    <div class="row">
+        <!-- logo  -->
+        <div class="col-lg-3 col-md-6 col-12 header__logo">
+            <img src="../img/logo/Logo_Web.png" alt=""/>
+        </div>
+        <!-- Option  -->
+        <div class="col-lg-5 col-md-6 col-12 header__search">
+            <!-- Example single danger button -->
+            <div class="btn-group font__source">
+                <button onclick="loadData()" type="button" class="btn dropdown-toggle" data-bs-toggle="dropdown"
+                        aria-expanded="false"  >Tỉnh/Thành Phố
+                </button>
+                <ul id="myList" class="dropdown-menu" onclick="showHTML(event)">
+                    <!--                    <li><a class="dropdown-item" href="#">DEC TP.HCM</a></li>-->
+                    <!--                    <li><a class="dropdown-item" href="#">DEC HÀ NỘI</a></li>-->
+                    <!--                    <li><a class="dropdown-item" href="#">DEC ĐÀ NẴNG</a></li>-->
+                    <!--                    <li><a class="dropdown-item" href="#">DEC BẮC GIANG</a></li>-->
+                    <!--                    <li><a class="dropdown-item" href="#">DEC KHÁNH HÒA</a></li>-->
+                </ul>
             </div>
         </div>
-        <!-- QR Thanh Toán  -->
-        <div class="col-5">
-
+        <!-- Đăng Nhập đăng Ký  -->
+        <div class="col-lg-2 col-md-6 col-sm-6 text-start header__login justify-content-end">
+            <th:block th:unless="${#request.remoteUser}">
+                <a id="loginToggleBtn" class="btn btn__movie font__source"
+                   th:href="@{/security/login/form}"
+                   role="button">Đăng Nhập | Đăng Ký</a>
+            </th:block>
+            <th:block th:if="${#request.remoteUser}">
+                <span>Xin chào, <span th:text="${hoTen}"></span>!</span>
+                <!--                <a id="historyBtn" class="btn btn__movie font__source" th:href="@{/order/list}">Lịch Sử Đặt Vé</a>-->
+                <a id="logoutBtn" class="btn btn__movie font__source" th:href="@{/security/logoff}" role="button">Đăng Xuất</a>
+                <li class="nav-item" th:if="${#request.isUserInRole('DIRE')}"><a class="nav-link"
+                                                                                 th:href="@{/DynamicCinema/admin/index}">Admin</a>
+                </li>
+            </th:block>
+        </div>
+        <!-- Dịch tiếng việt tiếng anh  -->
+        <div class="col-lg-2 col-md-6 col-sm-6 header__language font justify-content-start p-0">
+            <a href=""><img src="../img/logo/language__logo.png" alt=""></a>
         </div>
     </div>
 </div>
-<script
-        src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
-        crossorigin="anonymous"
-></script>
+<!-- Navigatione Menu  -->
+<nav class=" navbar navbar-expand-lg navbar-light navigation">
+    <div class="container navigation__menu">
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse mb-2" id="navbarSupportedContent">
+            <ul class="d-flex justify-content-center navbar-nav nav nav-pills" id="pills-tab" role="tablist"
+                style="width: 100%;">
+                <li class="nav-item ms-3 font__oswald" role="presentation">
+                    <a style="text-decoration: none" href="http://localhost:8085/DynamicCinema/index">
+                        <button class="nav-link btn__nvgt active" id="pills-buyVe-tab" data-bs-toggle="pill"
+                                data-bs-target="#pills-buyVe" type="button" role="tab" aria-controls="pills-home"
+                                aria-selected="true">
+                            LỊCH CHIẾU THEO RẠP
+                        </button>
+                    </a>
+                </li>
+                <li class="nav-item ms-3 font__oswald " role="presentation">
+                    <a style="text-decoration: none;list-style-type: none;color: black"
+                       href="http://localhost:8085/DynamicCinema/movies">
+                        <button class="nav-link btn__nvgt" id="pills-movie-tab" data-bs-toggle="pill"
+                                data-bs-target="#pills-movie" type="button" role="tab" aria-controls="pills-profile"
+                                aria-selected="false">
+                            PHIM
+                        </button>
+                    </a>
+                </li>
+                <li class="nav-item ms-3 font__oswald " role="presentation">
+                    <a style="text-decoration: none;list-style-type: none;color: black"
+                       href="http://localhost:8085/DynamicCinema/cinemaCorner">
+                        <button class="nav-link btn__nvgt" id="pills-contact-tab" data-bs-toggle="pill"
+                                data-bs-target="#pills-contact" type="button" role="tab" aria-controls="pills-contact"
+                                aria-selected="false">GÓC ĐIỆN ẢNH
+                        </button>
+                    </a>
+                </li>
+                <li class="nav-item ms-3 font__oswald " role="presentation">
+                    <a style="text-decoration: none;list-style-type: none;color: black"
+                       href="http://localhost:8085/DynamicCinema/event">
+                        <button class="nav-link btn__nvgt" id="pills-suKien-tab" data-bs-toggle="pill"
+                                data-bs-target="#pills-suKien" type="button" role="tab" aria-controls="pills-hiubeba"
+                                aria-selected="false">SỰ KIỆN
+                        </button>
+                    </a>
+                </li>
+                <li class="nav-item ms-3 font__oswald " role="presentation">
+                    <a style="text-decoration: none;list-style-type: none;color: black"
+                       href="http://localhost:8085/DynamicCinema/priceTicket">
+                        <button class="nav-link btn__nvgt" id="pills-rap-tab" data-bs-toggle="pill"
+                                data-bs-target="#pills-rap" type="button" role="tab" aria-controls="pills-hiubeba"
+                                aria-selected="false">
+                            RẠP/GIÁ VÉ
+                        </button>
+                    </a>
+                </li>
+                <li class="nav-item ms-3 font__oswald " role="presentation">
+                    <a style="text-decoration: none;list-style-type: none;color: black"
+                       href="http://localhost:8085/DynamicCinema/support">
+                        <button class="nav-link btn__nvgt" id="pills-support-tab" data-bs-toggle="pill"
+                                data-bs-target="#pills-support" type="button" role="tab" aria-controls="pills-hiubeba"
+                                aria-selected="false">HỖ TRỢ
+                        </button>
+                    </a>
+                </li>
+                <li class="nav-item ms-3 font__oswald " role="presentation">
+                    <a style="text-decoration: none;list-style-type: none;color: black"
+                       href="http://localhost:8085/DynamicCinema/member">
+                        <button class="nav-link btn__nvgt" id="pills-thanhvien-tab" data-bs-toggle="pill"
+                                data-bs-target="#pills-thanhvien" type="button" role="tab" aria-controls="pills-hiubeba"
+                                aria-selected="false">THÀNH VIÊN
+                        </button>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<!-- Card item movie  -->
+<div class="tab-content" id="pills-tabContent">
+    <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
+        <!-- Hiển thị thông báo thanh toán thành công -->
+        <div id="paymentSuccess" class="container mt-3">
+            <h2>Thanh toán thành công!</h2>
+            <p>Cảm ơn bạn đã sử dụng dịch vụ của chúng tôi.</p>
+            <!-- Hiển thị thông tin từ localStorage -->
+            <div class="mt-3">
+                <p><strong>Tên Khách Hàng:</strong><p th:text="${customerName}"></p></p>
+                <p style="display: flex"><strong>SĐT Khách Hàng:</strong><p th:text="${customerPhone}"></p></p>
+                <p style="display: flex"><strong>Email Khách Hàng:</strong><p th:text="${customerEmail}"></p></p>
+            </div>
+            <div id="paymentDetails" class="mt-3">
+                <!-- Thêm các phần tử HTML để hiển thị thông tin hóa đơn -->
+            </div>
+        </div>
+    </div>
+</div>
+<div>
+    <div class="tab-pane fade" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab">
+        <h2>Góc Điện Ảnh</h2>
+    </div>
+    <div class="tab-pane fade" id="pills-suKien" role="tabpanel" aria-labelledby="pills-suKien-tab">
+        <h2>Sự Kiện</h2>
+    </div>
+    <div class="tab-pane fade" id="pills-rap" role="tabpanel" aria-labelledby="pills-rap-tab">
+        <h2>Rạp/Giá Vé</h2>
+    </div>
+    <div class="tab-pane fade" id="pills-support" role="tabpanel" aria-labelledby="pills-support-tab">
+        <h2>Hỗ Trợ</h2>
+    </div>
+    <div class="tab-pane fade" id="pills-thanhvien" role="tabpanel" aria-labelledby="pills-thanhvien-tab">
+        <h2>Thành Viên</h2>
+    </div>
+</div>
+<!-- Footer  -->
+<footer class="">
+    <div class="container footer">
+        <div class="row  font__source">
+            <div class="footer__logo col-lg-4 col-md-6 col-12">
+                <img src="../img/logo/footer__logo.png" alt="">
+                <div class="footer--menu text-center">
+                    <ul>
+                        <li><a href="#">Tuyển dụng</a></li>
+                        <li><a href="#">Giới thiệu</a></li>
+                        <li><a href="#">Liên hệ</a></li>
+                        <li><a href="#">Điều khoản sử dụng</a></li>
+                        <li><a href="#">Liên hệ quảng cáo</a></li>
+                        <li><a href="#">Điều khoản bảo mật</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer__list-Address col-lg-4 col-md-6 col-12">
+                <h4>ĐỊA CHỈ RẠP PHIM TOÀN QUỐC</h4>
+                <div class="footer--menu">
+                    <ul>
+                        <li><a href="#">Dynamic Energy Cinemas TP. HCM</a></li>
+                        <li><a href="#">Dynamic Energy Cinemas Hà Nội</a></li>
+                        <li><a href="#">Dynamic Energy Cinemas Đà Nẵng</a></li>
+                        <li><a href="#">Dynamic Energy Cinemas Bắc Giang</a></li>
+                        <li><a href="#">Dynamic Energy Cinemas Khánh Hòa</a></li>
+                        <!-- <li><a href="#">Điều khoản bảo mật</a></li> -->
+                    </ul>
+                </div>
+            </div>
+            <div class="footer__list-Address col-lg-4 col-md-6 col-12 text-center ">
+                <h4>Kết nối với chúng tôi</h4>
+                <div class="footer__connection text-center"></div>
+            </div>
+        </div>
+    </div>
+</footer>
+<!-- Separate Popper and Bootstrap JS -->
+<script src="../js/auth.js"></script>
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        // Lấy thông tin ngày chiếu từ localStorage
+        const selectedDateTime = JSON.parse(localStorage.getItem('selectedDateTime'));
+
+        // Lấy thông tin Phim từ localStorage
+        const selectedMovieInfo = JSON.parse(localStorage.getItem('selectedMovie'));
+
+        // Lấy thông tin ghế từ localStorage
+        const selectedSeatsInfo = JSON.parse(localStorage.getItem('selectedSeats'));
+        // Lấy thông tin chi nhánh từ localStorage
+        const selectedBranch = JSON.parse(localStorage.getItem('selectedBranch'));
+
+        // Lấy thông tin topping từ localStorage
+        const selectedToppings = JSON.parse(localStorage.getItem('selectedToppings'));
+
+
+
+        // Hiển thị thông tin đã chọn trong console
+        console.log("Ngày chiếu đã chọn:", selectedDateTime.date);
+        console.log("Suất chiếu đã chọn:", selectedDateTime.showtime);
+        console.log("SelectedSeatsInfo:", selectedSeatsInfo);
+
+        // Hiển thị thông tin hóa đơn từ localStorage
+        displayPaymentDetails(selectedToppings);
+        calculateTotal();
+
+        function displayPaymentDetails(selectedToppings) {
+            const paymentDetailsContainer = document.getElementById('paymentDetails');
+
+            if (selectedSeatsInfo) {
+            // Thêm mã HTML để hiển thị thông tin hóa đơn
+            paymentDetailsContainer.innerHTML = `
+                <!-- Các phần tử HTML để hiển thị thông tin hóa đơn -->
+                <p><strong>Phim:</strong> ${selectedMovieInfo.tenPhim}</p>
+                <p><strong>Ngày chiếu:</strong> ${selectedDateTime.date}</p>
+                <p><strong>Suất chiếu:</strong> ${selectedDateTime.showtime}</p>
+                <p><strong>Rạp chiếu:</strong> ${selectedBranch.tenChiNhanh}</p>
+                <!-- Thêm thông tin ghế và giá ghế -->
+            <div class="mt-3">
+                <p><strong>Thông tin ghế:</strong></p>
+                <ul>
+                    ${selectedSeatsInfo.map(seatInfo => `<li>${seatInfo.seat} (${seatInfo.seatType}): ${formatCurrency(getSeatPrice(seatInfo.seatType))}</li>`).join('')}
+                </ul>
+            </div>
+
+            <!-- Thêm thông tin topping và giá topping -->
+            <div class="mt-3">
+                <p><strong>Thông tin topping:</strong></p>
+                <ul>
+                    ${selectedToppings.map(toppingInfo => `<li>${toppingInfo.name}: ${formatCurrency(toppingInfo.price)} x ${toppingInfo.quantity}</li>`).join('')}
+                </ul>
+            </div>
+
+            <!-- Thêm tổng tiền, tiền ghế và tiền topping -->
+            <div class="mt-3">
+                <p><strong>Tổng tiền ghế:</strong> <span id="totalSeats" class="text-danger" style="font-weight: bold">0 vnđ</span></p>
+                <p><strong>Tổng tiền topping:</strong> <span id="total" class="text-danger" style="font-weight: bold">0 vnđ</span></p>
+                <p><strong>Tổng tiền cần thanh toán:</strong> <span id="Alltotal" class="text-danger" style="font-weight: bold">0 vnđ</span></p>
+            </div>
+
+            `;
+        }}
+    });
+</script>
+<script src="../js/js_tangGiamSL.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"
+        integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p"
+        crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"
+        integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF"
+        crossorigin="anonymous"></script>
 </body>
+
 </html>

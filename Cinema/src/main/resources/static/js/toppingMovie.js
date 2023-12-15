@@ -13,6 +13,8 @@ document.addEventListener('DOMContentLoaded', function () {
     // Lấy thông tin thể loại phim đã được lưu trong localStorage
     const selectedGenres = JSON.parse(localStorage.getItem('selectedGenres'));
 
+
+
     // Hiển thị thông tin đã chọn trong console
     console.log("Ngày chiếu đã chọn:", selectedDateTime.date);
     console.log("Suất chiếu đã chọn:", selectedDateTime.showtime);
@@ -164,8 +166,8 @@ document.addEventListener('DOMContentLoaded', function () {
                             </div>
                             <div class="col-6">
                                 <a href="http://localhost:8085/DynamicCinema/thanhtoan">
-                                <button class="btn btn-login font__oswald" style="width: 95%;">
-                                    TIẾP TỤC
+                                <button id="paymentButton" class="btn btn-login font__oswald" style="width: 95%;">
+                                    THANH TOÁN
                                 </button>
                                 </a>
                             </div>

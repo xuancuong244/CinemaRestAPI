@@ -73,11 +73,11 @@
                    role="button">Đăng Nhập | Đăng Ký</a>
             </th:block>
             <th:block th:if="${#request.remoteUser}">
-                <span>Xin chào, <span th:text="${#request.userPrincipal.name}"></span>!</span>
-                <a id="historyBtn" class="btn btn__movie font__source" th:href="@{/order/list}">Lịch Sử Đặt Vé</a>
-                <a id="logoutBtn" class="btn btn__movie font__source" th:href="@{/security/logoff}">Đăng Xuất</a>
+                <span>Xin chào, <span th:text="${hoTen}"></span>!</span>
+                <!--                <a id="historyBtn" class="btn btn__movie font__source" th:href="@{/order/list}">Lịch Sử Đặt Vé</a>-->
+                <a id="logoutBtn" class="btn btn__movie font__source" th:href="@{/security/logoff}" role="button">Đăng Xuất</a>
                 <li class="nav-item" th:if="${#request.isUserInRole('DIRE')}"><a class="nav-link"
-                                                                                 th:href="@{/admin/home/index}">Admin</a>
+                                                                                 th:href="@{/DynamicCinema/admin/index}">Admin</a>
                 </li>
             </th:block>
         </div>

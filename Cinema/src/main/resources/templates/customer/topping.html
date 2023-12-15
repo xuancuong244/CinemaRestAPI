@@ -64,11 +64,11 @@
                    role="button">Đăng Nhập | Đăng Ký</a>
             </th:block>
             <th:block th:if="${#request.remoteUser}">
-                <span>Xin chào, <span th:text="${#request.userPrincipal.name}"></span>!</span>
-                <a id="historyBtn" class="btn btn__movie font__source" th:href="@{/order/list}">Lịch Sử Đặt Vé</a>
-                <a id="logoutBtn" class="btn btn__movie font__source" th:href="@{/security/logoff}">Đăng Xuất</a>
+                <span style="display: flex">Xin chào, <span th:text="${hoTen}"></span>!</span>
+                <!--                <a id="historyBtn" class="btn btn__movie font__source" th:href="@{/order/list}">Lịch Sử Đặt Vé</a>-->
+                <a id="logoutBtn" class="btn btn__movie font__source" th:href="@{/security/logoff}" role="button">Đăng Xuất</a>
                 <li class="nav-item" th:if="${#request.isUserInRole('DIRE')}"><a class="nav-link"
-                                                                                 th:href="@{/admin/home/index}">Admin</a>
+                                                                                 th:href="@{/DynamicCinema/admin/index}">Admin</a>
                 </li>
             </th:block>
         </div>
@@ -177,15 +177,15 @@
                     <div class="user row mt-3">
                         <div class="col-4">
                             <p class="m-0">Họ tên:</p>
-                            <p class="user__info" id="customerName"></p>
+                            <p class="user__info" th:text="${customerName}"></p>
                         </div>
                         <div class="col-4">
                             <p class="m-0">Số điện thoại:</p>
-                            <p class="user__info" id="customerPhone"></p>
+                            <p class="user__info" th:text="${customerPhone}"></p>
                         </div>
                         <div class="col-4">
                             <p class="m-0">Email:</p>
-                            <p class="user__info" id="customerEmail"></p>
+                            <p class="user__info" th:text="${customerEmail}"></p>
                         </div>
                     </div>
                 </div>
@@ -239,7 +239,7 @@
                         </tr>
                         </thead>
                         <tbody>
-                        <tr>
+                        <tr data-name="Combo See Mê - Cầu Vồng">
                             <th scope="row"><img src="../img/logo/Combo1.png" alt=""></th>
                             <td>Combo See Mê - Cầu Vồng</td>
                             <td>
@@ -253,7 +253,7 @@
                                 </div>
                             </td>
                         </tr>
-                        <tr>
+                        <tr data-name="Sweet Combo 69ozt">
                             <th scope="row"><img src="../img/logo/Combo2.png" alt=""></th>
                             <td>Sweet Combo 69ozt</td>
                             <td>
@@ -268,7 +268,7 @@
                                 </div>
                             </td>
                         </tr>
-                        <tr>
+                        <tr data-name="Beta Combo 69oz">
                             <th scope="row"><img src="../img/logo/Combo3.png" alt=""></th>
                             <td>Beta Combo 69oz</td>
                             <td>
@@ -283,7 +283,7 @@
                                 </div>
                             </td>
                         </tr>
-                        <tr>
+                        <tr data-name="Family Combo 69oz">
                             <th scope="row"><img src="../img/logo/Combo4.png" alt=""></th>
                             <td>Family Combo 69oz</td>
                             <td>
