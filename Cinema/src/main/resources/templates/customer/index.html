@@ -45,7 +45,7 @@
             <img src="../img/logo/Logo_Web.png" alt=""/>
         </div>
         <!-- Option  -->
-        <div class="col-lg-5 col-md-6 col-12 header__search">
+        <div class="col-lg-4 col-md-6 col-12 header__search">
             <!-- Example single danger button -->
             <div class="btn-group font__source">
                 <button onclick="loadData()" type="button" class="btn dropdown-toggle" data-bs-toggle="dropdown"
@@ -57,7 +57,7 @@
             </div>
         </div>
 
-        <div class="col-lg-2 col-md-6 col-sm-6 text-start header__login justify-content-end">
+        <div class="col-lg-5 col-md-6 col-sm-6 text-start header__login justify-content-end">
             <th:block th:unless="${#request.remoteUser}">
                 <a id="loginToggleBtn" class="btn btn__movie font__source"
                    th:href="@{/security/login/form}"
@@ -67,8 +67,8 @@
                 <span style="font-size: 15px">Xin chào, <span style="font-weight: bold" th:text="${hoTen}"></span>!</span>
 <!--                <a id="historyBtn" class="btn btn__movie font__source" th:href="@{/order/list}">Lịch Sử Đặt Vé</a>-->
                 <a id="logoutBtn" class="btn btn__movie font__source" th:href="@{/security/logoff}" role="button" style="font-size: 15px">Đăng Xuất</a>
-                <li class="nav-item" th:if="${#request.isUserInRole('DIRE')}"><a class="nav-link"
-                                                                                 th:href="@{/DynamicCinema/admin/index}" style="font-size: 15px">Admin</a>
+                <li class="nav-item" th:if="${#request.isUserInRole('DIRE')}" style="list-style: none;">
+                    <a class="nav-link" th:href="@{/DynamicCinema/admin/index}" style="font-size: 15px">Admin</a>
                 </li>
             </th:block>
         </div>
@@ -203,9 +203,7 @@
         <!--            </th:block>-->
         <!--        </div>-->
         <!-- Dịch tiếng việt tiếng anh  -->
-        <div class="col-lg-2 col-md-6 col-sm-6 header__language font justify-content-start p-0">
-            <a href=""><img src="../img/logo/language__logo.png" alt=""></a>
-        </div>
+
     </div>
 </div>
 <!-- Navigatione Menu  -->
