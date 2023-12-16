@@ -47,14 +47,14 @@ public class Phim {
     @Column(name = "ngay_khoi_chieu")
     private Date ngayKhoiChieu;
 
-//    @JsonIgnore
-//    @OneToMany(mappedBy = "phim")
-//    private List<ChiTietPhim> chiTietPhimList;
-//
-//    // Thêm phương thức getter cho trường theLoai
-//    public List<TheLoaiPhim> getTheLoai() {
-//        return chiTietPhimList.stream()
-//                .map(ChiTietPhim::getTheLoaiPhim)
-//                .collect(Collectors.toList());
-//    }
+    @JsonIgnore
+    @OneToMany(mappedBy = "phim")
+    private List<ChiTietPhim> chiTietPhimList;
+
+    // Thêm phương thức getter cho trường theLoai
+    public List<TheLoaiPhim> getTheLoai() {
+        return chiTietPhimList.stream()
+                .map(ChiTietPhim::getTheLoaiPhim)
+                .collect(Collectors.toList());
+    }
 }

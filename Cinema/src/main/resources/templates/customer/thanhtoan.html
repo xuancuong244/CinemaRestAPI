@@ -409,21 +409,24 @@
     document.addEventListener('DOMContentLoaded', function () {
         // Lấy thông tin ngày chiếu từ localStorage
         const selectedDateTime = JSON.parse(localStorage.getItem('selectedDateTime'));
-
         // Lấy thông tin Phim từ localStorage
         const selectedMovieInfo = JSON.parse(localStorage.getItem('selectedMovie'));
-
+        const selectedVeInfo = JSON.parse(localStorage.getItem('randomNumber'));
         // Lấy thông tin ghế từ localStorage
         const selectedSeatsInfo = JSON.parse(localStorage.getItem('selectedSeats'));
         // Lấy thông tin chi nhánh từ localStorage
         const selectedBranch = JSON.parse(localStorage.getItem('selectedBranch'));
 
+
         // Lấy thông tin topping từ localStorage
         // const selectedToppings = JSON.parse(localStorage.getItem('selectedToppings'));
         // console.log("Topping đã chọn:",selectedToppings);
         function generateRandomCode() {
-            const randomNumber = Math.floor(100000 + Math.random() * 900000); // Tạo số ngẫu nhiên từ 100000 đến 999999
+            const randomNumber = Math.floor(100000 + Math.random() * 900000);
+
+            localStorage.setItem('randomNumber', JSON.stringify(selectedVeInfo));// Tạo số ngẫu nhiên từ 100000 đến 999999
             return `MV${randomNumber}`;
+
         }
 
         // Bắt sự kiện khi nút "Tải về PDF" được click
@@ -529,10 +532,41 @@
                 document.getElementById('Alltotal').innerText = formatCurrency(allTotal);
         }else {
                 console.error("Không tìm thấy phần tử với id 'paymentDetails'");
-            }}
+            }
 
+        }
 
+        if (selectedDateTime && selectedMovieInfo && selectedSeatsInfo && selectedBranch) {
+            const requestData = {
+                data: {
+                    selectedDateTime,
+                    selectedMovieInfo,
+                    selectedSeatsInfo,
+                    selectedBranch
+                }
+            };
+            // Gửi dữ liệu qua API
+            fetch('/api/ThongKe/all', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(requestData),
+            })
+                .then(response => response.json())
+                .then(data => {
+                    // Xử lý phản hồi từ API nếu cần
+                    console.log(data);
+                })
+                .catch(error => {
+                    console.error('Lỗi:', error);
+                });
+        } else {
+            console.error('Dữ liệu localStorage không tìm thấy');
+        }
     });
+
+
 </script>
 
 <script src="../js/js_tangGiamSL.js"></script>
