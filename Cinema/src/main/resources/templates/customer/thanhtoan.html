@@ -34,6 +34,13 @@
     <title>Mua vé xem phim</title>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.5/FileSaver.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.68/pdfmake.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.68/vfs_fonts.js"></script>
+    <!-- Thư viện DOMPurify -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/dompurify/2.3.4/purify.min.js"></script>
+    <script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
+
     <script src="../js/chiNhanh.js"></script>
 </head>
 
@@ -164,12 +171,16 @@
             <p class="text-center">Cảm ơn bạn đã sử dụng dịch vụ của chúng tôi.</p>
             <!-- Hiển thị thông tin từ localStorage -->
             <div class="mt-3">
-                <p><strong>Tên Khách Hàng:</strong><span th:text="${customerName}"></span></p>
-                <p style="display: flex"><strong>SĐT Khách Hàng:</strong><span th:text="${customerPhone}"></span></p>
-                <p style="display: flex"><strong>Email Khách Hàng:</strong><span th:text="${customerEmail}"></span></p>
+                <p><strong>Tên Khách Hàng: </strong><span th:text="${customerName}"></span></p>
+                <p style="display: flex"><strong>SĐT Khách Hàng: </strong><span th:text="${customerPhone}"></span></p>
+                <p style="display: flex"><strong>Email Khách Hàng: </strong><span th:text="${customerEmail}"></span></p>
             </div>
             <div id="paymentDetails" class="mt-3">
                 <!-- Thêm các phần tử HTML để hiển thị thông tin hóa đơn -->
+            </div>
+            <div class="mt-3">
+                <button id="downloadPdfBtn" class="btn btn-primary mt-3">Tải về PDF</button>
+                <button id="downloadImageBtn" class="btn btn-success mt-3">Tải về Hình ảnh</button>
             </div>
         </div>
     </div>
@@ -393,6 +404,7 @@
 </footer>
 <!-- Separate Popper and Bootstrap JS -->
 <script src="../js/auth.js"></script>
+
 <script>
     document.addEventListener('DOMContentLoaded', function () {
         // Lấy thông tin ngày chiếu từ localStorage
@@ -409,7 +421,59 @@
         // Lấy thông tin topping từ localStorage
         // const selectedToppings = JSON.parse(localStorage.getItem('selectedToppings'));
         // console.log("Topping đã chọn:",selectedToppings);
+        function generateRandomCode() {
+            const randomNumber = Math.floor(100000 + Math.random() * 900000); // Tạo số ngẫu nhiên từ 100000 đến 999999
+            return `MV${randomNumber}`;
+        }
 
+        // Bắt sự kiện khi nút "Tải về PDF" được click
+        document.getElementById('downloadPdfBtn').addEventListener('click', function () {
+            createAndDownloadPDF();
+        });
+
+        // Bắt sự kiện khi nút "Tải về Hình ảnh" được click
+        document.getElementById('downloadImageBtn').addEventListener('click', function () {
+            createAndDownloadImage();
+        });
+
+        function createAndDownloadPDF() {
+            const element = document.getElementById('paymentSuccess');
+
+            if (element) {
+                // Lấy nội dung văn bản từ phần tử
+                const textContent = element.innerText;
+
+                // Tạo định dạng PDF
+                const pdfDocDefinition = {
+                    content: [
+                        { text: 'Thanh toán thành công!', style: 'header' },
+                        { text: textContent.replace('Thanh toán thành công!', ''), style: 'body' }
+                    ],
+                    styles: {
+                        header: { fontSize: 18, bold: true, alignment: 'center' },
+                        body: { fontSize: 12 }
+                    }
+                };
+
+                // Tạo và tải về PDF
+                pdfMake.createPdf(pdfDocDefinition).download('Payment_Success.pdf');
+            } else {
+                console.error("Không tìm thấy phần tử với id 'paymentSuccess'");
+            }
+        }
+
+        function createAndDownloadImage() {
+            const element = document.getElementById('paymentSuccess');
+            html2canvas(element).then(function (canvas) {
+                const image = canvas.toDataURL('image/png');
+                const link = document.createElement('a');
+                link.href = image;
+                link.download = 'Payment_Success.png';
+                link.click();
+            });
+        }
+
+        const randomCode = generateRandomCode();
 
         // Hiển thị thông tin đã chọn trong console
         console.log("Ngày chiếu đã chọn:", selectedDateTime.date);
@@ -417,23 +481,25 @@
         console.log("SelectedSeatsInfo:", selectedSeatsInfo);
 
         // Hiển thị thông tin hóa đơn từ localStorage
-        displayPaymentDetails();
+        displayPaymentDetails(randomCode);
         calculateTotal();
 
-        function displayPaymentDetails() {
+
+        function displayPaymentDetails(randomCode) {
             const paymentDetailsContainer = document.getElementById('paymentDetails');
 
             if (selectedSeatsInfo) {
             // Thêm mã HTML để hiển thị thông tin hóa đơn
             paymentDetailsContainer.innerHTML = `
                 <!-- Các phần tử HTML để hiển thị thông tin hóa đơn -->
-                <p><strong>Phim:</strong> ${selectedMovieInfo.tenPhim}</p>
-                <p><strong>Ngày chiếu:</strong> ${selectedDateTime.date}</p>
-                <p><strong>Suất chiếu:</strong> ${selectedDateTime.showtime}</p>
-                <p><strong>Rạp chiếu:</strong> ${selectedBranch.tenChiNhanh}</p>
+                <p><strong>Mã vé: </strong> ${randomCode}</p>
+                <p><strong>Phim: </strong> ${selectedMovieInfo.tenPhim}</p>
+                <p><strong>Ngày chiếu: </strong> ${selectedDateTime.date}</p>
+                <p><strong>Suất chiếu: </strong> ${selectedDateTime.showtime}</p>
+                <p><strong>Rạp chiếu: </strong> ${selectedBranch.tenChiNhanh}</p>
                 <!-- Thêm thông tin ghế và giá ghế -->
             <div class="mt-3">
-                <p><strong>Thông tin ghế:</strong></p>
+                <p><strong>Thông tin ghế: </strong></p>
                 <ul>
                     ${selectedSeatsInfo.map(seatInfo => `<li>${seatInfo.seat} (${seatInfo.seatType}): ${formatCurrency(getSeatPrice(seatInfo.seatType))}</li>`).join('')}
                 </ul>
@@ -468,6 +534,7 @@
 
     });
 </script>
+
 <script src="../js/js_tangGiamSL.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"
         integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p"
