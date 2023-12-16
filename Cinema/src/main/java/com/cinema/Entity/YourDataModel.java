@@ -9,14 +9,13 @@ import javax.persistence.Entity;
 
 @NoArgsConstructor
 @AllArgsConstructor
+@Getter
+@Setter
 public class YourDataModel {
-    private String data;
+    private String selectedDateTime;
+    private String selectedMovieInfo;
+    private String selectedSeatsInfo;
+    private String selectedBranch;
 
-    public String getData() {
-        return data;
-    }
 
-    public void setData(String data) {
-        this.data = data;
-    }
 }

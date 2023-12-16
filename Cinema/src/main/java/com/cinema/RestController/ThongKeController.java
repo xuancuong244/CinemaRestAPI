@@ -9,7 +9,7 @@ public class ThongKeController {
     @PostMapping("/api/ThongKe/all")
     public String receiveData(@RequestBody YourDataModel data) {
         // Xử lý dữ liệu ở đây, ví dụ: in ra console
-        System.out.println("Received data from client: " + data.getData());
+        System.out.println("Received data from client: " + data.getSelectedBranch());
 
         // Trả về phản hồi
         return "Data received successfully!";

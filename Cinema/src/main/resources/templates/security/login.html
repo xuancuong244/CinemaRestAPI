@@ -7,9 +7,10 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Đăng Nhập</title>
         <link rel="stylesheet" href="/css/login.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
     </head>
 
-    <body>
+    <body ng-app="myApp" ng-controller="TaiKhoanController">
     <div class="login-wrap">
         <form th:action="@{/security/login}" method="post">
             <div class="login-html">
@@ -44,21 +45,57 @@
                         </div>
                     </div>
                     <div class="sign-up-htm">
-                        <div class="group">
-                            <label for="user" class="label">Tài Khoản</label> <input id="user" type="text"
-                                                                                    class="input">
+                        <div class="CRUD">
+                            <div class="CRUD-body">
+                                <div class="coolinput">
+                                    <label for="input" class="text">E-mail</label>
+                                    <input type="text" class="input">
+                                </div>
+                            </div>
+                            <div class="CRUD-body">
+                                <div class="coolinput">
+                                    <label for="input" class="text">Mật khẩu</label>
+                                    <input type="text" class="input" >
+                                </div>
+                            </div>
+
+                            <div class="CRUD-body">
+                                <div class="coolinput">
+                                    <label for="input" class="text">Họ và tên</label>
+                                    <input type="text" class="input">
+                                </div>
+                            </div>
+
+                            <div class="CRUD-body">
+                                <div class="coolinput">
+                                    <label for="input" class="text">Số điện thoại</label>
+                                    <input type="text" class="input">
+                                </div>
+                            </div>
+
+                            <div class="CRUD-body">
+                                <div class="radio-gender">
+                                    <div class="radio-button">
+                                        <input type="radio" class="radio-button__input" id="radio1" name="radio-group"
+                                                ng-value="true" checked>
+                                        <label class="radio-button__label" for="radio1">
+                                            <span class="radio-button__custom"></span>
+                                            Nam
+                                        </label>
+                                    </div>
+                                    <div class="radio-button">
+                                        <input type="radio" class="radio-button__input" id="radio3" name="radio-group"
+                                               ng-value="false">
+                                        <label class="radio-button__label" for="radio3">
+                                            <span class="radio-button__custom"></span>
+                                            Nữ
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                         <div class="group">
-                            <label for="pass" class="label">Mật Khẩu</label> <input id="pass" type="password"
-                                                                                    class="input" data-type="password">
-                        </div>
-                        <div class="group">
-                            <label for="pass" class="label">Nhập Lại Mật Khẩu</label> <input id="passConfig" type="password"
-                                                                                           class="input"
-                                                                                           data-type="password">
-                        </div>
-                        <div class="group">
-                            <input type="submit" class="button" value="Sign Up">
+                            <button class="btn new" >Đăng ký</button>
                         </div>
                         <div class="hr"></div>
                         <div class="foot-lnk">
@@ -69,6 +106,8 @@
             </div>
         </form>
     </div>
+
+    <script src="/js/admin/CRUDTaiKhoan.js"></script>
     </body>
 </div>
 </html>
