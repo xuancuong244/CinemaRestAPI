@@ -50,23 +50,19 @@
             <img src="../img/logo/Logo_Web.png" alt=""/>
         </div>
         <!-- Option  -->
-        <div class="col-lg-5 col-md-6 col-12 header__search">
+        <div class="col-lg-4 col-md-6 col-12 header__search">
             <!-- Example single danger button -->
             <div class="btn-group font__source">
                 <button onclick="loadData()" type="button" class="btn dropdown-toggle" data-bs-toggle="dropdown"
-                        aria-expanded="false"  >Tỉnh/Thành Phố
+                        aria-expanded="false">Tỉnh/Thành Phố
                 </button>
                 <ul id="myList" class="dropdown-menu" onclick="showHTML(event)">
-                    <!--                    <li><a class="dropdown-item" href="#">DEC TP.HCM</a></li>-->
-                    <!--                    <li><a class="dropdown-item" href="#">DEC HÀ NỘI</a></li>-->
-                    <!--                    <li><a class="dropdown-item" href="#">DEC ĐÀ NẴNG</a></li>-->
-                    <!--                    <li><a class="dropdown-item" href="#">DEC BẮC GIANG</a></li>-->
-                    <!--                    <li><a class="dropdown-item" href="#">DEC KHÁNH HÒA</a></li>-->
+
                 </ul>
             </div>
         </div>
-        <!-- Đăng Nhập đăng Ký  -->
-        <div class="col-lg-2 col-md-6 col-sm-6 text-start header__login justify-content-end">
+
+        <div class="col-lg-5 col-md-6 col-sm-6 text-start header__login justify-content-end">
             <th:block th:unless="${#request.remoteUser}">
                 <a id="loginToggleBtn" class="btn btn__movie font__source"
                    th:href="@{/security/login/form}"
@@ -76,15 +72,10 @@
                 <span style="font-size: 15px">Xin chào, <span style="font-weight: bold" th:text="${hoTen}"></span>!</span>
                 <!--                <a id="historyBtn" class="btn btn__movie font__source" th:href="@{/order/list}">Lịch Sử Đặt Vé</a>-->
                 <a id="logoutBtn" class="btn btn__movie font__source" th:href="@{/security/logoff}" role="button" style="font-size: 15px">Đăng Xuất</a>
-                <li class="nav-item" th:if="${#request.isUserInRole('DIRE')}"><a class="nav-link"
-                                                                                 th:href="@{/DynamicCinema/admin/index}" style="font-size: 15px">Admin</a>
+                <li class="nav-item" th:if="${#request.isUserInRole('DIRE')}" style="list-style: none;">
+                    <a class="nav-link" th:href="@{/DynamicCinema/admin/index}" style="font-size: 15px">Admin</a>
                 </li>
             </th:block>
-        </div>
-        <!-- Dịch tiếng việt tiếng anh  -->
-        <div
-                class="col-lg-2 col-md-6 col-sm-6 header__language font justify-content-start p-0">
-            <a href=""><img src="../img/logo/language__logo.png" alt=""></a>
         </div>
     </div>
 </div>
@@ -215,7 +206,7 @@
                         <div id="xuatChieuList">
                             <a style="list-style-type: none;text-decoration: none;color: black"
                                href="http://localhost:8085/DynamicCinema/select">
-                                <button type="button" className="btn btn__time" id="showtimeButton">
+                                <button type="button" className="btn btn__time ms-3" id="showtimeButton">
 
                                 </button>
                             </a>
@@ -251,40 +242,218 @@
 <!-- Trailer -->
 
 <!-- Footer  -->
-<!-- Footer  -->
 <footer class="">
     <div class="container footer">
         <div class="row  font__source">
             <div class="footer__logo col-lg-4 col-md-6 col-12">
-                <img src="/img/logo/footer__logo.png" alt="">
-                <div class="footer--menu text-center">
-                    <ul>
-                        <li><a href="#">Tuyển dụng</a></li>
-                        <li><a href="#">Giới thiệu</a></li>
-                        <li><a href="#">Liên hệ</a></li>
-                        <li><a href="#">Điều khoản sử dụng</a></li>
-                        <li><a href="#">Liên hệ quảng cáo</a></li>
-                        <li><a href="#">Điều khoản bảo mật</a></li>
+                <img src="../img/logo/footer__logo.png" alt="">
+                <div class="footer--menu">
+                    <ul class="mt-3">
+                        <li><a style="text-transform: none;" href="#">
+                            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                 fill="none">
+                                <style>
+                                    @keyframes slide-17 {
+                                        to {
+                                            transform: translateX(2px)
+                                        }
+                                    }
+                                </style>
+                                <path fill="#0A0A30"
+                                      d="M11.039 17.692a.857.857 0 01-1.317-1.098L13.55 12 9.722 7.406a.857.857 0 111.317-1.098l4.276 5.132a.848.848 0 01.208.56.854.854 0 01-.208.56l-4.276 5.132z"
+                                      style="animation:slide-17 1s infinite alternate both cubic-bezier(1,-.01,0,.98)" />
+                            </svg>
+                            Tuyển dụng
+                        </a></li>
+                        <li><a style="text-transform: none;" href="#">
+                            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                 fill="none">
+                                <style>
+                                    @keyframes slide-17 {
+                                        to {
+                                            transform: translateX(2px)
+                                        }
+                                    }
+                                </style>
+                                <path fill="#0A0A30"
+                                      d="M11.039 17.692a.857.857 0 01-1.317-1.098L13.55 12 9.722 7.406a.857.857 0 111.317-1.098l4.276 5.132a.848.848 0 01.208.56.854.854 0 01-.208.56l-4.276 5.132z"
+                                      style="animation:slide-17 1s infinite alternate both cubic-bezier(1,-.01,0,.98)" />
+                            </svg>
+                            Giới thiệu
+                        </a></li>
+                        <li><a style="text-transform: none;" href="#">
+                            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                 fill="none">
+                                <style>
+                                    @keyframes slide-17 {
+                                        to {
+                                            transform: translateX(2px)
+                                        }
+                                    }
+                                </style>
+                                <path fill="#0A0A30"
+                                      d="M11.039 17.692a.857.857 0 01-1.317-1.098L13.55 12 9.722 7.406a.857.857 0 111.317-1.098l4.276 5.132a.848.848 0 01.208.56.854.854 0 01-.208.56l-4.276 5.132z"
+                                      style="animation:slide-17 1s infinite alternate both cubic-bezier(1,-.01,0,.98)" />
+                            </svg>
+                            Liên hệ
+                        </a></li>
+                        <li><a style="text-transform: none;" href="#">
+                            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                 fill="none">
+                                <style>
+                                    @keyframes slide-17 {
+                                        to {
+                                            transform: translateX(2px)
+                                        }
+                                    }
+                                </style>
+                                <path fill="#0A0A30"
+                                      d="M11.039 17.692a.857.857 0 01-1.317-1.098L13.55 12 9.722 7.406a.857.857 0 111.317-1.098l4.276 5.132a.848.848 0 01.208.56.854.854 0 01-.208.56l-4.276 5.132z"
+                                      style="animation:slide-17 1s infinite alternate both cubic-bezier(1,-.01,0,.98)" />
+                            </svg>
+                            Điều khoản sử dụng
+                        </a></li>
+                        <li><a style="text-transform: none;" href="#">
+                            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                 fill="none">
+                                <style>
+                                    @keyframes slide-17 {
+                                        to {
+                                            transform: translateX(2px)
+                                        }
+                                    }
+                                </style>
+                                <path fill="#0A0A30"
+                                      d="M11.039 17.692a.857.857 0 01-1.317-1.098L13.55 12 9.722 7.406a.857.857 0 111.317-1.098l4.276 5.132a.848.848 0 01.208.56.854.854 0 01-.208.56l-4.276 5.132z"
+                                      style="animation:slide-17 1s infinite alternate both cubic-bezier(1,-.01,0,.98)" />
+                            </svg>
+                            Liên hệ quảng cáo
+                        </a></li>
+                        <li><a style="text-transform: none;" href="#">
+                            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                 fill="none">
+                                <style>
+                                    @keyframes slide-17 {
+                                        to {
+                                            transform: translateX(2px)
+                                        }
+                                    }
+                                </style>
+                                <path fill="#0A0A30"
+                                      d="M11.039 17.692a.857.857 0 01-1.317-1.098L13.55 12 9.722 7.406a.857.857 0 111.317-1.098l4.276 5.132a.848.848 0 01.208.56.854.854 0 01-.208.56l-4.276 5.132z"
+                                      style="animation:slide-17 1s infinite alternate both cubic-bezier(1,-.01,0,.98)" />
+                            </svg>
+                            Điều khoản bảo mật
+                        </a></li>
                     </ul>
                 </div>
             </div>
             <div class="footer__list-Address col-lg-4 col-md-6 col-12">
-                <h4>ĐỊA CHỈ RẠP PHIM TOÀN QUỐC</h4>
-                <div class="footer--menu">
+                <div class="footer__title align-content-center">
+                    <h3>ĐỊA CHỈ RẠP PHIM TOÀN QUỐC</h3>
+                </div>
+                <div class="footer--menu mt-3">
                     <ul>
-                        <li><a href="#">Dynamic Energy Cinemas TP. HCM</a></li>
-                        <li><a href="#">Dynamic Energy Cinemas Hà Nội</a></li>
-                        <li><a href="#">Dynamic Energy Cinemas Đà Nẵng</a></li>
-                        <li><a href="#">Dynamic Energy Cinemas Bắc Giang</a></li>
-                        <li><a href="#">Dynamic Energy Cinemas Khánh Hòa</a></li>
+                        <li><a href="#">
+                            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                 fill="none">
+                                <style>
+                                    @keyframes slide-17 {
+                                        to {
+                                            transform: translateX(2px)
+                                        }
+                                    }
+                                </style>
+                                <path fill="#0A0A30"
+                                      d="M11.039 17.692a.857.857 0 01-1.317-1.098L13.55 12 9.722 7.406a.857.857 0 111.317-1.098l4.276 5.132a.848.848 0 01.208.56.854.854 0 01-.208.56l-4.276 5.132z"
+                                      style="animation:slide-17 1s infinite alternate both cubic-bezier(1,-.01,0,.98)" />
+                            </svg>
+                            Dynamic Energy Cinemas TP. HCM
+
+                        </a></li>
+                        <li><a href="#">
+                            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                 fill="none">
+                                <style>
+                                    @keyframes slide-17 {
+                                        to {
+                                            transform: translateX(2px)
+                                        }
+                                    }
+                                </style>
+                                <path fill="#0A0A30"
+                                      d="M11.039 17.692a.857.857 0 01-1.317-1.098L13.55 12 9.722 7.406a.857.857 0 111.317-1.098l4.276 5.132a.848.848 0 01.208.56.854.854 0 01-.208.56l-4.276 5.132z"
+                                      style="animation:slide-17 1s infinite alternate both cubic-bezier(1,-.01,0,.98)" />
+                            </svg>
+                            Dynamic Energy Cinemas Hà Nội
+
+                        </a></li>
+                        <li><a href="#">
+                            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                 fill="none">
+                                <style>
+                                    @keyframes slide-17 {
+                                        to {
+                                            transform: translateX(2px)
+                                        }
+                                    }
+                                </style>
+                                <path fill="#0A0A30"
+                                      d="M11.039 17.692a.857.857 0 01-1.317-1.098L13.55 12 9.722 7.406a.857.857 0 111.317-1.098l4.276 5.132a.848.848 0 01.208.56.854.854 0 01-.208.56l-4.276 5.132z"
+                                      style="animation:slide-17 1s infinite alternate both cubic-bezier(1,-.01,0,.98)" />
+                            </svg>
+                            Dynamic Energy Cinemas Đà Nẵng
+
+                        </a></li>
+                        <li><a href="#">
+                            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                 fill="none">
+                                <style>
+                                    @keyframes slide-17 {
+                                        to {
+                                            transform: translateX(2px)
+                                        }
+                                    }
+                                </style>
+                                <path fill="#0A0A30"
+                                      d="M11.039 17.692a.857.857 0 01-1.317-1.098L13.55 12 9.722 7.406a.857.857 0 111.317-1.098l4.276 5.132a.848.848 0 01.208.56.854.854 0 01-.208.56l-4.276 5.132z"
+                                      style="animation:slide-17 1s infinite alternate both cubic-bezier(1,-.01,0,.98)" />
+                            </svg>
+                            Dynamic Energy Cinemas Bắc Giang
+
+                        </a></li>
+                        <li><a href="#">
+                            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                 fill="none">
+                                <style>
+                                    @keyframes slide-17 {
+                                        to {
+                                            transform: translateX(2px)
+                                        }
+                                    }
+                                </style>
+                                <path fill="#0A0A30"
+                                      d="M11.039 17.692a.857.857 0 01-1.317-1.098L13.55 12 9.722 7.406a.857.857 0 111.317-1.098l4.276 5.132a.848.848 0 01.208.56.854.854 0 01-.208.56l-4.276 5.132z"
+                                      style="animation:slide-17 1s infinite alternate both cubic-bezier(1,-.01,0,.98)" />
+                            </svg>
+                            Dynamic Energy Cinemas Khánh Hòa
+
+                        </a></li>
                         <!-- <li><a href="#">Điều khoản bảo mật</a></li> -->
                     </ul>
                 </div>
             </div>
-            <div
-                    class="footer__list-Address col-lg-4 col-md-6 col-12 text-center ">
-                <h4>Kết nối với chúng tôi</h4>
-                <div class="footer__connection text-center"></div>
+            <div class="footer__list-Address col-lg-4 col-md-6 col-12">
+                <div class="footer__title">
+                    <h3>KẾT NỐI VỚI CHÚNG TÔI</h3>
+                </div>
+                <div class="footer__connection mt-3 ms-2">
+                    <a href=""><img src="../../static/img/logo/logo_fb.png" alt=""></a>
+                    <a class="ms-3" href=""><img src="../../static/img/logo/iconYTB.png" alt=""></a>
+                </div>
+                <div class="mt-3">
+                    <img src="../../static/img/logo/boCongThuong.png" alt="">
+                </div>
             </div>
         </div>
     </div>

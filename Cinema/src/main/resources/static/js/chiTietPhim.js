@@ -57,7 +57,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 // Tạo nút cho suất chiếu
                 var timeButton = document.createElement("button");
                 timeButton.type = "button";
-                timeButton.className = "btn btn__time";
+                timeButton.className = "btn btn__time ms-3";
                 timeButton.textContent = showtime.gioBatDau;
 
                 // Thêm sự kiện khi người dùng click vào nút suất chiếu
