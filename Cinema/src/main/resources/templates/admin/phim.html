@@ -223,8 +223,12 @@
                             <tr>
                                 <th scope="col">Mã phim</th>
                                 <th scope="col">Tên phim</th>
+                                <th scope="col">Diễn viên</th>
+                                <th scope="col">Năm sản xuất</th>
+                                <th scope="col">Đạo diễn</th>
                                 <th scope="col">Quốc gia</th>
                                 <th scope="col">Thời lượng</th>
+<!--                                <th scope="col">Mô tả</th>-->
                                 <th scope="col">Hình</th>
                                 <th scope="col">Trailer</th>
                                 <th scope="col"></th>
@@ -234,8 +238,12 @@
                             <tr ng-repeat="movie in items">
                                 <td>{{ movie.maPhim }}</td>
                                 <td>{{ movie.tenPhim }}</td>
+                                <td>{{ movie.dienVien }}</td>
+                                <td>{{ movie.namSX }}</td>
+                                <td>Đ{{ movie.daoDien }}</td>
                                 <td>{{ movie.quocGia }}</td>
                                 <td>{{ movie.thoiLuong }}</td>
+<!--                                <td >{{ movie.moTa }}</td>-->
                                 <td>{{ movie.hinh }}</td>
                                 <td>{{ movie.trailer }}</td>
                                 <td>

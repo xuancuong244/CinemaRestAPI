@@ -25,16 +25,16 @@ public class PhimRestController {
         return ResponseEntity.ok(phims);
     }
 
-    @GetMapping("/{maPhim}/theLoai")
-    public ResponseEntity<?> getGenresByMaPhim(@PathVariable String maPhim) {
-        Optional<Phim> phim = phimService.findById(maPhim);
-        if (phim.isPresent()) {
-            List<TheLoaiPhim> genres = phim.get().getTheLoai();
-            return ResponseEntity.ok(genres);
-        } else {
-            return ResponseEntity.notFound().build();
-        }
-    }
+//    @GetMapping("/{maPhim}/theLoai")
+//    public ResponseEntity<?> getGenresByMaPhim(@PathVariable String maPhim) {
+//        Optional<Phim> phim = phimService.findById(maPhim);
+//        if (phim.isPresent()) {
+//            List<TheLoaiPhim> genres = phim.get().getTheLoai();
+//            return ResponseEntity.ok(genres);
+//        } else {
+//            return ResponseEntity.notFound().build();
+//        }
+//    }
 
     @GetMapping("/{maPhim}")
     public ResponseEntity<?> getByMaPhim(@PathVariable String maPhim){

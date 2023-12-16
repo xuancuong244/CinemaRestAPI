@@ -47,7 +47,7 @@ public class NgayChieuServiceImpl implements NgayChieuService {
                 .orElseThrow(() -> new EntityNotFoundException("Không thể tìm Ngày chiếu với ID: " + stt));
 
         // Cập nhật thông tin Khách hàng
-        existingNgayChieu.setStt(updatedNgayChieu.getStt());
+//        existingNgayChieu.setStt(updatedNgayChieu.getStt());
         existingNgayChieu.setNgay(updatedNgayChieu.getNgay());
         existingNgayChieu.setPhim(updatedNgayChieu.getPhim());
         existingNgayChieu.setGioBatDau(updatedNgayChieu.getGioBatDau());
