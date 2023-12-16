@@ -407,8 +407,8 @@
         const selectedBranch = JSON.parse(localStorage.getItem('selectedBranch'));
 
         // Lấy thông tin topping từ localStorage
-        const selectedToppings = JSON.parse(localStorage.getItem('selectedToppings'));
-        console.log("Topping đã chọn:",selectedToppings);
+        // const selectedToppings = JSON.parse(localStorage.getItem('selectedToppings'));
+        // console.log("Topping đã chọn:",selectedToppings);
 
 
         // Hiển thị thông tin đã chọn trong console
@@ -417,10 +417,10 @@
         console.log("SelectedSeatsInfo:", selectedSeatsInfo);
 
         // Hiển thị thông tin hóa đơn từ localStorage
-        displayPaymentDetails(selectedToppings);
+        displayPaymentDetails();
         calculateTotal();
 
-        function displayPaymentDetails(selectedToppings) {
+        function displayPaymentDetails() {
             const paymentDetailsContainer = document.getElementById('paymentDetails');
 
             if (selectedSeatsInfo) {
@@ -440,17 +440,11 @@
             </div>
 
             <!-- Thêm thông tin topping và giá topping -->
-            <div class="mt-3">
-                <p><strong>Thông tin topping:</strong></p>
-                <ul>
-                    ${selectedToppings.map(toppingInfo => `<li>${toppingInfo.name}: ${formatCurrency(toppingInfo.price)} x ${toppingInfo.quantity}</li>`).join('')}
-                </ul>
-            </div>
 
             <!-- Thêm tổng tiền, tiền ghế và tiền topping -->
             <div class="mt-3">
                 <p><strong>Tổng tiền ghế:</strong> <span id="totalSeats" class="text-danger" style="font-weight: bold">0 vnđ</span></p>
-                <p><strong>Tổng tiền topping:</strong> <span id="total" class="text-danger" style="font-weight: bold">0 vnđ</span></p>
+<!--                <p><strong>Tổng tiền topping:</strong> <span id="total" class="text-danger" style="font-weight: bold">0 vnđ</span></p>-->
                 <p><strong>Tổng tiền cần thanh toán:</strong> <span id="Alltotal" class="text-danger" style="font-weight: bold">0 vnđ</span></p>
             </div>
 
@@ -460,16 +454,18 @@
                 const totalSeats = selectedSeatsInfo.reduce((total, seatInfo) => total + getSeatPrice(seatInfo.seatType), 0);
 
                 // Tính tổng tiền topping
-                const totalToppings = selectedToppings.reduce((total, toppingInfo) => total + (toppingInfo.price * toppingInfo.quantity), 0);
+                // const totalToppings = selectedToppings.reduce((total, toppingInfo) => total + (toppingInfo.price * toppingInfo.quantity), 0);
 
                 // Hiển thị tổng tiền, tiền ghế và tiền topping
                 document.getElementById('totalSeats').innerText = formatCurrency(totalSeats);
-                document.getElementById('total').innerText = formatCurrency(totalToppings);
-                const allTotal = totalSeats + totalToppings;
+                // document.getElementById('total').innerText = formatCurrency(totalToppings);
+                const allTotal = totalSeats;
                 document.getElementById('Alltotal').innerText = formatCurrency(allTotal);
         }else {
                 console.error("Không tìm thấy phần tử với id 'paymentDetails'");
             }}
+
+
     });
 </script>
 <script src="../js/js_tangGiamSL.js"></script>
