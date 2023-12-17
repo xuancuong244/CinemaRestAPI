@@ -52,7 +52,7 @@ document.addEventListener('DOMContentLoaded', function () {
         const seatTitle = document.createElement('p');
         seatTitle.classList.add('seatPrice__title');
         seatTitle.style.fontWeight = 'bold';
-        seatTitle.innerText = `GHẾ ${seatInfo.seatType.toUpperCase()}`;
+        seatTitle.innerText = `GHẾ ${seatInfo.seat.toUpperCase()} (${seatInfo.seatType})`;
         seatTitleCol.appendChild(seatTitle);
 
         const seatTextPriceCol = document.createElement('div');

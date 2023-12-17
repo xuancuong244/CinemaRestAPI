@@ -50,9 +50,9 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception{
         http.csrf().disable();
         http.authorizeRequests()
+                .antMatchers("/DynamicCinema/select/**").authenticated()
                 .antMatchers("/admin/**").hasRole("DIRE")
                 .antMatchers("/api/quyen").hasRole("DIRE")
-                .antMatchers("/payment/**").authenticated()
                 .anyRequest().permitAll();
 
         http.formLogin()

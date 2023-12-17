@@ -15,11 +15,6 @@
     <div class="form-container sign-up-container">
       <div class="formSignUp">
         <h1>Tạo tài khoản</h1>
-        <div class="social-container">
-          <a href="#" class="social"><i class="fab fa-facebook-f"></i></a>
-          <a href="#" class="social"><i class="fab fa-google-plus-g"></i></a>
-          <a href="#" class="social"><i class="fab fa-linkedin-in"></i></a>
-        </div>
         <span>hoặc sử dụng e-mail của bạn để đăng ký</span>
         <input type="text" placeholder="E-mail" ng-model="form.username" />
         <input type="text" placeholder="Mật khẩu" ng-model="form.matKhau" />
@@ -44,11 +39,6 @@
     <div class="form-container sign-in-container">
       <form th:action="@{/security/login}" method="post">
         <h1>Đăng nhập</h1>
-        <div class="social-container">
-          <a href="#" class="social"><i class="fab fa-facebook-f"></i></a>
-          <a href="#" class="social"><i class="fab fa-google-plus-g"></i></a>
-          <a href="#" class="social"><i class="fab fa-linkedin-in"></i></a>
-        </div>
         <span>hoặc sử dụng tài khoản của bạn</span>
         <input type="email" placeholder="E-mail" name="username" th:value="${username}" />
         <input type="password" placeholder="Mật khẩu" name="password" th:value="${password}" data-type="password" />
