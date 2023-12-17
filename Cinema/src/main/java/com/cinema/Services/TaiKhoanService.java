@@ -13,4 +13,11 @@ public interface TaiKhoanService {
     void save(TaiKhoan taiKhoan);
 
     Optional<TaiKhoan> findTaiKhoanByHoTen(String name);
+    boolean existsById(String username);
+
+    void deleteTaiKhoan(String username);
+
+    TaiKhoan updateTaiKhoan(String username, TaiKhoan updatedTaiKhoan);
+
+    TaiKhoan addTaiKhoan(TaiKhoan username);
 }

@@ -5,18 +5,23 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Suất chiếu</title>
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script src="/js/auth.js"></script>
+    <title>Khách Hàng</title>
+    <!-- Bootstrap CSS -->
+    <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous"> -->
+
 
     <!-- ======= Styles ====== -->
     <link rel="stylesheet" href="/css/style__admin.css">
     <link rel="stylesheet" href="/css/custom.css">
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
-    <script src="/js/admin/CRUDVe.js"></script>
 </head>
 
 <body ng-app="myApp">
 <!-- =============== Navigation ================ -->
-<div class="container" ng-controller="VeController">
+<div class="container" ng-controller="TaiKhoanController">
     <div class="navigation">
         <ul>
             <li>
@@ -38,20 +43,11 @@
             </li>
 
             <li>
-                <a href="http://localhost:8085/DynamicCinema/admin/khachHang">
+                <a href="http://localhost:8085/DynamicCinema/admin/TaiKhoan">
                         <span class="icon">
                             <ion-icon name="people-outline"></ion-icon>
                         </span>
                     <span class="title">Khách hàng</span>
-                </a>
-            </li>
-
-            <li>
-                <a href="http://localhost:8085/DynamicCinema/admin/nhanVien">
-                        <span class="icon">
-                            <ion-icon name="people-outline"></ion-icon>
-                        </span>
-                    <span class="title">Nhân Viên</span>
                 </a>
             </li>
 
@@ -65,15 +61,6 @@
             </li>
 
             <li>
-                <a href="http://localhost:8085/DynamicCinema/admin/suatChieu">
-                        <span class="icon">
-                            <ion-icon name="ticket-outline"></ion-icon>
-                        </span>
-                    <span class="title">Suất chiếu</span>
-                </a>
-            </li>
-
-            <li>
                 <a href="http://localhost:8085/DynamicCinema/admin/ngayChieu">
                         <span class="icon">
                             <ion-icon name="calendar-outline"></ion-icon>
@@ -82,39 +69,13 @@
                 </a>
             </li>
 
-            <li>
-                <a href="http://localhost:8085/DynamicCinema/admin/ve">
-                        <span class="icon">
-                            <ion-icon name="film-outline"></ion-icon>
-                        </span>
-                    <span class="title">Vé</span>
-                </a>
-            </li>
 
             <li>
-                <a href="http://localhost:8085/DynamicCinema/admin/topping">
-                        <span class="icon">
-                            <ion-icon name="ice-cream-outline"></ion-icon>
-                        </span>
-                    <span class="title">Topping</span>
-                </a>
-            </li>
-
-            <li>
-                <a href="http://localhost:8085/DynamicCinema/admin/quanLyHoaDon">
-                        <span class="icon">
-                            <ion-icon name="reader-outline"></ion-icon>
-                        </span>
-                    <span class="title">Hóa đơn</span>
-                </a>
-            </li>
-
-            <li>
-                <a id="logoutBtn" class="btn btn__movie font__source" href="http://localhost:8085/DynamicCinema/index">
+                <a th:href="@{/security/logoff}">
                         <span class="icon">
                             <ion-icon name="log-out-outline"></ion-icon>
                         </span>
-                    <span class="title">Đăng xuất</span>
+
                 </a>
             </li>
         </ul>
@@ -142,79 +103,116 @@
         <!-- ======================= CRUD ================== -->
         <div class="CRUDBox">
             <div class="CRUD">
-                <div class="CRUD-body">
-                    <div class="coolinput">
-                        <label for="input" class="text">ID Vé</label>
-                        <input type="text" placeholder="" name="input" class="input" ng-model="form.idVe">
+                <div class="CRUD-body" >
+                    <div class="coolinput" >
+                        <label class="text">E-mail</label>
+                        <input type="text" class="input" ng-model="form.username">
                     </div>
                 </div>
                 <div class="CRUD-body">
                     <div class="coolinput">
-                        <label for="input" class="text">Tên Khách Hàng</label>
-                        <input type="text" placeholder="" name="input" class="input" ng-model="form.khachHang.tenKH">
+                        <label for="input" class="text">Mật khẩu</label>
+                        <input type="text" class="input" ng-model="form.matKhau">
                     </div>
                 </div>
+
                 <div class="CRUD-body">
                     <div class="coolinput">
-                        <label for="input" class="text">Suất Chiếu</label>
-                        <input type="text" placeholder="" name="input" class="input" ng-model="form.xuatChieu.stt">
+                        <label for="input" class="text">Họ và tên</label>
+                        <input type="text" class="input" ng-model="form.hoTen">
                     </div>
                 </div>
+
                 <div class="CRUD-body">
                     <div class="coolinput">
-                        <label for="input" class="text">Ghế</label>
-                        <input type="text" placeholder="" name="input" class="input" ng-model="form.chiTietGhe.ghe.tenGhe">
+                        <label for="input" class="text">Số điện thoại</label>
+                        <input type="text" class="input" ng-model="form.soDT">
                     </div>
                 </div>
+
                 <div class="CRUD-body">
                     <div class="coolinput">
-                        <label for="input" class="text">Thuế VAT</label>
-                        <input type="text" placeholder="" name="input" class="input" ng-model="form.thueVAT">
+                        <label for="input" class="text">Địa chỉ</label>
+                        <input type="text" class="input" ng-model="form.diaChi">
                     </div>
                 </div>
+
                 <div class="CRUD-body">
-                    <div class="coolinput">
-                        <label for="input" class="text">Tổng Giá Vé</label>
-                        <input type="text" placeholder="" name="input" class="input" ng-model="form.tongGiaVe">
+                    <div class="radio-gender">
+                        <div class="radio-button">
+                            <input type="radio" class="radio-button__input" id="radio1" name="radio-group"
+                                   ng-model="form.gioiTinh" ng-value="true" checked>
+                            <label class="radio-button__label" for="radio1">
+                                <span class="radio-button__custom"></span>
+                                Nam
+                            </label>
+                        </div>
+                        <div class="radio-button">
+                            <input type="radio" class="radio-button__input" id="radio3" name="radio-group"
+                                   ng-model="form.gioiTinh" ng-value="false">
+                            <label class="radio-button__label" for="radio3">
+                                <span class="radio-button__custom"></span>
+                                Nữ
+                            </label>
+                        </div>
                     </div>
                 </div>
             </div>
+
+            <div ng-repeat="taikhoan in listOfTaiKhoan">
+                <!-- Other TaiKhoan details -->
+                <p>Username: {{ taikhoan.username }}</p>
+                <p>Ho Ten: {{ taikhoan.hoTen }}</p>
+
+                <!-- Display ChucVu details -->
+                <p>Chuc Vu: {{ taikhoan.quyens[0]?.chucVu?.tenCV }}</p>
+
+                <!-- If quyens is a list, you may need to iterate over it -->
+                <!--
+                <p>Chuc Vu:
+                    <span ng-repeat="quyen in taikhoan.quyens">{{ quyen.chucVu.tenCV }}</span>
+                </p>
+                -->
+
+            </div>
+
             <div class="btn-crud" style="text-align: center; margin-top: 20px;">
                 <button class="btn reset" ng-click="resetForm()">Làm mới</button>
-                <button class="btn new" ng-click="addVe()">Thêm</button>
-                <button class="btn fix" ng-click="editVe()">Sửa</button>
-                <button class="btn del" ng-click="delete(form.idVe)">Xóa</button>
+                <button class="btn new" ng-click="add()">Thêm</button>
+                <button class="btn fix" ng-click="edit()">Sửa</button>
+                <button class="btn del" ng-click="delete(form.maKH)">Xóa</button>
             </div>
         </div>
         <!-- ================ Order Details List ================= -->
         <div class="details">
             <div class="recentOrders">
                 <div class="cardHeader">
-                    <h2>VÉ</h2>
-                    <!--                            <a href="#" class="btn">View All</a>-->
+                    <h2>TÀI KHOẢN</h2>
                 </div>
 
-                <table class="table">
+                <table class="table" id="customerTable">
                     <thead>
                     <tr>
-                        <th scope="col">ID Vé</th>
-                        <th scope="col">Tên Khách Hàng</th>
-                        <th scope="col">Suất Chiếu</th>
-                        <th scope="col">Ghế</th>
-                        <th scope="col">Thuế VAT</th>
-                        <th scope="col">Tổng Giá Vé</th>
+                        <th scope="col">E-mail</th>
+                        <th scope="col">Mật khẩu</th>
+                        <th scope="col">Họ và tên</th>
+                        <th scope="col">Số điện thoại</th>
+                        <th scope="col">Giới tính</th>
+                        <th scope="col">Địa chỉ</th>
                         <th scope="col"></th>
                     </tr>
                     </thead>
 
                     <tbody style="text-align: center!important;">
-                    <tr ng-repeat="ve in items">
-                        <td>{{ve.idVe}}</td>
-                        <td>{{ve.khachHang.tenKH}}</td>
-                        <td>{{ve.xuatChieu.stt}}</td>
-                        <td>{{ve.chiTietGhe.ghe.tenGhe}}</td>
-                        <td>{{ve.thueVAT}}</td>
-                        <td>{{ve.tongGiaVe}}</td>
+
+                    <tr ng-repeat="taiKhoan in items">
+                        <td>{{ taiKhoan.username }}</td>
+                        <td>{{ taiKhoan.matKhau }}</td>
+                        <td>{{ taiKhoan.hoTen }}</td>
+                        <td>{{ taiKhoan.soDT }}</td>
+                        <td>{{ taiKhoan.gioiTinh ? 'Nam' : 'Nữ'}}</td>
+                        <td>{{ taiKhoan.diaChi }}</td>
+
                         <td>
                             <div class="btn-group btn-group-xs">
                                 <button class="btn btn-warning" ng-click="fillForm($index)">Sửa</button>
@@ -222,21 +220,22 @@
                         </td>
                         <td>
                             <div class="btn-group btn-group-xs">
-                                <button class="btn btn-warning" ng-click="delete(ve.idVe)">Xóa</button>
+                                <button class="btn btn-warning" ng-click="delete(taiKhoan.username)">Xóa</button>
                             </div>
                         </td>
                     </tr>
-
                     </tbody>
                 </table>
             </div>
-
         </div>
     </div>
 </div>
 
 <!-- =========== Scripts =========  -->
 <script src="/js/main.js"></script>
+<script src="/js/admin/CRUDTaiKhoan.js"></script>
+<!-- Option 1: Bootstrap Bundle with Popper -->
+
 
 <!-- ====== ionicons ======= -->
 <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>

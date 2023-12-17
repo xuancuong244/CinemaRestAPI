@@ -24,10 +24,10 @@
         <div class="navigation">
             <ul>
                 <li>
-                    <a href="#">
-<!--                       <span class="icon">-->
-<!--                        <ion-icon name="film-outline"></ion-icon>-->
-<!--                       </span>-->
+                    <a href="http://localhost:8085/DynamicCinema/index">
+                        <!--                       <span class="icon">&ndash;&gt;-->
+                        <!--                         <ion-icon name="film-outline"></ion-icon>-->
+                        <!--                      </span>-->
                         <span class="title">CINEMAS</span>
                     </a>
                 </li>
@@ -42,20 +42,11 @@
                 </li>
 
                 <li>
-                    <a href="http://localhost:8085/DynamicCinema/admin/khachHang">
+                    <a href="http://localhost:8085/DynamicCinema/admin/TaiKhoan">
                         <span class="icon">
                             <ion-icon name="people-outline"></ion-icon>
                         </span>
                         <span class="title">Khách hàng</span>
-                    </a>
-                </li>
-
-                <li>
-                    <a href="http://localhost:8085/DynamicCinema/admin/nhanVien">
-                        <span class="icon">
-                            <ion-icon name="people-outline"></ion-icon>
-                        </span>
-                        <span class="title">Nhân Viên</span>
                     </a>
                 </li>
 
@@ -69,14 +60,6 @@
                 </li>
 
                 <li>
-                    <a href="http://localhost:8085/DynamicCinema/admin/suatChieu">
-                        <span class="icon">
-                            <ion-icon name="ticket-outline"></ion-icon>
-                        </span>
-                        <span class="title">Suất chiếu</span>
-                    </a>
-                </li>
-                <li>
                     <a href="http://localhost:8085/DynamicCinema/admin/ngayChieu">
                         <span class="icon">
                             <ion-icon name="calendar-outline"></ion-icon>
@@ -85,38 +68,13 @@
                     </a>
                 </li>
 
-                <li>
-                    <a href="http://localhost:8085/DynamicCinema/admin/ve">
-                        <span class="icon">
-                            <ion-icon name="film-outline"></ion-icon>
-                        </span>
-                        <span class="title">Vé</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="http://localhost:8085/DynamicCinema/admin/topping">
-                        <span class="icon">
-                            <ion-icon name="ice-cream-outline"></ion-icon>
-                        </span>
-                        <span class="title">Topping</span>
-                    </a>
-                </li>
 
                 <li>
-                    <a href="http://localhost:8085/DynamicCinema/admin/quanLyHoaDon">
-                        <span class="icon">
-                            <ion-icon name="reader-outline"></ion-icon>
-                        </span>
-                        <span class="title">Hóa đơn</span>
-                    </a>
-                </li>
-
-                <li>
-                    <a href="#">
+                    <a th:href="@{/security/logoff}">
                         <span class="icon">
                             <ion-icon name="log-out-outline"></ion-icon>
                         </span>
-                        <span class="title">Đăng xuất</span>
+
                     </a>
                 </li>
             </ul>
@@ -223,12 +181,8 @@
                             <tr>
                                 <th scope="col">Mã phim</th>
                                 <th scope="col">Tên phim</th>
-                                <th scope="col">Diễn viên</th>
-                                <th scope="col">Năm sản xuất</th>
-                                <th scope="col">Đạo diễn</th>
                                 <th scope="col">Quốc gia</th>
                                 <th scope="col">Thời lượng</th>
-<!--                                <th scope="col">Mô tả</th>-->
                                 <th scope="col">Hình</th>
                                 <th scope="col">Trailer</th>
                                 <th scope="col"></th>
@@ -238,12 +192,8 @@
                             <tr ng-repeat="movie in items">
                                 <td>{{ movie.maPhim }}</td>
                                 <td>{{ movie.tenPhim }}</td>
-                                <td>{{ movie.dienVien }}</td>
-                                <td>{{ movie.namSX }}</td>
-                                <td>Đ{{ movie.daoDien }}</td>
                                 <td>{{ movie.quocGia }}</td>
                                 <td>{{ movie.thoiLuong }}</td>
-<!--                                <td >{{ movie.moTa }}</td>-->
                                 <td>{{ movie.hinh }}</td>
                                 <td>{{ movie.trailer }}</td>
                                 <td>

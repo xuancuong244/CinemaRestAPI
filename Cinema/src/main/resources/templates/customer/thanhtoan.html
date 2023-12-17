@@ -536,7 +536,6 @@
 
         }
 
-        if (selectedDateTime && selectedMovieInfo && selectedSeatsInfo && selectedBranch) {
             const requestData = {
                 data: {
                     selectedDateTime,
@@ -561,9 +560,7 @@
                 .catch(error => {
                     console.error('Lỗi:', error);
                 });
-        } else {
-            console.error('Dữ liệu localStorage không tìm thấy');
-        }
+
     });
 
 

@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Suất chiếu</title>
+    <title>Ngày chiếu</title>
 
     <!-- ======= Styles ====== -->
     <link rel="stylesheet" href="/css/style__admin.css">
@@ -38,20 +38,11 @@
             </li>
 
             <li>
-                <a href="http://localhost:8085/DynamicCinema/admin/khachHang">
+                <a href="http://localhost:8085/DynamicCinema/admin/TaiKhoan">
                         <span class="icon">
                             <ion-icon name="people-outline"></ion-icon>
                         </span>
                     <span class="title">Khách hàng</span>
-                </a>
-            </li>
-
-            <li>
-                <a href="http://localhost:8085/DynamicCinema/admin/nhanVien">
-                        <span class="icon">
-                            <ion-icon name="people-outline"></ion-icon>
-                        </span>
-                    <span class="title">Nhân Viên</span>
                 </a>
             </li>
 
@@ -65,15 +56,6 @@
             </li>
 
             <li>
-                <a href="http://localhost:8085/DynamicCinema/admin/suatChieu">
-                        <span class="icon">
-                            <ion-icon name="ticket-outline"></ion-icon>
-                        </span>
-                    <span class="title">Suất chiếu</span>
-                </a>
-            </li>
-
-            <li>
                 <a href="http://localhost:8085/DynamicCinema/admin/ngayChieu">
                         <span class="icon">
                             <ion-icon name="calendar-outline"></ion-icon>
@@ -82,39 +64,13 @@
                 </a>
             </li>
 
-            <li>
-                <a href="http://localhost:8085/DynamicCinema/admin/ve">
-                        <span class="icon">
-                            <ion-icon name="film-outline"></ion-icon>
-                        </span>
-                    <span class="title">Vé</span>
-                </a>
-            </li>
 
             <li>
-                <a href="http://localhost:8085/DynamicCinema/admin/topping">
-                        <span class="icon">
-                            <ion-icon name="ice-cream-outline"></ion-icon>
-                        </span>
-                    <span class="title">Topping</span>
-                </a>
-            </li>
-
-            <li>
-                <a href="http://localhost:8085/DynamicCinema/admin/quanLyHoaDon">
-                        <span class="icon">
-                            <ion-icon name="reader-outline"></ion-icon>
-                        </span>
-                    <span class="title">Hóa đơn</span>
-                </a>
-            </li>
-
-            <li>
-                <a id="logoutBtn" class="btn btn__movie font__source" href="http://localhost:8085/DynamicCinema/index">
+                <a th:href="@{/security/logoff}">
                         <span class="icon">
                             <ion-icon name="log-out-outline"></ion-icon>
                         </span>
-                    <span class="title">Đăng xuất</span>
+
                 </a>
             </li>
         </ul>
@@ -151,7 +107,7 @@
                 <div class="CRUD-body">
                     <div class="coolinput">
                         <label for="input" class="text">Mã Phim</label>
-                        <input type="text" placeholder="" name="input" class="input" ng-model="form.phim.maPhim">
+                        <input type="text" placeholder="" name="input" class="input" ng-model="form.phim.tenPhim">
                     </div>
                 </div>
                 <div class="CRUD-body">

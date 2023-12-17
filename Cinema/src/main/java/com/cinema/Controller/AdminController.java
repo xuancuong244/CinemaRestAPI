@@ -10,22 +10,14 @@ public class AdminController {
         return "admin/thongKe";
     }
 
-    @RequestMapping("/DynamicCinema/admin/khachHang")
+    @RequestMapping("/DynamicCinema/admin/TaiKhoan")
     public String khachHang() {
-        return "admin/khachHang";
+        return "admin/TaiKhoan";
     }
-    @RequestMapping("/DynamicCinema/admin/nhanVien")
-    public String nhanVien() {
-        return "admin/nhanVien";
-    }
+
     @RequestMapping("/DynamicCinema/admin/phim")
     public String phim() {
         return "admin/phim";
-    }
-
-    @RequestMapping("/DynamicCinema/admin/suatChieu")
-    public String suatChieu() {
-        return "admin/suatChieu";
     }
 
     @RequestMapping("/DynamicCinema/admin/topping")
@@ -33,17 +25,9 @@ public class AdminController {
         return "admin/topping";
     }
 
-    @RequestMapping("/DynamicCinema/admin/quanLyHoaDon")
-    public String quanLyHoaDon() {
-        return "admin/quanLyHoaDon";
-    }
 
     @RequestMapping("/DynamicCinema/admin/ngayChieu")
     public String ngayChieu() {
         return "admin/ngayChieu";
-    }
-    @RequestMapping("/DynamicCinema/admin/ve")
-    public String ve() {
-        return "admin/ve";
     }
 }

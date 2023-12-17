@@ -35,7 +35,7 @@ public class TaiKhoan {
     private String diaChi;
 
     @JsonIgnore
-    @OneToMany(mappedBy = "taiKhoan", fetch = FetchType.EAGER)
+    @OneToMany(mappedBy = "taiKhoan", fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     private List<Quyen> quyens;
 
     public String getHoTen() {
@@ -46,4 +46,5 @@ public class TaiKhoan {
     public String getGioiTinhText() {
         return gioiTinh ? "Nam" : "Nữ";
     }
+
 }

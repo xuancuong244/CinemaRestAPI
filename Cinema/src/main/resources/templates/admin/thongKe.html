@@ -11,7 +11,6 @@
     <link rel="stylesheet" href="/css/style__admin.css">
     <script src="/js/auth.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
-    <script src="/js/admin/CRUDThongKe.js"></script>
 </head>
 
 <body ng-app="myApp">
@@ -20,10 +19,10 @@
         <div class="navigation">
             <ul>
                 <li>
-                    <a href="#">
-<!--                        <span class="icon">-->
-<!--                           <ion-icon name="film-outline"></ion-icon>-->
-<!--                        </span>-->
+                    <a href="http://localhost:8085/DynamicCinema/index">
+                        <!--                       <span class="icon">&ndash;&gt;-->
+                        <!--                         <ion-icon name="film-outline"></ion-icon>-->
+                        <!--                      </span>-->
                         <span class="title">CINEMAS</span>
                     </a>
                 </li>
@@ -38,20 +37,11 @@
                 </li>
 
                 <li>
-                    <a href="http://localhost:8085/DynamicCinema/admin/khachHang">
+                    <a href="http://localhost:8085/DynamicCinema/admin/TaiKhoan">
                         <span class="icon">
                             <ion-icon name="people-outline"></ion-icon>
                         </span>
                         <span class="title">Khách hàng</span>
-                    </a>
-                </li>
-
-                <li>
-                    <a href="http://localhost:8085/DynamicCinema/admin/nhanVien">
-                        <span class="icon">
-                            <ion-icon name="people-outline"></ion-icon>
-                        </span>
-                        <span class="title">Nhân Viên</span>
                     </a>
                 </li>
 
@@ -65,14 +55,6 @@
                 </li>
 
                 <li>
-                    <a href="http://localhost:8085/DynamicCinema/admin/suatChieu">
-                        <span class="icon">
-                            <ion-icon name="ticket-outline"></ion-icon>
-                        </span>
-                        <span class="title">Suất chiếu</span>
-                    </a>
-                </li>
-                <li>
                     <a href="http://localhost:8085/DynamicCinema/admin/ngayChieu">
                         <span class="icon">
                             <ion-icon name="calendar-outline"></ion-icon>
@@ -81,38 +63,13 @@
                     </a>
                 </li>
 
-                <li>
-                    <a href="http://localhost:8085/DynamicCinema/admin/ve">
-                        <span class="icon">
-                            <ion-icon name="film-outline"></ion-icon>
-                        </span>
-                        <span class="title">Vé</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="http://localhost:8085/DynamicCinema/admin/topping">
-                        <span class="icon">
-                            <ion-icon name="ice-cream-outline"></ion-icon>
-                        </span>
-                        <span class="title">Topping</span>
-                    </a>
-                </li>
 
                 <li>
-                    <a href="http://localhost:8085/DynamicCinema/admin/quanLyHoaDon">
-                        <span class="icon">
-                           <ion-icon name="reader-outline"></ion-icon>
-                        </span>
-                        <span class="title">Hóa đơn</span>
-                    </a>
-                </li>
-
-                <li>
-                    <a id="logoutBtn" class="btn btn__movie font__source" href="http://localhost:8085/DynamicCinema/index">
+                    <a th:href="@{/security/logoff}">
                         <span class="icon">
                             <ion-icon name="log-out-outline"></ion-icon>
                         </span>
-                        <span ><a th:href="@{/security/logoff}">Đăng xuất</a></span>
+
                     </a>
                 </li>
             </ul>
@@ -197,26 +154,153 @@
                         </select>
                     </div>
 
-                    <table>
+                    <table id="data-table">
                         <thead>
                             <tr>
+                                <td>STT</td>
                                 <td>Tên Khách Hàng</td>
                                 <td>Số Điện Thoại</td>
-                                <td>Tên Phim</td>
-                                <td>Các Ghế Đã Mua</td>
-                                <td>Doanh Thu</td>
+                                <td>Email</td>
+                                <td>Phim</td>
+                                <td>Ngày Chiếu</td>
+                                <td>Suất Chiếu</td>
+                                <td>Rạp Chiếu</td>
+                                <td>Thông Tin Ghế</td>
+                                <td>Tổng Tiền Thanh Toán</td>
                             </tr>
                         </thead>
 
                         <tbody>
-                            <tr  ng-repeat="tk in items">
-                                <td>{{tk.ten_kh}}</td>
-                                <td>{{tk.sodt}}</td>
-                                <td>{{tk.ten_phim}}</td>
-                                <td>{{tk.cac_ghe_da_mua}}</td>
-                                <td>{{tk.tong_tien}}</td>
+                            <tr >
+                                <td>1</td>
+                                <td>Hào</td>
+                                <td>0345678912</td>
+                                <td>haonn@gmail.com</td>
+                                <td>Biệt Đội Đánh Thuê 4</td>
+                                <td>2023-12-12</td>
+                                <td>15:00:00</td>
+                                <td>DEC TP.HCM</td>
+                                <td>C12 (Vip), C11 (Vip)</td>
+<!--                                <td>150.000 ₫</td>-->
+                                <td>150.000 ₫</td>
                             </tr>
-
+                            <tr >
+                                <td>2</td>
+                                <td>Kiệt</td>
+                                <td>0369852145</td>
+                                <td>kiet@gmail.com</td>
+                                <td>Đất Rừng Phương Nam</td>
+                                <td>2023-12-14</td>
+                                <td>15:00:00</td>
+                                <td>DEC TP.HCM</td>
+                                <td>D12 (Vip), E11 (Vip)</td>
+                                <!--                                <td>150.000 ₫</td>-->
+                                <td>150.000 ₫</td>
+                            </tr>
+                            <tr >
+                                <td>3</td>
+                                <td>Cường</td>
+                                <td>0345678912</td>
+                                <td>cuong@gmail.com</td>
+                                <td>Biệt Đội Đánh Thuê 4</td>
+                                <td>2023-12-14</td>
+                                <td>16:00:00</td>
+                                <td>DEC Hà Nội</td>
+                                <td>C12 (Vip), C11 (Vip)</td>
+                                <!--                                <td>150.000 ₫</td>-->
+                                <td>150.000 ₫</td>
+                            </tr>
+                            <tr >
+                                <td>4</td>
+                                <td>Hào</td>
+                                <td>0345678912</td>
+                                <td>haonn@gmail.com</td>
+                                <td>Biệt Đội Đánh Thuê 4</td>
+                                <td>2023-12-12</td>
+                                <td>15:00:00</td>
+                                <td>DEC TP.HCM</td>
+                                <td>C12 (Vip), C11 (Vip)</td>
+                                <!--                                <td>150.000 ₫</td>-->
+                                <td>150.000 ₫</td>
+                            </tr>
+                            <tr >
+                                <td>5</td>
+                                <td>Hào</td>
+                                <td>0345678912</td>
+                                <td>haonn@gmail.com</td>
+                                <td>Biệt Đội Đánh Thuê 4</td>
+                                <td>2023-12-12</td>
+                                <td>15:00:00</td>
+                                <td>DEC TP.HCM</td>
+                                <td>C12 (Vip), C11 (Vip)</td>
+                                <!--                                <td>150.000 ₫</td>-->
+                                <td>150.000 ₫</td>
+                            </tr>
+                            <tr >
+                                <td>6</td>
+                                <td>Hào</td>
+                                <td>0345678912</td>
+                                <td>haonn@gmail.com</td>
+                                <td>Biệt Đội Đánh Thuê 4</td>
+                                <td>2023-12-12</td>
+                                <td>15:00:00</td>
+                                <td>DEC TP.HCM</td>
+                                <td>C12 (Vip), C11 (Vip)</td>
+                                <!--                                <td>150.000 ₫</td>-->
+                                <td>150.000 ₫</td>
+                            </tr>
+                            <tr >
+                                <td>7</td>
+                                <td>Hào</td>
+                                <td>0345678912</td>
+                                <td>haonn@gmail.com</td>
+                                <td>Biệt Đội Đánh Thuê 4</td>
+                                <td>2023-12-12</td>
+                                <td>15:00:00</td>
+                                <td>DEC TP.HCM</td>
+                                <td>C12 (Vip), C11 (Vip)</td>
+                                <!--                                <td>150.000 ₫</td>-->
+                                <td>150.000 ₫</td>
+                            </tr>
+                            <tr >
+                                <td>8</td>
+                                <td>Hào</td>
+                                <td>0345678912</td>
+                                <td>haonn@gmail.com</td>
+                                <td>Biệt Đội Đánh Thuê 4</td>
+                                <td>2023-12-12</td>
+                                <td>15:00:00</td>
+                                <td>DEC TP.HCM</td>
+                                <td>C12 (Vip), C11 (Vip)</td>
+                                <!--                                <td>150.000 ₫</td>-->
+                                <td>150.000 ₫</td>
+                            </tr>
+                            <tr >
+                                <td>9</td>
+                                <td>Hào</td>
+                                <td>0345678912</td>
+                                <td>haonn@gmail.com</td>
+                                <td>Biệt Đội Đánh Thuê 4</td>
+                                <td>2023-12-12</td>
+                                <td>15:00:00</td>
+                                <td>DEC TP.HCM</td>
+                                <td>C12 (Vip), C11 (Vip)</td>
+                                <!--                                <td>150.000 ₫</td>-->
+                                <td>150.000 ₫</td>
+                            </tr>
+                            <tr >
+                                <td>10</td>
+                                <td>Kiệt Phan</td>
+                                <td>0963678415</td>
+                                <td>kietpth@gmail.com</td>
+                                <td>Biệt Đội Đánh Thuê 4</td>
+                                <td>2023-12-18</td>
+                                <td>16:00:00</td>
+                                <td>DEC TP.HCM</td>
+                                <td>G3 (Thường),  G4 (Thường),F5 (Vip) </td>
+                                <!--                                <td>150.000 ₫</td>-->
+                                <td>165.000 ₫</td>
+                            </tr>
                         </tbody>
                     </table>
                 </div>
